@@ -53,6 +53,10 @@ _.each(configs, function (cfg) {
 
   cfg.devtool = '#inline-source-map';
 
+  cfg.plugins = [
+    new webpack.IgnorePlugin(/vertx/)
+  ];
+
   cfg.resolve = {
     modulesDirectories: ['_vendor', 'node_modules']
   };
