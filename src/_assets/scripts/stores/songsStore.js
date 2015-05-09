@@ -1,25 +1,31 @@
+var _ = require('lodash');
 var Marty = require('marty');
 var songsConstants = require('../constants/songsConstants.js');
 
 var SongsStore = Marty.createStore({
-  id: songsConstants.SONGS_STORE,
+  id: 'SongsStore',
 
   handlers: {
     receiveSongs: songsConstants.RECEIVE_SONGS
   },
 
-  getInitialState: function () {
+  getInitialState () {
     return {
-      listenToThis: {}
+      hotSongs: [],
+      topSongs: [],
+      newSongs: [],
+      activeSongs: 'hotSongs'
     };
   },
 
-  receiveSongs: function () {
-    this.setState({
-      listenToThis: {
-        hello: 'world'
-      }
-    });
+  getSongs () {
+    return this.state[this.state.activeSongs];
+  },
+
+  receiveSongs (listingType, songs) {
+    this.state[listingType] = this.state[listingType].concat(songs);
+    console.log(this.state);
+    this.hasChanged();
   }
 });
 

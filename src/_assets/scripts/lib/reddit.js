@@ -4,7 +4,7 @@ var $ = window.$;
 
 class Parse {
   static listing (listing={}) {
-    return _.map(_.get(listing, 'data.children'), Parse.post);
+    return _.map(listing.data.children, Parse.post);
   }
 
   static post (post={}) {
@@ -49,6 +49,4 @@ class RedditApi {
   }
 }
 
-module.exports = {
-  listenToThis: new RedditApi({subreddit: 'listentothis'})
-};
+module.exports = new RedditApi({subreddit: 'listentothis'});

@@ -1,13 +1,30 @@
 var React = require('react');
+var Marty = require('marty');
+var SongsStore = require('../stores/songsStore.js');
+var SongsQuery = require('../actions/songsQuery.js');
 
-var Songs = React.createClass({
-  render: function() {
+var SongsList = React.createClass({
+  render: function () {
     return (
-      <div className="songs">
-        Songs component
+      <div className="songs-list">
+        {this.props.songs.map(function (song) {
+          return (<p>{song}</p>);
+        })}
+        <a onClick={this.fetchSongs}>Fetch song</a>
       </div>
     );
+  },
+
+  fetchSongs: function (e) {
+    SongsQuery.fetchSongs('hot');
   }
 });
 
-module.exports = Songs;
+module.exports = Marty.createContainer(SongsList, {
+  listenTo: SongsStore,
+  fetch: {
+    songs () {
+      return SongsStore.getSongs();
+    }
+  }
+});
