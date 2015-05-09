@@ -11,20 +11,19 @@ var SongsStore = Marty.createStore({
 
   getInitialState () {
     return {
-      hotSongs: [],
-      topSongs: [],
-      newSongs: [],
-      activeSongs: 'hotSongs'
+      'hot': [],
+      'top': [],
+      'new': [],
+      activeType: 'hot'
     };
   },
 
   getSongs () {
-    return this.state[this.state.activeSongs];
+    return this.state[this.state.activeType];
   },
 
   receiveSongs (listingType, songs) {
     this.state[listingType] = this.state[listingType].concat(songs);
-    console.log(this.state);
     this.hasChanged();
   }
 });

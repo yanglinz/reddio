@@ -14,15 +14,17 @@ class Parse {
 
 class RedditApi {
   constructor(options) {
-    const baseUrl   = 'http://www.reddit.com';
-    this._url       = baseUrl + '/r/' + options.subreddit;
-    this._urlHot    = this._url + '/hot.json';
-    this._urlTop    = this._url + '/top.json';
-    this._urlNew    = this._url + '/new.json';
+    this.subreddit = options.subreddit || 'listentothis';
   }
 
-  _get (params) {
-    let request = $.get(params.url, {
+  _endpoint (listingType) {
+    const baseUrl = 'http://www.reddit.com/r/' + this.subreddit;
+    return baseUrl + '/' + listingType + '.json';
+  }
+
+  get (listingType, params) {
+    const url = this._endpoint(listingType);
+    let request = $.get(url, {
       limit: params.limit || 25,
       after: params.after || ''
     });
@@ -31,21 +33,6 @@ class RedditApi {
         resolve(Parse.listing(data));
       });
     });
-  }
-
-  getHot (params={}) {
-    params.url = this._urlHot;
-    return this._get(params);
-  }
-
-  getTop (params={}) {
-    params.url = this._urlTop;
-    return this._get(params);
-  }
-
-  getNew (params={}) {
-    params.url = this._urlNew;
-    return this._get(params);
   }
 }
 

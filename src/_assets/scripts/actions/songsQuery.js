@@ -7,12 +7,8 @@ var SongsQuery = Marty.createQueries({
   id: 'SongsQuery',
 
   fetchSongs: function (listingType, lastSongID) {
-    let request;
-    let payload = lastSongID ? {after: lastSongID} : {};
-    if (_.includes(listingType, 'hot')) {
-      listingType = 'hotSongs';
-      request = reddit.getHot(payload);
-    }
+    const payload = lastSongID ? {after: lastSongID} : {};
+    let request = reddit.get(listingType, payload);
     if (request) {
       request.then((function (songs) {
         this.dispatch(songsConstants.RECEIVE_SONGS, listingType, songs);
