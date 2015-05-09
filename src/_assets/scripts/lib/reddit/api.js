@@ -1,3 +1,4 @@
+var RSVP = require('rsvp');
 var $ = window.$;
 
 class RedditApi {
@@ -13,9 +14,14 @@ class RedditApi {
     const url = params.url;
     const limit = params.limit || 25;
     const after = params.after || '';
-    return $.get(url, {
-      limit: limit,
-      after: after
+    return new RSVP.Promise(function (resolve, reject) {
+      let res = $.get(url, {
+        limit: limit,
+        after: after
+      });
+      res.then(function (data) {
+        resolve(data);
+      });
     });
   }
 
