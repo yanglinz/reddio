@@ -2,6 +2,7 @@ var React = require('react');
 var Marty = require('marty');
 var SongsStore = require('../stores/songsStore.js');
 var SongsQuery = require('../actions/songsQuery.js');
+var Button = require('./common/button.js');
 
 var SongsList = React.createClass({
   render: function () {
@@ -10,12 +11,12 @@ var SongsList = React.createClass({
         {this.props.songs.map(function (song) {
           return (<p>{song}</p>);
         })}
-        <a onClick={this.fetchSongs}>Fetch song</a>
+        <Button onClick={this.fetchSongs} >Load more</Button>
       </div>
     );
   },
 
-  fetchSongs: function (e) {
+  fetchSongs: function () {
     SongsQuery.fetchSongs('hot');
   }
 });
