@@ -10,6 +10,7 @@
   "dependencies": {
     "bower": "1.4.1",
     "gulp": "3.8.11",
+    "lodash": "^3.8.0",
     "marty": "^0.9.11",
     "react": "^0.13.2",
     "rsvp": "^3.0.18"

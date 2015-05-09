@@ -10,6 +10,6 @@ React.render(
 
 */
 
-var reddit = require('./lib/reddit/reddit.js');
+var reddit = require('./lib/reddit.js');
 var req = reddit.listenToThis.getHot();
 req.then(function (data) { console.log('data', data); });

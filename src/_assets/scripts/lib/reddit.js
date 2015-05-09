@@ -1,5 +1,16 @@
 var RSVP = require('rsvp');
+var _ = require('lodash');
 var $ = window.$;
+
+class Parse {
+  static listing (listing={}) {
+    return _.map(_.get(listing, 'data.children'), Parse.post);
+  }
+
+  static post (post={}) {
+    return post.data;
+  }
+}
 
 class RedditApi {
   constructor(options) {
@@ -11,16 +22,13 @@ class RedditApi {
   }
 
   _get (params) {
-    const url = params.url;
-    const limit = params.limit || 25;
-    const after = params.after || '';
+    let request = $.get(params.url, {
+      limit: params.limit || 25,
+      after: params.after || ''
+    });
     return new RSVP.Promise(function (resolve, reject) {
-      let res = $.get(url, {
-        limit: limit,
-        after: after
-      });
-      res.then(function (data) {
-        resolve(data);
+      request.then(function (data) {
+        resolve(Parse.listing(data));
       });
     });
   }
