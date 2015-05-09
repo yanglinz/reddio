@@ -1,3 +1,4 @@
+var _ = require('lodash');
 var React = require('react');
 var Marty = require('marty');
 var SongsStore = require('../stores/songsStore.js');
@@ -15,6 +16,10 @@ var Song = React.createClass({
 });
 
 var SongsList = React.createClass({
+  getInitialState: function () {
+    return {listType: 'hot'};
+  },
+
   render: function () {
     return (
       <div className="songs">
@@ -31,7 +36,8 @@ var SongsList = React.createClass({
   },
 
   fetchSongs: function () {
-    SongsQuery.fetchSongs('hot');
+    const last = _.last(this.props.songs) || {};
+    SongsQuery.fetchSongs(this.state.listType, last.name);
   }
 });
 
