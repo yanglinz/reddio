@@ -41,4 +41,6 @@ class RedditApi {
   }
 }
 
-module.exports = RedditApi;
+module.exports = {
+  listenToThis: new RedditApi({subreddit: 'listentothis'})
+};
