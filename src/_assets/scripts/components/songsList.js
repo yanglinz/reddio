@@ -23,9 +23,9 @@ var SongsList = React.createClass({
   render: function () {
     return (
       <div className="songs">
-        {this.props.songs.map(function (song) {
+        {this.props.songs.map(function (song, i) {
           return (
-            <Song song={song}></Song>
+            <Song song={song} key={i}></Song>
           );
         })}
         <Button>
