@@ -7,7 +7,7 @@ var revReplace = require('gulp-rev-replace');
 var runSequence = require('run-sequence');
 var path = require('path');
 var dirs = require('./../directories.js');
-var env = require('./../../configs/env.js');
+var env = require('./../../env.js');
 
 
 /*

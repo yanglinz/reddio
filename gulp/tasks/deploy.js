@@ -4,7 +4,7 @@ var gulp = require('gulp');
 var runSequence = require('run-sequence');
 var awsPublish = require('gulp-awspublish');
 var dirs = require('./../directories.js');
-var env = require('./../../configs/env.js');
+var env = require('./../../env.js');
 
 
 /*
@@ -13,10 +13,12 @@ var env = require('./../../configs/env.js');
  */
 
 var publisherConf = {
-  key:    env.AWS_ACCESS_KEY,
-  secret: env.AWS_SECRET_KEY,
-  bucket: env.AWS_BUCKET_NAME,
-  region: env.AWS_REGION
+  params: {
+    Bucket:        env.AWS_BUCKET_NAME,
+  },
+  accessKeyId:     env.AWS_ACCESS_KEY,
+  secretAccessKey: env.AWS_SECRET_KEY,
+  region:          env.AWS_REGION
 };
 
 gulp.task('deploy:publishShortCache', function () {

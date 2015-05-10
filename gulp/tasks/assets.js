@@ -9,8 +9,10 @@ var sourcemaps = require('gulp-sourcemaps');
 var gulpif = require('gulp-if');
 var lazypipe = require('lazypipe');
 var runSequence = require('run-sequence');
+var plumber = require('gulp-plumber');
+var errorHandler = require('../utilities/error.js');
 var dirs = require('../directories.js');
-var env = require('../../configs/env.js');
+var env = require('../../env.js');
 
 
 /*
@@ -21,9 +23,7 @@ var env = require('../../configs/env.js');
 var isLocal = env.ENV !== 'production' && env.ENV !== 'staging';
 
 var processCss = lazypipe()
-  .pipe(sass, {
-    errLogToConsole: isLocal
-  })
+  .pipe(sass)
   .pipe(autoprefixer, {
     browsers: ['> 1%', 'last 2 versions', 'ie 8', 'ie 9'],
     cascade: false,
@@ -38,6 +38,7 @@ var processProductionCss = lazypipe()
 
 gulp.task('assets:processCss', function () {
   return gulp.src(dirs.globs.assets.css, {base: dirs.paths.src})
+    .pipe(gulpif(isLocal, plumber({errorHandler: errorHandler})))
     .pipe(gulpif(!isLocal, processProductionCss(), processCss()))
     .pipe(gulp.dest(dirs.paths.dst))
 });
@@ -48,6 +49,8 @@ gulp.task('assets:processCss', function () {
  *
  */
 
+var optimizeImages = !isLocal && env.OPTIMIZE_IMAGES;
+
 var processProductionImg = lazypipe()
   .pipe(imagemin, {
     progressive: true,
@@ -57,7 +60,7 @@ var processProductionImg = lazypipe()
 
 gulp.task('assets:processImg', function () {
   return gulp.src(dirs.globs.assets.img, {base: dirs.paths.src})
-    .pipe(gulpif(!isLocal, processProductionImg()))
+    .pipe(gulpif(optimizeImages, processProductionImg()))
     .pipe(gulp.dest(dirs.paths.dst));
 });
 

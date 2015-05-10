@@ -12,6 +12,7 @@
     "tests"
   ],
   "dependencies": {
-    "normalize-scss": "~3.0.2"
+    "jquery": "1.11.3",
+    "normalize-scss": "3.0.2"
   }
 }

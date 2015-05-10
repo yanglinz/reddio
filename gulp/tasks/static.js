@@ -2,7 +2,7 @@
 
 var gulp = require('gulp');
 var dirs = require('../directories.js');
-var env = require('../../configs/env.js');
+var env = require('../../env.js');
 
 
 /*

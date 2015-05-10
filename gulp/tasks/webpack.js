@@ -17,14 +17,14 @@ var webpackCliOptions = {
 
 gulp.task('webpack:build', function (callback) {
   var process = child_process.spawn('webpack', [
-    '--config', path.resolve(__dirname, './../../configs/webpack.js')
+    '--config', path.resolve(__dirname, './../../webpack.js')
   ], webpackCliOptions);
   process.on('close', callback);
 });
 
 gulp.task('webpack:watch', function () {
   child_process.spawn('webpack', [
-    '--config', path.resolve(__dirname, './../../configs/webpack.js'),
+    '--config', path.resolve(__dirname, './../../webpack.js'),
     '--watch'
   ], webpackCliOptions);
 });

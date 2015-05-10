@@ -10,8 +10,9 @@ var gulpif = require('gulp-if');
 var plumber = require('gulp-plumber');
 var lazypipe = require('lazypipe');
 var path = require('path');
+var errorHandler = require('../utilities/error.js');
 var dirs = require('../directories.js');
-var env = require('../../configs/env.js');
+var env = require('../../env.js');
 
 var isLocal = env.ENV !== 'production' && env.ENV !== 'staging';
 var templateData = require('../../src/_templates/data/master.js');
@@ -32,20 +33,13 @@ var processSwig = lazypipe()
     defaults: {cache: false}
   });
 
-var errorHandler = function (e) {
-  console.error(e);
-  this.emit('end');  // make sure gulp-plumber fails task elegantly
-};
-
 var processProductionSwig = lazypipe()
   .pipe(processSwig)
   .pipe(processProductionHTML);
 
 gulp.task('templates:processSwig', function () {
   return gulp.src(dirs.globs.templates.swig, {base: dirs.paths.src})
-    .pipe(gulpif(isLocal, plumber({
-      errorHandler: errorHandler
-    })))
+    .pipe(gulpif(isLocal, plumber({errorHandler: errorHandler})))
     .pipe(gulpif(!isLocal, processProductionSwig(), processSwig()))
     .pipe(gulp.dest(dirs.paths.dst));
 });

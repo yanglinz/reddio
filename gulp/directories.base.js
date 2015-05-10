@@ -7,10 +7,6 @@ module.exports = {
     build:        'build'
   },
   globs: {
-    app: [
-                  'src/_app/**',
-                  '!src/_app/**/__tests__/**'
-    ],
     assets: {
       all:        'src/_assets/**',
       css:        'src/_assets/styles/**',
