@@ -5,6 +5,7 @@
 @import "../../_vendor/normalize-scss/normalize";
 @import '../../_vendor/sanitize-css/sanitize.scss';
 @import '../../_vendor/bourbon/app/assets/stylesheets/bourbon';
+@import "variables";
 
 
 // --------------------------------
@@ -13,6 +14,7 @@
 
 body {
   font-family: $lucida-grande;
+  font-size: $type-size-base;
 }
 
 

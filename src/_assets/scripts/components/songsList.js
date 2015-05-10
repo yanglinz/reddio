@@ -11,7 +11,7 @@ var Song = React.createClass({
       <div className="song">
         <header className="song__header wrap">
           <div className="song__thumbnail wrap">
-            <img class="thumbnail" src={this.props.song.thumbnail}></img>
+            <img className="thumbnail" src={this.props.song.thumbnail}></img>
           </div>
         </header>
 
@@ -21,14 +21,12 @@ var Song = React.createClass({
           </div>
 
           <div className="song__meta wrap">
+            <p className="meta meta--song-score">{this.props.song.score}</p>
             <p className="meta meta--song-time">{this.props.song.timeCreated}</p>
           </div>
         </div>
 
         <footer className="song__footer wrap">
-          <div className="song__score wrap">
-            <p className="score">{this.props.song.score}</p>
-          </div>
         </footer>
       </div>
     );
