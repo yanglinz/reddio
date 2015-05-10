@@ -1,0 +1,30 @@
+@import "../variables";
+
+.song {
+  border-top: 1px solid $color-gray-light;
+  display: flex;
+  flex-direction: row;
+
+  .song__header {
+    flex: 0 0 70px;
+
+    .song__thumbnail {
+      width: 70px;
+      height: 70px;
+
+      .thumbnail {
+        margin-left: 5px;
+        margin-top: 5px;
+      }
+    }
+  }
+
+  .song__content {
+    flex: 1;
+    width: 60%;
+  }
+
+  .song__footer {
+    flex: 0 0 100px;
+  }
+}

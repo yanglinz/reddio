@@ -13,6 +13,8 @@
   ],
   "dependencies": {
     "jquery": "1.11.3",
-    "normalize-scss": "3.0.2"
+    "normalize-scss": "3.0.2",
+    "sanitize-css": "~1.1.0",
+    "bourbon": "~4.2.3"
   }
 }

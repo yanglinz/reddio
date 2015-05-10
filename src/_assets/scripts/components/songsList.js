@@ -9,7 +9,7 @@ var Song = React.createClass({
   render: function () {
     return (
       <div className="song">
-        <header class="song__header wrap">
+        <header className="song__header wrap">
           <div className="song__thumbnail wrap">
             <img class="thumbnail" src={this.props.song.thumbnail}></img>
           </div>
@@ -17,17 +17,17 @@ var Song = React.createClass({
 
         <div className="song__content wrap">
           <div className="song__tile wrap">
-            <h3 class="title title--song-title">{this.props.song.title}</h3>
+            <h3 className="title title--song-title">{this.props.song.title}</h3>
           </div>
 
           <div className="song__meta wrap">
-            <p class="meta meta--song-time">{this.props.song.timeCreated}</p>
+            <p className="meta meta--song-time">{this.props.song.timeCreated}</p>
           </div>
         </div>
 
-        <footer class="song__footer wrap">
+        <footer className="song__footer wrap">
           <div className="song__score wrap">
-            <p class="score">{this.props.song.score}</p>
+            <p className="score">{this.props.song.score}</p>
           </div>
         </footer>
       </div>

@@ -1,1 +1,23 @@
-@import "../../_vendor/normalize-scss/normalize.scss";
+// --------------------------------
+// # Globals
+// --------------------------------
+
+@import "../../_vendor/normalize-scss/normalize";
+@import '../../_vendor/sanitize-css/sanitize.scss';
+@import '../../_vendor/bourbon/app/assets/stylesheets/bourbon';
+
+
+// --------------------------------
+// # Typography
+// --------------------------------
+
+body {
+  font-family: $lucida-grande;
+}
+
+
+// --------------------------------
+// # Components
+// --------------------------------
+
+@import 'components/songs';
