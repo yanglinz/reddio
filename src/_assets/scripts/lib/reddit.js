@@ -1,6 +1,7 @@
-var RSVP = require('rsvp');
 var _ = require('lodash');
 var $ = window.$;
+var RSVP = require('rsvp');
+var moment = require('moment');
 
 class Parse {
   static listing (listing={}) {
@@ -12,15 +13,15 @@ class Parse {
 
   static post (post={}) {
     const p = post.data || {};
+    const timeCreated = moment.unix(p.created_utc).fromNow();
     return {
       commentsCount: p.num_comments,
-      created:       p.created,
       domain:        p.domain,
       id:            p.id,
       permalink:     p.permalink,
       score:         p.score,
       thumbnail:     p.thumbnail,
-      timeCreated:   p.created,
+      timeCreated:   timeCreated,
       title:         p.title,
       url:           p.url
     };
