@@ -4,11 +4,26 @@ var $ = window.$;
 
 class Parse {
   static listing (listing={}) {
-    return _.map(listing.data.children, Parse.post);
+    let posts = _.filter(listing.data.children, function (post) {
+      return !post.data.is_self && !post.data.stickied;
+    });
+    return _.map(posts, Parse.post);
   }
 
   static post (post={}) {
-    return post.data;
+    const p = post.data || {};
+    return {
+      commentsCount: p.num_comments,
+      created:       p.created,
+      domain:        p.domain,
+      id:            p.id,
+      permalink:     p.permalink,
+      score:         p.score,
+      thumbnail:     p.thumbnail,
+      timeCreated:   p.created,
+      title:         p.title,
+      url:           p.url
+    };
   }
 }
 
