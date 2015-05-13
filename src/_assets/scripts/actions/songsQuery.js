@@ -6,8 +6,8 @@ var reddit = require('../lib/reddit.js');
 var SongsQuery = Marty.createQueries({
   id: 'SongsQuery',
 
-  fetchSongs: function (listingType, lastSongID) {
-    const payload = lastSongID ? {after: lastSongID} : {};
+  fetchSongs: function (listingType, after="") {
+    const payload = after ? {after: after} : {};
     let request = reddit.get(listingType, payload);
     if (request) {
       request.then((function (songs) {

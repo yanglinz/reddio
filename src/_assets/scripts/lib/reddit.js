@@ -19,6 +19,7 @@ class Parse {
       domain:        p.domain,
       id:            p.id,
       permalink:     p.permalink,
+      name:          p.name,
       score:         p.score,
       thumbnail:     p.thumbnail,
       timeCreated:   timeCreated,
