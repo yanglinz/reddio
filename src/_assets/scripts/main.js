@@ -1,6 +1,5 @@
 var React = require('react');
-var Header = require('./components/header.js');
-var Footer = require('./components/footer.js');
+var Masthead = require('./components/masthead.js');
 var Songs = require('./components/songsList.js');
 
 var Content = React.createClass({
@@ -19,9 +18,8 @@ var App = React.createClass({
   render: function () {
     return (
       <div className="wrap">
-        <Header/>
+        <Masthead/>
         <Content/>
-        <Footer/>
       </div>
     );
   }

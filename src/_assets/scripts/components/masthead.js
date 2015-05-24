@@ -1,6 +1,6 @@
 var React = require('react');
 
-var Header = React.createClass({
+var Masthead = React.createClass({
   render: function () {
     return (
       <div className="header">
@@ -14,4 +14,4 @@ var Header = React.createClass({
   }
 });
 
-module.exports = Header;
+module.exports = Masthead;
