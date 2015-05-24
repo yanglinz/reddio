@@ -3,6 +3,7 @@ var React = require('react');
 var Marty = require('marty');
 var SongsStore = require('../stores/songsStore.js');
 var SongsQuery = require('../actions/songsQuery.js');
+var SongsAction = require('../actions/songsAction');
 var Button = require('./common/button.js');
 
 var Song = React.createClass({
@@ -27,9 +28,14 @@ var Song = React.createClass({
         </div>
 
         <footer className="song__footer wrap">
+          <p onClick={this.playSong}>Play song</p>
         </footer>
       </div>
     );
+  },
+
+  playSong: function () {
+    SongsAction.playSong(this.props.song.url);
   }
 });
 
