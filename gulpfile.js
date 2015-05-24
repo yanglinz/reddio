@@ -7,7 +7,7 @@ var runSequence = require('run-sequence');
 // split gulp tasks across multiple files
 requireDir('./gulp/tasks', {recurse: true});
 
-gulp.task('dst', function (callback) {
+gulp.task('dst', function(callback) {
   runSequence(
     'server:clean',
     'static:process',
@@ -17,28 +17,28 @@ gulp.task('dst', function (callback) {
     'fixtures:process',
     'webpack:build',
     callback
-  )
+  );
 });
 
-gulp.task('build', function (callback) {
+gulp.task('build', function(callback) {
   runSequence(
     'dst',
     'build:build',
     callback
-  )
+  );
 });
 
-gulp.task('deploy', function (callback) {
+gulp.task('deploy', function(callback) {
   runSequence(
     'deploy:publish',
     callback
-  )
+  );
 });
 
-gulp.task('serve', function (callback) {
+gulp.task('serve', function(callback) {
   runSequence(
     'dst',
     ['server:start', 'watch'],
     callback
-  )
+  );
 });

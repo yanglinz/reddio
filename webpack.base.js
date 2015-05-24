@@ -1,15 +1,21 @@
 'use strict';
 
-var _ = require('lodash');
 var webpack = require('webpack');
 var path = require('path');
 var util = require('gulp-util');
 var env = require('./env.js');
 
-
 /**
  * Manage ./src/_assets/js/main.js
  */
+
+function beepOnError() {
+  this.plugin('done', function(stats) {
+    if (stats.compilation.errors && stats.compilation.errors.length) {
+      util.beep();
+    }
+  });
+}
 
 var config = {
   debug: env.ENV === 'local',
@@ -32,17 +38,10 @@ var config = {
     modulesDirectories: ['_vendor', 'node_modules']
   },
   plugins: [
-    function beepOnError () {
-      this.plugin("done", function (stats) {
-        if (stats.compilation.errors && stats.compilation.errors.length) {
-          util.beep();
-        }
-      });
-    }
+    beepOnError
   ],
   devtool: '#inline-source-map'
 };
-
 
 /**
  * Set production options
@@ -50,7 +49,7 @@ var config = {
 
 var isLocal = env.ENV !== 'production' && env.ENV !== 'staging';
 
-if(!isLocal) {
+if (!isLocal) {
   config.plugins = config.plugins || [];
   config.plugins = config.plugins.concat([
     new webpack.optimize.DedupePlugin(),
@@ -69,11 +68,11 @@ if(!isLocal) {
         join_vars: true,
         drop_console: true
       },
-      sourceMap: true
+      sourceMap: false
     })
   ]);
+  config.devtool = undefined;
 }
-
 
 /**
  * Export app and asset configs

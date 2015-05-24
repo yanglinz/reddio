@@ -14,10 +14,8 @@ var errorHandler = require('../utilities/error.js');
 var dirs = require('../directories.js');
 var env = require('../../env.js');
 
-
-/*
+/**
  * Process css
- *
  */
 
 var isLocal = env.ENV !== 'production' && env.ENV !== 'staging';
@@ -36,17 +34,15 @@ var processProductionCss = lazypipe()
     .pipe(minifyCSS)
   .pipe(sourcemaps.write);
 
-gulp.task('assets:processCss', function () {
+gulp.task('assets:processCss', function() {
   return gulp.src(dirs.globs.assets.css, {base: dirs.paths.src})
     .pipe(gulpif(isLocal, plumber({errorHandler: errorHandler})))
     .pipe(gulpif(!isLocal, processProductionCss(), processCss()))
-    .pipe(gulp.dest(dirs.paths.dst))
+    .pipe(gulp.dest(dirs.paths.dst));
 });
 
-
-/*
+/**
  * Process images
- *
  */
 
 var optimizeImages = !isLocal && env.OPTIMIZE_IMAGES;
@@ -58,30 +54,26 @@ var processProductionImg = lazypipe()
     multipass: true
   });
 
-gulp.task('assets:processImg', function () {
+gulp.task('assets:processImg', function() {
   return gulp.src(dirs.globs.assets.img, {base: dirs.paths.src})
     .pipe(gulpif(optimizeImages, processProductionImg()))
     .pipe(gulp.dest(dirs.paths.dst));
 });
 
-
-/*
+/**
  * Process fonts
- *
  */
 
-gulp.task('assets:processFonts', function () {
+gulp.task('assets:processFonts', function() {
   return gulp.src(dirs.globs.assets.fonts, {base: dirs.paths.src})
     .pipe(gulp.dest(dirs.paths.dst));
 });
 
-
-/*
+/**
  * Expose public gulp tasks
- *
  */
 
-gulp.task('assets:process', function (callback) {
+gulp.task('assets:process', function(callback) {
   runSequence(
     'assets:processCss',
     'assets:processImg',

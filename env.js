@@ -11,5 +11,5 @@ module.exports = {
   AWS_SECRET_KEY:  nconf.get('AWS_SECRET_KEY'),
   AWS_REGION:      nconf.get('AWS_REGION'),
   AWS_BUCKET_NAME: nconf.get('AWS_BUCKET_NAME'),
-  OPTIMIZE_IMAGES: nconf.get('OPTIMIZE_IMAGES') === "true"
+  OPTIMIZE_IMAGES: nconf.get('OPTIMIZE_IMAGES') === 'true'
 };

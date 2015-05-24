@@ -17,10 +17,8 @@ var env = require('../../env.js');
 var isLocal = env.ENV !== 'production' && env.ENV !== 'staging';
 var templateData = require('../../src/_templates/data/master.js');
 
-
-/*
+/**
  * Process and watch swig templates
- *
  */
 
 var processProductionHTML = lazypipe()
@@ -37,36 +35,34 @@ var processProductionSwig = lazypipe()
   .pipe(processSwig)
   .pipe(processProductionHTML);
 
-gulp.task('templates:processSwig', function () {
+gulp.task('templates:processSwig', function() {
   return gulp.src(dirs.globs.templates.swig, {base: dirs.paths.src})
     .pipe(gulpif(isLocal, plumber({errorHandler: errorHandler})))
     .pipe(gulpif(!isLocal, processProductionSwig(), processSwig()))
     .pipe(gulp.dest(dirs.paths.dst));
 });
 
-
-/*
+/**
  * Process and watch handlebars templates
- *
  */
 
 var handlebarsOption = {
-  batch : [path.resolve(__dirname, '../../src/_templates/partials')],
+  batch: [path.resolve(__dirname, '../../src/_templates/partials')],
   helpers: require('../../src/_templates/helpers/master.js')
 };
 
 var processHandlebars = lazypipe()
   .pipe(data, templateData)
   .pipe(handlebars, templateData, handlebarsOption)
-  .pipe(rename, function (path) {
-    path.extname = ".html"
+  .pipe(rename, function(path) {
+    path.extname = '.html';
   });
 
 var processProductionHandlebars = lazypipe()
   .pipe(processHandlebars)
   .pipe(processProductionHTML);
 
-gulp.task('templates:processHandlebars', function () {
+gulp.task('templates:processHandlebars', function() {
   return gulp.src(dirs.globs.templates.hbs, {base: dirs.paths.src})
     .pipe(gulpif(isLocal, plumber({
       errorHandler: errorHandler
@@ -75,10 +71,8 @@ gulp.task('templates:processHandlebars', function () {
     .pipe(gulp.dest(dirs.paths.dst));
 });
 
-
-/*
+/**
  * Expose public gulp tasks
- *
  */
 
 gulp.task('templates:process', [

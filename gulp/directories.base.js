@@ -1,3 +1,5 @@
+//jscs:disable maximumLineLength
+
 'use strict';
 
 module.exports = {

@@ -2,7 +2,7 @@
 
 var webpack = require('webpack');
 
-module.exports = function (config) {
+module.exports = function(config) {
   config.set({
     browsers: ['Chrome'],
 
@@ -33,11 +33,11 @@ module.exports = function (config) {
     },
 
     plugins: [
-      require("karma-webpack"),
-      require("karma-mocha"),
-      require("karma-chrome-launcher"),
-      require("karma-mocha-reporter"),
-      require("karma-sourcemap-loader")
+      require('karma-webpack'),
+      require('karma-mocha'),
+      require('karma-chrome-launcher'),
+      require('karma-mocha-reporter'),
+      require('karma-sourcemap-loader')
     ],
 
     singleRun: true,

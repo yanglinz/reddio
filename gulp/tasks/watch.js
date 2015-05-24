@@ -3,23 +3,23 @@
 var gulp = require('gulp');
 var dirs = require('../directories.js');
 
-gulp.task('watch:all', function () {
-  /*
+gulp.task('watch:all', function() {
+  /**
    * Watch sass
    */
-  gulp.watch(dirs.globs.assets.css,     ['assets:processCss']);
+  gulp.watch(dirs.globs.assets.css, ['assets:processCss']);
 
-  /*
+  /**
    * Watch images
    */
-  gulp.watch(dirs.globs.assets.img,     ['assets:processImg']);
+  gulp.watch(dirs.globs.assets.img, ['assets:processImg']);
 
-  /*
+  /**
    * Watch handlebars templates
    */
-  gulp.watch(dirs.globs.templates.hbs,  ['templates:processHandlebars']);
+  gulp.watch(dirs.globs.templates.hbs, ['templates:processHandlebars']);
 
-  /*
+  /**
    * Watch swig templates
    */
   var swigGlob = [
