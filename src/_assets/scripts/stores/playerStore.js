@@ -1,3 +1,5 @@
+'use strict';
+
 var Marty = require('marty');
 var playerConstants = require('../constants/playerConstants.js');
 

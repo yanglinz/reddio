@@ -1,3 +1,5 @@
+'use strict';
+
 var Marty = require('marty');
 var React = require('react');
 var PlayerStore = require('../stores/playerStore.js');

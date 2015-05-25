@@ -1,3 +1,5 @@
+'use strict';
+
 var _ = require('lodash');
 var Marty = require('marty');
 var songsConstants = require('../constants/songsConstants.js');

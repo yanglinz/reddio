@@ -1,3 +1,5 @@
+'use strict';
+
 var React = require('react');
 var Masthead = require('./components/masthead.js');
 var Songs = require('./components/songs.js');
