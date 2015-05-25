@@ -1,5 +1,6 @@
 'use strict';
 
+var _ = require('lodash');
 var RSVP = require('rsvp');
 
 class YouTube {
@@ -17,7 +18,7 @@ class YouTube {
     return new RSVP.Promise(function(resolve, reject) {
       window.onYouTubeIframeAPIReady = function() {
         resolve(window.YT);
-      }
+      };
     });
   }
 
@@ -32,14 +33,16 @@ class YouTube {
         width: this.playerWidth,
         events: {
           onReady: function onYoutubePlayerReady() {
-            console.log('player resolved');
             resolve(player);
           }
         }
       });
-
-      console.log('player', player);
     }.bind(this));
+  }
+
+  static urlToID (url) {
+    const params = _.last(url.split('?'));
+    return params.replace('v=', '');
   }
 }
 

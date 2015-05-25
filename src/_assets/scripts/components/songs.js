@@ -35,7 +35,7 @@ var Song = React.createClass({
   },
 
   playSong: function () {
-    PlayerAction.playSong(this.props.song.url);
+    PlayerAction.playSong(this.props.song);
   }
 });
 
