@@ -1,6 +1,6 @@
 var React = require('react');
 var Masthead = require('./components/masthead.js');
-var Songs = require('./components/songsList.js');
+var Songs = require('./components/songs.js');
 var Player = require('./components/player.js');
 
 var Content = React.createClass({
