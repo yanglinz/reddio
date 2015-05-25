@@ -1,6 +1,7 @@
 var React = require('react');
 var Masthead = require('./components/masthead.js');
 var Songs = require('./components/songsList.js');
+var Player = require('./components/player.js');
 
 var Content = React.createClass({
   render: function () {
@@ -20,6 +21,7 @@ var App = React.createClass({
       <div className="wrap">
         <Masthead/>
         <Content/>
+        <Player/>
       </div>
     );
   }
