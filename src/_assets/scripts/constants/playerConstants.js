@@ -2,9 +2,9 @@
 
 import Marty from 'marty';
 
-var playerConstants = Marty.createConstants([
+var PlayerConstants = Marty.createConstants([
   "PLAYER_STORE",
   "PLAY_SONG"
 ]);
 
-export default playerConstants;
+export default PlayerConstants;

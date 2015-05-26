@@ -2,13 +2,13 @@
 
 import _ from 'lodash';
 import Marty from 'marty';
-import songsConstants from '../constants/songsConstants.js';
+import SongsConstants from '../constants/songsConstants.js';
 
 var SongsStore = Marty.createStore({
   id: 'SongsStore',
 
   handlers: {
-    receiveSongs: songsConstants.RECEIVE_SONGS
+    receiveSongs: SongsConstants.RECEIVE_SONGS
   },
 
   getInitialState () {

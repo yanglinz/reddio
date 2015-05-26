@@ -1,13 +1,13 @@
 'use strict';
 
 import Marty from 'marty';
-import playerConstants from '../constants/playerConstants.js';
+import PlayerConstants from '../constants/playerConstants.js';
 
-var playerStore = Marty.createStore({
+var PlayerStore = Marty.createStore({
   id: 'PlayerStore',
 
   handlers: {
-    playSong: playerConstants.PLAY_SONG
+    playSong: PlayerConstants.PLAY_SONG
   },
 
   getInitialState () {
@@ -31,4 +31,4 @@ var playerStore = Marty.createStore({
   }
 });
 
-export default playerStore;
+export default PlayerStore;
