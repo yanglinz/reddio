@@ -1,4 +1,5 @@
 /* eslint react/sort-comp:0 */
+/* eslint react/prop-types:0 */
 
 import _ from 'lodash';
 import React from 'react';
@@ -9,9 +10,12 @@ import PlayerAction from '../actions/playerAction';
 import Button from './common/button.js';
 
 class Song extends React.Component {
-  static propTypes = {
-    song: React.PropTypes.object
-  };
+  constructor(props) {
+    super(props);
+    this.propTypes = {
+      songs: React.PropTypes.array
+    };
+  }
 
   render() {
     return (
@@ -51,11 +55,10 @@ class SongsList extends React.Component {
     this.state = {
       listType: 'hot'
     };
+    this.propTypes = {
+      songs: React.PropTypes.array
+    };
   }
-
-  static propTypes = {
-    songs: React.PropTypes.array
-  };
 
   render() {
     return (
@@ -65,6 +68,7 @@ class SongsList extends React.Component {
             <Song song={song} key={i}></Song>
           );
         })}
+
         <Button>
           <div onClick={this.fetchSongs.bind(this)}>Load more</div>
         </Button>

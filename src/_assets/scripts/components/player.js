@@ -1,4 +1,5 @@
 /* eslint react/sort-comp:0 */
+/* eslint react/prop-types:0 */
 
 import Marty from 'marty';
 import React from 'react';
@@ -12,11 +13,10 @@ class Player extends React.Component {
       isLoading: true,
       isPlaying: false
     };
+    this.prototype = {
+      currentSong: React.PropTypes.string
+    };
   }
-
-  static propTypes = {
-    currentSong: React.PropTypes.string
-  };
 
   componentDidMount() {
     this.loadPlayer();

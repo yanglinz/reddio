@@ -6,9 +6,9 @@ let SongsStore = Marty.createStore({
 
   getInitialState() {
     return {
-      'hot': [],
-      'top': [],
-      'new': [],
+      hot: [],
+      top: [],
+      new: [],
       activeType: 'hot'
     };
   },
