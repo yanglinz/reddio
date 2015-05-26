@@ -16,4 +16,4 @@ var Masthead = React.createClass({
   }
 });
 
-module.exports = Masthead;
+export default Masthead;

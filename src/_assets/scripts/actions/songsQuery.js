@@ -19,4 +19,4 @@ var SongsQuery = Marty.createQueries({
   }
 });
 
-module.exports = SongsQuery;
+export default SongsQuery;

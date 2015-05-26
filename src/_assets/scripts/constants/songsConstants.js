@@ -9,4 +9,4 @@ var songsConstants = Marty.createConstants([
   "RECEIVE_SONGS"
 ]);
 
-module.exports = songsConstants;
+export default songsConstants;

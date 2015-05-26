@@ -53,7 +53,7 @@ var Player = React.createClass({
   }
 });
 
-module.exports = Marty.createContainer(Player, {
+var PlayerContainer = Marty.createContainer(Player, {
   listenTo: PlayerStore,
   fetch: {
     queue() {
@@ -65,3 +65,5 @@ module.exports = Marty.createContainer(Player, {
     }
   }
 });
+
+export default PlayerContainer;

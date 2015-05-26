@@ -12,4 +12,4 @@ var Button = React.createClass({
   }
 });
 
-module.exports = Button;
+export default Button;

@@ -11,4 +11,4 @@ var PlayerAction = Marty.createQueries({
   }
 });
 
-module.exports = PlayerAction;
+export default PlayerAction;

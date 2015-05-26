@@ -31,4 +31,4 @@ var playerStore = Marty.createStore({
   }
 });
 
-module.exports = playerStore;
+export default playerStore;

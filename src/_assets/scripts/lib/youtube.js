@@ -46,4 +46,4 @@ class YouTube {
   }
 }
 
-module.exports = YouTube
+export default YouTube

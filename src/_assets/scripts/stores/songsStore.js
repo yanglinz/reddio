@@ -30,4 +30,4 @@ var SongsStore = Marty.createStore({
   }
 });
 
-module.exports = SongsStore;
+export default SongsStore;

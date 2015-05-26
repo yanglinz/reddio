@@ -7,4 +7,4 @@ var playerConstants = Marty.createConstants([
   "PLAY_SONG"
 ]);
 
-module.exports = playerConstants;
+export default playerConstants;

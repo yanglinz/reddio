@@ -67,7 +67,7 @@ var SongsList = React.createClass({
   }
 });
 
-module.exports = Marty.createContainer(SongsList, {
+var SongsListContainer = Marty.createContainer(SongsList, {
   listenTo: SongsStore,
   fetch: {
     songs () {
@@ -75,3 +75,5 @@ module.exports = Marty.createContainer(SongsList, {
     }
   }
 });
+
+export default SongsListContainer;
