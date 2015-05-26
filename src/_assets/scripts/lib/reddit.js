@@ -1,9 +1,9 @@
 'use strict';
 
-var _ = require('lodash');
-var $ = window.$;
-var RSVP = require('rsvp');
-var moment = require('moment');
+import _  from 'lodash';
+import RSVP from 'rsvp';
+import moment from 'moment';
+let $ = window.$;
 
 class Parse {
   static listing (listing={}) {

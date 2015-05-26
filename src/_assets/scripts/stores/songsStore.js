@@ -1,8 +1,8 @@
 'use strict';
 
-var _ = require('lodash');
-var Marty = require('marty');
-var songsConstants = require('../constants/songsConstants.js');
+import _ from 'lodash';
+import Marty from 'marty';
+import songsConstants from '../constants/songsConstants.js';
 
 var SongsStore = Marty.createStore({
   id: 'SongsStore',

@@ -1,12 +1,12 @@
 'use strict';
 
-var _ = require('lodash');
-var React = require('react');
-var Marty = require('marty');
-var SongsStore = require('../stores/songsStore.js');
-var SongsQuery = require('../actions/songsQuery.js');
-var PlayerAction = require('../actions/playerAction');
-var Button = require('./common/button.js');
+import _ from 'lodash';
+import React from 'react';
+import Marty from 'marty';
+import SongsStore from '../stores/songsStore.js';
+import SongsQuery from '../actions/songsQuery.js';
+import PlayerAction from '../actions/playerAction';
+import Button from './common/button.js';
 
 var Song = React.createClass({
   render: function () {

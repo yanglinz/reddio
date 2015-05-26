@@ -1,6 +1,6 @@
 'use strict';
 
-var Marty = require('marty');
+import Marty from 'marty';
 
 var songsConstants = Marty.createConstants([
   "SONGS_STORE",

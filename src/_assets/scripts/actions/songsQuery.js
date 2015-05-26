@@ -1,9 +1,9 @@
 'use strict';
 
-var _ = require('lodash');
-var Marty = require('marty');
-var songsConstants = require('../constants/songsConstants.js');
-var reddit = require('../lib/reddit.js');
+import _ from 'lodash';
+import Marty from 'marty';
+import songsConstants from '../constants/songsConstants.js';
+import reddit from '../lib/reddit.js';
 
 var SongsQuery = Marty.createQueries({
   id: 'SongsQuery',

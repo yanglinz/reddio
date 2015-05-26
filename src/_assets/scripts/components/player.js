@@ -1,9 +1,9 @@
 'use strict';
 
-var Marty = require('marty');
-var React = require('react');
-var PlayerStore = require('../stores/playerStore.js');
-var Youtube = require('../lib/youtube.js');
+import Marty from 'marty';
+import React from 'react';
+import PlayerStore from '../stores/playerStore.js';
+import Youtube from '../lib/youtube.js';
 
 var Player = React.createClass({
   getInitialState: function () {

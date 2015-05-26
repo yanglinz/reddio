@@ -1,7 +1,7 @@
 'use strict';
 
-var _ = require('lodash');
-var RSVP = require('rsvp');
+import _ from 'lodash';
+import RSVP from 'rsvp';
 
 class YouTube {
   constructor(options={}) {

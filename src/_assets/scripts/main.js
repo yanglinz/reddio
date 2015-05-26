@@ -1,9 +1,9 @@
 'use strict';
 
-var React = require('react');
-var Masthead = require('./components/masthead.js');
-var Songs = require('./components/songs.js');
-var Player = require('./components/player.js');
+import React from 'react';
+import Masthead from './components/masthead.js';
+import Songs from './components/songs.js';
+import Player from './components/player.js';
 
 var Content = React.createClass({
   render: function () {
