@@ -6,15 +6,15 @@ import PlayerConstants from '../constants/playerConstants.js';
 var PlayerStore = Marty.createStore({
   id: 'PlayerStore',
 
-  handlers: {
-    playSong: PlayerConstants.PLAY_SONG
-  },
-
   getInitialState () {
     return {
       queue: [],
       currentSong: null
     };
+  },
+
+  handlers: {
+    playSong: PlayerConstants.PLAY_SONG
   },
 
   getQueue () {

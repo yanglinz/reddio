@@ -7,10 +7,6 @@ import SongsConstants from '../constants/songsConstants.js';
 var SongsStore = Marty.createStore({
   id: 'SongsStore',
 
-  handlers: {
-    receiveSongs: SongsConstants.RECEIVE_SONGS
-  },
-
   getInitialState () {
     return {
       'hot': [],
@@ -18,6 +14,10 @@ var SongsStore = Marty.createStore({
       'new': [],
       activeType: 'hot'
     };
+  },
+
+  handlers: {
+    receiveSongs: SongsConstants.RECEIVE_SONGS
   },
 
   getSongs () {
