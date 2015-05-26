@@ -5,15 +5,16 @@ import React from 'react';
 import PlayerStore from '../stores/playerStore.js';
 import Youtube from '../lib/youtube.js';
 
-var Player = React.createClass({
-  getInitialState: function () {
-    return {
+class Player extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
       isLoading: true,
       isPlaying: false
     };
-  },
+  }
 
-  render: function () {
+  render() {
     return (
       <div className="player">
         <div className="wrap">
@@ -21,26 +22,26 @@ var Player = React.createClass({
         </div>
       </div>
     );
-  },
+  }
 
-  componentDidMount: function() {
+  componentDidMount() {
     this.loadPlayer();
-  },
+  }
 
-  componentDidUpdate: function() {
+  componentDidUpdate() {
     this.playSong();
-  },
+  }
 
-  loadPlayer: function () {
+  loadPlayer() {
     this.youtube = new Youtube();
     this.youtubeLoaded = this.youtube.initApi()
     .then(function() {
       this.state.isLoading = false;
       return this.youtube.initPlayer('player__youtube');  // promise
     }.bind(this));
-  },
+  }
 
-  playSong: function () {
+  playSong() {
     var videoUrl = this.props.currentSong.url;
     var videoID = Youtube.urlToID(videoUrl);
     this.youtubeLoaded.then(function(player) {
@@ -51,7 +52,7 @@ var Player = React.createClass({
       });
     }.bind(this));
   }
-});
+}
 
 var PlayerContainer = Marty.createContainer(Player, {
   listenTo: PlayerStore,

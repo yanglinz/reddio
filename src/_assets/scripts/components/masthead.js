@@ -2,8 +2,8 @@
 
 import React from 'react';
 
-var Masthead = React.createClass({
-  render: function () {
+class Masthead extends React.Component {
+  render() {
     return (
       <div className="header">
         <div className="wrap">
@@ -14,6 +14,6 @@ var Masthead = React.createClass({
       </div>
     );
   }
-});
+}
 
 export default Masthead;

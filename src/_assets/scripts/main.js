@@ -5,8 +5,8 @@ import Masthead from './components/masthead.js';
 import Songs from './components/songs.js';
 import Player from './components/player.js';
 
-var Content = React.createClass({
-  render: function () {
+class Content extends React.Component {
+  render() {
     return (
       <div className="content">
         <div className="wrap">
@@ -15,10 +15,10 @@ var Content = React.createClass({
       </div>
     );
   }
-});
+}
 
-var App = React.createClass({
-  render: function () {
+class App extends React.Component {
+  render() {
     return (
       <div className="wrap">
         <Masthead/>
@@ -27,7 +27,7 @@ var App = React.createClass({
       </div>
     );
   }
-});
+}
 
 React.render(
   <App />,

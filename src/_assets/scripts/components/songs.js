@@ -8,8 +8,8 @@ import SongsQuery from '../actions/songsQuery.js';
 import PlayerAction from '../actions/playerAction';
 import Button from './common/button.js';
 
-var Song = React.createClass({
-  render: function () {
+class Song extends React.Component {
+  render() {
     return (
       <div className="song">
         <header className="song__header wrap">
@@ -30,23 +30,26 @@ var Song = React.createClass({
         </div>
 
         <footer className="song__footer wrap">
-          <p onClick={this.playSong}>Play song</p>
+          <p onClick={this.playSong.bind(this)}>Play song</p>
         </footer>
       </div>
     );
-  },
+  }
 
-  playSong: function () {
+  playSong() {
     PlayerAction.playSong(this.props.song);
   }
-});
+}
 
-var SongsList = React.createClass({
-  getInitialState: function () {
-    return {listType: 'hot'};
-  },
+class SongsList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      listType: 'hot'
+    };
+  }
 
-  render: function () {
+  render() {
     return (
       <div className="songs">
         {this.props.songs.map(function (song, i) {
@@ -55,22 +58,22 @@ var SongsList = React.createClass({
           );
         })}
         <Button>
-          <div onClick={this.fetchSongs}>Load more</div>
+          <div onClick={this.fetchSongs.bind(this)}>Load more</div>
         </Button>
       </div>
     );
-  },
+  }
 
-  fetchSongs: function () {
+  fetchSongs() {
     const last = _.last(this.props.songs) || {};
     SongsQuery.fetchSongs(this.state.listType, last.name);
   }
-});
+}
 
 var SongsListContainer = Marty.createContainer(SongsList, {
   listenTo: SongsStore,
   fetch: {
-    songs () {
+    songs() {
       return SongsStore.getSongs();
     }
   }
