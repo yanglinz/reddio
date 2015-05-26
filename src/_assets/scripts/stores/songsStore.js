@@ -1,13 +1,10 @@
-'use strict';
-
-import _ from 'lodash';
 import Marty from 'marty';
 import SongsConstants from '../constants/songsConstants.js';
 
 let SongsStore = Marty.createStore({
   id: 'SongsStore',
 
-  getInitialState () {
+  getInitialState() {
     return {
       'hot': [],
       'top': [],
@@ -20,11 +17,11 @@ let SongsStore = Marty.createStore({
     receiveSongs: SongsConstants.RECEIVE_SONGS
   },
 
-  getSongs () {
+  getSongs() {
     return this.state[this.state.activeType];
   },
 
-  receiveSongs (listingType, songs) {
+  receiveSongs(listingType, songs) {
     this.state[listingType] = this.state[listingType].concat(songs);
     this.hasChanged();
   }

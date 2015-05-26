@@ -1,12 +1,10 @@
-'use strict';
-
 import Marty from 'marty';
 import PlayerConstants from '../constants/playerConstants.js';
 
 let PlayerStore = Marty.createStore({
   id: 'PlayerStore',
 
-  getInitialState () {
+  getInitialState() {
     return {
       queue: [],
       currentSong: null
@@ -17,15 +15,15 @@ let PlayerStore = Marty.createStore({
     playSong: PlayerConstants.PLAY_SONG
   },
 
-  getQueue () {
+  getQueue() {
     return this.state.queue;
   },
 
-  getCurrentSong () {
+  getCurrentSong() {
     return this.state.currentSong;
   },
 
-  playSong (song) {
+  playSong(song) {
     this.state.currentSong = song;
     this.hasChanged();
   }

@@ -1,4 +1,4 @@
-'use strict';
+/* eslint react/sort-comp:0 */
 
 import Marty from 'marty';
 import React from 'react';
@@ -14,15 +14,9 @@ class Player extends React.Component {
     };
   }
 
-  render() {
-    return (
-      <div className="player">
-        <div className="wrap">
-          <div id="player__youtube"></div>
-        </div>
-      </div>
-    );
-  }
+  static propTypes = {
+    currentSong: React.PropTypes.string
+  };
 
   componentDidMount() {
     this.loadPlayer();
@@ -35,7 +29,7 @@ class Player extends React.Component {
   loadPlayer() {
     this.youtube = new Youtube();
     this.youtubeLoaded = this.youtube.initApi()
-    .then(function() {
+    .then(function loadPlayer() {
       this.state.isLoading = false;
       return this.youtube.initPlayer('player__youtube');
     }.bind(this));
@@ -44,13 +38,23 @@ class Player extends React.Component {
   playSong() {
     let videoUrl = this.props.currentSong.url;
     let videoID = Youtube.urlToID(videoUrl);
-    this.youtubeLoaded.then(function(player) {
+    this.youtubeLoaded.then(function loadVideo(player) {
       player.loadVideoById({
         videoId: videoID,
         startSeconds: 0,
         suggestedQuality: 'small'
       });
-    }.bind(this));
+    });
+  }
+
+  render() {
+    return (
+      <div className="player">
+        <div className="wrap">
+          <div id="player__youtube"></div>
+        </div>
+      </div>
+    );
   }
 }
 

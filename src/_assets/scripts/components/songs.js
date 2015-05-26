@@ -1,4 +1,4 @@
-'use strict';
+/* eslint react/sort-comp:0 */
 
 import _ from 'lodash';
 import React from 'react';
@@ -9,6 +9,10 @@ import PlayerAction from '../actions/playerAction';
 import Button from './common/button.js';
 
 class Song extends React.Component {
+  static propTypes = {
+    song: React.PropTypes.object
+  };
+
   render() {
     return (
       <div className="song">
@@ -49,10 +53,14 @@ class SongsList extends React.Component {
     };
   }
 
+  static propTypes = {
+    songs: React.PropTypes.array
+  };
+
   render() {
     return (
       <div className="songs">
-        {this.props.songs.map(function (song, i) {
+        {this.props.songs.map(function mapSongs(song, i) {
           return (
             <Song song={song} key={i}></Song>
           );

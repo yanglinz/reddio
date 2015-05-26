@@ -1,5 +1,3 @@
-'use strict';
-
 import React from 'react';
 import Masthead from './components/masthead.js';
 import Songs from './components/songs.js';
