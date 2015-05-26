@@ -5,7 +5,7 @@ import Marty from 'marty';
 import songsConstants from '../constants/songsConstants.js';
 import reddit from '../lib/reddit.js';
 
-var SongsQuery = Marty.createQueries({
+let SongsQuery = Marty.createQueries({
   id: 'SongsQuery',
 
   fetchSongs: function (listingType, after="") {

@@ -3,7 +3,7 @@
 import Marty from 'marty';
 import playerConstants from '../constants/playerConstants.js';
 
-var PlayerAction = Marty.createQueries({
+let PlayerAction = Marty.createQueries({
   id: 'PlayerAction',
 
   playSong: function (song) {

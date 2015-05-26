@@ -10,9 +10,9 @@ class YouTube {
   }
 
   initApi() {
-    var tag = document.createElement('script');
+    let tag = document.createElement('script');
     tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
+    let firstScriptTag = document.getElementsByTagName('script')[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
     return new RSVP.Promise(function(resolve, reject) {
@@ -28,7 +28,7 @@ class YouTube {
     }
 
     return new RSVP.Promise(function(resolve, reject) {
-      var player = new window.YT.Player(elementID, {
+      let player = new window.YT.Player(elementID, {
         height: this.playerHeight,
         width: this.playerWidth,
         events: {

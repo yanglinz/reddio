@@ -3,7 +3,7 @@
 import Marty from 'marty';
 import PlayerConstants from '../constants/playerConstants.js';
 
-var PlayerStore = Marty.createStore({
+let PlayerStore = Marty.createStore({
   id: 'PlayerStore',
 
   getInitialState () {

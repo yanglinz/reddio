@@ -70,7 +70,7 @@ class SongsList extends React.Component {
   }
 }
 
-var SongsListContainer = Marty.createContainer(SongsList, {
+let SongsListContainer = Marty.createContainer(SongsList, {
   listenTo: SongsStore,
   fetch: {
     songs() {

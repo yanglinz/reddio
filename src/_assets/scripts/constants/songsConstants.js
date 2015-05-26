@@ -2,7 +2,7 @@
 
 import Marty from 'marty';
 
-var SongsConstants = Marty.createConstants([
+let SongsConstants = Marty.createConstants([
   "SONGS_STORE",
   "SONGS_QUERY",
   "FETCH_SONGS",

@@ -4,7 +4,7 @@ import _ from 'lodash';
 import Marty from 'marty';
 import SongsConstants from '../constants/songsConstants.js';
 
-var SongsStore = Marty.createStore({
+let SongsStore = Marty.createStore({
   id: 'SongsStore',
 
   getInitialState () {

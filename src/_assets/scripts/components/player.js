@@ -42,8 +42,8 @@ class Player extends React.Component {
   }
 
   playSong() {
-    var videoUrl = this.props.currentSong.url;
-    var videoID = Youtube.urlToID(videoUrl);
+    let videoUrl = this.props.currentSong.url;
+    let videoID = Youtube.urlToID(videoUrl);
     this.youtubeLoaded.then(function(player) {
       player.loadVideoById({
         videoId: videoID,
@@ -54,7 +54,7 @@ class Player extends React.Component {
   }
 }
 
-var PlayerContainer = Marty.createContainer(Player, {
+let PlayerContainer = Marty.createContainer(Player, {
   listenTo: PlayerStore,
   fetch: {
     queue() {
