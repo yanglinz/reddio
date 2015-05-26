@@ -37,7 +37,7 @@ class Player extends React.Component {
     this.youtubeLoaded = this.youtube.initApi()
     .then(function() {
       this.state.isLoading = false;
-      return this.youtube.initPlayer('player__youtube');  // promise
+      return this.youtube.initPlayer('player__youtube');
     }.bind(this));
   }
 

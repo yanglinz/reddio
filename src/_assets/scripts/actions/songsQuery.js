@@ -1,6 +1,5 @@
 'use strict';
 
-import _ from 'lodash';
 import Marty from 'marty';
 import songsConstants from '../constants/songsConstants.js';
 import reddit from '../lib/reddit.js';

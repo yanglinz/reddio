@@ -23,7 +23,7 @@ class YouTube {
   }
 
   initPlayer(elementID) {
-    if (typeof(window.YT) == 'undefined') {
+    if (typeof(window.YT) === 'undefined') {
       return console.error('youtube api not loaded');
     }
 
@@ -46,4 +46,4 @@ class YouTube {
   }
 }
 
-export default YouTube
+export default YouTube;
