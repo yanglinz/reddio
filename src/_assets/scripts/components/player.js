@@ -4,6 +4,7 @@
 import Marty from 'marty';
 import React from 'react';
 import PlayerStore from '../stores/playerStore.js';
+import PlayerAction from '../actions/playerAction.js';
 import Youtube from '../lib/youtube.js';
 
 class Player extends React.Component {
@@ -13,7 +14,7 @@ class Player extends React.Component {
       isLoading: true,
       isPlaying: false
     };
-    this.prototype = {
+    this.propTypes = {
       currentSong: React.PropTypes.string
     };
   }
@@ -31,7 +32,7 @@ class Player extends React.Component {
     this.youtubeLoaded = this.youtube.initApi()
     .then(function loadPlayer() {
       this.state.isLoading = false;
-      return this.youtube.initPlayer('player__youtube');
+      return this.youtube.initPlayer('player__youtube', this.onPlayerStateChange);
     }.bind(this));
   }
 
@@ -44,7 +45,19 @@ class Player extends React.Component {
         startSeconds: 0,
         suggestedQuality: 'small'
       });
-    });
+    }.bind(this));
+  }
+
+  queueNextSong() {
+    console.log('queueNextSong');
+    // fire action creator to modify store
+  }
+
+  onPlayerStateChange(event) {
+    const ended = 0;
+    if (event.data === ended) {
+      this.queueNextSong();
+    }
   }
 
   render() {
@@ -61,10 +74,6 @@ class Player extends React.Component {
 let PlayerContainer = Marty.createContainer(Player, {
   listenTo: PlayerStore,
   fetch: {
-    queue() {
-      return PlayerStore.getQueue();
-    },
-
     currentSong() {
       return PlayerStore.getCurrentSong();
     }

@@ -21,9 +21,9 @@ class YouTube {
     });
   }
 
-  initPlayer(elementID) {
+  initPlayer(elementID, onStateChange) {
     if (typeof window.YT === 'undefined') {
-      return errorLogger('youtube api not loaded');
+      return errorLogger('Youtube api not loaded');
     }
 
     return new RSVP.Promise(function resolvePlayer(resolve) {
@@ -33,7 +33,8 @@ class YouTube {
         events: {
           onReady: function onYoutubePlayerReady() {
             resolve(player);
-          }
+          },
+          onStateChange: onStateChange
         }
       });
     }.bind(this));
@@ -41,7 +42,9 @@ class YouTube {
 
   static urlToID(url) {
     const params = _.last(url.split('?'));
-    return params.replace('v=', '');
+    let id = params.replace('v=', '');
+    console.log('urlToID', url, id);
+    return id;
   }
 }
 

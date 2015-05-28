@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import Marty from 'marty';
 import PlayerConstants from '../constants/playerConstants.js';
 
@@ -7,7 +8,7 @@ let PlayerStore = Marty.createStore({
   getInitialState() {
     return {
       queue: [],
-      currentSong: null
+      history: []
     };
   },
 
@@ -15,16 +16,13 @@ let PlayerStore = Marty.createStore({
     playSong: PlayerConstants.PLAY_SONG
   },
 
-  getQueue() {
-    return this.state.queue;
-  },
-
   getCurrentSong() {
-    return this.state.currentSong;
+    return _.first(this.state.queue)
   },
 
-  playSong(song) {
-    this.state.currentSong = song;
+  playSong(song, activeSongs) {
+    let index = _.indexOf(activeSongs, song);
+    this.state.queue = _.drop(activeSongs, index);
     this.hasChanged();
   }
 });
