@@ -48,9 +48,12 @@ class Player extends React.Component {
     }.bind(this));
   }
 
-  queueNextSong() {
-    console.log('queueNextSong');
-    // fire action creator to modify store
+  nextSong() {
+    PlayerAction.nextSong();
+  }
+
+  prevSong() {
+    PlayerAction.prevSong();
   }
 
   onPlayerStateChange(event) {
@@ -66,6 +69,8 @@ class Player extends React.Component {
         <div className="wrap">
           <div id="player__youtube"></div>
         </div>
+        <p onClick={this.nextSong.bind(this)}>Next song</p>
+        <p onClick={this.prevSong.bind(this)}>Prev song</p>
       </div>
     );
   }

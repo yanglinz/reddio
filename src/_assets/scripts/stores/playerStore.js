@@ -13,7 +13,9 @@ let PlayerStore = Marty.createStore({
   },
 
   handlers: {
-    playSong: PlayerConstants.PLAY_SONG
+    playSong: PlayerConstants.PLAY_SONG,
+    playNextSong: PlayerConstants.PLAY_NEXT_SONG,
+    playPrevSong: PlayerConstants.PLAY_PREV_SONG
   },
 
   getCurrentSong() {
@@ -24,7 +26,20 @@ let PlayerStore = Marty.createStore({
     let index = _.indexOf(activeSongs, song);
     this.state.queue = _.drop(activeSongs, index);
     this.hasChanged();
+  },
+
+  playNextSong() {
+    this.state.history = [].concat(_.take(this.state.queue)).concat(this.state.history);
+    this.state.queue = _.drop(this.state.queue);
+    this.hasChanged();
+  },
+
+  playPrevSong() {
+    this.state.queue = [].concat(_.take(this.state.history)).concat(this.state.queue);
+    this.state.history = _.drop(this.state.history);
+    this.hasChanged();
   }
+
 });
 
 export default PlayerStore;

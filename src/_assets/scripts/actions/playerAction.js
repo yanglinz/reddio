@@ -11,12 +11,12 @@ let PlayerAction = Marty.createQueries({
     this.dispatch(PlayerConstants.PLAY_SONG, song, activeSongs);
   },
 
-  prevSong: function playPrevSong() {
-    // play previous song
+  nextSong: function playNextSong() {
+    this.dispatch(PlayerConstants.PLAY_NEXT_SONG);
   },
 
-  nextSong: function playNextSong() {
-    // play next song
+  prevSong: function playPrevSong() {
+    this.dispatch(PlayerConstants.PLAY_PREV_SONG);
   }
 });
 
