@@ -24,7 +24,7 @@ class Player extends React.Component {
   }
 
   componentDidUpdate() {
-    this.playSong();
+    this.loadSong();
   }
 
   loadPlayer() {
@@ -36,7 +36,7 @@ class Player extends React.Component {
     }.bind(this));
   }
 
-  playSong() {
+  loadSong() {
     let videoUrl = this.props.currentSong.url;
     let videoID = Youtube.urlToID(videoUrl);
     this.youtubeLoaded.then(function loadVideo(player) {
