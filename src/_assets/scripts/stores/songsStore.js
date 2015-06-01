@@ -1,15 +1,19 @@
 import Marty from 'marty';
 import SongsConstants from '../constants/songsConstants.js';
+import NavStore from './navStore.js';
 
 let SongsStore = Marty.createStore({
   id: 'SongsStore',
 
   getInitialState() {
+    let sortTypes = NavStore.getSortTypes();
+    let songs = _.reduce(sortTypes, function createSongsLists(memo, sortType) {
+      memo[sortType] = [];
+      return memo;
+    }, {});
     return {
-      hot: [],
-      top: [],
-      new: [],
-      activeType: 'hot'
+      songs: songs,
+      activeSortType: NavStore.getActiveSortType()
     };
   },
 
@@ -18,11 +22,12 @@ let SongsStore = Marty.createStore({
   },
 
   getSongs() {
-    return this.state[this.state.activeType];
+    return this.state.songs[this.state.activeSortType];
   },
 
-  receiveSongs(listingType, songs) {
-    this.state[listingType] = this.state[listingType].concat(songs);
+  receiveSongs(sortType, songs) {
+    this.state.songs[sortType] = this.state.songs[sortType] || [];
+    this.state.songs[sortType] = this.state.songs[sortType].concat(songs);
     this.hasChanged();
   }
 });
