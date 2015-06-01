@@ -52,7 +52,7 @@ class Song extends React.Component {
 class SongsList extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {listType: this.props.activeSortType};
+    this.state = {};
     this.propTypes = {songs: React.PropTypes.array};
   }
 
@@ -72,17 +72,13 @@ class SongsList extends React.Component {
   }
 
   fetchSongs() {
-    const last = _.last(this.props.songs) || {};
-    SongsQuery.fetchSongs(this.state.listType, last.name);
+    SongsQuery.fetchSongs(this.props.songs);
   }
 }
 
 let SongsListContainer = Marty.createContainer(SongsList, {
   listenTo: SongsStore,
   fetch: {
-    activeSortType() {
-      return SongsStore.getActiveSortType();
-    },
     songs() {
       return SongsStore.getSongs();
     }
