@@ -39,7 +39,6 @@ let PlayerStore = Marty.createStore({
     this.state.history = _.drop(this.state.history);
     this.hasChanged();
   }
-
 });
 
 export default PlayerStore;
