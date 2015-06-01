@@ -65,10 +65,9 @@ class SongsList extends React.Component {
       <div className="songs">
         {this.props.songs.map(function mapSongs(song, i) {
           return (
-            <Song song={song} key={i}></Song>
+            <Song song={song} key={i} />
           );
         })}
-
         <Button>
           <div onClick={this.fetchSongs.bind(this)}>Load more</div>
         </Button>
