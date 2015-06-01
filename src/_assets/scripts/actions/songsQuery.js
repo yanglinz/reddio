@@ -1,5 +1,5 @@
 import Marty from 'marty';
-import songsConstants from '../constants/songsConstants.js';
+import SongsConstants from '../constants/songsConstants.js';
 import reddit from '../lib/reddit.js';
 
 let SongsQuery = Marty.createQueries({
@@ -10,7 +10,7 @@ let SongsQuery = Marty.createQueries({
     let request = reddit.get(listingType, payload);
     if (request) {
       request.then((function dispatchSong(songs) {
-        this.dispatch(songsConstants.RECEIVE_SONGS, listingType, songs);
+        this.dispatch(SongsConstants.RECEIVE_SONGS, listingType, songs);
       }).bind(this));
     }
   }

@@ -8,7 +8,6 @@ class Parse {
     let posts = _.filter(listing.data.children, function postFilter(post) {
       return !post.data.is_self && !post.data.stickied;
     });
-
     return _.map(posts, Parse.post);
   }
 

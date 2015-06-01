@@ -18,7 +18,8 @@ let SongsStore = Marty.createStore({
   },
 
   handlers: {
-    receiveSongs: SongsConstants.RECEIVE_SONGS
+    receiveSongs: SongsConstants.RECEIVE_SONGS,
+    setActiveSortType: SongsConstants.SET_ACTIVE_SORT_TYPE
   },
 
   getSongs() {
@@ -28,6 +29,15 @@ let SongsStore = Marty.createStore({
   receiveSongs(sortType, songs) {
     this.state.songs[sortType] = this.state.songs[sortType] || [];
     this.state.songs[sortType] = this.state.songs[sortType].concat(songs);
+    this.hasChanged();
+  },
+
+  getActiveSortType() {
+    return this.state.activeSortType;
+  },
+
+  setActiveSortType(sortType) {
+    this.state.activeSortType = sortType;
     this.hasChanged();
   }
 });
