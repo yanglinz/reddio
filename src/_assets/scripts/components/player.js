@@ -1,11 +1,10 @@
-/* eslint react/sort-comp:0 */
-/* eslint react/prop-types:0 */
+/* eslint react/sort-comp: 0, react/prop-types: 0 */
 
 import Marty from 'marty';
 import React from 'react';
 import PlayerStore from '../stores/playerStore.js';
 import PlayerAction from '../actions/playerAction.js';
-import Youtube from '../lib/youtube.js';
+import AudioPlayer from '../lib/audio.js';
 
 class Player extends React.Component {
   constructor(props) {
@@ -20,32 +19,15 @@ class Player extends React.Component {
   }
 
   componentDidMount() {
-    this.loadPlayer();
+    this.audioPlayer = new AudioPlayer();
   }
 
   componentDidUpdate() {
-    this.loadSong();
+    this.playSong();
   }
 
-  loadPlayer() {
-    this.youtube = new Youtube();
-    this.youtubeLoaded = this.youtube.initApi()
-    .then(function loadPlayer() {
-      this.state.isLoading = false;
-      return this.youtube.initPlayer('player__youtube', this.onPlayerStateChange);
-    }.bind(this));
-  }
-
-  loadSong() {
-    let videoUrl = this.props.currentSong.url;
-    let videoID = Youtube.urlToID(videoUrl);
-    this.youtubeLoaded.then(function loadVideo(player) {
-      player.loadVideoById({
-        videoId: videoID,
-        startSeconds: 0,
-        suggestedQuality: 'small'
-      });
-    }.bind(this));
+  playSong() {
+    this.audioPlayer.play(this.props.currentSong.url);
   }
 
   nextSong() {
@@ -56,19 +38,9 @@ class Player extends React.Component {
     PlayerAction.prevSong();
   }
 
-  onPlayerStateChange(event) {
-    const ended = 0;
-    if (event.data === ended) {
-      this.queueNextSong();
-    }
-  }
-
   render() {
     return (
-      <div className="player">
-        <div className="wrap">
-          <div id="player__youtube"></div>
-        </div>
+      <div id="controls">
         <p onClick={this.nextSong.bind(this)}>Next song</p>
         <p onClick={this.prevSong.bind(this)}>Prev song</p>
       </div>
