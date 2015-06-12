@@ -24,7 +24,7 @@
       <div id="soundcloud">
         <iframe
           id="soundcloud_player"
-          width="100%" height="50"
+          width="100%" height="150"
           scrolling="no"
           frameborder="no"
           src="https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1848538&show_artwork=true">

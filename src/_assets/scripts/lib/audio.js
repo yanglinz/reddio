@@ -45,14 +45,21 @@ let soundcloudPlayerStream = new Rx.Subject();
   if (window.SC) {
     const elementID = '#soundcloud_player';
     const iframeElement = document.querySelector(elementID);
-    window.SC.Widget(iframeElement);
+    player.soundcloudPlayer = window.SC.Widget(iframeElement);
     soundcloudApiStream.onNext(window.SC);
   }
 })(window, document, soundcloudApiStream);
 
 class Utilities {
+  static urlIsSoundcloud(url) {
+    const soundcloudUrl = 'soundcloud.com';
+    return _.includes(url, soundcloudUrl);
+  }
+
   static urlIsYoutube(url) {
-    return true; // TODO: write real function
+    const youtubeUrl = 'youtube.com';
+    const youtubeShortUrl = 'youtu.be';
+    return _.includes(url, youtubeUrl) || _.includes(url, youtubeShortUrl);
   }
 
   static youtubeUrlToId(url) {
@@ -72,10 +79,20 @@ class AudioPlayer {
   }
 
   play(url) {
-    this.pause(); // pause any currently playing song
+    // pause any currently playing song
+    this.pause(this.player.youtubePlayer, this.player.soundcloudPlayer);
+    if (Utilities.urlIsSoundcloud(url)) {
+      this.playSoundcloud(this.player.soundcloudPlayer, url);
+    }
     if (Utilities.urlIsYoutube(url)) {
       this.playYoutube(this.player.youtubePlayer, url);
     }
+  }
+
+  playSoundcloud(soundcloudPlayer, url) {
+    soundcloudPlayer.load(url, {callback: function onPlayerReady() {
+      soundcloudPlayer.play();
+    }});
   }
 
   playYoutube(youtubePlayer, url) {
@@ -92,8 +109,13 @@ class AudioPlayer {
     );
   }
 
-  pause() {
-    // pause a song
+  pause(youtubePlayer, soundcloudPlayer) {
+    try {
+      youtubePlayer.stopVideo();
+    } catch(err) {/* intentionally empty */}
+    try {
+      soundcloudPlayer.pause();
+    } catch(err) {/* intentionally empty */}
   }
 
   seekTo(seconds) {
