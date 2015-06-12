@@ -63,9 +63,22 @@ class Utilities {
   }
 
   static youtubeUrlToId(url) {
-    console.log('url', url);
-    const params = _.last(url.split('?'));
-    return params.replace('v=', '');
+    const youtubeShortUrl = 'youtu.be';
+    let parser = document.createElement('a');
+    parser.href = url;
+    if (_.includes(url, youtubeShortUrl)) {
+      return parser.pathname.split('/')[1];
+    } else {
+      let params = parser.search;
+      params = params.replace('?', '').split('&');
+      params = _.reduce(params, function generateParams(memo, p) {
+        let key = p.split('=')[0];
+        let val = p.split('=')[1];
+        memo[key] = val;
+        return memo;
+      }, {});
+      return params.v;
+    }
   }
 }
 
