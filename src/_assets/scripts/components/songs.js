@@ -64,6 +64,7 @@ class SongsList extends React.Component {
             <Song song={song} key={i} />
           );
         })}
+
         <Button>
           <div onClick={this.fetchSongs.bind(this)}>Load more</div>
         </Button>

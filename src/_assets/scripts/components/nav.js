@@ -59,6 +59,7 @@ let NavContainer = Marty.createContainer(Nav, {
     sortTypes() {
       return NavStore.getSortTypes();
     },
+
     activeSortType() {
       return NavStore.getActiveSortType();
     }

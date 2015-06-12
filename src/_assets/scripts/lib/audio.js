@@ -33,6 +33,7 @@ let soundcloudPlayerStream = new Rx.Subject();
           youtubeApiStream.onNext(player.youtubePlayer);
           youtubeApiStream.onCompleted();
         },
+
         onStateChange: function onStateChange(event) {
           youtubePlayerStream.onNext(event);
         }
@@ -77,6 +78,7 @@ class Utilities {
         memo[key] = val;
         return memo;
       }, {});
+
       return params.v;
     }
   }
@@ -97,6 +99,7 @@ class AudioPlayer {
     if (Utilities.urlIsSoundcloud(url)) {
       this.playSoundcloud(this.player.soundcloudPlayer, url);
     }
+
     if (Utilities.urlIsYoutube(url)) {
       this.playYoutube(this.player.youtubePlayer, url);
     }
@@ -110,25 +113,27 @@ class AudioPlayer {
 
   playYoutube(youtubePlayer, url) {
     let noop = function noop() {};
-    this.youtubeApiStream.subscribe(noop, noop,
-      function onComplete() {
-        var videoId = Utilities.youtubeUrlToId(url);
-        youtubePlayer.loadVideoById({
-          videoId: videoId,
-          startSeconds: 0,
-          suggestedQuality: 'small'
-        });
-      }
-    );
+
+    let onComplete = function onComplete() {
+      var videoId = Utilities.youtubeUrlToId(url);
+      youtubePlayer.loadVideoById({
+        videoId: videoId,
+        startSeconds: 0,
+        suggestedQuality: 'small'
+      });
+    };
+
+    this.youtubeApiStream.subscribe(noop, noop, onComplete);
   }
 
   pause(youtubePlayer, soundcloudPlayer) {
     try {
       youtubePlayer.stopVideo();
-    } catch(err) {/* intentionally empty */}
+    } catch (err) {/* intentionally empty */}
+
     try {
       soundcloudPlayer.pause();
-    } catch(err) {/* intentionally empty */}
+    } catch (err) {/* intentionally empty */}
   }
 
   seekTo(seconds) {

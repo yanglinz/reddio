@@ -11,6 +11,7 @@ let SongsStore = Marty.createStore({
       memo[sortType] = [];
       return memo;
     }, {});
+
     return {
       songs: songs,
       activeSortType: NavStore.getActiveSortType()
