@@ -95,7 +95,7 @@ class AudioPlayer {
 
   play(url) {
     // pause any currently playing song
-    this.pause(this.player.youtubePlayer, this.player.soundcloudPlayer);
+    this.pause();
     if (Utilities.urlIsSoundcloud(url)) {
       this.playSoundcloud(this.player.soundcloudPlayer, url);
     }
@@ -106,8 +106,8 @@ class AudioPlayer {
   }
 
   playSoundcloud(soundcloudPlayer, url) {
-    soundcloudPlayer.load(url, {callback: function onPlayerReady() {
-      soundcloudPlayer.play();
+    this.player.soundcloudPlayer.load(url, {callback: function onPlayerReady() {
+      this.player.soundcloudPlayer.play();
     }});
   }
 
@@ -126,22 +126,18 @@ class AudioPlayer {
     this.youtubeApiStream.subscribe(noop, noop, onComplete);
   }
 
-  pause(youtubePlayer, soundcloudPlayer) {
-    try {
-      youtubePlayer.stopVideo();
-    } catch (err) {/* intentionally empty */}
-
-    try {
-      soundcloudPlayer.pause();
-    } catch (err) {/* intentionally empty */}
+  pause() {
+    this.player.youtubePlayer.stopVideo();
+    this.player.soundcloudPlayer.pause();
   }
 
   seekTo(seconds) {
     // seek to seconds
   }
 
-  setVolume(percent) {
-    // set volume
+  setVolume(volume) {
+    this.player.youtubePlayer.setVolume(volume);
+    this.player.soundcloudPlayer.setVolume(volume);
   }
 }
 
