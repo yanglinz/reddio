@@ -19,7 +19,7 @@ let PlayerStore = Marty.createStore({
   },
 
   getCurrentSong() {
-    return _.first(this.state.queue)
+    return _.first(this.state.queue);
   },
 
   playSong(song, activeSongs) {

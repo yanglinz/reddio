@@ -1,6 +1,5 @@
 import Marty from 'marty';
 import NavConstants from '../constants/navConstants.js';
-import NavStore from '../stores/navStore.js';
 
 let PlayerAction = Marty.createQueries({
   id: 'NavAction',

@@ -1,7 +1,5 @@
-/* eslint react/sort-comp:0 */
-/* eslint react/prop-types:0 */
+/* eslint react/sort-comp: 0, react/prop-types: 0 */
 
-import _ from 'lodash';
 import React from 'react';
 import Marty from 'marty';
 import NavStore from '../stores/navStore.js';

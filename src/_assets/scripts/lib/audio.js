@@ -1,6 +1,7 @@
+/* eslint new-cap: 0 */
+
 import _ from 'lodash';
 import Rx from 'rx';
-import {errorLogger} from './logger.js';
 
 /**
  * Load the youtube and soundcloud api script.
@@ -42,14 +43,14 @@ let soundcloudPlayerStream = new Rx.Subject();
   };
 })();
 
-(function loadSoundcloud(window, document, soundcloudApiStream) {
+(function loadSoundcloud() {
   if (window.SC) {
     const elementID = '#soundcloud_player';
     const iframeElement = document.querySelector(elementID);
     player.soundcloudPlayer = window.SC.Widget(iframeElement);
     soundcloudApiStream.onNext(window.SC);
   }
-})(window, document, soundcloudApiStream);
+})();
 
 class Utilities {
   static urlIsSoundcloud(url) {
@@ -65,10 +66,11 @@ class Utilities {
 
   static youtubeUrlToId(url) {
     const youtubeShortUrl = 'youtu.be';
+    let videoId;
     let parser = document.createElement('a');
     parser.href = url;
     if (_.includes(url, youtubeShortUrl)) {
-      return parser.pathname.split('/')[1];
+      videoId = parser.pathname.split('/')[1];
     } else {
       let params = parser.search;
       params = params.replace('?', '').split('&');
@@ -79,8 +81,10 @@ class Utilities {
         return memo;
       }, {});
 
-      return params.v;
+      videoId = params.v;
     }
+
+    return videoId;
   }
 }
 
@@ -131,7 +135,7 @@ class AudioPlayer {
     this.player.soundcloudPlayer.pause();
   }
 
-  seekTo(seconds) {
+  seekTo() {
     // seek to seconds
   }
 
