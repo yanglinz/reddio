@@ -1,5 +1,3 @@
-'use strict';
-
 var gulp = require('gulp');
 var runSequence = require('run-sequence');
 var awsPublish = require('gulp-awspublish');
@@ -12,29 +10,29 @@ var env = require('./../../env.js');
 
 var publisherConf = {
   params: {
-    Bucket:        env.AWS_BUCKET_NAME
+    Bucket: env.AWS_BUCKET_NAME
   },
-  accessKeyId:     env.AWS_ACCESS_KEY,
+  accessKeyId: env.AWS_ACCESS_KEY,
   secretAccessKey: env.AWS_SECRET_KEY,
-  region:          env.AWS_REGION
+  region: env.AWS_REGION
 };
 
-gulp.task('deploy:publishShortCache', function() {
+gulp.task('deploy:publishShortCache', function deployShortCacheTask() {
   var publisher = awsPublish.create(publisherConf);
   var headers = {
     'Cache-Control': 'max-age=300, no-transform, public'  // cache for 5 minutes
   };
-  return gulp.src(dirs.globs.build.final.short)
+  return gulp.src(dirs.globs.build.destination.shortCache)
     .pipe(publisher.publish(headers, {force: true}))
     .pipe(awsPublish.reporter({}));
 });
 
-gulp.task('deploy:publishLongCache', function() {
+gulp.task('deploy:publishLongCache', function deployLongCacheTask() {
   var publisher = awsPublish.create(publisherConf);
   var headers = {
     'Cache-Control': 'max-age=315360000, no-transform, public'  // cache for 365 days
   };
-  return gulp.src(dirs.globs.build.final.long)
+  return gulp.src(dirs.globs.build.destination.longCache)
     .pipe(publisher.publish(headers, {force: true}))
     .pipe(awsPublish.reporter({}));
 });
@@ -43,7 +41,7 @@ gulp.task('deploy:publishLongCache', function() {
  * Expose public gulp tasks
  */
 
-gulp.task('deploy:publish', function(callback) {
+gulp.task('deploy:publish', function deployTask(callback) {
   runSequence(
     'deploy:publishShortCache',
     'deploy:publishLongCache',

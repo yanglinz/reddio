@@ -1,4 +1,4 @@
-'use strict';
+/* eslint vars-on-top: 0 */
 
 var gulp = require('gulp');
 var swig = require('gulp-swig');
@@ -35,7 +35,7 @@ var processProductionSwig = lazypipe()
   .pipe(processSwig)
   .pipe(processProductionHTML);
 
-gulp.task('templates:processSwig', function() {
+gulp.task('templates:processSwig', function processSwigTask() {
   return gulp.src(dirs.globs.templates.swig, {base: dirs.paths.src})
     .pipe(gulpif(isLocal, plumber({errorHandler: errorHandler})))
     .pipe(gulpif(!isLocal, processProductionSwig(), processSwig()))
@@ -54,15 +54,15 @@ var handlebarsOption = {
 var processHandlebars = lazypipe()
   .pipe(data, templateData)
   .pipe(handlebars, templateData, handlebarsOption)
-  .pipe(rename, function(path) {
-    path.extname = '.html';
+  .pipe(rename, function renameHtml(filePath) {
+    filePath.extname = '.html';
   });
 
 var processProductionHandlebars = lazypipe()
   .pipe(processHandlebars)
   .pipe(processProductionHTML);
 
-gulp.task('templates:processHandlebars', function() {
+gulp.task('templates:processHandlebars', function processHandlebarsTask() {
   return gulp.src(dirs.globs.templates.hbs, {base: dirs.paths.src})
     .pipe(gulpif(isLocal, plumber({
       errorHandler: errorHandler

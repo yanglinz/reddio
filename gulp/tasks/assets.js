@@ -1,4 +1,4 @@
-'use strict';
+/* eslint vars-on-top: 0 */
 
 var gulp = require('gulp');
 var sass = require('gulp-sass');
@@ -34,7 +34,7 @@ var processProductionCss = lazypipe()
     .pipe(minifyCSS)
   .pipe(sourcemaps.write);
 
-gulp.task('assets:processCss', function() {
+gulp.task('assets:processCss', function processCssTask() {
   return gulp.src(dirs.globs.assets.css, {base: dirs.paths.src})
     .pipe(gulpif(isLocal, plumber({errorHandler: errorHandler})))
     .pipe(gulpif(!isLocal, processProductionCss(), processCss()))
@@ -54,7 +54,7 @@ var processProductionImg = lazypipe()
     multipass: true
   });
 
-gulp.task('assets:processImg', function() {
+gulp.task('assets:processImg', function processImgTask() {
   return gulp.src(dirs.globs.assets.img, {base: dirs.paths.src})
     .pipe(gulpif(optimizeImages, processProductionImg()))
     .pipe(gulp.dest(dirs.paths.dst));
@@ -64,7 +64,7 @@ gulp.task('assets:processImg', function() {
  * Process fonts
  */
 
-gulp.task('assets:processFonts', function() {
+gulp.task('assets:processFonts', function processFontsTask() {
   return gulp.src(dirs.globs.assets.fonts, {base: dirs.paths.src})
     .pipe(gulp.dest(dirs.paths.dst));
 });
@@ -73,7 +73,7 @@ gulp.task('assets:processFonts', function() {
  * Expose public gulp tasks
  */
 
-gulp.task('assets:process', function(callback) {
+gulp.task('assets:process', function processAssetsTask(callback) {
   runSequence(
     'assets:processCss',
     'assets:processImg',

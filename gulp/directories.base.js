@@ -1,4 +1,5 @@
-'use strict';
+/* jscs:disable maximumLineLength */
+/* eslint key-spacing: 0 */
 
 module.exports = {
   paths: {
@@ -22,7 +23,7 @@ module.exports = {
       json:       'src/_fixtures/**/*.json',
       misc:       'src/_fixtures/**/!(*.json)'
     },
-    static: {
+    msc: {
       all:        'src/**/+(*.xml|*.txt|*.ico|*.png)'
     },
     templates: {
@@ -35,10 +36,10 @@ module.exports = {
         MD5:      'dst/**/+(*.js|*.css|*.jpg|*.jpeg|*.png|*.gif|*.svg)',
         nonMD5:   'dst/**/!(*.js|*.css|*.jpg|*.jpeg|*.png|*.gif|*.svg)'
       },
-      final: {
-        all:      'build/**',
-        short:    'build/**/+(*.html|favicon.ico|apple-touch-icon.png|apple-touch-icon-precomposed.png|robots.txt|sitemap.xml)',
-        long:     'build/**/!(*.html|favicon.ico|apple-touch-icon.png|apple-touch-icon-precomposed.png|robots.txt|sitemap.xml)'
+      destination: {
+        all:        'build/**',
+        shortCache: 'build/**/+(*.html|favicon.ico|apple-touch-icon.png|apple-touch-icon-precomposed.png|robots.txt|sitemap.xml)',
+        longCache:  'build/**/!(*.html|favicon.ico|apple-touch-icon.png|apple-touch-icon-precomposed.png|robots.txt|sitemap.xml)'
       }
     }
   }

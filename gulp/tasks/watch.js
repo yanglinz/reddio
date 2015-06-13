@@ -1,9 +1,7 @@
-'use strict';
-
 var gulp = require('gulp');
 var dirs = require('../directories.js');
 
-gulp.task('watch:all', function() {
+gulp.task('watch:all', function watchAllTask() {
   /**
    * Watch sass
    */
@@ -22,12 +20,11 @@ gulp.task('watch:all', function() {
   /**
    * Watch swig templates
    */
-  var swigGlob = [
+  gulp.watch([
     dirs.globs.templates.swig,
     dirs.globs.templates.swig.replace('swig', 'json'),
     dirs.globs.templates.swig.replace('swig', 'html')
-  ];
-  gulp.watch(swigGlob, ['templates:processSwig']);
+  ], ['templates:processSwig']);
 });
 
 gulp.task('watch', [

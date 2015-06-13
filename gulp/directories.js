@@ -1,5 +1,3 @@
-'use strict';
-
 var baseDirs = require('./directories.base.js');
 var customDirs = baseDirs;
 

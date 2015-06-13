@@ -1,8 +1,8 @@
-'use strict';
+/* eslint no-console: 0 */
 
 var util = require('gulp-util');
 
-var errorHandler = function(e) {
+var errorHandler = function onError(e) {
   util.beep();
   console.error(util.colors.magenta('[ERROR]'), ':', e);
   this.emit('end');  // make sure gulp-plumber fails task elegantly

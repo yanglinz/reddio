@@ -1,21 +1,12 @@
-'use strict';
-
 var webpack = require('webpack');
 var path = require('path');
 var util = require('gulp-util');
 var env = require('./env.js');
+var isLocal = env.ENV !== 'production' && env.ENV !== 'staging';
 
 /**
  * Manage ./src/_assets/js/main.js
  */
-
-function beepOnError() {
-  this.plugin('done', function(stats) {
-    if (stats.compilation.errors && stats.compilation.errors.length) {
-      util.beep();
-    }
-  });
-}
 
 var config = {
   debug: env.ENV === 'local',
@@ -32,13 +23,18 @@ var config = {
     }]
   },
   resolve: {
-    alias: {
-      jquery: path.resolve(__dirname, './src/_vendor/jquery/dist/jquery.js')
-    },
     modulesDirectories: ['_vendor', 'node_modules']
   },
   plugins: [
-    beepOnError
+
+    function beepOnError() {
+      this.plugin('done', function onCompileDone(stats) {
+        if (stats.compilation.errors && stats.compilation.errors.length) {
+          util.beep();
+        }
+      });
+    }
+
   ],
   devtool: '#inline-source-map'
 };
@@ -46,8 +42,6 @@ var config = {
 /**
  * Set production options
  */
-
-var isLocal = env.ENV !== 'production' && env.ENV !== 'staging';
 
 if (!isLocal) {
   config.plugins = config.plugins || [];

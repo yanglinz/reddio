@@ -1,4 +1,4 @@
-'use strict';
+/* eslint key-spacing: 0 */
 
 var nconf = require('nconf');
 var path = require('path');
@@ -7,6 +7,7 @@ nconf.env().file({file: path.resolve(__dirname, 'env.json')});
 
 module.exports = {
   ENV:             nconf.get('ENV') || 'local',
+  SITE_URL:        nconf.get('SITE_URL'),
   AWS_ACCESS_KEY:  nconf.get('AWS_ACCESS_KEY'),
   AWS_SECRET_KEY:  nconf.get('AWS_SECRET_KEY'),
   AWS_REGION:      nconf.get('AWS_REGION'),

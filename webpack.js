@@ -1,5 +1,3 @@
-'use strict';
-
 var baseConfig = require('./webpack.base.js');
 var customConfig = baseConfig;
 
