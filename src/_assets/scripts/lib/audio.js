@@ -79,24 +79,24 @@ class AudioPlayer {
      * Load the soundcloud api script.
      * The soundcloud script synchronously attaches a global `SC` object
      */
-    let context = this;
+    let _this = this;
     window.onYouTubeIframeAPIReady = function resolveYoutube() {
       const elementID = 'youtube_player';
       const width = 420;
       const height = 120;
 
       // assign `youtubePlayer` semi-global `player` to be used elsewhere
-      context.player.youtubePlayer = new window.YT.Player(elementID, {
+      _this.player.youtubePlayer = new window.YT.Player(elementID, {
         width: width,
         height: height,
         events: {
           onReady: function onYoutubePlayerReady() {
-            context.youtubeApiStream.onNext(context.player.youtubePlayer);
-            context.youtubeApiStream.onCompleted();
+            _this.youtubeApiStream.onNext(_this.player.youtubePlayer);
+            _this.youtubeApiStream.onCompleted();
           },
 
           onStateChange: function onStateChange(event) {
-            context.youtubePlayerStream.onNext(event);
+            _this.youtubePlayerStream.onNext(event);
           }
         }
       });
