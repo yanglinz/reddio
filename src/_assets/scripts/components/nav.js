@@ -8,10 +8,6 @@ import NavAction from '../actions/navAction.js';
 class NavItem extends React.Component {
   constructor(props) {
     super(props);
-    this.propTypes = {
-      isActive: React.PropTypes.bool,
-      children: React.PropTypes.string
-    };
   }
 
   setActiveSortType() {
@@ -28,13 +24,14 @@ class NavItem extends React.Component {
   }
 }
 
+NavItem.propTypes = {
+  isActive: React.PropTypes.bool,
+  children: React.PropTypes.string
+};
+
 class Nav extends React.Component {
   constructor(props) {
     super(props);
-    this.propTypes = {
-      sortTypes: React.PropTypes.array,
-      activeSortType: React.PropTypes.string
-    };
   }
 
   render() {
@@ -50,6 +47,11 @@ class Nav extends React.Component {
     );
   }
 }
+
+Nav.propTypes = {
+  sortTypes: React.PropTypes.array,
+  activeSortType: React.PropTypes.string
+};
 
 let NavContainer = Marty.createContainer(Nav, {
   listenTo: NavStore,

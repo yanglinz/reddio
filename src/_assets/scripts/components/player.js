@@ -13,9 +13,6 @@ class Player extends React.Component {
       isLoading: true,
       isPlaying: false
     };
-    this.propTypes = {
-      currentSong: React.PropTypes.string
-    };
   }
 
   componentDidMount() {
@@ -47,6 +44,10 @@ class Player extends React.Component {
     );
   }
 }
+
+Player.propTypes = {
+  currentSong: React.PropTypes.string
+};
 
 let PlayerContainer = Marty.createContainer(Player, {
   listenTo: PlayerStore,

@@ -10,9 +10,6 @@ import Button from './common/button.js';
 class Song extends React.Component {
   constructor(props) {
     super(props);
-    this.propTypes = {
-      songs: React.PropTypes.array
-    };
   }
 
   render() {
@@ -47,11 +44,14 @@ class Song extends React.Component {
   }
 }
 
+Song.propTypes = {
+  songs: React.PropTypes.array
+};
+
 class SongsList extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.propTypes = {songs: React.PropTypes.array};
   }
 
   render() {
@@ -74,6 +74,10 @@ class SongsList extends React.Component {
     SongsQuery.fetchSongs(this.props.songs);
   }
 }
+
+SongsList.propTypes = {
+  songs: React.PropTypes.array
+};
 
 let SongsListContainer = Marty.createContainer(SongsList, {
   listenTo: SongsStore,
