@@ -23,6 +23,7 @@ class App extends React.Component {
       <div className="wrap">
         <Masthead/>
         <Content/>
+        <Player/>
       </div>
     );
   }
@@ -31,9 +32,4 @@ class App extends React.Component {
 React.render(
   <App />,
   document.getElementById('app')
-);
-
-React.render(
-  <Player />,
-  document.getElementById('audio_player')
 );

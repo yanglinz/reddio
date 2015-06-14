@@ -3,55 +3,6 @@
 import _ from 'lodash';
 import Rx from 'rx';
 
-/**
- * Load the youtube and soundcloud api script.
- * The youtube script asynchronously loads the iframe api.
- * When loaded, it will fire the `window.onYouTubeIframeAPIReady`
- * The soundcloud script synchronously attaches a global `SC` object
- */
-
-import '../contrib/soundcloud.player.api.js';
-import '../contrib/youtube.iframe.api.js';
-
-let player = {}; // must be an object so assignments are by reference
-let youtubeApiStream = new Rx.Subject();
-let youtubePlayerStream = new Rx.Subject();
-let soundcloudApiStream = new Rx.Subject();
-let soundcloudPlayerStream = new Rx.Subject();
-
-(function loadYoutube() {
-  window.onYouTubeIframeAPIReady = function resolveYoutube() {
-    const elementID = 'youtube_player';
-    const width = 420;
-    const height = 120;
-
-    // assign `youtubePlayer` semi-global `player` to be used elsewhere
-    player.youtubePlayer = new window.YT.Player(elementID, {
-      width: width,
-      height: height,
-      events: {
-        onReady: function onYoutubePlayerReady() {
-          youtubeApiStream.onNext(player.youtubePlayer);
-          youtubeApiStream.onCompleted();
-        },
-
-        onStateChange: function onStateChange(event) {
-          youtubePlayerStream.onNext(event);
-        }
-      }
-    });
-  };
-})();
-
-(function loadSoundcloud() {
-  if (window.SC) {
-    const elementID = '#soundcloud_player';
-    const iframeElement = document.querySelector(elementID);
-    player.soundcloudPlayer = window.SC.Widget(iframeElement);
-    soundcloudApiStream.onNext(window.SC);
-  }
-})();
-
 class Utilities {
   static urlIsSoundcloud(url) {
     const soundcloudUrl = 'soundcloud.com';
@@ -88,13 +39,68 @@ class Utilities {
   }
 }
 
+/**
+ * Load the youtube and soundcloud api script.
+ */
+
+import '../contrib/soundcloud.player.api.js';
+import '../contrib/youtube.iframe.api.js';
+
 class AudioPlayer {
   constructor() {
-    this.player = player;
-    this.youtubeApiStream = youtubeApiStream;
-    this.youtubePlayerStream = youtubePlayerStream;
-    this.soundcloudApiStream = soundcloudApiStream;
-    this.soundcloudPlayerStream = soundcloudPlayerStream;
+    this.player = {};
+    this.youtubeApiStream = new Rx.Subject();
+    this.youtubePlayerStream = new Rx.Subject();
+    this.soundcloudApiStream = new Rx.Subject();
+    this.soundcloudPlayerStream = new Rx.Subject();
+  }
+
+  load() {
+    this.loadSoundcloud();
+    this.loadYoutube();
+  }
+
+  loadSoundcloud() {
+    /**
+     * Load the youtube api script.
+     * The youtube script asynchronously loads the iframe api.
+     * When loaded, it will fire the `window.onYouTubeIframeAPIReady`
+     */
+    if (window.SC) {
+      const elementID = '#soundcloud_player';
+      const iframeElement = document.querySelector(elementID);
+      this.player.soundcloudPlayer = window.SC.Widget(iframeElement);
+      this.soundcloudApiStream.onNext(window.SC);
+    }
+  }
+
+  loadYoutube() {
+    /**
+     * Load the soundcloud api script.
+     * The soundcloud script synchronously attaches a global `SC` object
+     */
+    let context = this;
+    window.onYouTubeIframeAPIReady = function resolveYoutube() {
+      const elementID = 'youtube_player';
+      const width = 420;
+      const height = 120;
+
+      // assign `youtubePlayer` semi-global `player` to be used elsewhere
+      context.player.youtubePlayer = new window.YT.Player(elementID, {
+        width: width,
+        height: height,
+        events: {
+          onReady: function onYoutubePlayerReady() {
+            context.youtubeApiStream.onNext(context.player.youtubePlayer);
+            context.youtubeApiStream.onCompleted();
+          },
+
+          onStateChange: function onStateChange(event) {
+            context.youtubePlayerStream.onNext(event);
+          }
+        }
+      });
+    };
   }
 
   play(url) {
