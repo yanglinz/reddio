@@ -1,6 +1,7 @@
 /* eslint new-cap: 0 */
 
 import _ from 'lodash';
+import RSVP from 'rsvp';
 import Rx from 'rx';
 
 class Utilities {
@@ -48,10 +49,10 @@ import '../contrib/youtube.iframe.api.js';
 
 class AudioPlayer {
   constructor() {
-    this.player = {};
-    this.youtubeApiStream = new Rx.Subject();
+    this._player = {};
+    this._youtubeApiPromise = null;
+    this._soundcloudApiPromise = null;
     this.youtubePlayerStream = new Rx.Subject();
-    this.soundcloudApiStream = new Rx.Subject();
     this.soundcloudPlayerStream = new Rx.Subject();
   }
 
@@ -65,21 +66,30 @@ class AudioPlayer {
      * Load the soundcloud api script.
      * The soundcloud script synchronously attaches a global `SC` object
      */
+    let _this = this;
+    if (_.isEmpty(_this._youtubeApiPromise)) {
+      const elementID = 'soundcloud-player-container';
+      let soundcloudIframe = document.createElement('iframe');
+      soundcloudIframe.id = elementID;
+      soundcloudIframe.width = '100%';
+      soundcloudIframe.height = '150';
+      soundcloudIframe.src = 'https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1848538';
+      document.body.appendChild(soundcloudIframe);
 
-    const elementID = 'soundcloud-player-container';
-    let soundcloudIframe = document.createElement('iframe');
-    soundcloudIframe.id = elementID;
-    soundcloudIframe.width = '100%';
-    soundcloudIframe.height = '150';
-    soundcloudIframe.src = 'https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1848538';
-    document.body.appendChild(soundcloudIframe);
+      _this._soundcloudApiPromise = new RSVP.Promise(function handleSCPromise(resolve, reject) {
+        if (_.isEmpty(window.SC.Widget)) {
+          reject('window.SC.Widget is undefined');
+        }
 
-    // use promise instead of streams
-    if (window.SC) {
-      const iframeElement = document.querySelector('#' + elementID);
-      this.player.soundcloudPlayer = window.SC.Widget(iframeElement);
-      this.soundcloudApiStream.onNext(window.SC);
+        if (window.SC) {
+          const iframeElement = document.querySelector('#' + elementID);
+          _this._player.soundcloudPlayer = window.SC.Widget(iframeElement);
+          resolve(_this._player.soundcloudPlayer);
+        }
+      });
     }
+
+    return _this._soundcloudApiPromise;
   }
 
   loadYoutube() {
@@ -88,71 +98,72 @@ class AudioPlayer {
      * The youtube script asynchronously loads the iframe api.
      * When loaded, it will fire the `window.onYouTubeIframeAPIReady`
      */
-
     let _this = this;
-    const elementID = 'youtube-player-container';
-    let youtubeContainer = document.createElement('div');
-    youtubeContainer.id = elementID;
-    document.body.appendChild(youtubeContainer);
+    if (_.isEmpty(_this._youtubeApiPromise)) {
+      const elementID = 'youtube-player-container';
+      let youtubeContainer = document.createElement('div');
+      youtubeContainer.id = elementID;
+      document.body.appendChild(youtubeContainer);
 
-    window.onYouTubeIframeAPIReady = function resolveYoutube() {
-      const width = 420;
-      const height = 120;
-
-      // assign `youtubePlayer` semi-global `player` to be used elsewhere
-      _this.player.youtubePlayer = new window.YT.Player(elementID, {
-        width: width,
-        height: height,
-        events: {
-          onReady: function onYoutubePlayerReady() {
-            _this.youtubeApiStream.onNext(_this.player.youtubePlayer);
-            _this.youtubeApiStream.onCompleted();
-          },
-
-          onStateChange: function onStateChange(event) {
-            _this.youtubePlayerStream.onNext(event);
+      _this._youtubeApiPromise = new RSVP.Promise(function handleYoutubePromise(resolve, reject) {
+        window.onYouTubeIframeAPIReady = function onYouTubeIframeAPIReady() {
+          if (_.isEmpty(window.YT)) {
+            reject('window.YT is undefined');
           }
-        }
+
+          _this._player.youtubePlayer = new window.YT.Player(elementID, {
+            width: 420,
+            height: 120,
+            events: {
+              onReady: function onYoutubePlayerReady() {
+                resolve(_this._player.youtubePlayer);  // resolve promise
+              },
+
+              onStateChange: function onStateChange(event) {
+                _this.youtubePlayerStream.onNext(event);  // pipe raw player events to stream
+              }
+            }
+          });
+        };
       });
-    };
+    }
+
+    return _this._youtubeApiPromise;
   }
 
   play(url) {
-    // pause any currently playing song
-    this.pause();
+    this.pause();  // pause any currently playing song
     if (Utilities.urlIsSoundcloud(url)) {
-      this._playSoundcloud(this.player.soundcloudPlayer, url);
+      this._playSoundcloud(url);
     }
 
     if (Utilities.urlIsYoutube(url)) {
-      this._playYoutube(this.player.youtubePlayer, url);
+      this._playYoutube(url);
     }
   }
 
-  _playSoundcloud(soundcloudPlayer, url) {
-    soundcloudPlayer.load(url, {callback: function onPlayerReady() {
-      soundcloudPlayer.play();
-    }});
+  _playSoundcloud(url) {
+    this.loadSoundcloud().then(function onSuccess(soundcloudPlayer) {
+      soundcloudPlayer.load(url, {callback: function onPlayerReady() {
+        soundcloudPlayer.play();
+      }});
+    });
   }
 
-  _playYoutube(youtubePlayer, url) {
-    let noop = function noop() {};
-
-    let onComplete = function onComplete() {
-      var videoId = Utilities.youtubeUrlToId(url);
+  _playYoutube(url) {
+    this.loadYoutube().then(function onSuccess(youtubePlayer) {
+      const videoId = Utilities.youtubeUrlToId(url);
       youtubePlayer.loadVideoById({
         videoId: videoId,
         startSeconds: 0,
         suggestedQuality: 'small'
       });
-    };
-
-    this.youtubeApiStream.subscribe(noop, noop, onComplete);
+    });
   }
 
   pause() {
-    this.player.youtubePlayer.stopVideo();
-    this.player.soundcloudPlayer.pause();
+    this._player.youtubePlayer.stopVideo();
+    this._player.soundcloudPlayer.pause();
   }
 
   seekTo() {
@@ -160,8 +171,8 @@ class AudioPlayer {
   }
 
   setVolume(volume) {
-    this.player.youtubePlayer.setVolume(volume);
-    this.player.soundcloudPlayer.setVolume(volume);
+    this._player.youtubePlayer.setVolume(volume);
+    this._player.soundcloudPlayer.setVolume(volume);
   }
 }
 
