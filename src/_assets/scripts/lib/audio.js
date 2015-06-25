@@ -28,8 +28,7 @@ class Utilities {
       params = params.replace('?', '').split('&');
       params = _.reduce(params, function generateParams(memo, p) {
         let key = p.split('=')[0];
-        let val = p.split('=')[1];
-        memo[key] = val;
+        memo[key] = p.split('=')[1];
         return memo;
       }, {});
 
