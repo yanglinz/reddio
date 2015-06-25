@@ -62,13 +62,21 @@ class AudioPlayer {
 
   loadSoundcloud() {
     /**
-     * Load the youtube api script.
-     * The youtube script asynchronously loads the iframe api.
-     * When loaded, it will fire the `window.onYouTubeIframeAPIReady`
+     * Load the soundcloud api script.
+     * The soundcloud script synchronously attaches a global `SC` object
      */
+
+    const elementID = 'soundcloud-player-container';
+    let soundcloudIframe = document.createElement('iframe');
+    soundcloudIframe.id = elementID;
+    soundcloudIframe.width = '100%';
+    soundcloudIframe.height = '150';
+    soundcloudIframe.src = 'https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1848538';
+    document.body.appendChild(soundcloudIframe);
+
+    // use promise instead of streams
     if (window.SC) {
-      const elementID = '#soundcloud_player';
-      const iframeElement = document.querySelector(elementID);
+      const iframeElement = document.querySelector('#' + elementID);
       this.player.soundcloudPlayer = window.SC.Widget(iframeElement);
       this.soundcloudApiStream.onNext(window.SC);
     }
@@ -76,12 +84,18 @@ class AudioPlayer {
 
   loadYoutube() {
     /**
-     * Load the soundcloud api script.
-     * The soundcloud script synchronously attaches a global `SC` object
+     * Load the youtube api script.
+     * The youtube script asynchronously loads the iframe api.
+     * When loaded, it will fire the `window.onYouTubeIframeAPIReady`
      */
+
     let _this = this;
+    const elementID = 'youtube-player-container';
+    let youtubeContainer = document.createElement('div');
+    youtubeContainer.id = elementID;
+    document.body.appendChild(youtubeContainer);
+
     window.onYouTubeIframeAPIReady = function resolveYoutube() {
-      const elementID = 'youtube_player';
       const width = 420;
       const height = 120;
 
@@ -107,21 +121,21 @@ class AudioPlayer {
     // pause any currently playing song
     this.pause();
     if (Utilities.urlIsSoundcloud(url)) {
-      this.playSoundcloud(this.player.soundcloudPlayer, url);
+      this._playSoundcloud(this.player.soundcloudPlayer, url);
     }
 
     if (Utilities.urlIsYoutube(url)) {
-      this.playYoutube(this.player.youtubePlayer, url);
+      this._playYoutube(this.player.youtubePlayer, url);
     }
   }
 
-  playSoundcloud(soundcloudPlayer, url) {
-    this.player.soundcloudPlayer.load(url, {callback: function onPlayerReady() {
-      this.player.soundcloudPlayer.play();
+  _playSoundcloud(soundcloudPlayer, url) {
+    soundcloudPlayer.load(url, {callback: function onPlayerReady() {
+      soundcloudPlayer.play();
     }});
   }
 
-  playYoutube(youtubePlayer, url) {
+  _playYoutube(youtubePlayer, url) {
     let noop = function noop() {};
 
     let onComplete = function onComplete() {
