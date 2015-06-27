@@ -17,10 +17,6 @@ class Player extends React.Component {
     };
   }
 
-  componentDidUpdate() {
-    this.playSong();
-  }
-
   render() {
     return (
       <div className="player">

@@ -1,27 +1,41 @@
 import { PlayerActionTypes } from '../../actions/action.constants.js';
 
-const PlayerReducer = {
-  [PlayerActionTypes.PLAY_SONG]: function reducePlaySong(playerState) {
-    playerState.isPlaying = true;
-    return playerState;
-  },
+export default function GetPlayerReducer(action) {
+  let reducer = function noop() {};
 
-  [PlayerActionTypes.PAUSE_SONG]: function reducePauseSong(playerState) {
-    playerState.isPlaying = false;
-    return playerState;
-  },
+  switch(action.type) {
+    case PlayerActionTypes.PLAY_SONG:
+      reducer = function reducePlaySong(playerState) {
+        playerState.isPlaying = true;
+        return playerState;
+      };
+      break;
 
-  [PlayerActionTypes.PREV_SONG]: function reducePrevSong(playerState) {
-    playerState.queue = [];
-    playerState.currentSong = {};
-    return playerState;
-  },
+    case PlayerActionTypes.PAUSE_SONG:
+      reducer = function reducePlaySong(playerState) {
+        playerState.isPlaying = false;
+        return playerState;
+      };
+      break;
 
-  [PlayerActionTypes.NEXT_SONG]: function reduceNextSong(playerState) {
-    playerState.queue = [];
-    playerState.currentSong = {};
-    return playerState;
+    case PlayerActionTypes.PREV_SONG:
+      reducer = function reducePrevSong(playerState) {
+        let currentSong = action.currentSong;
+        playerState.queue = [currentSong];
+        playerState.currentSong = {};
+        return playerState;
+      };
+      break;
+
+    case PlayerActionTypes.NEXT_SONG:
+      reducer = function reduceNextSong(playerState) {
+        let currentSong = action.currentSong;
+        playerState.queue = [currentSong];
+        playerState.currentSong = {};
+        return playerState;
+      };
+      break;
   }
-};
 
-export default PlayerReducer;
+  return reducer;
+}

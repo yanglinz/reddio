@@ -1,3 +1,5 @@
+/* eslint react/sort-comp: 0 */
+
 import React from 'react';
 import Player from './base/player.js';
 import Dispatcher from '../dispatcher.js';
@@ -9,8 +11,7 @@ class PlayerContainer extends React.Component {
   }
 
   playSong() {
-    let currentSong = this.props.currentSong;
-    return Dispatcher.dispatch(PlayerActions.playSong(currentSong));
+    return Dispatcher.dispatch(PlayerActions.playSong());
   }
 
   pauseSong() {
@@ -24,12 +25,13 @@ class PlayerContainer extends React.Component {
 
   prevSong() {
     let currentSong = this.props.currentSong;
-    return Dispatcher.dispatch(PlayerActions.prevSong(currentSong))
+    return Dispatcher.dispatch(PlayerActions.prevSong(currentSong));
   }
 
   render() {
     return (
       <Player
+        song={this.props.currentSong}
         playSong={this.playSong.bind(this)}
         pauseSong={this.pauseSong.bind(this)}
         nextSong={this.nextSong.bind(this)}
@@ -38,7 +40,7 @@ class PlayerContainer extends React.Component {
   }
 }
 
-Player.propTypes = {
+PlayerContainer.propTypes = {
   currentSong: React.PropTypes.object
 };
 
