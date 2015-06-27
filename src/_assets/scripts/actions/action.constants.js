@@ -1,0 +1,8 @@
+export const PlayerActionTypes = {
+  PLAY_SONG: 'PLAY_SONG',
+  PAUSE_SONG: 'PAUSE_SONG',
+  NEXT_SONG: 'NEXT_SONG',
+  PREV_SONG: 'PREV_SONG',
+  SET_VOLUME: 'SET_VOLUME',
+  SEEK_TO: 'SEEK_TO'
+};
