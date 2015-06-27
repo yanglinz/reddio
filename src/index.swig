@@ -9,9 +9,7 @@
   <link rel="stylesheet" href="/_assets/styles/main.css">
 </head>
 <body>
-  <!-- Mount node -->
   <div id="app"></div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script src="/_assets/scripts/main.js"></script>
 </body>
 </html>
