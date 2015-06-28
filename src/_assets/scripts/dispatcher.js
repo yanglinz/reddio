@@ -30,9 +30,10 @@ function getReducer(action) {
 
 const Dispatcher = {
   dispatch(action) {
-    if (_.isFunction(action.then)) {  // if the action is asynchronous/promise
-      action.then(function (asyncAction) {
-        let [storageKey, reducer] = getReducer(asyncAction);
+    if (_.isFunction(action.payload.then)) {  // if the action's payload is a promise
+      action.payload.then(function (asyncPayload) {
+        let resolvedAction = _.extend(action, {payload: asyncPayload});
+        let [storageKey, reducer] = getReducer(resolvedAction);
         appState.apply(storageKey, reducer);
       });
     } else {

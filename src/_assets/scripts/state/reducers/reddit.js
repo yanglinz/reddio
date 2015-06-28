@@ -6,14 +6,14 @@ export default function GetRedditReducer(action) {
   switch(action.type) {
     case RedditActionTypes.SET_ACTIVE_SUBREDDIT:
       reducer = function reduceSetActiveSubreddit(redditState) {
-        redditState.activeSubreddit = action.subreddit;
+        redditState.activeSubreddit = action.payload.subreddit;
         return redditState;
       };
       break;
 
     case RedditActionTypes.SET_ACTIVE_SORT_TYPE:
       reducer = function reduceSetActiveSortType(redditState) {
-        redditState.activeSortType = action.sortType;
+        redditState.activeSortType = action.payload.sortType;
         return redditState;
       };
       break;
@@ -23,7 +23,7 @@ export default function GetRedditReducer(action) {
         const activeSubreddit = redditState.activeSubreddit;
         redditState[activeSubreddit] = []
           .concat(redditState[activeSubreddit])
-          .concat(action.posts);
+          .concat(action.payload.posts);
         return redditState;
       };
       break;

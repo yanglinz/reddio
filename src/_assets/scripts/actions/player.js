@@ -4,27 +4,34 @@ const PlayerActions = {
   playSong(song) {
     return {
       type: PlayerActionTypes.PLAY_SONG,
-      song: song
+      payload: {
+        song: song
+      }
     };
   },
 
   pauseSong() {
     return {
-      type: PlayerActionTypes.PAUSE_SONG
+      type: PlayerActionTypes.PAUSE_SONG,
+      payload: {}
     };
   },
 
   nextSong(currentSong) {
     return {
       type: PlayerActionTypes.NEXT_SONG,
-      currentSong: currentSong
+      payload: {
+        currentSong: currentSong
+      }
     };
   },
 
   prevSong(currentSong) {
     return {
       type: PlayerActionTypes.PREV_SONG,
-      currentSong: currentSong
+      payload: {
+        currentSong: currentSong
+      }
     };
   }
 };

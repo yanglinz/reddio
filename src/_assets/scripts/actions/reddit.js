@@ -5,27 +5,32 @@ const RedditActions = {
   setActiveSubreddit(subreddit) {
     return {
       type: RedditActionTypes.SET_ACTIVE_SUBREDDIT,
-      subreddit: subreddit
+      payload: {
+        subreddit: subreddit
+      }
     };
   },
 
   setActiveSortType(sortType) {
     return {
       type: RedditActionTypes.SET_ACTIVE_SORT_TYPE,
-      sortType: sortType
+      payload: {
+        sortType: sortType
+      }
     }
   },
 
   fetchPosts(count) {
-    return new RSVP.Promise(function resolveFetch(resolve, reject) {
+    let fetchPromise = new RSVP.Promise(function resolveFetch(resolve, reject) {
       setTimeout(function () {
-        let action = {
-          type: RedditActionTypes.FETCH_POSTS,
-          count: count
-        };
-        resolve(action);
-      }, 5000)
+        resolve([{}, {}]);
+      }, 1500);
     });
+
+    return {
+      type: RedditActionTypes.FETCH_POSTS,
+      payload: fetchPromise
+    }
   }
 };
 
