@@ -1,5 +1,6 @@
 import RSVP from 'rsvp';
 import { RedditActionTypes } from './action.constants.js';
+import { RedditApi } from '../lib/reddit.js';
 
 const RedditActions = {
   setActiveSubreddit(subreddit) {
@@ -20,13 +21,12 @@ const RedditActions = {
     }
   },
 
-  fetchPosts(count) {
-    let fetchPromise = new RSVP.Promise(function resolveFetch(resolve, reject) {
-      setTimeout(function () {
-        resolve([{}, {}]);
-      }, 1500);
+  fetchPosts(subreddit, sortType, count) {
+    let fetchPromise = RedditApi.get({
+      subreddit: subreddit,
+      sortType: sortType,
+      count: count
     });
-
     return {
       type: RedditActionTypes.FETCH_POSTS,
       payload: fetchPromise

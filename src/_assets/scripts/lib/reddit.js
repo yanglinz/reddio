@@ -1,9 +1,25 @@
 import _ from 'lodash';
 import RSVP from 'rsvp';
 import moment from 'moment';
-let $ = window.$;
+import axios from 'axios';
 
-class Parse {
+export class RedditApi {
+  static getEndpoint(subreddit, listingType) {
+    return `http://www.reddit.com/r/${subreddit}/${listingType}.json`;
+  }
+
+  static get(params) {
+    const subreddit = params.subreddit;
+    const listingType = params.listingType;
+    const url = RedditApi.getEndpoint(subreddit, listingType);
+    return axios.get(url, {
+      limit: params.limit || 25,
+      after: params.after || ''
+    });
+  }
+}
+
+export class RedditParser {
   static listing(listing={}) {
     let posts = _.filter(listing.data.children, function postFilter(post) {
       return !post.data.is_self && !post.data.stickied;
@@ -29,29 +45,3 @@ class Parse {
     };
   }
 }
-
-class RedditApi {
-  constructor(options) {
-    this.subreddit = options.subreddit || 'listentothis';
-  }
-
-  _endpoint(listingType) {
-    const baseUrl = 'http://www.reddit.com/r/' + this.subreddit;
-    return baseUrl + '/' + listingType + '.json';
-  }
-
-  get(listingType, params) {
-    const url = this._endpoint(listingType);
-    let request = $.get(url, {
-      limit: params.limit || 25,
-      after: params.after || ''
-    });
-    return new RSVP.Promise(function resolveListing(resolve) {
-      request.then(function receiveData(data) {
-        resolve(Parse.listing(data));
-      });
-    });
-  }
-}
-
-module.exports = new RedditApi({subreddit: 'listentothis'});

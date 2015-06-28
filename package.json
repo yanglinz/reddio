@@ -8,7 +8,7 @@
     "test": "tests"
   },
   "dependencies": {
-    "marty": "0.9.11",
+    "axios": "0.5.4",
     "moment": "2.10.2",
     "radium": "0.13.0",
     "react": "0.13.2",
