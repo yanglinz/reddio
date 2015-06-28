@@ -6,7 +6,7 @@ export let appStateStream = new Rx.Subject();
 
 export const StorageKeys = {
   PLAYER_STORAGE_KEY: 'player',
-  SONGS_STORAGE_KEY: 'songs'
+  REDDIT_STORAGE_KEY: 'reddit'
 };
 
 const initialState = _.reduce(StorageKeys, function formatInitialState(memo, storageKey) {

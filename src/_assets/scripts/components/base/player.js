@@ -7,16 +7,6 @@ class Player extends React.Component {
     super(props);
   }
 
-  static propTypes() {
-    return {
-      song: React.PropTypes.object.isRequired,
-      playSong: React.PropTypes.func.isRequired,
-      pauseSong: React.PropTypes.func.isRequired,
-      nextSong: React.PropTypes.func.isRequired,
-      prevSong: React.PropTypes.func.isRequired
-    };
-  }
-
   render() {
     return (
       <div className="player">

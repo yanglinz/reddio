@@ -1,19 +1,44 @@
+import _ from 'lodash';
+import RSVP from 'rsvp';
+import { logError } from './lib/logger.js';
+import { PlayerActionTypes, RedditActionTypes } from './actions/action.constants.js';
 import GetPlayerReducer from './state/reducers/player.js';
+import GetRedditReducer from './state/reducers/reddit.js';
 import { StorageKeys, appState } from './state/state.js';
 
-function getStorageKey(actionType) {
-  return StorageKeys.PLAYER_STORAGE_KEY;
-}
-
 function getReducer(action) {
-  return GetPlayerReducer(action);
+  let storageKey, reducer;
+
+  if (!action.type) {
+    return logError('Action missing type');
+  }
+
+  if (_.includes(PlayerActionTypes, action.type)) {
+    storageKey = StorageKeys.PLAYER_STORAGE_KEY;
+    reducer = GetPlayerReducer(action);
+    return [storageKey, reducer];
+  }
+
+  if (_.includes(RedditActionTypes, action.type)) {
+    storageKey = StorageKeys.REDDIT_STORAGE_KEY;
+    reducer = GetRedditReducer(action);
+    return [storageKey, reducer];
+  }
+
+  return logError(`No matching storage key found for action type: ${action.type}`);
 }
 
 const Dispatcher = {
   dispatch(action) {
-    let storageKey = getStorageKey(action.type);
-    let reducer = getReducer(action);
-    appState.apply(storageKey, reducer);
+    if (_.isFunction(action.then)) {  // if the action is asynchronous/promise
+      action.then(function (asyncAction) {
+        let [storageKey, reducer] = getReducer(asyncAction);
+        appState.apply(storageKey, reducer);
+      });
+    } else {
+      let [storageKey, reducer] = getReducer(action);
+      appState.apply(storageKey, reducer);
+    }
   }
 };
 

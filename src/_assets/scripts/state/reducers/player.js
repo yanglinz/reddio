@@ -1,7 +1,7 @@
 import { PlayerActionTypes } from '../../actions/action.constants.js';
 
 export default function GetPlayerReducer(action) {
-  let reducer = function noop() {};
+  let reducer;
 
   switch(action.type) {
     case PlayerActionTypes.PLAY_SONG:

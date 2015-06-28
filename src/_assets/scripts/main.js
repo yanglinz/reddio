@@ -1,7 +1,23 @@
 import React from 'react';
+import RedditContainer from './components/reddit.container.js';
 import PlayerContainer from './components/player.container.js';
 
+class AppContainer extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  render() {
+    return (
+      <div className='app-container'>
+        <RedditContainer currentSubreddit={'listentothis'} />
+        <PlayerContainer currentSong={{}} />
+      </div>
+    );
+  }
+}
+
 React.render(
-  <PlayerContainer currentSong={{}}/>,
+  <AppContainer/>,
   document.getElementById('app')
 );

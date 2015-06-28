@@ -11,21 +11,25 @@ class PlayerContainer extends React.Component {
   }
 
   playSong() {
-    return Dispatcher.dispatch(PlayerActions.playSong());
+    let action = PlayerActions.playSong();
+    return Dispatcher.dispatch(action);
   }
 
   pauseSong() {
-    return Dispatcher.dispatch(PlayerActions.pauseSong());
+    let action = PlayerActions.pauseSong();
+    return Dispatcher.dispatch(action);
   }
 
   nextSong() {
     let currentSong = this.props.currentSong;
-    return Dispatcher.dispatch(PlayerActions.nextSong(currentSong));
+    let action = PlayerActions.nextSong(currentSong);
+    return Dispatcher.dispatch(action);
   }
 
   prevSong() {
     let currentSong = this.props.currentSong;
-    return Dispatcher.dispatch(PlayerActions.prevSong(currentSong));
+    let action = PlayerActions.prevSong(currentSong);
+    return Dispatcher.dispatch(action);
   }
 
   render() {

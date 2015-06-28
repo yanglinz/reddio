@@ -6,3 +6,9 @@ export const PlayerActionTypes = {
   SET_VOLUME: 'SET_VOLUME',
   SEEK_TO: 'SEEK_TO'
 };
+
+export const RedditActionTypes = {
+  SET_ACTIVE_SUBREDDIT: 'SET_ACTIVE_SUBREDDIT',
+  SET_ACTIVE_SORT_TYPE: 'SET_ACTIVE_SORT_TYPE',
+  FETCH_POSTS: 'FETCH_POSTS'
+};
