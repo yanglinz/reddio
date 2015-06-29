@@ -24,6 +24,11 @@ export let appState = {
   },
 
   hasChanged() {
-    console.log('the application state has changed. time to go re-render');
+    console.log('appState has changed');
+  },
+
+  getState(key) {
+    // do something with key
+    return this.state[StorageKeys.REDDIT_STORAGE_KEY];
   }
 };

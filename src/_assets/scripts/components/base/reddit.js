@@ -11,8 +11,32 @@ class Reddit extends React.Component {
     return (
       <div className='reddit'>
         <div className='reddit-control'>
-          <p onClick={this.props.setActiveSubreddit} data-subreddit='listentothis'>Set active subreddit</p>
-          <p onClick={this.props.setActiveSortType}>Set active sort type</p>
+          <div className="subreddits">
+            {this.props.subreddits.map(function(subreddit) {
+              return (
+                <p
+                  key={subreddit}
+                  onClick={this.props.setActiveSubreddit}
+                  data-subreddit={subreddit}>
+                  {subreddit}
+                </p>
+              );
+            }.bind(this))}
+          </div>
+
+          <div className="sort-types">
+            {this.props.sortTypes.map(function(sortType) {
+              return (
+                <p
+                  key={sortType}
+                  onClick={this.props.setActiveSortType}
+                  data-sortType={sortType}>
+                  {sortType}
+                </p>
+              );
+            }.bind(this))}
+          </div>
+
           <p onClick={this.props.fetchPosts}>Fetch posts</p>
         </div>
       </div>

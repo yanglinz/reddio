@@ -4,10 +4,33 @@ import React from 'react';
 import Reddit from './base/reddit.js';
 import Dispatcher from '../dispatcher.js';
 import RedditActions from '../actions/reddit.js';
+import { appState } from '../state/state.js';
 
 class RedditContainer extends React.Component {
   constructor(props) {
     super(props);
+    let redditState = appState.getState('reddit');
+    this.state = {
+      activeSubreddit: redditState.activeSubreddit,
+      activeSortType: redditState.activeSortType,
+      subreddits: [
+        'blues',
+        'listentothis'
+      ],
+      sortTypes: [
+        'new',
+        'hot',
+        'random',
+        'top:hour',
+        'top:day',
+        'top:week',
+        'top:month',
+        'top:year',
+        'top:all'
+      ]
+    };
+
+    console.log('this.state', this.state);
   }
 
   setActiveSubreddit(e) {
@@ -31,21 +54,13 @@ class RedditContainer extends React.Component {
   render() {
     return (
       <Reddit
-        subreddits={[
-          'listentothis']}
-        sortTypes={[
-          'new',
-          'hot',
-          'random']}
+        subreddits={this.state.subreddits}
+        sortTypes={this.state.sortTypes}
         setActiveSubreddit={this.setActiveSubreddit.bind(this)}
         setActiveSortType={this.setActiveSortType.bind(this)}
         fetchPosts={this.fetchPosts.bind(this)} />
     );
   }
 }
-
-RedditContainer.propTypes = {
-  currentSubreddit: React.PropTypes.string
-};
 
 export default RedditContainer;

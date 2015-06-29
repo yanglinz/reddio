@@ -10,8 +10,8 @@ class AppContainer extends React.Component {
   render() {
     return (
       <div className='app-container'>
-        <RedditContainer currentSubreddit={'listentothis'} />
-        <PlayerContainer currentSong={{}} />
+        <RedditContainer />
+        <PlayerContainer />
       </div>
     );
   }
