@@ -3,7 +3,7 @@ import RSVP from 'rsvp';
 import moment from 'moment';
 import axios from 'axios';
 
-export class RedditApi {
+class RedditApi {
   static getEndpoint(subreddit, listingType) {
     return `http://www.reddit.com/r/${subreddit}/${listingType}.json`;
   }
@@ -19,7 +19,7 @@ export class RedditApi {
   }
 }
 
-export class RedditParser {
+class RedditParser {
   static listing(listing={}) {
     let posts = _.filter(listing.data.children, function postFilter(post) {
       return !post.data.is_self && !post.data.stickied;
@@ -45,3 +45,5 @@ export class RedditParser {
     };
   }
 }
+
+export { RedditApi, RedditParser };

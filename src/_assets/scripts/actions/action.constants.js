@@ -1,4 +1,4 @@
-export const PlayerActionTypes = {
+const PlayerActionTypes = {
   PLAY_SONG: 'PLAY_SONG',
   PAUSE_SONG: 'PAUSE_SONG',
   NEXT_SONG: 'NEXT_SONG',
@@ -7,8 +7,10 @@ export const PlayerActionTypes = {
   SEEK_TO: 'SEEK_TO'
 };
 
-export const RedditActionTypes = {
+const RedditActionTypes = {
   SET_ACTIVE_SUBREDDIT: 'SET_ACTIVE_SUBREDDIT',
   SET_ACTIVE_SORT_TYPE: 'SET_ACTIVE_SORT_TYPE',
   FETCH_POSTS: 'FETCH_POSTS'
 };
+
+export { PlayerActionTypes, RedditActionTypes };
