@@ -1,5 +1,25 @@
 import { RedditActionTypes} from '../../actions/action.constants.js';
 
+export const initialRedditState = {
+  activeSubreddit: 'listentothis',
+  activeSortType: 'hot',
+  subreddits: [
+    'blues',
+    'listentothis'
+  ],
+  sortTypes: [
+    'new',
+    'hot',
+    'random',
+    'top:hour',
+    'top:day',
+    'top:week',
+    'top:month',
+    'top:year',
+    'top:all'
+  ]
+};
+
 export default function GetRedditReducer(action) {
   let reducer;
 

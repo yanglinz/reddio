@@ -1,5 +1,9 @@
 import { PlayerActionTypes } from '../../actions/action.constants.js';
 
+export const initialPlayerState = {
+  isPlayer: true
+};
+
 export default function GetPlayerReducer(action) {
   let reducer;
 

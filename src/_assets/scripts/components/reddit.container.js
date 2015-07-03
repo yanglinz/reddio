@@ -9,28 +9,17 @@ import { appState } from '../state/state.js';
 class RedditContainer extends React.Component {
   constructor(props) {
     super(props);
-    let redditState = appState.getState('reddit');
+    this.state = {};
+  }
+
+  componentWillUpdate() {
+    let redditState = appState.getState('reddit') || {};
     this.state = {
       activeSubreddit: redditState.activeSubreddit,
       activeSortType: redditState.activeSortType,
-      subreddits: [
-        'blues',
-        'listentothis'
-      ],
-      sortTypes: [
-        'new',
-        'hot',
-        'random',
-        'top:hour',
-        'top:day',
-        'top:week',
-        'top:month',
-        'top:year',
-        'top:all'
-      ]
+      subreddits: redditState.activeSortType,
+      sortTypes: redditState.sortTypes
     };
-
-    console.log('this.state', this.state);
   }
 
   setActiveSubreddit(e) {
