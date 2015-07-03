@@ -9,7 +9,7 @@ import { appState } from '../state/state.js';
 class RedditContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = appState.getState('reddit');
   }
 
   componentWillUpdate() {

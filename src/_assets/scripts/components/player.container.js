@@ -4,10 +4,12 @@ import React from 'react';
 import Player from './base/player.js';
 import Dispatcher from '../dispatcher.js';
 import PlayerActions from '../actions/player.js';
+import { appState } from '../state/state.js';
 
 class PlayerContainer extends React.Component {
   constructor(props) {
     super(props);
+    this.state = appState.getState('player');
   }
 
   playSong() {
