@@ -1,6 +1,6 @@
 import { RedditActionTypes} from '../../actions/action.constants.js';
 
-export const initialRedditState = {
+const initialRedditState = {
   activeSubreddit: 'listentothis',
   activeSortType: 'hot',
   subreddits: [
@@ -20,7 +20,7 @@ export const initialRedditState = {
   ]
 };
 
-export default function GetRedditReducer(action) {
+function GetRedditReducer(action) {
   let reducer;
 
   switch(action.type) {
@@ -51,3 +51,6 @@ export default function GetRedditReducer(action) {
 
   return reducer;
 }
+
+export default GetRedditReducer;
+export { initialRedditState };

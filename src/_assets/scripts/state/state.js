@@ -1,43 +1,38 @@
 import _ from 'lodash';
 import Rx from 'rx';
-import { initialPlayerState } from './reducers/player.js';
-import { initialRedditState } from './reducers/reddit.js';
+import GetPlayerReducer, { initialPlayerState } from './reducers/player.js';
+import GetRedditReducer, { initialRedditState } from './reducers/reddit.js';
+import { PlayerActionTypes, RedditActionTypes } from '../actions/action.constants.js';
+import { dispatcherStream } from '../dispatcher.js';
 import { logError } from '../lib/logger.js';
 
-export const StorageKeys = {
-  PLAYER_STORAGE_KEY: 'player',
-  REDDIT_STORAGE_KEY: 'reddit'
-};
+let appStateStream = new Rx.Subject();
 
-export let appStateStream = new Rx.Subject();
+let appState = {
+  state: _.extend({}, initialPlayerState, initialRedditState),
 
-export let appState = {
-  state: {
-    [StorageKeys.PLAYER_STORAGE_KEY]: initialPlayerState,
-    [StorageKeys.REDDIT_STORAGE_KEY]: initialRedditState
+  getState() {
+    return this.state;
   },
 
-  apply(key, transformer) {
-    let storageKey = this._getStorageKey(key);
-    this.state[storageKey] = transformer(this.state[storageKey]);
-    // TODO: Use immutable.js to determine if this.hasChanged should be fired
-    appStateStream.onNext('CHANGED');
-  },
+  mutate(action) {
+    let mutator;
 
-  getState(key) {
-    let storageKey = this._getStorageKey(key);
-    return this.state[storageKey];
-  },
-
-  _getStorageKey(key) {
-    key = (key || '').toLowerCase();
-
-    if (_.includes(key, 'player')) {
-      return StorageKeys.PLAYER_STORAGE_KEY;
-    } else if (_.includes(key, 'reddit')) {
-      return StorageKeys.REDDIT_STORAGE_KEY;
+    if (_.includes(PlayerActionTypes, action.type)) {
+      mutator = GetPlayerReducer(action);
+    } else if (_.includes(RedditActionTypes, action.type)) {
+      mutator = GetRedditReducer(action);
     } else {
-      logError(`Storage key not found: given ${key}`);
+      logError(`No mutator found for action: ${action}`)
     }
+
+    this.state = mutator(this.state);
+    appStateStream.onNext('CHANGE');
   }
 };
+
+dispatcherStream.subscribe(function onNext(action) {
+  appState.mutate(action);
+});
+
+export { appStateStream, appState };

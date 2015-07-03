@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Reddit from './base/reddit.js';
-import Dispatcher from '../dispatcher.js';
+import dispatcher from '../dispatcher.js';
 import RedditActions from '../actions/reddit.js';
 import { appState } from '../state/state.js';
 
@@ -25,19 +25,19 @@ class RedditContainer extends React.Component {
   setActiveSubreddit(e) {
     let newSubreddit = e.target.getAttribute('data-subreddit') || e.target.innerText;
     let action = RedditActions.setActiveSubreddit(newSubreddit);
-    return Dispatcher.dispatch(action);
+    return dispatcher.dispatch(action);
   }
 
   setActiveSortType(e) {
     let newSortType = e.target.innerText;
     let action = RedditActions.setActiveSortType(newSortType);
-    return Dispatcher.dispatch(action);
+    return dispatcher.dispatch(action);
   }
 
   fetchPosts() {
     const numPosts = 50;
     let action = RedditActions.fetchPosts(numPosts);
-    return Dispatcher.dispatch(action);
+    return dispatcher.dispatch(action);
   }
 
   render() {

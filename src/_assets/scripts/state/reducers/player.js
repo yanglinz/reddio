@@ -1,10 +1,10 @@
 import { PlayerActionTypes } from '../../actions/action.constants.js';
 
-export const initialPlayerState = {
-  isPlayer: true
+const initialPlayerState = {
+  playerIsPlaying: true
 };
 
-export default function GetPlayerReducer(action) {
+function GetPlayerReducer(action) {
   let reducer;
 
   switch(action.type) {
@@ -43,3 +43,6 @@ export default function GetPlayerReducer(action) {
 
   return reducer;
 }
+
+export default GetPlayerReducer;
+export { initialPlayerState };

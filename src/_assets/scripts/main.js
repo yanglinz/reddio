@@ -14,6 +14,7 @@ class AppContainer extends React.Component {
      * Trigger a re-render of the AppContainer component by calling setState
      */
     appStateStream.subscribe(function renderOnStateChange() {
+      console.log('appState updated');
       this.setState({});
     }.bind(this));
   }
@@ -22,7 +23,6 @@ class AppContainer extends React.Component {
     return (
       <div className='app-container'>
         <RedditContainer />
-        <PlayerContainer />
       </div>
     );
   }

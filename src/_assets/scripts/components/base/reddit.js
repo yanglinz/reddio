@@ -30,7 +30,7 @@ class Reddit extends React.Component {
                 <p
                   key={sortType}
                   onClick={this.props.setActiveSortType}
-                  data-sortType={sortType}>
+                  data-value={sortType}>
                   {sortType}
                 </p>
               );

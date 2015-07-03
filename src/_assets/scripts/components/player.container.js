@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Player from './base/player.js';
-import Dispatcher from '../dispatcher.js';
+import dispatcher from '../dispatcher.js';
 import PlayerActions from '../actions/player.js';
 import { appState } from '../state/state.js';
 
@@ -14,24 +14,24 @@ class PlayerContainer extends React.Component {
 
   playSong() {
     let action = PlayerActions.playSong();
-    return Dispatcher.dispatch(action);
+    return dispatcher.dispatch(action);
   }
 
   pauseSong() {
     let action = PlayerActions.pauseSong();
-    return Dispatcher.dispatch(action);
+    return dispatcher.dispatch(action);
   }
 
   nextSong() {
     let currentSong = this.props.currentSong;
     let action = PlayerActions.nextSong(currentSong);
-    return Dispatcher.dispatch(action);
+    return dispatcher.dispatch(action);
   }
 
   prevSong() {
     let currentSong = this.props.currentSong;
     let action = PlayerActions.prevSong(currentSong);
-    return Dispatcher.dispatch(action);
+    return dispatcher.dispatch(action);
   }
 
   render() {
