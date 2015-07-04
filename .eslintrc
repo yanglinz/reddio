@@ -178,6 +178,7 @@
     "react/wrap-multilines": 2,
     "react/sort-comp": [1, {
       "order": [
+        "/^constructor$/",
         "displayName",
         "mixins",
         "statics",

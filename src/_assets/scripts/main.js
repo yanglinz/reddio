@@ -1,6 +1,5 @@
 import React from 'react';
 import RedditContainer from './components/reddit.container.js';
-import PlayerContainer from './components/player.container.js';
 import { appStateStream } from './state/state.js';
 
 class AppContainer extends React.Component {
@@ -14,14 +13,13 @@ class AppContainer extends React.Component {
      * Trigger a re-render of the AppContainer component by calling setState
      */
     appStateStream.subscribe(function renderOnStateChange() {
-      console.log('appState updated');
       this.setState({});
     }.bind(this));
   }
 
   render() {
     return (
-      <div className='app-container'>
+      <div className="app-container">
         <RedditContainer />
       </div>
     );

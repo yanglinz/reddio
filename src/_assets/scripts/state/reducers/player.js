@@ -1,48 +1,43 @@
 import { PlayerActionTypes } from '../../actions/action.constants.js';
 
 const initialPlayerState = {
+  currentSong: null,
   playerIsPlaying: true
 };
 
-function GetPlayerReducer(action) {
-  let reducer;
+function getPlayerReducer(action) {
+  let reducers = {
+    [PlayerActionTypes.PLAY_SONG]: function statePlaySong(playerState) {
+      playerState.isPlaying = true;
+      return playerState;
+    },
 
-  switch(action.type) {
-    case PlayerActionTypes.PLAY_SONG:
-      reducer = function reducePlaySong(playerState) {
-        playerState.isPlaying = true;
-        return playerState;
-      };
-      break;
+    [PlayerActionTypes.PAUSE_SONG]: function statePauseSong(playerState) {
+      playerState.isPlaying = false;
+      return playerState;
+    },
 
-    case PlayerActionTypes.PAUSE_SONG:
-      reducer = function reducePlaySong(playerState) {
-        playerState.isPlaying = false;
-        return playerState;
-      };
-      break;
+    [PlayerActionTypes.PREV_SONG]: function statePrevSong(playerState) {
+      let currentSong = playerState.currentSong;
+      playerState.queue = [currentSong];
+      playerState.currentSong = {};
+      return playerState;
+    },
 
-    case PlayerActionTypes.PREV_SONG:
-      reducer = function reducePrevSong(playerState) {
-        let currentSong = action.currentSong;
-        playerState.queue = [currentSong];
-        playerState.currentSong = {};
-        return playerState;
-      };
-      break;
+    [PlayerActionTypes.NEXT_SONG]: function stateNextSong(playerState) {
+      let currentSong = playerState.currentSong;
+      playerState.queue = [currentSong];
+      playerState.currentSong = {};
+      return playerState;
+    },
 
-    case PlayerActionTypes.NEXT_SONG:
-      reducer = function reduceNextSong(playerState) {
-        let currentSong = action.currentSong;
-        playerState.queue = [currentSong];
-        playerState.currentSong = {};
-        return playerState;
-      };
-      break;
-  }
+    defaults: function noop(playerState) {
+      return playerState;
+    }
+  };
 
-  return reducer;
+  return reducers[action.type] || reducers.defaults;
 }
 
-export default GetPlayerReducer;
+export default getPlayerReducer;
 export { initialPlayerState };

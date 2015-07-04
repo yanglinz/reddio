@@ -1,5 +1,4 @@
 import _ from 'lodash';
-import RSVP from 'rsvp';
 import moment from 'moment';
 import axios from 'axios';
 
@@ -25,7 +24,7 @@ class RedditParser {
       return !post.data.is_self && !post.data.stickied;
     });
 
-    return _.map(posts, Parse.post);
+    return _.map(posts, RedditParser.post);
   }
 
   static post(post={}) {

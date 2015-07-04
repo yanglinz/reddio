@@ -20,37 +20,32 @@ const initialRedditState = {
   ]
 };
 
-function GetRedditReducer(action) {
-  let reducer;
+function getRedditReducer(action) {
+  let reducers = {
+    [RedditActionTypes.SET_ACTIVE_SUBREDDIT]: function stateSetActiveSubreddit(state) {
+      state.activeSubreddit = action.payload.subreddit;
+      return state;
+    },
 
-  switch(action.type) {
-    case RedditActionTypes.SET_ACTIVE_SUBREDDIT:
-      reducer = function reduceSetActiveSubreddit(redditState) {
-        redditState.activeSubreddit = action.payload.subreddit;
-        return redditState;
-      };
-      break;
+    [RedditActionTypes.SET_ACTIVE_SORT_TYPE]: function stateSetActiveSortType(state) {
+      state.activeSortType = action.payload.sortType;
+      return state;
+    },
 
-    case RedditActionTypes.SET_ACTIVE_SORT_TYPE:
-      reducer = function reduceSetActiveSortType(redditState) {
-        redditState.activeSortType = action.payload.sortType;
-        return redditState;
-      };
-      break;
+    [RedditActionTypes.FETCH_POSTS]: function reduceFetchPosts(state) {
+      const activeSubreddit = state.activeSstateedditState[activeSubreddit] = []
+        .concat(state[activeSubreddit])
+        .concat(action.payload.posts);
+      return state;
+    },
 
-    case RedditActionTypes.FETCH_POSTS:
-      reducer = function reduceFetchPosts(redditState) {
-        const activeSubreddit = redditState.activeSubreddit;
-        redditState[activeSubreddit] = []
-          .concat(redditState[activeSubreddit])
-          .concat(action.payload.posts);
-        return redditState;
-      };
-      break;
-  }
+    defaults: function noop(state) {
+      return state;
+    }
+  };
 
-  return reducer;
+  return reducers[action.type] || reducers.defaults;
 }
 
-export default GetRedditReducer;
+export default getRedditReducer;
 export { initialRedditState };

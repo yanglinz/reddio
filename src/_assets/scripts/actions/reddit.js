@@ -1,4 +1,3 @@
-import RSVP from 'rsvp';
 import { RedditActionTypes } from './action.constants.js';
 import { RedditApi } from '../lib/reddit.js';
 
@@ -18,7 +17,7 @@ const RedditActions = {
       payload: {
         sortType: sortType
       }
-    }
+    };
   },
 
   fetchPosts(subreddit, sortType, count) {
@@ -30,7 +29,7 @@ const RedditActions = {
     return {
       type: RedditActionTypes.FETCH_POSTS,
       payload: fetchPromise
-    }
+    };
   }
 };
 

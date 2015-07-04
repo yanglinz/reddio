@@ -9,10 +9,10 @@ class Reddit extends React.Component {
 
   render() {
     return (
-      <div className='reddit'>
-        <div className='reddit-control'>
+      <div className="reddit">
+        <div className="reddit-control">
           <div className="subreddits">
-            {this.props.subreddits.map(function(subreddit) {
+            {this.props.subreddits.map(function renderSubreddits(subreddit) {
               return (
                 <p
                   key={subreddit}
@@ -25,7 +25,7 @@ class Reddit extends React.Component {
           </div>
 
           <div className="sort-types">
-            {this.props.sortTypes.map(function(sortType) {
+            {this.props.sortTypes.map(function renderSortTypes(sortType) {
               return (
                 <p
                   key={sortType}
