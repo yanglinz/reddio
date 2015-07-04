@@ -10,33 +10,46 @@ import { appState } from '../state/state.js';
 class RedditContainer extends React.Component {
   constructor(props) {
     super(props);
+  }
+
+  componentWillMount() {
     this.state = appState.getState();
+    this.fetchPostsIfEmpty();
   }
 
   componentWillUpdate() {
     this.state = appState.getState();
+    this.fetchPostsIfEmpty();
   }
 
   setActiveSubreddit(e) {
     let newSubreddit = e.target.getAttribute('data-value') || e.target.innerText;
     let action = RedditActions.setActiveSubreddit(newSubreddit);
-    return dispatcher.dispatch(action);
+    dispatcher.dispatch(action);
   }
 
   setActiveSortType(e) {
     let newSortType = e.target.innerText;
     let action = RedditActions.setActiveSortType(newSortType);
-    return dispatcher.dispatch(action);
+    dispatcher.dispatch(action);
   }
 
   fetchPosts() {
-    const activeSubreddit = this.state.activeSubreddit;
     const activeSortType = this.state.activeSortType;
+    const activeSubreddit = this.state.activeSubreddit;
     const posts = this.state.subreddits[activeSubreddit];
     const after = (_.last(posts) || {}).name;
-    const limit = 25;
+    const limit = 3;
     let action = RedditActions.fetchPosts(activeSubreddit, activeSortType, after, limit);
-    return dispatcher.dispatch(action);
+    dispatcher.dispatch(action);
+  }
+
+  fetchPostsIfEmpty() {
+    const activeSubreddit = this.state.activeSubreddit;
+    const posts = this.state.subreddits[activeSubreddit];
+    if (_.isEmpty(posts)) {
+      this.fetchPosts();
+    }
   }
 
   render() {
