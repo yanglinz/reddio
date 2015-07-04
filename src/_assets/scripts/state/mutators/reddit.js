@@ -1,24 +1,39 @@
 import { RedditActionTypes} from '../../actions/action.constants.js';
 
-const initialRedditState = {
-  activeSubreddit: 'listentothis',
-  activeSortType: 'hot',
-  subreddits: {
-    blues: [],
-    listentothis: []
-  },
-  sortTypes: [
-    'new',
-    'hot',
-    'random',
-    'top:hour',
-    'top:day',
-    'top:week',
-    'top:month',
-    'top:year',
-    'top:all'
-  ]
-};
+function getInitialRedditState() {
+  const _listingTypes = [
+    {type: 'new'},
+    {type: 'hot'},
+    {type: 'random'},
+    {type: 'top', range: 'hour'},
+    {type: 'top', range: 'day'},
+    {type: 'top', range: 'week'},
+    {type: 'top', range: 'month'},
+    {type: 'top', range: 'year'},
+    {type: 'top', range: 'all'}
+  ];
+
+  const _subreddits = [
+    'blues',
+    'listentothis'
+  ];
+
+  const _storageKeys = _.map(_listingTypes, t => `${t.type}:${t.range || ''}`);
+  let _subredditsStorage = _.reduce(_subreddits, function reduceSubredditState(result, subreddit) {
+    result[subreddit] = _.object(_storageKeys);
+    result[subreddit] = _.mapValues(result[subreddit], () => []);
+    return result;
+  }, {});
+
+  return {
+    activeSubreddit: 'listentothis',
+    activeListingType: 'hot',
+    activeSortRange: 'day',
+    subreddits: _subredditsStorage,
+    listingTypes: _.uniq(_.pluck(_listingTypes, 'type')),
+    sortRanges: _.pluck(_listingTypes, 'range')
+  };
+}
 
 function getRedditMutator(action) {
   let mutators = {
@@ -27,15 +42,24 @@ function getRedditMutator(action) {
       return state;
     },
 
-    [RedditActionTypes.SET_ACTIVE_SORT_TYPE]: function stateSetActiveSortType(state) {
-      state.activeSortType = action.payload.sortType;
+    [RedditActionTypes.SET_ACTIVE_LISTING_TYPE]: function stateSetActiveListingType(state) {
+      state.activeListingType = action.payload.listingType;
+      return state;
+    },
+
+    [RedditActionTypes.SET_ACTIVE_SORT_RANGE]: function stateSetActiveSortRange(state) {
+      state.activeSortRange = action.payload.activeSortRange;
       return state;
     },
 
     [RedditActionTypes.FETCH_POSTS]: function reduceFetchPosts(state) {
       const activeSubreddit = state.activeSubreddit;
-      state.subreddits[activeSubreddit] = []
-        .concat(state.subreddits[activeSubreddit] || [])
+      const activeListingType = state.activeListingType;
+      const activeSortRange = state.activeSortRange;
+      const storageKey = activeListingType === 'top' ?
+        `${activeListingType}:${activeSortRange}` : `${activeListingType}:`;
+      state.subreddits[activeSubreddit][storageKey] = []
+        .concat(state.subreddits[activeSubreddit][storageKey] || [])
         .concat(action.payload.posts);
       return state;
     },
@@ -49,4 +73,4 @@ function getRedditMutator(action) {
 }
 
 export default getRedditMutator;
-export { initialRedditState };
+export { getInitialRedditState };

@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import Rx from 'rx';
-import getPlayerMutator, { initialPlayerState } from './mutators/player.js';
-import getRedditMutator, { initialRedditState } from './mutators/reddit.js';
+import getPlayerMutator, { getInitialPlayerState } from './mutators/player.js';
+import getRedditMutator, { getInitialRedditState } from './mutators/reddit.js';
 import { PlayerActionTypes, RedditActionTypes } from '../actions/action.constants.js';
 import { dispatcherStream } from '../dispatcher.js';
 import { logError } from '../lib/logger.js';
@@ -9,7 +9,7 @@ import { logError } from '../lib/logger.js';
 let appStateStream = new Rx.Subject();
 
 let appState = {
-  state: _.extend({}, initialPlayerState, initialRedditState),
+  state: _.extend({}, getInitialPlayerState(), getInitialRedditState()),
 
   getState() {
     return this.state;

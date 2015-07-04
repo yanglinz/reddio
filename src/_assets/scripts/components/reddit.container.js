@@ -6,6 +6,7 @@ import Reddit from './base/reddit.js';
 import dispatcher from '../dispatcher.js';
 import RedditActions from '../actions/reddit.js';
 import { appState } from '../state/state.js';
+import { logError} from '../lib/logger.js';
 
 class RedditContainer extends React.Component {
   constructor(props) {
@@ -22,46 +23,69 @@ class RedditContainer extends React.Component {
     this.fetchPostsIfEmpty();
   }
 
+  getPosts() {
+    const activeListingType = this.state.activeListingType;
+    const activeSortRange = this.state.activeSortRange;
+    const storageKey = activeListingType === 'top' ?
+      `${activeListingType}:${activeSortRange}` : `${activeListingType}:`;
+    return this.state.subreddits[this.state.activeSubreddit][storageKey];
+  }
+
   setActiveSubreddit(e) {
     let newSubreddit = e.target.getAttribute('data-value') || e.target.innerText;
     let action = RedditActions.setActiveSubreddit(newSubreddit);
     dispatcher.dispatch(action);
   }
 
-  setActiveSortType(e) {
-    let newSortType = e.target.innerText;
-    let action = RedditActions.setActiveSortType(newSortType);
+  setActiveListingType(e) {
+    let newListingTYpe = e.target.getAttribute('data-value') || e.target.innerText;
+    let action = RedditActions.setActiveListingType(newListingTYpe);
+    dispatcher.dispatch(action);
+  }
+
+  setActiveSortRange(e) {
+    let newSortRange = e.target.getAttribute('data-value') || e.target.innerText;
+    let action = RedditActions.setActiveSortRange(newSortRange);
     dispatcher.dispatch(action);
   }
 
   fetchPosts() {
-    const activeSortType = this.state.activeSortType;
     const activeSubreddit = this.state.activeSubreddit;
-    const posts = this.state.subreddits[activeSubreddit];
+    const activeListingType = this.state.activeListingType;
+    const activeSortRange = this.state.activeSortRange;
+    const posts = this.getPosts();
     const after = (_.last(posts) || {}).name;
-    const limit = 3;
-    let action = RedditActions.fetchPosts(activeSubreddit, activeSortType, after, limit);
+    const limit = 5;
+    let action = RedditActions.fetchPosts(
+      activeSubreddit, activeListingType, activeSortRange, after, limit);
     dispatcher.dispatch(action);
   }
 
   fetchPostsIfEmpty() {
-    const activeSubreddit = this.state.activeSubreddit;
-    const posts = this.state.subreddits[activeSubreddit];
-    if (_.isEmpty(posts)) {
+    if (_.isEmpty(this.getPosts())) {
       this.fetchPosts();
     }
   }
 
   render() {
     let subreddits = _.keys(this.state.subreddits);
-    let posts = this.state.subreddits[this.state.activeSubreddit];
+    let listingTypes = this.state.listingTypes;
+    let sortRanges = this.state.sortRanges;
+    let activeListingType = this.state.activeListingType;
+    let activeSortRange = this.state.activeSortRange;
+    let posts = this.getPosts();
+
     return (
       <Reddit
         subreddits={subreddits}
-        sortTypes={this.state.sortTypes}
         posts={posts}
+        listingTypes={listingTypes}
+        activeListingType={activeListingType}
+        sortRanges={sortRanges}
+        activeSortRange={activeSortRange}
         setActiveSubreddit={this.setActiveSubreddit.bind(this)}
-        setActiveSortType={this.setActiveSortType.bind(this)}
+        setActiveListingType={this.setActiveListingType.bind(this)}
+        setActiveSortRange={this.setActiveSortRange.bind(this)}
         fetchPosts={this.fetchPosts.bind(this)} />
     );
   }

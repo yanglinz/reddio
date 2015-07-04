@@ -36,10 +36,11 @@ class RedditApi {
   }
 
   static get(params) {
-    const url = RedditApi.getEndpoint(params.subreddit, params.sortType);
+    const url = RedditApi.getEndpoint(params.subreddit, params.listingType);
     return axios
       .get(url, {
         params: {
+          t: params.listingType === 'top' ? params.sortRange : null,
           limit: params.limit,
           after: params.after
         }

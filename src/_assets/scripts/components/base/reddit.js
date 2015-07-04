@@ -25,7 +25,7 @@ class Reddit extends React.Component {
           </div>
 
           <div className="sort-types">
-            {this.props.sortTypes.map(function renderSortTypes(sortType) {
+            {this.props.listingTypes.map(function renderlistingTypes(sortType) {
               return (
                 <p
                   key={sortType}
@@ -48,7 +48,6 @@ class Reddit extends React.Component {
               );
             }.bind(this))}
           </div>
-
         </div>
       </div>
     );
@@ -56,11 +55,15 @@ class Reddit extends React.Component {
 }
 
 Reddit.propTypes = {
-  subreddits: React.PropTypes.array.isRequired,
-  sortTypes: React.PropTypes.array.isRequired,
   posts: React.PropTypes.array.isRequired,
+  subreddits: React.PropTypes.array.isRequired,
+  listingTypes: React.PropTypes.array.isRequired,
+  activeListingType: React.PropTypes.string.isRequired,
+  sortRanges: React.PropTypes.array.isRequired,
+  activeSortRange: React.PropTypes.string.isRequired,
   setActiveSubreddit: React.PropTypes.func.isRequired,
-  setActiveSortType: React.PropTypes.func.isRequired,
+  setActiveListingType: React.PropTypes.func.isRequired,
+  setActiveSortRange: React.PropTypes.func.isRequired,
   fetchPosts: React.PropTypes.func.isRequired
 };
 

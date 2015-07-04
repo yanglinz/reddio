@@ -1,9 +1,11 @@
 import { PlayerActionTypes } from '../../actions/action.constants.js';
 
-const initialPlayerState = {
-  currentSong: null,
-  playerIsPlaying: true
-};
+function getInitialPlayerState() {
+  return {
+    currentSong: null,
+    playerIsPlaying: true
+  };
+}
 
 function getPlayerMutator(action) {
   let mutators = {
@@ -40,4 +42,4 @@ function getPlayerMutator(action) {
 }
 
 export default getPlayerMutator;
-export { initialPlayerState };
+export { getInitialPlayerState };

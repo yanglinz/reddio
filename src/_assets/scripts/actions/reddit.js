@@ -11,19 +11,29 @@ const RedditActions = {
     };
   },
 
-  setActiveSortType(sortType) {
+  setActiveListingType(listingType) {
     return {
-      type: RedditActionTypes.SET_ACTIVE_SORT_TYPE,
+      type: RedditActionTypes.SET_ACTIVE_LISTING_TYPE,
       payload: {
-        sortType: sortType
+        listingType: listingType
       }
     };
   },
 
-  fetchPosts(subreddit, sortType, after, limit) {
+  setActiveSortRange(sortRange) {
+    return {
+      type: RedditActionTypes.SET_ACTIVE_SORT_RANGE,
+      payload: {
+        sortRange: sortRange
+      }
+    }
+  },
+
+  fetchPosts(subreddit, listingType, sortRange, after, limit) {
     let fetchPromise = RedditApi.get({
       subreddit: subreddit,
-      sortType: sortType,
+      listingType: listingType,
+      sortRange: sortRange,
       limit: limit,
       after: after
     });
