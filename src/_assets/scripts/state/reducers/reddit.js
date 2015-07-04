@@ -3,6 +3,7 @@ import { RedditActionTypes} from '../../actions/action.constants.js';
 const initialRedditState = {
   activeSubreddit: 'listentothis',
   activeSortType: 'hot',
+  posts: {},
   subreddits: [
     'blues',
     'listentothis'
@@ -33,8 +34,9 @@ function getRedditReducer(action) {
     },
 
     [RedditActionTypes.FETCH_POSTS]: function reduceFetchPosts(state) {
-      const activeSubreddit = state.activeSstateedditState[activeSubreddit] = []
-        .concat(state[activeSubreddit])
+      const activeSubreddit = state.activeSubreddit;
+      state.posts[activeSubreddit] = []
+        .concat(state.posts[activeSubreddit] || [])
         .concat(action.payload.posts);
       return state;
     },

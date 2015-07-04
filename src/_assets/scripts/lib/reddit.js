@@ -1,22 +1,7 @@
 import _ from 'lodash';
 import moment from 'moment';
 import axios from 'axios';
-
-class RedditApi {
-  static getEndpoint(subreddit, listingType) {
-    return `http://www.reddit.com/r/${subreddit}/${listingType}.json`;
-  }
-
-  static get(params) {
-    const subreddit = params.subreddit;
-    const listingType = params.listingType;
-    const url = RedditApi.getEndpoint(subreddit, listingType);
-    return axios.get(url, {
-      limit: params.limit || 25,
-      after: params.after || ''
-    });
-  }
-}
+import { logError } from './logger.js';
 
 class RedditParser {
   static listing(listing={}) {
@@ -42,6 +27,31 @@ class RedditParser {
       title: p.title,
       url: p.url
     };
+  }
+}
+
+class RedditApi {
+  static getEndpoint(subreddit, listingType) {
+    return `http://www.reddit.com/r/${subreddit}/${listingType}.json`;
+  }
+
+  static get(params) {
+    const url = RedditApi.getEndpoint(params.subreddit, params.sortType);
+    return axios
+      .get(url, {
+        limit: params.limit || 25,
+        after: params.after || ''
+      })
+      .then(function onResponse(response) {
+        let posts = RedditParser.listing(response.data);
+        return {
+          posts: posts
+        };
+      })
+      .catch(function onError(err) {
+        logError(err);
+        return [];
+      });
   }
 }
 

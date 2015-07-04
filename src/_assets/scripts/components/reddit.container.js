@@ -9,17 +9,11 @@ import { appState } from '../state/state.js';
 class RedditContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = appState.getState('reddit');
+    this.state = appState.getState();
   }
 
   componentWillUpdate() {
-    let redditState = appState.getState('reddit') || {};
-    this.state = {
-      activeSubreddit: redditState.activeSubreddit,
-      activeSortType: redditState.activeSortType,
-      subreddits: redditState.activeSortType,
-      sortTypes: redditState.sortTypes
-    };
+    this.state = appState.getState();
   }
 
   setActiveSubreddit(e) {
@@ -36,7 +30,9 @@ class RedditContainer extends React.Component {
 
   fetchPosts() {
     const numPosts = 50;
-    let action = RedditActions.fetchPosts(numPosts);
+    const activeSubreddit = this.state.activeSubreddit;
+    const activeSortType = this.state.activeSortType;
+    let action = RedditActions.fetchPosts(activeSubreddit, activeSortType, numPosts);
     return dispatcher.dispatch(action);
   }
 

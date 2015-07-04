@@ -3,8 +3,8 @@
 // --------------------------------
 
 @import "../../_vendor/normalize-scss/normalize";
-@import '../../_vendor/sanitize-css/sanitize.scss';
-@import '../../_vendor/bourbon/app/assets/stylesheets/bourbon';
+@import "../../_vendor/sanitize-css/sanitize";
+@import "../../_vendor/bourbon/app/assets/stylesheets/bourbon";
 @import "variables";
 
 
@@ -22,4 +22,4 @@ body {
 // # Components
 // --------------------------------
 
-@import 'components/songs';
+@import "components/songs";
