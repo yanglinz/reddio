@@ -5,8 +5,8 @@ const initialPlayerState = {
   playerIsPlaying: true
 };
 
-function getPlayerReducer(action) {
-  let reducers = {
+function getPlayerMutator(action) {
+  let mutators = {
     [PlayerActionTypes.PLAY_SONG]: function statePlaySong(playerState) {
       playerState.isPlaying = true;
       return playerState;
@@ -36,8 +36,8 @@ function getPlayerReducer(action) {
     }
   };
 
-  return reducers[action.type] || reducers.defaults;
+  return mutators[action.type] || mutators.defaults;
 }
 
-export default getPlayerReducer;
+export default getPlayerMutator;
 export { initialPlayerState };

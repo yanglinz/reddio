@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import Rx from 'rx';
-import getPlayerReducer, { initialPlayerState } from './reducers/player.js';
-import getRedditReducer, { initialRedditState } from './reducers/reddit.js';
+import getPlayerMutator, { initialPlayerState } from './mutators/player.js';
+import getRedditMutator, { initialRedditState } from './mutators/reddit.js';
 import { PlayerActionTypes, RedditActionTypes } from '../actions/action.constants.js';
 import { dispatcherStream } from '../dispatcher.js';
 import { logError } from '../lib/logger.js';
@@ -19,9 +19,9 @@ let appState = {
     let mutator;
 
     if (_.includes(PlayerActionTypes, action.type)) {
-      mutator = getPlayerReducer(action);
+      mutator = getPlayerMutator(action);
     } else if (_.includes(RedditActionTypes, action.type)) {
-      mutator = getRedditReducer(action);
+      mutator = getRedditMutator(action);
     } else {
       logError(`No mutator found for action: ${action}`);
     }

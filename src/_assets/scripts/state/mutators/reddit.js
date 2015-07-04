@@ -20,8 +20,8 @@ const initialRedditState = {
   ]
 };
 
-function getRedditReducer(action) {
-  let reducers = {
+function getRedditMutator(action) {
+  let mutators = {
     [RedditActionTypes.SET_ACTIVE_SUBREDDIT]: function stateSetActiveSubreddit(state) {
       state.activeSubreddit = action.payload.subreddit;
       return state;
@@ -45,8 +45,8 @@ function getRedditReducer(action) {
     }
   };
 
-  return reducers[action.type] || reducers.defaults;
+  return mutators[action.type] || mutators.defaults;
 }
 
-export default getRedditReducer;
+export default getRedditMutator;
 export { initialRedditState };
