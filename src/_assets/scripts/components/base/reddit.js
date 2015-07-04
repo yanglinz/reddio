@@ -17,7 +17,7 @@ class Reddit extends React.Component {
                 <p
                   key={subreddit}
                   onClick={this.props.setActiveSubreddit}
-                  data-subreddit={subreddit}>
+                  data-value={subreddit}>
                   {subreddit}
                 </p>
               );

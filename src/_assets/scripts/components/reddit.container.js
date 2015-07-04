@@ -17,7 +17,7 @@ class RedditContainer extends React.Component {
   }
 
   setActiveSubreddit(e) {
-    let newSubreddit = e.target.getAttribute('data-subreddit') || e.target.innerText;
+    let newSubreddit = e.target.getAttribute('data-value') || e.target.innerText;
     let action = RedditActions.setActiveSubreddit(newSubreddit);
     return dispatcher.dispatch(action);
   }
