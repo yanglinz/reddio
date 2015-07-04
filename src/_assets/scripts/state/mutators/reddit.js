@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import { RedditActionTypes} from '../../actions/action.constants.js';
 
 function getInitialRedditState() {
@@ -31,7 +32,7 @@ function getInitialRedditState() {
     activeSortRange: 'day',
     subreddits: _subredditsStorage,
     listingTypes: _.uniq(_.pluck(_listingTypes, 'type')),
-    sortRanges: _.pluck(_listingTypes, 'range')
+    sortRanges: _.compact(_.pluck(_listingTypes, 'range'))
   };
 }
 

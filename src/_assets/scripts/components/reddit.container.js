@@ -6,7 +6,6 @@ import Reddit from './base/reddit.js';
 import dispatcher from '../dispatcher.js';
 import RedditActions from '../actions/reddit.js';
 import { appState } from '../state/state.js';
-import { logError} from '../lib/logger.js';
 
 class RedditContainer extends React.Component {
   constructor(props) {
@@ -69,6 +68,7 @@ class RedditContainer extends React.Component {
 
   render() {
     let subreddits = _.keys(this.state.subreddits);
+    let activeSubreddit = this.state.activeSubreddit;
     let listingTypes = this.state.listingTypes;
     let sortRanges = this.state.sortRanges;
     let activeListingType = this.state.activeListingType;
@@ -77,8 +77,9 @@ class RedditContainer extends React.Component {
 
     return (
       <Reddit
-        subreddits={subreddits}
         posts={posts}
+        subreddits={subreddits}
+        activeSubreddit={activeSubreddit}
         listingTypes={listingTypes}
         activeListingType={activeListingType}
         sortRanges={sortRanges}

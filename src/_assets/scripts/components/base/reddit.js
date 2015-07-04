@@ -13,9 +13,11 @@ class Reddit extends React.Component {
         <div className="reddit-control">
           <div className="subreddits">
             {this.props.subreddits.map(function renderSubreddits(subreddit) {
+              const isActive = subreddit === this.props.activeSubreddit;
               return (
                 <p
                   key={subreddit}
+                  className={isActive ? 'active' : ''}
                   onClick={this.props.setActiveSubreddit}
                   data-value={subreddit}>
                   {subreddit}
@@ -24,14 +26,31 @@ class Reddit extends React.Component {
             }.bind(this))}
           </div>
 
-          <div className="sort-types">
+          <div className="listing-types">
             {this.props.listingTypes.map(function renderlistingTypes(sortType) {
+              const isActive = sortType === this.props.activeListingType;
               return (
                 <p
                   key={sortType}
-                  onClick={this.props.setActiveSortType}
+                  className={isActive ? 'active' : ''}
+                  onClick={this.props.setActiveListingType}
                   data-value={sortType}>
                   {sortType}
+                </p>
+              );
+            }.bind(this))}
+          </div>
+
+          <div className="sort-ranges">
+            {this.props.sortRanges.map(function renderSortRanges(sortRange) {
+              const isActive = sortRange === this.props.activeSortRange;
+              return (
+                <p
+                  key={sortRange}
+                  className={isActive ? 'active' : ''}
+                  onClick={this.props.setActiveSortRange}
+                  data-value={sortRange}>
+                  {sortRange}
                 </p>
               );
             }.bind(this))}
@@ -46,7 +65,7 @@ class Reddit extends React.Component {
                   <p>{post.title}</p>
                 </div>
               );
-            }.bind(this))}
+            }.bind(null))}
           </div>
         </div>
       </div>
@@ -57,6 +76,7 @@ class Reddit extends React.Component {
 Reddit.propTypes = {
   posts: React.PropTypes.array.isRequired,
   subreddits: React.PropTypes.array.isRequired,
+  activeSubreddit: React.PropTypes.string.isRequired,
   listingTypes: React.PropTypes.array.isRequired,
   activeListingType: React.PropTypes.string.isRequired,
   sortRanges: React.PropTypes.array.isRequired,

@@ -1,5 +1,3 @@
-/* eslint react/sort-comp: 0 */
-
 import React from 'react';
 
 class Player extends React.Component {

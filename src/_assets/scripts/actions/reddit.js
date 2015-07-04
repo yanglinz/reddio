@@ -26,7 +26,7 @@ const RedditActions = {
       payload: {
         sortRange: sortRange
       }
-    }
+    };
   },
 
   fetchPosts(subreddit, listingType, sortRange, after, limit) {
