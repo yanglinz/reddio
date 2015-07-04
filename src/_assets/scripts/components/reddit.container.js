@@ -30,10 +30,12 @@ class RedditContainer extends React.Component {
   }
 
   fetchPosts() {
-    const numPosts = 25;
     const activeSubreddit = this.state.activeSubreddit;
     const activeSortType = this.state.activeSortType;
-    let action = RedditActions.fetchPosts(activeSubreddit, activeSortType, numPosts);
+    const posts = this.state.subreddits[activeSubreddit];
+    const after = (_.last(posts) || {}).name;
+    const limit = 25;
+    let action = RedditActions.fetchPosts(activeSubreddit, activeSortType, after, limit);
     return dispatcher.dispatch(action);
   }
 

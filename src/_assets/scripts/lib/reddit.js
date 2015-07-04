@@ -39,8 +39,10 @@ class RedditApi {
     const url = RedditApi.getEndpoint(params.subreddit, params.sortType);
     return axios
       .get(url, {
-        limit: params.limit || 25,
-        after: params.after || ''
+        params: {
+          limit: params.limit,
+          after: params.after
+        }
       })
       .then(function onResponse(response) {
         let posts = RedditParser.listing(response.data);

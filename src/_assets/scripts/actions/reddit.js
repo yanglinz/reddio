@@ -20,11 +20,12 @@ const RedditActions = {
     };
   },
 
-  fetchPosts(subreddit, sortType, count) {
+  fetchPosts(subreddit, sortType, after, limit) {
     let fetchPromise = RedditApi.get({
       subreddit: subreddit,
       sortType: sortType,
-      count: count
+      limit: limit,
+      after: after
     });
     return {
       type: RedditActionTypes.FETCH_POSTS,
