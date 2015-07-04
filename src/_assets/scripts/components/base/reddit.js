@@ -38,6 +38,17 @@ class Reddit extends React.Component {
           </div>
 
           <p onClick={this.props.fetchPosts}>Fetch posts</p>
+
+          <div className="posts">
+            {this.props.posts.map(function renderPosts(post) {
+              return (
+                <div className="posts">
+                  <p>{post.title}</p>
+                </div>
+              );
+            }.bind(this))}
+          </div>
+
         </div>
       </div>
     );
@@ -47,6 +58,7 @@ class Reddit extends React.Component {
 Reddit.propTypes = {
   subreddits: React.PropTypes.array.isRequired,
   sortTypes: React.PropTypes.array.isRequired,
+  posts: React.PropTypes.array.isRequired,
   setActiveSubreddit: React.PropTypes.func.isRequired,
   setActiveSortType: React.PropTypes.func.isRequired,
   fetchPosts: React.PropTypes.func.isRequired

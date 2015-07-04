@@ -1,5 +1,6 @@
 /* eslint react/sort-comp: 0 */
 
+import _ from 'lodash';
 import React from 'react';
 import Reddit from './base/reddit.js';
 import dispatcher from '../dispatcher.js';
@@ -29,7 +30,7 @@ class RedditContainer extends React.Component {
   }
 
   fetchPosts() {
-    const numPosts = 50;
+    const numPosts = 25;
     const activeSubreddit = this.state.activeSubreddit;
     const activeSortType = this.state.activeSortType;
     let action = RedditActions.fetchPosts(activeSubreddit, activeSortType, numPosts);
@@ -37,10 +38,13 @@ class RedditContainer extends React.Component {
   }
 
   render() {
+    let subreddits = _.keys(this.state.subreddits);
+    let posts = this.state.subreddits[this.state.activeSubreddit];
     return (
       <Reddit
-        subreddits={this.state.subreddits}
+        subreddits={subreddits}
         sortTypes={this.state.sortTypes}
+        posts={posts}
         setActiveSubreddit={this.setActiveSubreddit.bind(this)}
         setActiveSortType={this.setActiveSortType.bind(this)}
         fetchPosts={this.fetchPosts.bind(this)} />
