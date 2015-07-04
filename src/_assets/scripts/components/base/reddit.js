@@ -42,7 +42,7 @@ class Reddit extends React.Component {
           <div className="posts">
             {this.props.posts.map(function renderPosts(post) {
               return (
-                <div className="posts">
+                <div key={post.id} className="posts">
                   <p>{post.title}</p>
                 </div>
               );
