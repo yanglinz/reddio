@@ -48,7 +48,7 @@ function getRedditMutator(action) {
     },
 
     [RedditActionTypes.SET_ACTIVE_SORT_RANGE]: function stateSetActiveSortRange(state) {
-      state.activeSortRange = action.payload.activeSortRange;
+      state.activeSortRange = action.payload.sortRange;
       return state;
     },
 
