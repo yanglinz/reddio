@@ -65,7 +65,8 @@ class Reddit extends React.Component {
                   <p>{post.title}</p>
                 </div>
               );
-            }.bind(null))}
+            })}
+
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
 /* eslint no-console: 0 */
 
+import _ from 'lodash';
 import NProgress from 'NProgress';
 
 function logError(message) {
@@ -12,6 +13,7 @@ let progressBar = {
     if (_.isFunction(promise.then)) {
       _this.start();
     }
+
     promise
       .then(function onSuccess() {
         _this.done();
@@ -19,7 +21,7 @@ let progressBar = {
       .catch(function onError(err) {
         _this.done();
         logError(err);
-      }.bind(this));
+      });
   },
 
   start() {
