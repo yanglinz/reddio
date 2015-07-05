@@ -5,7 +5,6 @@ function getInitialRedditState() {
   const _listingTypes = [
     {type: 'new'},
     {type: 'hot'},
-    {type: 'random'},
     {type: 'top', range: 'hour'},
     {type: 'top', range: 'day'},
     {type: 'top', range: 'week'},
