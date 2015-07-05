@@ -21,6 +21,11 @@ linters:
   ColorKeyword:
     enabled: true
 
+  # If enabled, enforces the use of color literals in variable declarations only.
+  # Conflicts with our color map, therefore disable.
+  ColorVariable:
+    enabled: false
+
   # Prefer // comments over /* ... */.
   Comment:
     enabled: true
@@ -36,7 +41,7 @@ linters:
   # Prefer rule sets ordered as follows: @extend declarations,
   # @include declarations without inner @content, properties, @include
   # declarations with inner @content, then nested rule sets.
-  #
+  # 
   # .foo {
   #   @extend %bar; // except don't actually use @extend for now
   #   @include some-mixin-that-just-adds-rules;
@@ -46,22 +51,25 @@ linters:
   #     // other stuff
   #   }
   # }
-  #
+  # 
   # NOTE: you will need to manually disable this linter inline if your block
   # contains nested media queries. Example usecase:
-  #
+  # 
   # // scss-lint:disable DeclarationOrder
   # @include mq-breakpoint($my-breakpoint) {
   # // scss-lint:enable DeclarationOrder
-  #
+  # 
   #   background-image: url("image@1x.png");
-  #
+  # 
   #   @include mq-resolution(2) {
   #     background-image: url("image@2x.png");
   #   }
   # }
+  # 
+  # 5/29/15: Disabling until we find a workaround for 
+  # https://github.com/sass/libsass/issues/185 @ruthie
   DeclarationOrder:
-    enabled: true
+    enabled: false
 
   # Do not define the same property twice in a single rule set.
   DuplicateProperty:
@@ -104,9 +112,13 @@ linters:
   IdSelector:
     enabled: true
 
+  # While we prefer to not use !important, not worth refactoring now.
+  ImportantRule:
+    enabled: false
+
   # Basenames of @import-ed SCSS partials must not begin with an underscore
   # and must not include the filename extension.
-  #
+  # 
   # Given path/to/_partial.scss,
   # @import "path/to/partial";      // good
   # @import "path/to/_partial";     // bad
@@ -121,6 +133,7 @@ linters:
     enabled: true
     character: space # or `tab`
     width: 2
+    allow_non_nested_indentation: false
 
   # Include leading zeros for numeric values with a decimal point.
   LeadingZero:
@@ -154,10 +167,15 @@ linters:
   PlaceholderInExtend:
     enabled: false
 
+  # We don't currently enforce a maximum number of properties per rule set.
+  PropertyCount:
+    enabled: false
+
   # Sort properties in alphabetical order.
   PropertySortOrder:
     enabled: true
     ignore_unspecified: false
+    separate_groups: false
 
   # Avoid using unknown CSS properties.
   # Linter will ignore vendor-prefixed properties.
@@ -168,7 +186,7 @@ linters:
       - user-focus
 
   # Avoid qualifying elements in selectors (also known as "tag-qualifying").
-  #
+  # 
   # .foo {}        // good
   # element.foo {} // bad
   QualifyingElement:
@@ -199,7 +217,7 @@ linters:
     # ignored_types: [] # attribute, class, element, id, placeholder
 
   # Prefer the shortest shorthand form possible for properties that support it.
-  #
+  # 
   # border: 1px 0;       // good
   # border: 1px 0 1px 0; // bad
   Shorthand:
@@ -211,7 +229,7 @@ linters:
     allow_single_line_rule_sets: false
 
   # Split selectors onto separate lines after each comma.
-  #
+  # 
   # .foo, .bar {
   #   // bad
   # }
@@ -229,7 +247,7 @@ linters:
 
   # Properties must be formatted with a single space separating the colon
   # from the property's value.
-  #
+  # 
   # prop: value;  // good
   # prop:value;   // bad
   # prop:  value; // bad
@@ -238,7 +256,7 @@ linters:
     style: one_space # or `no_space`, or `at_least_one_space`, or `aligned`
 
   # Properties must be formatted with no space between the name and colon.
-  #
+  # 
   # prop: value;  // good
   # prop : value; // bad
   SpaceAfterPropertyName:
@@ -256,7 +274,7 @@ linters:
     style: space # or `new_line`
 
   # Parentheses must not be padded with spaces.
-  #
+  # 
   # (foo, bar)   // good
   # ( foo, bar ) // bad
   SpaceBetweenParens:
@@ -297,8 +315,13 @@ linters:
   UrlQuotes:
     enabled: true
 
+  # This linter is for using variables for specified property values instead of
+  # literal values - not sure when we would use this.
+  VariableForProperty:
+    enabled: false
+
   # Avoid writing vendor prefixes; use Autoprefixer instead.
-  VendorPrefixes:
+  VendorPrefix:
     enabled: true
 
   # Omit length units on zero values.
