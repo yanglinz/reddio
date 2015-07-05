@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import Rx from 'rx';
-import { logError } from './lib/logger.js';
+import { logError } from './lib/app.utils.js';
 
 const dispatcherStream = new Rx.Subject();
 

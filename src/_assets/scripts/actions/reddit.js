@@ -1,5 +1,6 @@
 import { RedditActionTypes } from './action.constants.js';
 import { RedditApi } from '../lib/reddit.js';
+import { progressBar } from '../lib/app.utils.js';
 
 const RedditActions = {
   setActiveSubreddit(subreddit) {
@@ -37,6 +38,9 @@ const RedditActions = {
       limit: limit,
       after: after
     });
+
+    progressBar.fromPromise(fetchPromise);
+
     return {
       type: RedditActionTypes.FETCH_POSTS,
       payload: fetchPromise

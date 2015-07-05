@@ -10,6 +10,7 @@
   "dependencies": {
     "axios": "0.5.4",
     "moment": "2.10.2",
+    "nprogress": "0.2.0",
     "radium": "0.13.0",
     "react": "0.13.2",
     "rsvp": "3.0.18",

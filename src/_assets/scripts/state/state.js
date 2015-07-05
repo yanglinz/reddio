@@ -4,7 +4,7 @@ import getPlayerMutator, { getInitialPlayerState } from './mutators/player.js';
 import getRedditMutator, { getInitialRedditState } from './mutators/reddit.js';
 import { PlayerActionTypes, RedditActionTypes } from '../actions/action.constants.js';
 import { dispatcherStream } from '../dispatcher.js';
-import { logError } from '../lib/logger.js';
+import { logError } from '../lib/app.utils.js';
 
 let appStateStream = new Rx.Subject();
 
