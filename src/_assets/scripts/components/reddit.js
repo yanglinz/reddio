@@ -1,6 +1,7 @@
 /* eslint react/sort-comp: 0 */
 
 import React from 'react';
+import Masthead from './base/masthead.js';
 
 class Reddit extends React.Component {
   constructor(props) {
@@ -10,6 +11,10 @@ class Reddit extends React.Component {
   render() {
     return (
       <div className="reddit">
+        <div className="masthead-wrapper wrapper">
+          <Masthead />
+        </div>
+
         <div className="reddit-control">
           <div className="subreddits">
             {this.props.subreddits.map(function renderSubreddits(subreddit) {
