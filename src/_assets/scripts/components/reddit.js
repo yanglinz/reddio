@@ -2,6 +2,9 @@
 
 import React from 'react';
 import Masthead from './base/masthead.js';
+import Subreddits from './base/subreddits.js';
+import ListingControl from './base/listing.control.js';
+import Posts from './base/posts.js';
 
 class Reddit extends React.Component {
   constructor(props) {
@@ -15,64 +18,27 @@ class Reddit extends React.Component {
           <Masthead />
         </div>
 
-        <div className="reddit-control">
-          <div className="subreddits">
-            {this.props.subreddits.map(function renderSubreddits(subreddit) {
-              const isActive = subreddit === this.props.activeSubreddit;
-              return (
-                <p
-                  key={subreddit}
-                  className={isActive ? 'active' : ''}
-                  onClick={this.props.setActiveSubreddit}
-                  data-value={subreddit}>
-                  {subreddit}
-                </p>
-              );
-            }.bind(this))}
-          </div>
+        <div className="subreddits-wrapper wrapper">
+          <Subreddits
+            activeSubreddit={this.props.activeSubreddit}
+            subreddits={this.props.subreddits}
+            setActiveSubreddit={this.props.setActiveSubreddit} />
+        </div>
 
-          <div className="listing-types">
-            {this.props.listingTypes.map(function renderlistingTypes(sortType) {
-              const isActive = sortType === this.props.activeListingType;
-              return (
-                <p
-                  key={sortType}
-                  className={isActive ? 'active' : ''}
-                  onClick={this.props.setActiveListingType}
-                  data-value={sortType}>
-                  {sortType}
-                </p>
-              );
-            }.bind(this))}
-          </div>
+        <div className="listing-control-wrapper wrapper">
+          <ListingControl
+            listingTypes={this.props.listingTypes}
+            sortRanges={this.props.sortRanges}
+            activeListingType={this.props.activeListingType}
+            activeSortRange={this.props.activeSortRange}
+            setActiveListingType={this.props.setActiveListingType}
+            setActiveSortRange={this.props.setActiveSortRange} />
+        </div>
 
-          <div className="sort-ranges">
-            {this.props.sortRanges.map(function renderSortRanges(sortRange) {
-              const isActive = sortRange === this.props.activeSortRange;
-              return (
-                <p
-                  key={sortRange}
-                  className={isActive ? 'active' : ''}
-                  onClick={this.props.setActiveSortRange}
-                  data-value={sortRange}>
-                  {sortRange}
-                </p>
-              );
-            }.bind(this))}
-          </div>
-
-          <p onClick={this.props.fetchPosts}>Fetch posts</p>
-
-          <div className="posts">
-            {this.props.posts.map(function renderPosts(post) {
-              return (
-                <div key={post.id} className="posts">
-                  <p>{post.title}</p>
-                </div>
-              );
-            })}
-
-          </div>
+        <div className="posts-wrapper wrapper">
+          <Posts
+            posts={this.props.posts}
+            fetchPosts={this.props.fetchPosts} />
         </div>
       </div>
     );
