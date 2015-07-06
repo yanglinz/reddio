@@ -20,6 +20,7 @@ class Posts extends React.Component {
               </div>
             );
           })}
+
         </div>
       </div>
     );

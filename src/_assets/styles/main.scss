@@ -2,9 +2,8 @@
 // # Globals
 // --------------------------------
 
-@import "../../_vendor/normalize-scss/normalize";
-@import "../../_vendor/sanitize-css/sanitize";
-@import "../../_vendor/bourbon/app/assets/stylesheets/bourbon";
+@import "./contrib/normalize";
+@import "../../../node_modules/sanitize.css/sanitize";
 @import "variables";
 
 
@@ -13,8 +12,7 @@
 // --------------------------------
 
 body {
-  font-family: $lucida-grande;
-  font-size: $type-size-base;
+  font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Verdana, sans-serif;
 }
 
 .active {
