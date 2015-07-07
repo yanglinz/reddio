@@ -9,10 +9,12 @@
   },
   "dependencies": {
     "axios": "0.5.4",
+    "material-ui": "0.9.2",
     "moment": "2.10.2",
     "nprogress": "0.2.0",
     "radium": "0.13.0",
     "react": "0.13.2",
+    "react-tap-event-plugin": "0.1.7",
     "rsvp": "3.0.18",
     "rx": "2.5.3"
   },

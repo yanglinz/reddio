@@ -1,4 +1,5 @@
 import React from 'react';
+import { AppBar } from '../common/index.js';
 
 class Masthead extends React.Component {
   constructor(props) {
@@ -8,7 +9,7 @@ class Masthead extends React.Component {
   render() {
     return (
       <div className="masthead">
-        <h1>Reddio</h1>
+        <AppBar title="Reddio" />
       </div>
     );
   }
