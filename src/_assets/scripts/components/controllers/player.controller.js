@@ -1,12 +1,12 @@
 /* eslint react/sort-comp: 0 */
 
 import React from 'react';
-import Player from './player.js';
-import dispatcher from '../dispatcher.js';
-import PlayerActions from '../actions/player.js';
-import { appState } from '../state/state.js';
+import Player from './app/player.js';
+import dispatcher from '../../dispatcher.js';
+import PlayerActions from '../../actions/player.js';
+import { appState } from '../../state/state.js';
 
-class PlayerContainer extends React.Component {
+class PlayerController extends React.Component {
   constructor(props) {
     super(props);
     this.state = appState.getState('player');
@@ -46,8 +46,8 @@ class PlayerContainer extends React.Component {
   }
 }
 
-PlayerContainer.propTypes = {
+PlayerController.propTypes = {
   currentSong: React.PropTypes.object
 };
 
-export default PlayerContainer;
+export default PlayerController;

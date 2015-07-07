@@ -1,10 +1,10 @@
 /* eslint react/sort-comp: 0 */
 
 import React from 'react';
-import Masthead from './base/masthead.js';
-import Subreddits from './base/subreddits.js';
-import ListingControl from './base/listing.control.js';
-import Posts from './base/posts.js';
+import Masthead from './masthead.js';
+import RedditSubreddits from './reddit.subreddits.js';
+import RedditControl from './reddit.control.js';
+import RedditPosts from './reddit.posts.js';
 
 class Reddit extends React.Component {
   constructor(props) {
@@ -19,14 +19,14 @@ class Reddit extends React.Component {
         </div>
 
         <div className="subreddits-wrapper wrapper">
-          <Subreddits
+          <RedditSubreddits
             activeSubreddit={this.props.activeSubreddit}
             subreddits={this.props.subreddits}
             setActiveSubreddit={this.props.setActiveSubreddit} />
         </div>
 
         <div className="listing-control-wrapper wrapper">
-          <ListingControl
+          <RedditControl
             listingTypes={this.props.listingTypes}
             sortRanges={this.props.sortRanges}
             activeListingType={this.props.activeListingType}
@@ -36,7 +36,7 @@ class Reddit extends React.Component {
         </div>
 
         <div className="posts-wrapper wrapper">
-          <Posts
+          <RedditPosts
             posts={this.props.posts}
             fetchPosts={this.props.fetchPosts} />
         </div>

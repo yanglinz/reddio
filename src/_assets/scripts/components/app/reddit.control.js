@@ -1,6 +1,6 @@
 import React from 'react';
 
-class ListingControl extends React.Component {
+class RedditControl extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -42,7 +42,7 @@ class ListingControl extends React.Component {
   }
 }
 
-ListingControl.propTypes = {
+RedditControl.propTypes = {
   listingTypes: React.PropTypes.array.isRequired,
   sortRanges: React.PropTypes.array.isRequired,
   activeListingType: React.PropTypes.string.isRequired,
@@ -51,4 +51,4 @@ ListingControl.propTypes = {
   setActiveSortRange: React.PropTypes.func.isRequired
 };
 
-export default ListingControl;
+export default RedditControl;

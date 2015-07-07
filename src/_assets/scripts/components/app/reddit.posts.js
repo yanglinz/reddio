@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Posts extends React.Component {
+class RedditPosts extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -27,9 +27,9 @@ class Posts extends React.Component {
   }
 }
 
-Posts.propTypes = {
+RedditPosts.propTypes = {
   posts: React.PropTypes.array.isRequired,
   fetchPosts: React.PropTypes.func.isRequired
 };
 
-export default Posts;
+export default RedditPosts;

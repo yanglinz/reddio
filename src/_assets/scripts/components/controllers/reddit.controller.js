@@ -2,12 +2,12 @@
 
 import _ from 'lodash';
 import React from 'react';
-import Reddit from './reddit.js';
-import dispatcher from '../dispatcher.js';
-import RedditActions from '../actions/reddit.js';
-import { appState } from '../state/state.js';
+import Reddit from '../app/reddit.js';
+import dispatcher from '../../dispatcher.js';
+import RedditActions from '../../actions/reddit.js';
+import { appState } from '../../state/state.js';
 
-class RedditContainer extends React.Component {
+class RedditController extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -92,4 +92,4 @@ class RedditContainer extends React.Component {
   }
 }
 
-export default RedditContainer;
+export default RedditController;

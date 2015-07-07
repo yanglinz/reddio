@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Subreddits extends React.Component {
+class RedditSubreddits extends React.Component {
   constructor(props) {
     super(props);
   }
@@ -25,10 +25,10 @@ class Subreddits extends React.Component {
   }
 }
 
-Subreddits.propTypes = {
+RedditSubreddits.propTypes = {
   activeSubreddit: React.PropTypes.string.isRequired,
   subreddits: React.PropTypes.array.isRequired,
   setActiveSubreddit: React.PropTypes.func.isRequired
 };
 
-export default Subreddits;
+export default RedditSubreddits;
