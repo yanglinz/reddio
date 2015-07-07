@@ -3,25 +3,3 @@
 // --------------------------------
 
 @import "./contrib/normalize";
-@import "../../../node_modules/sanitize.css/sanitize";
-@import "variables";
-
-
-// --------------------------------
-// # Typography
-// --------------------------------
-
-body {
-  font-family: 'Lucida Grande', 'Lucida Sans Unicode', 'Lucida Sans', Geneva, Verdana, sans-serif;
-}
-
-.active {
-  font-weight: bold;
-}
-
-// --------------------------------
-// # Components
-// --------------------------------
-
-@import "components/masthead";
-@import "components/songs";
