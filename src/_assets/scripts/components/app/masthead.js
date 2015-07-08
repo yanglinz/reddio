@@ -1,7 +1,8 @@
 import React from 'react';
-import { AppBar } from '../common/index.js';
+import { AppBar } from 'material-ui';
+import { BaseViewComponent } from '../higher-order/index.js';
 
-class Masthead extends React.Component {
+class Masthead extends BaseViewComponent {
   constructor(props) {
     super(props);
   }
@@ -14,9 +15,5 @@ class Masthead extends React.Component {
     );
   }
 }
-
-Masthead.propTypes = {
-  song: React.PropTypes.object
-};
 
 export default Masthead;
