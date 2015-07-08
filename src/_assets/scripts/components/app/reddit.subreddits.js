@@ -1,4 +1,5 @@
 import React from 'react';
+import { List, ListItem } from 'material-ui';
 import { BaseViewComponent } from '../higher-order/index.js';
 
 class RedditSubreddits extends BaseViewComponent {
@@ -9,18 +10,16 @@ class RedditSubreddits extends BaseViewComponent {
   render() {
     return (
       <div className="subreddits">
-        {this.props.subreddits.map(function renderSubreddits(subreddit) {
-          const isActive = subreddit === this.props.activeSubreddit;
-          return (
-            <p
-              key={subreddit}
-              className={isActive ? 'active' : ''}
-              onClick={this.props.setActiveSubreddit}
-              data-value={subreddit}>
-              {subreddit}
-            </p>
-          );
-        }.bind(this))}
+        <List subheader="Subreddits">
+          {this.props.subreddits.map(function renderSubreddits(subreddit) {
+            const isActive = subreddit === this.props.activeSubreddit;
+            return (
+              <ListItem key={subreddit}>
+                {subreddit}
+              </ListItem>
+            );
+          }.bind(this))}
+        </List>
       </div>
     );
   }
