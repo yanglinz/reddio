@@ -1,4 +1,5 @@
 import React from 'react';
+import { Avatar, List, ListItem } from 'material-ui';
 import { BaseViewComponent } from '../higher-order/index.js';
 
 class RedditPosts extends BaseViewComponent {
@@ -14,14 +15,19 @@ class RedditPosts extends BaseViewComponent {
         </div>
 
         <div className="posts-list">
+          <List>
           {this.props.posts.map(function renderPosts(post) {
+            let avatar = (<Avatar src={post.thumbnail} />);
             return (
-              <div key={post.id} className="posts">
-                <p>{post.title}</p>
-              </div>
+              <ListItem leftAvatar={avatar}>
+                <div key={post.id} className="posts">
+                  {post.title}
+                </div>
+              </ListItem>
             );
           })}
 
+          </List>
         </div>
       </div>
     );
