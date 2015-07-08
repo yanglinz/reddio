@@ -1,6 +1,7 @@
 import React from 'react';
+import { BaseViewComponent } from '../higher-order/index.js';
 
-class RedditControl extends React.Component {
+class RedditControl extends BaseViewComponent {
   constructor(props) {
     super(props);
   }

@@ -1,12 +1,12 @@
 /* eslint react/sort-comp: 0 */
 
-import React from 'react';
+import React, { Component } from 'react';
 import Masthead from './masthead.js';
 import RedditSubreddits from './reddit.subreddits.js';
 import RedditControl from './reddit.control.js';
 import RedditPosts from './reddit.posts.js';
 
-class Reddit extends React.Component {
+class Reddit extends Component {
   constructor(props) {
     super(props);
   }
