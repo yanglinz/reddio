@@ -1,7 +1,6 @@
 import React from 'react';
 import mui, { AppBar } from 'material-ui';
-
-let ThemeManager = new mui.Styles.ThemeManager();
+import ThemeManager from './theme.js';
 
 class AppBarWrapper extends React.Component {
   constructor(props) {
