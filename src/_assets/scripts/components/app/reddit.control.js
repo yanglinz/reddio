@@ -1,4 +1,6 @@
+import _ from 'lodash';
 import React from 'react';
+import { DropDownMenu } from 'material-ui';
 import { BaseViewComponent } from '../higher-order/index.js';
 
 class RedditControl extends BaseViewComponent {
@@ -6,38 +8,27 @@ class RedditControl extends BaseViewComponent {
     super(props);
   }
 
+  getListingTypes() {
+    return _.map(this.props.listingTypes, sortType => ({
+      payload: sortType,
+      text: sortType
+    }));
+  }
+
+  getSortRanges() {
+    return _.map(this.props.sortRanges, sortRange => ({
+      payload: sortRange,
+      text: sortRange
+    }));
+  }
+
   render() {
+    let listingTypes = this.getListingTypes();
+    let sortRanges = this.getSortRanges();
     return (
       <div className="listing-control">
-        <div className="listing-types">
-          {this.props.listingTypes.map(function renderlistingTypes(sortType) {
-            const isActive = sortType === this.props.activeListingType;
-            return (
-              <p
-                key={sortType}
-                className={isActive ? 'active' : ''}
-                onClick={this.props.setActiveListingType}
-                data-value={sortType}>
-                {sortType}
-              </p>
-            );
-          }.bind(this))}
-        </div>
-
-        <div className="sort-ranges">
-          {this.props.sortRanges.map(function renderSortRanges(sortRange) {
-            const isActive = sortRange === this.props.activeSortRange;
-            return (
-              <p
-                key={sortRange}
-                className={isActive ? 'active' : ''}
-                onClick={this.props.setActiveSortRange}
-                data-value={sortRange}>
-                {sortRange}
-              </p>
-            );
-          }.bind(this))}
-        </div>
+        <DropDownMenu menuItems={listingTypes} />
+        <DropDownMenu menuItems={sortRanges} />
       </div>
     );
   }
