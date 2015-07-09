@@ -1,6 +1,6 @@
 import React from 'react';
 import { AppBar } from 'material-ui';
-import { BaseViewComponent } from '../higher-order/index.js';
+import { BaseViewComponent } from '../wrappers/index.js';
 
 class Masthead extends BaseViewComponent {
   constructor(props) {

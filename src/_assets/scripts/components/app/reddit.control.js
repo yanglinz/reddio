@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React from 'react';
 import { DropDownMenu } from 'material-ui';
-import { BaseViewComponent } from '../higher-order/index.js';
+import { BaseViewComponent } from '../wrappers/index.js';
 
 class RedditControl extends BaseViewComponent {
   constructor(props) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { List, ListItem } from 'material-ui';
-import { BaseViewComponent } from '../higher-order/index.js';
+import { BaseViewComponent } from '../wrappers/index.js';
 
 class RedditSubreddits extends BaseViewComponent {
   constructor(props) {
