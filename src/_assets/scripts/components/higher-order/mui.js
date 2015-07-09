@@ -1,25 +1,24 @@
 import React, { Component } from 'react';
-import mui from 'material-ui';
+import mui, { Styles } from 'material-ui';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 injectTapEventPlugin();  // get touch events to work for mui
-let Colors = mui.Styles.Colors;
 
 const CustomMaterialPalette = {
-  primary1Color: Colors.blue700,
-  primary2Color: Colors.cyan700,
-  primary3Color: Colors.cyan100,
-  accent1Color: Colors.pinkA200,
-  accent2Color: Colors.pinkA400,
-  accent3Color: Colors.pinkA100,
-  textColor: Colors.darkBlack,
-  canvasColor: Colors.white,
-  borderColor: Colors.grey300
+  primary1Color: Styles.Colors.blue700,
+  primary2Color: Styles.Colors.cyan700,
+  primary3Color: Styles.Colors.cyan100,
+  accent1Color: Styles.Colors.pinkA200,
+  accent2Color: Styles.Colors.pinkA400,
+  accent3Color: Styles.Colors.pinkA100,
+  textColor: Styles.Colors.darkBlack,
+  canvasColor: Styles.Colors.white,
+  borderColor: Styles.Colors.grey300
 };
 
 const CustomMaterialComponentThemes = {
   raisedButton: {
-    primaryColor: Colors.blue700
+    primaryColor: Styles.Colors.blue700
   }
 };
 
