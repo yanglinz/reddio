@@ -15,8 +15,10 @@ class RedditPosts extends BaseViewComponent {
           {this.props.posts.map(function renderPosts(post) {
             let avatar = (<Avatar src={post.thumbnail} />);
             return (
-              <ListItem leftAvatar={avatar}>
-                <div key={post.id} className="posts">
+              <ListItem
+                key={post.id}
+                leftAvatar={avatar}>
+                <div className="posts">
                   {post.title}
                 </div>
               </ListItem>
