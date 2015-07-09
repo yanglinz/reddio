@@ -14,9 +14,15 @@ class RedditSubreddits extends BaseViewComponent {
           {this.props.subreddits.map(function renderSubreddits(subreddit) {
             const isActive = subreddit === this.props.activeSubreddit;
             return (
-              <ListItem key={subreddit}>
-                {subreddit}
-              </ListItem>
+              <div
+                key={subreddit}
+                onClick={this.props.setActiveSubreddit}
+                data-payload={subreddit}>
+
+                <ListItem>
+                  {subreddit}
+                </ListItem>
+              </div>
             );
           }.bind(this))}
         </List>

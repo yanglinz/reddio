@@ -31,9 +31,11 @@ class RedditController extends React.Component {
   }
 
   setActiveSubreddit(e) {
-    let newSubreddit = e.target.getAttribute('data-value') || e.target.innerText;
-    let action = RedditActions.setActiveSubreddit(newSubreddit);
-    dispatcher.dispatch(action);
+    let newSubreddit = e.currentTarget.getAttribute('data-payload');
+    if (newSubreddit) {
+      let action = RedditActions.setActiveSubreddit(newSubreddit);
+      dispatcher.dispatch(action);
+    }
   }
 
   setActiveListingType(e) {
