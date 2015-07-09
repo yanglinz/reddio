@@ -3,9 +3,9 @@ import mui from 'material-ui';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 injectTapEventPlugin();  // get touch events to work for mui
+let Colors = mui.Styles.Colors;
 
-const Colors = mui.Styles.Colors;
-const CustomMaterialDesignPalette = {
+const CustomMaterialPalette = {
   primary1Color: Colors.blue700,
   primary2Color: Colors.cyan700,
   primary3Color: Colors.cyan100,
@@ -17,8 +17,15 @@ const CustomMaterialDesignPalette = {
   borderColor: Colors.grey300
 };
 
+const CustomMaterialComponentThemes = {
+  raisedButton: {
+    primaryColor: Colors.blue700
+  }
+};
+
 let ThemeManager = new mui.Styles.ThemeManager();
-ThemeManager.setPalette(CustomMaterialDesignPalette);
+ThemeManager.setPalette(CustomMaterialPalette);
+ThemeManager.setComponentThemes(CustomMaterialComponentThemes);
 
 class MaterialDesignWrapper extends Component {
   constructor(props) {

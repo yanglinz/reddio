@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, List, ListItem } from 'material-ui';
+import { Avatar, List, ListItem, RaisedButton } from 'material-ui';
 import { BaseViewComponent } from '../higher-order/index.js';
 
 class RedditPosts extends BaseViewComponent {
@@ -10,10 +10,6 @@ class RedditPosts extends BaseViewComponent {
   render() {
     return (
       <div className="posts">
-        <div className="posts-fetch">
-          <p onClick={this.props.fetchPosts}>Fetch posts</p>
-        </div>
-
         <div className="posts-list">
           <List>
           {this.props.posts.map(function renderPosts(post) {
@@ -26,8 +22,14 @@ class RedditPosts extends BaseViewComponent {
               </ListItem>
             );
           })}
-
           </List>
+        </div>
+
+        <div className="posts-fetch">
+          <RaisedButton
+            onClick={this.props.fetchPosts}
+            primary={true}
+            label="Load more" />
         </div>
       </div>
     );
