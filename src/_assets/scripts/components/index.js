@@ -1,4 +1,5 @@
 import React from 'react';
+import Masthead from './app/masthead.js';
 import RedditController from './controllers/reddit.controller.js';
 import { appStateStream } from '../state/state.js';
 
@@ -20,6 +21,7 @@ class AppContainer extends React.Component {
   render() {
     return (
       <div className="app-container">
+        <Masthead />
         <RedditController />
       </div>
     );

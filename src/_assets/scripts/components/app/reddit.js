@@ -1,7 +1,6 @@
 /* eslint react/sort-comp: 0 */
 
 import React, { Component } from 'react';
-import Masthead from './masthead.js';
 import RedditSubreddits from './reddit.subreddits.js';
 import RedditControl from './reddit.control.js';
 import RedditPosts from './reddit.posts.js';
@@ -14,18 +13,14 @@ class Reddit extends Component {
   render() {
     return (
       <div className="reddit">
-        <div className="masthead-wrapper wrapper">
-          <Masthead />
-        </div>
-
-        <div className="subreddits-wrapper wrapper">
+        <aside>
           <RedditSubreddits
             activeSubreddit={this.props.activeSubreddit}
             subreddits={this.props.subreddits}
             onActiveSubredditChange={this.props.onActiveSubredditChange} />
-        </div>
+        </aside>
 
-        <div className="listing-control-wrapper wrapper">
+        <main>
           <RedditControl
             listingTypes={this.props.listingTypes}
             sortRanges={this.props.sortRanges}
@@ -33,13 +28,11 @@ class Reddit extends Component {
             activeSortRange={this.props.activeSortRange}
             setActiveListingType={this.props.setActiveListingType}
             setActiveSortRange={this.props.setActiveSortRange} />
-        </div>
 
-        <div className="posts-wrapper wrapper">
           <RedditPosts
             posts={this.props.posts}
             fetchPosts={this.props.fetchPosts} />
-        </div>
+        </main>
       </div>
     );
   }

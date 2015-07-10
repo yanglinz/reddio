@@ -3,3 +3,42 @@
 // --------------------------------
 
 @import "./contrib/normalize";
+
+
+// --------------------------------
+// # Layout
+// --------------------------------
+
+.reddit {
+  display: flex;
+  flex-wrap: wrap;
+
+  aside {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 20%;
+
+    .subreddits {
+      flex-grow: 1;
+      height: 100%;
+    }
+  }
+
+  main {
+    width: 80%;
+
+    .listing-control {
+      padding: 0 0 0 5px;
+    }
+  }
+}
+
+
+// --------------------------------
+// # Basic Styling
+// --------------------------------
+
+.subreddits {
+  border-right: 1px solid #ddd;
+}
