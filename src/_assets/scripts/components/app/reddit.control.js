@@ -38,14 +38,18 @@ class RedditControl extends BaseViewComponent {
 
   render() {
     let listingTypes = this.getListingTypes();
+    let activeListingTypeIndex = _.indexOf(this.props.listingTypes, this.props.activeListingType);
     let sortRanges = this.getSortRanges();
+    let activeSortRangeIndex = _.indexOf(this.props.sortRanges, this.props.activeSortRange);
     return (
       <div className="listing-control">
         <DropDownMenu
           menuItems={listingTypes}
+          selectedIndex={activeListingTypeIndex}
           onChange={this.onListingTypeChange.bind(this)} />
         <DropDownMenu
           menuItems={sortRanges}
+          selectedIndex={activeSortRangeIndex}
           onChange={this.onSortRangeChange.bind(this)} />
       </div>
     );
