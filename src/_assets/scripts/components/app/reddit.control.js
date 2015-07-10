@@ -22,13 +22,31 @@ class RedditControl extends BaseViewComponent {
     }));
   }
 
+  onListingTypeChange(e, selectedIndex, menuItem) {
+    const payload = menuItem.payload;
+    if (payload) {
+      this.props.setActiveListingType(payload);
+    }
+  }
+
+  onSortRangeChange(e, selectedIndex, menuItem) {
+    const payload = menuItem.payload;
+    if (payload) {
+      this.props.setActiveSortRange(payload);
+    }
+  }
+
   render() {
     let listingTypes = this.getListingTypes();
     let sortRanges = this.getSortRanges();
     return (
       <div className="listing-control">
-        <DropDownMenu menuItems={listingTypes} />
-        <DropDownMenu menuItems={sortRanges} />
+        <DropDownMenu
+          menuItems={listingTypes}
+          onChange={this.onListingTypeChange.bind(this)} />
+        <DropDownMenu
+          menuItems={sortRanges}
+          onChange={this.onSortRangeChange.bind(this)} />
       </div>
     );
   }

@@ -30,7 +30,7 @@ class RedditController extends React.Component {
     return this.state.subreddits[this.state.activeSubreddit][storageKey];
   }
 
-  setActiveSubreddit(e) {
+  onActiveSubredditChange(e) {
     let newSubreddit = e.currentTarget.getAttribute('data-payload');
     if (newSubreddit) {
       let action = RedditActions.setActiveSubreddit(newSubreddit);
@@ -38,15 +38,13 @@ class RedditController extends React.Component {
     }
   }
 
-  setActiveListingType(e) {
-    let newListingTYpe = e.target.getAttribute('data-value') || e.target.innerText;
-    let action = RedditActions.setActiveListingType(newListingTYpe);
+  setActiveListingType(listingType) {
+    let action = RedditActions.setActiveListingType(listingType);
     dispatcher.dispatch(action);
   }
 
-  setActiveSortRange(e) {
-    let newSortRange = e.target.getAttribute('data-value') || e.target.innerText;
-    let action = RedditActions.setActiveSortRange(newSortRange);
+  setActiveSortRange(sortRange) {
+    let action = RedditActions.setActiveSortRange(sortRange);
     dispatcher.dispatch(action);
   }
 
@@ -86,7 +84,7 @@ class RedditController extends React.Component {
         activeListingType={activeListingType}
         sortRanges={sortRanges}
         activeSortRange={activeSortRange}
-        setActiveSubreddit={this.setActiveSubreddit.bind(this)}
+        onActiveSubredditChange={this.onActiveSubredditChange.bind(this)}
         setActiveListingType={this.setActiveListingType.bind(this)}
         setActiveSortRange={this.setActiveSortRange.bind(this)}
         fetchPosts={this.fetchPosts.bind(this)} />

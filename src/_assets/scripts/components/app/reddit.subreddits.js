@@ -16,7 +16,7 @@ class RedditSubreddits extends BaseViewComponent {
             return (
               <div
                 key={subreddit}
-                onClick={this.props.setActiveSubreddit}
+                onClick={this.props.onActiveSubredditChange}
                 data-payload={subreddit}>
 
                 <ListItem>
@@ -34,7 +34,7 @@ class RedditSubreddits extends BaseViewComponent {
 RedditSubreddits.propTypes = {
   activeSubreddit: React.PropTypes.string.isRequired,
   subreddits: React.PropTypes.array.isRequired,
-  setActiveSubreddit: React.PropTypes.func.isRequired
+  onActiveSubredditChange: React.PropTypes.func.isRequired
 };
 
 export default RedditSubreddits;

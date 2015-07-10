@@ -22,7 +22,7 @@ class Reddit extends Component {
           <RedditSubreddits
             activeSubreddit={this.props.activeSubreddit}
             subreddits={this.props.subreddits}
-            setActiveSubreddit={this.props.setActiveSubreddit} />
+            onActiveSubredditChange={this.props.onActiveSubredditChange} />
         </div>
 
         <div className="listing-control-wrapper wrapper">
@@ -53,7 +53,7 @@ Reddit.propTypes = {
   activeListingType: React.PropTypes.string.isRequired,
   sortRanges: React.PropTypes.array.isRequired,
   activeSortRange: React.PropTypes.string.isRequired,
-  setActiveSubreddit: React.PropTypes.func.isRequired,
+  onActiveSubredditChange: React.PropTypes.func.isRequired,
   setActiveListingType: React.PropTypes.func.isRequired,
   setActiveSortRange: React.PropTypes.func.isRequired,
   fetchPosts: React.PropTypes.func.isRequired
