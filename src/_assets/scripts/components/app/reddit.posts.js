@@ -1,5 +1,5 @@
 import React from 'react';
-import { Avatar, List, ListItem, RaisedButton } from 'material-ui';
+import { Avatar, FontIcon, IconButton, List, ListItem, RaisedButton } from 'material-ui';
 import { BaseViewComponent } from '../wrappers/index.js';
 
 class RedditPosts extends BaseViewComponent {
@@ -13,11 +13,20 @@ class RedditPosts extends BaseViewComponent {
         <div className="posts-list">
           <List>
           {this.props.posts.map(function renderPosts(post) {
-            let avatar = (<Avatar src={post.thumbnail} />);
+            let thumbnail = (
+              <Avatar src={post.thumbnail} />
+            );
+            let playButton = (
+              <IconButton>
+                <FontIcon className="material-icons">play_circle_filled</FontIcon>
+              </IconButton>
+            );
             return (
               <ListItem
                 key={post.id}
-                leftAvatar={avatar}>
+                leftAvatar={thumbnail}
+                rightIconButton={playButton}
+                disabled={true}>
                 <div className="posts">
                   {post.title}
                 </div>
