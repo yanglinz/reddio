@@ -1,5 +1,5 @@
 import React from 'react';
-import { List, ListItem } from 'material-ui';
+import { FontIcon, IconButton, List, ListItem } from 'material-ui';
 import { BaseViewComponent } from '../wrappers/index.js';
 
 class RedditSubreddits extends BaseViewComponent {
@@ -13,13 +13,18 @@ class RedditSubreddits extends BaseViewComponent {
         <List subheader="Subreddits">
           {this.props.subreddits.map(function renderSubreddits(subreddit) {
             const isActive = subreddit === this.props.activeSubreddit;
+            let subredditIcon = (
+              <IconButton>
+                <FontIcon className="material-icons">headset</FontIcon>
+              </IconButton>
+            );
             return (
               <div
                 key={subreddit}
                 onClick={this.props.onActiveSubredditChange}
                 data-payload={subreddit}>
-
-                <ListItem>
+                <ListItem
+                  rightIconButton={subredditIcon}>
                   {subreddit}
                 </ListItem>
               </div>
