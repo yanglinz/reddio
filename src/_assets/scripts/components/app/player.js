@@ -1,6 +1,7 @@
 import React from 'react';
+import { BaseViewComponent } from '../wrappers/index.js';
 
-class Player extends React.Component {
+class Player extends BaseViewComponent {
   constructor(props) {
     super(props);
   }

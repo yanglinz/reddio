@@ -1,6 +1,7 @@
 import React from 'react';
 import Masthead from './app/masthead.js';
 import RedditController from './controllers/reddit.controller.js';
+import PlayerController from './controllers/player.controller.js';
 import { appStateStream } from '../state/state.js';
 
 class AppContainer extends React.Component {
@@ -21,8 +22,17 @@ class AppContainer extends React.Component {
   render() {
     return (
       <div className="app-container">
-        <Masthead />
-        <RedditController />
+        <header className="app-header">
+          <Masthead />
+        </header>
+
+        <main className="app-content">
+          <RedditController />
+        </main>
+
+        <footer className="app-footer">
+          <PlayerController />
+        </footer>
       </div>
     );
   }

@@ -9,6 +9,19 @@
 // # Layout
 // --------------------------------
 
+.app-container {
+  position: relative;
+  margin-bottom: 150px;
+
+  .app-footer {
+    bottom: 0;
+    height: 150px;
+    left: 0;
+    position: fixed;
+    right: 0;
+  }
+}
+
 .reddit {
   display: flex;
   flex-wrap: wrap;
@@ -34,11 +47,16 @@
   }
 }
 
+.player {
+  background: #ffffff;
+  border-top: 1px solid #dddddd;
+}
+
 
 // --------------------------------
 // # Basic Styling
 // --------------------------------
 
 .subreddits {
-  border-right: 1px solid #ddd;
+  border-right: 1px solid #dddddd;
 }
