@@ -19,6 +19,14 @@ const CustomMaterialPalette = {
 const CustomMaterialComponentThemes = {
   raisedButton: {
     primaryColor: Styles.Colors.blue700
+  },
+  slider: {
+    trackColor: Styles.Colors.minBlack,
+    trackColorSelected: Styles.Colors.grey500,
+    handleColorZero: Styles.Colors.grey400,
+    handleFillColor: Styles.Colors.white,
+    selectionColor: Styles.Colors.blue700,
+    rippleColor: Styles.Colors.blue700
   }
 };
 

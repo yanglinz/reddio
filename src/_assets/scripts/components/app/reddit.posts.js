@@ -25,8 +25,7 @@ class RedditPosts extends BaseViewComponent {
               <ListItem
                 key={post.id}
                 leftAvatar={thumbnail}
-                rightIconButton={playButton}
-                disabled={true}>
+                rightIconButton={playButton}>
                 <div className="posts">
                   {post.title}
                 </div>

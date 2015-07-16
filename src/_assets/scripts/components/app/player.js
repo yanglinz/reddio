@@ -1,4 +1,6 @@
+import _ from 'lodash';
 import React from 'react';
+import { IconButton, FontIcon, Slider } from 'material-ui';
 import { BaseViewComponent } from '../wrappers/index.js';
 
 class Player extends BaseViewComponent {
@@ -9,12 +11,36 @@ class Player extends BaseViewComponent {
   render() {
     return (
       <div className="player">
+        <div className="iframe-mounts">
+          <div className="youtube-mount"></div>
+          <div className="soundcloud-mount"></div>
+        </div>
+
         <div className="controls">
           <div className="song-control">
-            <p className="play" onClick={this.props.playSong}>Play song</p>
-            <p className="pause" onClick={this.props.pauseSong}>Pause song</p>
-            <p className="next" onClick={this.props.nextSong}>Next song</p>
-            <p className="prev" onClick={this.props.prevSong}>Prev song</p>
+            <span className="song-control-button" onClick={this.props.prevSong}>
+              <IconButton>
+                <FontIcon className="material-icons">skip_previous</FontIcon>
+              </IconButton>
+            </span>
+
+            <span className="song-control-button" onClick={this.props.playSong}>
+              <IconButton>
+                <FontIcon className="material-icons">play_arrow</FontIcon>
+              </IconButton>
+            </span>
+
+            <span className="song-control-button" onClick={this.props.pauseSong}>
+              <IconButton>
+                <FontIcon className="material-icons">pause</FontIcon>
+              </IconButton>
+            </span>
+
+            <span className="song-control-button" onClick={this.props.nextSong}>
+              <IconButton>
+                <FontIcon className="material-icons">skip_next</FontIcon>
+              </IconButton>
+            </span>
           </div>
 
           <div className="song-status">
@@ -22,6 +48,7 @@ class Player extends BaseViewComponent {
             </div>
 
             <div className="progress">
+              <Slider name="slider3" defaultValue={1} />
             </div>
           </div>
 
