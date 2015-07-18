@@ -1,5 +1,5 @@
 import { RedditActionTypes } from './action.constants.js';
-import { RedditApi } from '../lib/reddit.js';
+import { RedditApi } from '../reddit/api.js';
 import { progressBar } from '../lib/app.utils.js';
 
 const RedditActions = {

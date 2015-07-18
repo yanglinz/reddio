@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import moment from 'moment';
 import axios from 'axios';
-import { logError } from './app.utils.js';
+import { logError } from './../lib/app.utils.js';
 
 class RedditParser {
   static listing(listing={}) {
