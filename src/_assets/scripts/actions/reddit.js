@@ -1,6 +1,6 @@
 import { RedditActionTypes } from './action.constants.js';
 import { RedditApi } from '../reddit/api.js';
-import { progressBar } from '../lib/app.utils.js';
+import { progressBar } from '../core/utils.js';
 
 const RedditActions = {
   setActiveSubreddit(subreddit) {
