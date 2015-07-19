@@ -3,7 +3,7 @@
 import React from 'react';
 import Player from '../app/player.js';
 import dispatcher from '../../dispatcher.js';
-import PlayerActions from '../../actions/player.js';
+import PlayerActions from '../../player/actions.js';
 import { appState } from '../../state/state.js';
 
 class PlayerController extends React.Component {
