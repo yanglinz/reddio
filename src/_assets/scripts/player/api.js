@@ -44,7 +44,6 @@ class Utilities {
  */
 
 import '../contrib/soundcloud.player.api.js';
-import '../contrib/youtube.iframe.api.js';
 
 class AudioPlayer {
   constructor() {
@@ -55,11 +54,6 @@ class AudioPlayer {
     this.soundcloudPlayerStream = new Rx.Subject();
   }
 
-  load() {
-    this.loadSoundcloud();
-    this.loadYoutube();
-  }
-
   loadSoundcloud() {
     /**
      * Load the soundcloud api script.
@@ -67,7 +61,7 @@ class AudioPlayer {
      */
     let _this = this;
     if (_.isEmpty(_this._youtubeApiPromise)) {
-      const elementID = 'soundcloud-player-container';
+      const elementID = 'soundcloud-mount-node';
       let soundcloudIframe = document.createElement('iframe');
       soundcloudIframe.id = elementID;
       soundcloudIframe.width = '100%';
@@ -99,10 +93,10 @@ class AudioPlayer {
      */
     let _this = this;
     if (_.isEmpty(_this._youtubeApiPromise)) {
-      const elementID = 'youtube-player-container';
-      let youtubeContainer = document.createElement('div');
-      youtubeContainer.id = elementID;
-      document.body.appendChild(youtubeContainer);
+      let tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      let firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
       _this._youtubeApiPromise = new RSVP.Promise(function handleYoutubePromise(resolve, reject) {
         window.onYouTubeIframeAPIReady = function onYouTubeIframeAPIReady() {
@@ -110,6 +104,7 @@ class AudioPlayer {
             reject('window.YT is undefined');
           }
 
+          const elementID = 'youtube-mount-node';
           _this._player.youtubePlayer = new window.YT.Player(elementID, {
             width: 420,
             height: 120,
@@ -161,8 +156,10 @@ class AudioPlayer {
   }
 
   pause() {
-    this._player.youtubePlayer.stopVideo();
-    this._player.soundcloudPlayer.pause();
+    try {
+      this._player.youtubePlayer.stopVideo();
+      this._player.soundcloudPlayer.pause();
+    } catch (err) { /* intentionally empty */ }
   }
 
   seekTo() {

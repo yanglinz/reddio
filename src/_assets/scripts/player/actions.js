@@ -4,9 +4,7 @@ const PlayerActions = {
   playSong(song) {
     return {
       type: ActionTypes.PLAY_SONG,
-      payload: {
-        song: song
-      }
+      payload: {}
     };
   },
 
@@ -20,18 +18,14 @@ const PlayerActions = {
   nextSong(currentSong) {
     return {
       type: ActionTypes.NEXT_SONG,
-      payload: {
-        currentSong: currentSong
-      }
+      payload: {}
     };
   },
 
   prevSong(currentSong) {
     return {
       type: ActionTypes.PREV_SONG,
-      payload: {
-        currentSong: currentSong
-      }
+      payload: {}
     };
   }
 };

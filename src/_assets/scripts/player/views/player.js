@@ -9,12 +9,7 @@ class Player extends BaseViewComponent {
 
   render() {
     return (
-      <div className="player">
-        <div className="iframe-mounts">
-          <div className="youtube-mount"></div>
-          <div className="soundcloud-mount"></div>
-        </div>
-
+      <div className="player-container">
         <div className="controls">
           <div className="song-control">
             <span className="song-control-button" onClick={this.props.prevSong}>
