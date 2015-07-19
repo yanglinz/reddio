@@ -1,4 +1,4 @@
-import { PlayerActionTypes } from './action.constants.js';
+import { PlayerActionTypes } from './../core/constants.js';
 
 const PlayerActions = {
   playSong(song) {

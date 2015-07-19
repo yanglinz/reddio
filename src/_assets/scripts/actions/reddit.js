@@ -1,4 +1,4 @@
-import { RedditActionTypes } from './action.constants.js';
+import { RedditActionTypes } from './../core/constants.js';
 import { RedditApi } from '../reddit/api.wrapper.js';
 import { progressBar } from '../core/utils.js';
 

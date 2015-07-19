@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { RedditActionTypes} from '../../actions/action.constants.js';
+import { RedditActionTypes} from '../../core/constants.js';
 
 function getInitialRedditState() {
   const _listingTypes = [

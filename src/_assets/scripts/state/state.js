@@ -2,7 +2,7 @@ import _ from 'lodash';
 import Rx from 'rx';
 import getPlayerMutator, { getInitialPlayerState } from './mutators/player.js';
 import getRedditMutator, { getInitialRedditState } from './mutators/reddit.js';
-import { PlayerActionTypes, RedditActionTypes } from '../actions/action.constants.js';
+import { PlayerActionTypes, RedditActionTypes } from '../core/constants.js';
 import { dispatcherStream } from '../dispatcher.js';
 import { logError } from '../core/utils.js';
 
