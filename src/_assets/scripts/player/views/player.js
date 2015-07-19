@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import React from 'react';
 import { IconButton, FontIcon, Slider } from 'material-ui';
 import { BaseViewComponent } from '../../core/views/index.js';

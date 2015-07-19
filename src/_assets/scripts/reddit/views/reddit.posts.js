@@ -12,6 +12,7 @@ class RedditPosts extends BaseViewComponent {
       <div className="posts">
         <div className="posts-list">
           <List>
+
           {this.props.posts.map(function renderPosts(post) {
             let thumbnail = (
               <Avatar src={post.thumbnail} />
@@ -32,6 +33,7 @@ class RedditPosts extends BaseViewComponent {
               </ListItem>
             );
           })}
+
           </List>
         </div>
 
