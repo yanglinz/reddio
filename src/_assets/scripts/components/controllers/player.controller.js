@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Player from '../app/player.js';
-import dispatcher from '../../dispatcher.js';
+import dispatcher from '../../core/dispatcher.js';
 import PlayerActions from '../../player/actions.js';
 import { appState } from '../../state/state.js';
 

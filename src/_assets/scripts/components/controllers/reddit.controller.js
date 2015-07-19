@@ -3,7 +3,7 @@
 import _ from 'lodash';
 import React from 'react';
 import Reddit from '../app/reddit.js';
-import dispatcher from '../../dispatcher.js';
+import dispatcher from '../../core/dispatcher.js';
 import RedditActions from '../../reddit/actions.js';
 import { appState } from '../../state/state.js';
 
