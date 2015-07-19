@@ -60,14 +60,17 @@ class AudioPlayer {
      * The soundcloud script synchronously attaches a global `SC` object
      */
     let _this = this;
-    if (_.isEmpty(_this._youtubeApiPromise)) {
-      const elementID = 'soundcloud-mount-node';
+    if (_.isEmpty(_this._soundcloudApiPromise)) {
+      const mountNode = 'soundcloud-mount-node';
+      const playerElementId = 'soundcloud-iframe-container';
       let soundcloudIframe = document.createElement('iframe');
-      soundcloudIframe.id = elementID;
+      soundcloudIframe.id = playerElementId;
       soundcloudIframe.width = '100%';
       soundcloudIframe.height = '150';
+      soundcloudIframe.setAttribute('frameborder', 'no');
+      soundcloudIframe.setAttribute('scrolling', 'no');
       soundcloudIframe.src = 'https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1848538';
-      document.body.appendChild(soundcloudIframe);
+      document.getElementById(mountNode).appendChild(soundcloudIframe);
 
       _this._soundcloudApiPromise = new RSVP.Promise(function handleSCPromise(resolve, reject) {
         if (_.isEmpty(window.SC.Widget)) {
@@ -75,7 +78,7 @@ class AudioPlayer {
         }
 
         if (window.SC) {
-          const iframeElement = document.querySelector('#' + elementID);
+          const iframeElement = document.querySelector('#' + playerElementId);
           _this._player.soundcloudPlayer = window.SC.Widget(iframeElement);
           resolve(_this._player.soundcloudPlayer);
         }
@@ -104,8 +107,8 @@ class AudioPlayer {
             reject('window.YT is undefined');
           }
 
-          const elementID = 'youtube-mount-node';
-          _this._player.youtubePlayer = new window.YT.Player(elementID, {
+          const mountNode = 'youtube-mount-node';
+          _this._player.youtubePlayer = new window.YT.Player(mountNode, {
             width: 220,
             height: 150,
             playerVars: {
@@ -142,9 +145,13 @@ class AudioPlayer {
 
   _playSoundcloud(url) {
     this.loadSoundcloud().then(function onSuccess(soundcloudPlayer) {
-      soundcloudPlayer.load(url, {callback: function onPlayerReady() {
-        soundcloudPlayer.play();
-      }});
+      soundcloudPlayer.load(url, {
+        buying: false,
+        liking: false,
+        callback: function onPlayerReady() {
+          soundcloudPlayer.play();
+        }
+      });
     });
   }
 
