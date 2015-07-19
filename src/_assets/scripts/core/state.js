@@ -1,10 +1,10 @@
 import _ from 'lodash';
 import Rx from 'rx';
-import getPlayerMutator, { getInitialPlayerState } from './mutators/player.js';
-import getRedditMutator, { getInitialRedditState } from './mutators/reddit.js';
-import { PlayerActionTypes, RedditActionTypes } from '../core/constants.js';
-import { dispatcherStream } from '../core/dispatcher.js';
-import { logError } from '../core/utils.js';
+import getPlayerMutator, { getInitialPlayerState } from '../state/mutators/player.js';
+import getRedditMutator, { getInitialRedditState } from '../state/mutators/reddit.js';
+import { PlayerActionTypes, RedditActionTypes } from './constants.js';
+import { dispatcherStream } from './dispatcher.js';
+import { logError } from './utils.js';
 
 let appStateStream = new Rx.Subject();
 

@@ -5,7 +5,7 @@ import React from 'react';
 import Reddit from '../app/reddit.js';
 import dispatcher from '../../core/dispatcher.js';
 import RedditActions from '../../reddit/actions.js';
-import { appState } from '../../state/state.js';
+import { appState } from '../../core/state.js';
 
 class RedditController extends React.Component {
   constructor(props) {
