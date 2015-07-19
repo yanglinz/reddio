@@ -54,7 +54,7 @@ class RedditController extends React.Component {
     const activeSortRange = this.state.activeSortRange;
     const posts = this.getPosts();
     const after = (_.last(posts) || {}).name;
-    const limit = 5;
+    const limit = 15;
     let action = RedditActions.fetchPosts(
       activeSubreddit, activeListingType, activeSortRange, after, limit);
     dispatcher.dispatch(action);
