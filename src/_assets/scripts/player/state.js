@@ -2,39 +2,40 @@ import { PlayerActionTypes } from '../core/constants.js';
 
 function getInitialPlayerState() {
   return {
-    currentSong: null,
-    playerIsPlaying: true
+    playerIsPlaying: true,
+    playerQueue: [],
+    playerHistory: []
   };
 }
 
 function getPlayerMutator(action) {
   let mutators = {
-    [PlayerActionTypes.PLAY_SONG]: function statePlaySong(playerState) {
-      playerState.isPlaying = true;
-      return playerState;
+    [PlayerActionTypes.PLAY_SONG]: function statePlaySong(state) {
+      state.isPlaying = true;
+      return state;
     },
 
-    [PlayerActionTypes.PAUSE_SONG]: function statePauseSong(playerState) {
-      playerState.isPlaying = false;
-      return playerState;
+    [PlayerActionTypes.PAUSE_SONG]: function statePauseSong(state) {
+      state.isPlaying = false;
+      return state;
     },
 
-    [PlayerActionTypes.PREV_SONG]: function statePrevSong(playerState) {
-      let currentSong = playerState.currentSong;
-      playerState.queue = [currentSong];
-      playerState.currentSong = {};
-      return playerState;
+    [PlayerActionTypes.PREV_SONG]: function statePrevSong(state) {
+      let currentSong = state.currentSong;
+      state.queue = [currentSong];
+      state.currentSong = {};
+      return state;
     },
 
-    [PlayerActionTypes.NEXT_SONG]: function stateNextSong(playerState) {
-      let currentSong = playerState.currentSong;
-      playerState.queue = [currentSong];
-      playerState.currentSong = {};
-      return playerState;
+    [PlayerActionTypes.NEXT_SONG]: function stateNextSong(state) {
+      let currentSong = state.currentSong;
+      state.queue = [currentSong];
+      state.currentSong = {};
+      return state;
     },
 
-    defaults: function noop(playerState) {
-      return playerState;
+    defaults: function noop(state) {
+      return state;
     }
   };
 
