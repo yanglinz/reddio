@@ -47,9 +47,19 @@
   }
 }
 
-.player {
+.iframe-container {
+  bottom: 150px;
+  height: 150px;
+  left: 15px;
+  position: fixed;
+  right: 0;
+  width: 220px;
+}
+
+.player-container {
   background: #ffffff;
   border-top: 1px solid #dddddd;
+  height: 100%;
 }
 
 

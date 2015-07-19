@@ -106,8 +106,12 @@ class AudioPlayer {
 
           const elementID = 'youtube-mount-node';
           _this._player.youtubePlayer = new window.YT.Player(elementID, {
-            width: 420,
-            height: 120,
+            width: 220,
+            height: 150,
+            playerVars: {
+              autohide: 0,
+              controls: 0
+            },
             events: {
               onReady: function onYoutubePlayerReady() {
                 resolve(_this._player.youtubePlayer);  // resolve promise

@@ -9,8 +9,12 @@ class Player extends BaseViewComponent {
 
   render() {
     return (
-      <div className="player-container">
+      <div className="player">
         <div className="controls">
+          <div className="song-progress">
+            <Slider name="slider3" defaultValue={1} />
+          </div>
+
           <div className="song-control">
             <span className="song-control-button" onClick={this.props.prevSong}>
               <IconButton>
@@ -35,23 +39,6 @@ class Player extends BaseViewComponent {
                 <FontIcon className="material-icons">skip_next</FontIcon>
               </IconButton>
             </span>
-          </div>
-
-          <div className="song-status">
-            <div className="song-title">
-            </div>
-
-            <div className="progress">
-              <Slider name="slider3" defaultValue={1} />
-            </div>
-          </div>
-
-          <div className="player-control">
-            <div className="volume">
-            </div>
-
-            <div className="shuffle">
-            </div>
           </div>
         </div>
       </div>
