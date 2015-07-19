@@ -1,9 +1,8 @@
 import React from 'react';
-import AppContainer from './components/index.js';
-import Masthead from './app/masthead.js';
-import RedditController from './controllers/reddit.controller.js';
-import PlayerController from './controllers/player.controller.js';
-import { appStateStream } from '../core/state.js';
+import Masthead from './reddit/views/masthead.js';
+import RedditController from './reddit/views/controller.js';
+import PlayerController from './player/views/controller.js';
+import { appStateStream } from './core/state.js';
 
 class AppContainer extends React.Component {
   constructor(props) {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Avatar, FontIcon, IconButton, List, ListItem, RaisedButton } from 'material-ui';
-import { BaseViewComponent } from '../wrappers/index.js';
+import { BaseViewComponent } from '../../core/views/index.js';
 
 class RedditPosts extends BaseViewComponent {
   constructor(props) {

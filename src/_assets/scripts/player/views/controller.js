@@ -1,7 +1,7 @@
 /* eslint react/sort-comp: 0 */
 
 import React from 'react';
-import Player from '../app/player.js';
+import Player from './player.js';
 import dispatcher from '../../core/dispatcher.js';
 import PlayerActions from '../../player/actions.js';
 import { appState } from '../../core/state.js';

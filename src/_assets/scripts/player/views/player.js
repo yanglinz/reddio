@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React from 'react';
 import { IconButton, FontIcon, Slider } from 'material-ui';
-import { BaseViewComponent } from '../wrappers/index.js';
+import { BaseViewComponent } from '../../core/views/index.js';
 
 class Player extends BaseViewComponent {
   constructor(props) {
