@@ -1,10 +1,18 @@
 import React from 'react';
 import { Avatar, FontIcon, IconButton, List, ListItem, RaisedButton } from 'material-ui';
+import RedditActions from '../actions.js';
+import dispatcher from '../../core/dispatcher.js';
 import { BaseViewComponent } from '../../core/views/index.js';
 
 class RedditPosts extends BaseViewComponent {
   constructor(props) {
     super(props);
+  }
+
+  setQueue() {
+    let song = this;
+    let action = RedditActions.setQueue(song);
+    dispatcher.dispatch(action);
   }
 
   render() {
@@ -25,7 +33,8 @@ class RedditPosts extends BaseViewComponent {
             return (
               <div
                 key={post.id}
-                className="post">
+                className="post"
+                onClick={this.setQueue.bind(post)}>
                 <ListItem
                   leftAvatar={thumbnail}
                   rightIconButton={playButton}>

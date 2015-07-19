@@ -30,6 +30,15 @@ const RedditActions = {
     };
   },
 
+  setQueue(song) {
+    return {
+      type: ActionTypes.SET_QUEUE,
+      payload: {
+        song: song
+      }
+    };
+  },
+
   fetchPosts(subreddit, listingType, sortRange, after, limit) {
     let fetchPromise = RedditApi.get({
       subreddit: subreddit,

@@ -30,9 +30,9 @@ const initialState = {
   activeSortRange: 'day',
   subreddits: _subredditsStorage,
   listingTypes: _.uniq(_.pluck(_listingTypes, 'type')),
-  sortRanges: _.compact(_.pluck(_listingTypes, 'range'))
+  sortRanges: _.compact(_.pluck(_listingTypes, 'range')),
+  queue: []
 };
-
 
 const mutators = {
   [ActionTypes.SET_ACTIVE_SUBREDDIT]: function stateSetActiveSubreddit(action, state) {
@@ -50,12 +50,26 @@ const mutators = {
     return state;
   },
 
+  [ActionTypes.SET_QUEUE]: function setQueue(action, state) {
+    const activeSubreddit = state.activeSubreddit;
+    const activeListingType = state.activeListingType;
+    const activeSortRange = state.activeSortRange;
+    const storageKey = activeListingType === 'top' ?
+      `${activeListingType}:${activeSortRange}` : `${activeListingType}:`;
+    let activePosts = state.subreddits[activeSubreddit][storageKey]
+
+    let currentSong = action.payload.song;
+    state.queue = _.dropWhile(activePosts, post => (post.id !== currentSong.id));
+    return state;
+  },
+
   [ActionTypes.FETCH_POSTS]: function reduceFetchPosts(action, state) {
     const activeSubreddit = state.activeSubreddit;
     const activeListingType = state.activeListingType;
     const activeSortRange = state.activeSortRange;
     const storageKey = activeListingType === 'top' ?
       `${activeListingType}:${activeSortRange}` : `${activeListingType}:`;
+
     state.subreddits[activeSubreddit][storageKey] = []
       .concat(state.subreddits[activeSubreddit][storageKey] || [])
       .concat(action.payload.posts);
