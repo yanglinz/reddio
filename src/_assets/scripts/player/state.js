@@ -21,16 +21,10 @@ function getPlayerMutator(action) {
     },
 
     [PlayerActionTypes.PREV_SONG]: function statePrevSong(state) {
-      let currentSong = state.currentSong;
-      state.queue = [currentSong];
-      state.currentSong = {};
       return state;
     },
 
     [PlayerActionTypes.NEXT_SONG]: function stateNextSong(state) {
-      let currentSong = state.currentSong;
-      state.queue = [currentSong];
-      state.currentSong = {};
       return state;
     },
 
