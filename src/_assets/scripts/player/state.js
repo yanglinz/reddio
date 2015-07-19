@@ -1,4 +1,4 @@
-import { PlayerActionTypes } from '../../core/constants.js';
+import { PlayerActionTypes } from '../core/constants.js';
 
 function getInitialPlayerState() {
   return {
