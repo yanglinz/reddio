@@ -1,17 +1,16 @@
-const PlayerActionTypes = {
+const ActionTypes = {
   PLAY_SONG: 'PLAY_SONG',
   PAUSE_SONG: 'PAUSE_SONG',
   NEXT_SONG: 'NEXT_SONG',
   PREV_SONG: 'PREV_SONG',
   SET_VOLUME: 'SET_VOLUME',
-  SEEK_TO: 'SEEK_TO'
-};
+  SEEK_TO: 'SEEK_TO',
 
-const RedditActionTypes = {
   SET_ACTIVE_SUBREDDIT: 'SET_ACTIVE_SUBREDDIT',
   SET_ACTIVE_LISTING_TYPE: 'SET_ACTIVE_LISTING_TYPE',
   SET_ACTIVE_SORT_RANGE: 'SET_ACTIVE_SORT_RANGE',
+  SET_QUEUE: 'SET_QUEUE',
   FETCH_POSTS: 'FETCH_POSTS'
 };
 
-export { PlayerActionTypes, RedditActionTypes };
+export { ActionTypes };

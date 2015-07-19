@@ -1,40 +1,29 @@
-import { PlayerActionTypes } from '../core/constants.js';
+import { ActionTypes } from '../core/constants.js';
 
-function getInitialPlayerState() {
-  return {
-    playerIsPlaying: true,
-    playerQueue: [],
-    playerHistory: []
-  };
-}
+const initialState = {
+  isPlaying: true,
+  queue: [],
+  queueHistory: []
+};
 
-function getPlayerMutator(action) {
-  let mutators = {
-    [PlayerActionTypes.PLAY_SONG]: function statePlaySong(state) {
-      state.isPlaying = true;
-      return state;
-    },
+const mutators = {
+  [ActionTypes.PLAY_SONG]: function statePlaySong(action, state) {
+    state.isPlaying = true;
+    return state;
+  },
 
-    [PlayerActionTypes.PAUSE_SONG]: function statePauseSong(state) {
-      state.isPlaying = false;
-      return state;
-    },
+  [ActionTypes.PAUSE_SONG]: function statePauseSong(action, state) {
+    state.isPlaying = false;
+    return state;
+  },
 
-    [PlayerActionTypes.PREV_SONG]: function statePrevSong(state) {
-      return state;
-    },
+  [ActionTypes.PREV_SONG]: function statePrevSong(action, state) {
+    return state;
+  },
 
-    [PlayerActionTypes.NEXT_SONG]: function stateNextSong(state) {
-      return state;
-    },
+  [ActionTypes.NEXT_SONG]: function stateNextSong(action, state) {
+    return state;
+  }
+};
 
-    defaults: function noop(state) {
-      return state;
-    }
-  };
-
-  return mutators[action.type] || mutators.defaults;
-}
-
-export default getPlayerMutator;
-export { getInitialPlayerState };
+export { initialState, mutators };

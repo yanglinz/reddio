@@ -1,9 +1,9 @@
-import { PlayerActionTypes } from './../core/constants.js';
+import { ActionTypes } from './../core/constants.js';
 
 const PlayerActions = {
   playSong(song) {
     return {
-      type: PlayerActionTypes.PLAY_SONG,
+      type: ActionTypes.PLAY_SONG,
       payload: {
         song: song
       }
@@ -12,14 +12,14 @@ const PlayerActions = {
 
   pauseSong() {
     return {
-      type: PlayerActionTypes.PAUSE_SONG,
+      type: ActionTypes.PAUSE_SONG,
       payload: {}
     };
   },
 
   nextSong(currentSong) {
     return {
-      type: PlayerActionTypes.NEXT_SONG,
+      type: ActionTypes.NEXT_SONG,
       payload: {
         currentSong: currentSong
       }
@@ -28,7 +28,7 @@ const PlayerActions = {
 
   prevSong(currentSong) {
     return {
-      type: PlayerActionTypes.PREV_SONG,
+      type: ActionTypes.PREV_SONG,
       payload: {
         currentSong: currentSong
       }

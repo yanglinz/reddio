@@ -1,11 +1,11 @@
-import { RedditActionTypes } from './../core/constants.js';
+import { ActionTypes } from './../core/constants.js';
 import { RedditApi } from './api.js';
 import { progressBar } from '../core/utils.js';
 
 const RedditActions = {
   setActiveSubreddit(subreddit) {
     return {
-      type: RedditActionTypes.SET_ACTIVE_SUBREDDIT,
+      type: ActionTypes.SET_ACTIVE_SUBREDDIT,
       payload: {
         subreddit: subreddit
       }
@@ -14,7 +14,7 @@ const RedditActions = {
 
   setActiveListingType(listingType) {
     return {
-      type: RedditActionTypes.SET_ACTIVE_LISTING_TYPE,
+      type: ActionTypes.SET_ACTIVE_LISTING_TYPE,
       payload: {
         listingType: listingType
       }
@@ -23,7 +23,7 @@ const RedditActions = {
 
   setActiveSortRange(sortRange) {
     return {
-      type: RedditActionTypes.SET_ACTIVE_SORT_RANGE,
+      type: ActionTypes.SET_ACTIVE_SORT_RANGE,
       payload: {
         sortRange: sortRange
       }
@@ -42,7 +42,7 @@ const RedditActions = {
     progressBar.fromPromise(fetchPromise);
 
     return {
-      type: RedditActionTypes.FETCH_POSTS,
+      type: ActionTypes.FETCH_POSTS,
       payload: fetchPromise
     };
   }
