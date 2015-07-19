@@ -23,16 +23,19 @@ class RedditPosts extends BaseViewComponent {
               </IconButton>
             );
             return (
-              <ListItem
+              <div
                 key={post.id}
-                leftAvatar={thumbnail}
-                rightIconButton={playButton}>
-                <div className="posts">
-                  {post.title}
-                </div>
-              </ListItem>
+                className="post">
+                <ListItem
+                  leftAvatar={thumbnail}
+                  rightIconButton={playButton}>
+                  <div className="posts">
+                    {post.title}
+                  </div>
+                </ListItem>
+              </div>
             );
-          })}
+          }.bind(this))}
 
           </List>
         </div>
