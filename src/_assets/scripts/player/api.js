@@ -109,7 +109,7 @@ class AudioPlayer {
 
           const mountNode = 'youtube-mount-node';
           _this._player.youtubePlayer = new window.YT.Player(mountNode, {
-            width: 220,
+            width: 200,
             height: 150,
             playerVars: {
               autohide: 0,
