@@ -24,25 +24,26 @@
 
 .reddit {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+
+  main {
+    flex-grow: 1;
+
+    .listing-control {
+      padding: 0 0 0 5px;
+    }
+  }
 
   aside {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    width: 20%;
+    width: 250px;
 
-    .subreddits {
+    .subreddits, .sidebar {
+      // fill to full height
       flex-grow: 1;
       height: 100%;
-    }
-  }
-
-  main {
-    width: 80%;
-
-    .listing-control {
-      padding: 0 0 0 5px;
     }
   }
 }
@@ -69,4 +70,8 @@
 
 .subreddits {
   border-right: 1px solid #dddddd;
+}
+
+.sidebar {
+  border-left: 1px solid #dddddd;
 }

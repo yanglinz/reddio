@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import RedditSubreddits from './reddit.subreddits.js';
 import RedditControl from './reddit.control.js';
 import RedditPosts from './reddit.posts.js';
+import Sidebar from './sidebar.js';
 
 class Reddit extends Component {
   constructor(props) {
@@ -33,6 +34,10 @@ class Reddit extends Component {
             posts={this.props.posts}
             fetchPosts={this.props.fetchPosts} />
         </main>
+
+        <aside>
+          <Sidebar />
+        </aside>
       </div>
     );
   }
