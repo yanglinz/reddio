@@ -10,6 +10,12 @@ import PlayerActions from '../../player/actions.js';
 import { appState } from '../../core/state.js';
 import { logError } from '../../core/utils.js';
 
+let styles = {
+  hidden: {
+    display: 'none'
+  }
+};
+
 class PlayerController extends React.Component {
   constructor(props) {
     super(props);
@@ -26,6 +32,19 @@ class PlayerController extends React.Component {
     if (this.state.isPlaying && !_.isEmpty(currentSong)) {
       this.audioPlayer.play(currentSong.url);
     }
+  }
+
+  isYoutubeActive() {
+    const currentSong =_.first(this.state.queue) || {};
+    const youtubeUrl = 'youtube.com';
+    const youtubeShortUrl = 'youtu.be';
+    return _.includes(currentSong.url, youtubeUrl) || _.includes(currentSong.url, youtubeShortUrl);
+  }
+
+  isSoundcloudActive() {
+    let currentSong = _.first(this.state.queue) || {};
+    const soundcloudUrl = 'soundcloud';
+    return _.includes(currentSong.url, soundcloudUrl);
   }
 
   playSong() {
@@ -49,11 +68,21 @@ class PlayerController extends React.Component {
   }
 
   render() {
+    const youtubeIframeStyle = this.isYoutubeActive() ? {} : styles.hidden;
+    const soundcloudIframeStyle = this.isSoundcloudActive() ? {} : styles.hidden;
+
     return (
       <div className="player-container">
-        <Iframe />
+        <div className="iframe-container">
+          <div className="youtube-container" style={youtubeIframeStyle}>
+            <Iframe mountNodeId="youtube-mount-node" />
+          </div>
+          <div className="soundcloud-container" style={soundcloudIframeStyle}>
+            <Iframe mountNodeId="soundcloud-mount-node" />
+          </div>
+        </div>
+
         <Player
-          song={this.state.currentSong}
           playSong={this.playSong.bind(this)}
           pauseSong={this.pauseSong.bind(this)}
           nextSong={this.nextSong.bind(this)}

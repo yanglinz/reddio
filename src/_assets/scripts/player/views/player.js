@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconButton, FontIcon, Slider } from 'material-ui';
+import { IconButton, FontIcon } from 'material-ui';
 import { BaseViewComponent } from '../../core/views/index.js';
 
 class Player extends BaseViewComponent {
@@ -11,10 +11,6 @@ class Player extends BaseViewComponent {
     return (
       <div className="player">
         <div className="controls">
-          <div className="song-progress">
-            <Slider name="slider3" defaultValue={1} />
-          </div>
-
           <div className="song-control">
             <span className="song-control-button" onClick={this.props.prevSong}>
               <IconButton>
@@ -47,7 +43,6 @@ class Player extends BaseViewComponent {
 }
 
 Player.propTypes = {
-  song: React.PropTypes.object.isRequired,
   playSong: React.PropTypes.func.isRequired,
   pauseSong: React.PropTypes.func.isRequired,
   nextSong: React.PropTypes.func.isRequired,

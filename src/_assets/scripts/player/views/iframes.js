@@ -11,16 +11,13 @@ class IFrame extends Component {
 
   render() {
     return (
-      <div className="iframe-container">
-        <div className="youtube-container">
-          <div id="youtube-mount-node"></div>
-        </div>
-        <div className="soundcloud-container">
-          <div id="soundcloud-mount-node"></div>
-        </div>
-      </div>
+      <div id={this.props.mountNodeId} />
     );
   }
 }
+
+IFrame.propTypes = {
+  mountNodeId: React.PropTypes.string.isRequired
+};
 
 export default IFrame;
