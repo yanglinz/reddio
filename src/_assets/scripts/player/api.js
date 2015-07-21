@@ -66,7 +66,7 @@ class AudioPlayer {
       let soundcloudIframe = document.createElement('iframe');
       soundcloudIframe.id = playerElementId;
       soundcloudIframe.width = '100%';
-      soundcloudIframe.height = '150';
+      soundcloudIframe.height = '140';
       soundcloudIframe.setAttribute('frameborder', 'no');
       soundcloudIframe.setAttribute('scrolling', 'no');
       soundcloudIframe.src = 'https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1848538';
