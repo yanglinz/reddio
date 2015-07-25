@@ -1,7 +1,7 @@
 /* eslint no-console: 0 */
 
 import _ from 'lodash';
-import NProgress from 'NProgress';
+import NProgress from 'nprogress';
 
 function logError(message) {
   console.error(message);
