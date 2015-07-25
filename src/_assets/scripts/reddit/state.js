@@ -56,7 +56,7 @@ const mutators = {
     const activeSortRange = state.activeSortRange;
     const storageKey = activeListingType === 'top' ?
       `${activeListingType}:${activeSortRange}` : `${activeListingType}:`;
-    let activePosts = state.subreddits[activeSubreddit][storageKey]
+    let activePosts = state.subreddits[activeSubreddit][storageKey];
 
     let currentSong = action.payload.song;
     state.queue = _.dropWhile(activePosts, post => (post.id !== currentSong.id));

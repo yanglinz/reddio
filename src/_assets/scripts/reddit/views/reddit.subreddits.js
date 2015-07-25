@@ -12,7 +12,6 @@ class RedditSubreddits extends BaseViewComponent {
       <div className="subreddits">
         <List subheader="Subreddits">
           {this.props.subreddits.map(function renderSubreddits(subreddit) {
-            const isActive = subreddit === this.props.activeSubreddit;
             let subredditIcon = (
               <IconButton>
                 <FontIcon className="material-icons">headset</FontIcon>

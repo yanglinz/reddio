@@ -10,7 +10,7 @@ class RedditPosts extends BaseViewComponent {
   }
 
   setQueue() {
-    let song = this;
+    let song = this.post;
     let action = RedditActions.setQueue(song);
     dispatcher.dispatch(action);
   }
@@ -34,7 +34,7 @@ class RedditPosts extends BaseViewComponent {
               <div
                 key={post.id}
                 className="post"
-                onClick={this.setQueue.bind(post)}>
+                onClick={this.setQueue.bind({post: post})}>
                 <ListItem
                   leftAvatar={thumbnail}
                   rightIconButton={playButton}>

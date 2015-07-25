@@ -1,4 +1,10 @@
 {
+  "esprima": "esprima-fb",
+  "excludeFiles": [
+    "dist/**",
+    "node_modules/**",
+    "src/_assets/scripts/*.bundle.js"
+  ],
   "preset": "airbnb",
   "maximumLineLength": 120,
   "validateIndentation": 2,

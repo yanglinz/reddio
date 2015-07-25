@@ -1,0 +1,12 @@
+language: node_js
+
+node_js:
+  - 0.12
+  - 0.11
+
+script:
+  - make lint
+  - make build
+
+after_success:
+  - make deploy

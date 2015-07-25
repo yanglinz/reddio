@@ -8,7 +8,6 @@ import AudioPlayer from '../api.js';
 import dispatcher from '../../core/dispatcher.js';
 import PlayerActions from '../../player/actions.js';
 import { appState } from '../../core/state.js';
-import { logError } from '../../core/utils.js';
 
 let styles = {
   hidden: {
@@ -35,7 +34,7 @@ class PlayerController extends React.Component {
   }
 
   isYoutubeActive() {
-    const currentSong =_.first(this.state.queue) || {};
+    const currentSong = _.first(this.state.queue) || {};
     const youtubeUrl = 'youtube.com';
     const youtubeShortUrl = 'youtu.be';
     return _.includes(currentSong.url, youtubeUrl) || _.includes(currentSong.url, youtubeShortUrl);

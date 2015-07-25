@@ -8,20 +8,6 @@ class RedditControl extends BaseViewComponent {
     super(props);
   }
 
-  getListingTypes() {
-    return _.map(this.props.listingTypes, sortType => ({
-      payload: sortType,
-      text: sortType
-    }));
-  }
-
-  getSortRanges() {
-    return _.map(this.props.sortRanges, sortRange => ({
-      payload: sortRange,
-      text: sortRange
-    }));
-  }
-
   onListingTypeChange(e, selectedIndex, menuItem) {
     const payload = menuItem.payload;
     if (payload) {
@@ -34,6 +20,20 @@ class RedditControl extends BaseViewComponent {
     if (payload) {
       this.props.setActiveSortRange(payload);
     }
+  }
+
+  getListingTypes() {
+    return _.map(this.props.listingTypes, sortType => ({
+      payload: sortType,
+      text: sortType
+    }));
+  }
+
+  getSortRanges() {
+    return _.map(this.props.sortRanges, sortRange => ({
+      payload: sortRange,
+      text: sortRange
+    }));
   }
 
   render() {

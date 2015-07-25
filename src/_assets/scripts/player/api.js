@@ -3,6 +3,7 @@
 import _ from 'lodash';
 import RSVP from 'rsvp';
 import Rx from 'rx';
+import { logError } from '../core/utils.js';
 
 class Utilities {
   static urlIsSoundcloud(url) {
@@ -97,7 +98,7 @@ class AudioPlayer {
     let _this = this;
     if (_.isEmpty(_this._youtubeApiPromise)) {
       let tag = document.createElement('script');
-      tag.src = "https://www.youtube.com/iframe_api";
+      tag.src = 'https://www.youtube.com/iframe_api';
       let firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
@@ -170,7 +171,9 @@ class AudioPlayer {
     try {
       this._player.youtubePlayer.stopVideo();
       this._player.soundcloudPlayer.pause();
-    } catch (err) { /* intentionally empty */ }
+    } catch (err) {
+      logError(err);
+    }
   }
 
   seekTo() {

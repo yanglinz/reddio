@@ -1,42 +1,10 @@
 var gulp = require('gulp');
-var requireDir = require('require-dir');
-var runSequence = require('run-sequence');
 
-// split gulp tasks across multiple files
-requireDir('./gulp/tasks', {recurse: true});
+require('./build/gulp/build.js');
+require('./build/gulp/deploy.js');
+require('./build/gulp/development.js');
 
-gulp.task('dst', function buildLocalTask(callback) {
-  runSequence(
-    'server:clean',
-    'static:process',
-    'templates:process',
-    'vendor:process',
-    'assets:process',
-    'fixtures:process',
-    'webpack:build',
-    callback
-  );
-});
-
-gulp.task('build', function buildS3Task(callback) {
-  runSequence(
-    'dst',
-    'build:build',
-    callback
-  );
-});
-
-gulp.task('deploy', function deployS3Task(callback) {
-  runSequence(
-    'deploy:publish',
-    callback
-  );
-});
-
-gulp.task('serve', function developmentServerTask(callback) {
-  runSequence(
-    'dst',
-    ['server:start', 'watch'],
-    callback
-  );
-});
+gulp.task('build', ['build:all']);
+gulp.task('run', ['development:server']);
+gulp.task('deploy', ['deploy:surge']);
+gulp.task('default', ['run']);

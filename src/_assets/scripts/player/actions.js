@@ -1,7 +1,7 @@
 import { ActionTypes } from './../core/constants.js';
 
 const PlayerActions = {
-  playSong(song) {
+  playSong() {
     return {
       type: ActionTypes.PLAY_SONG,
       payload: {}
@@ -15,14 +15,14 @@ const PlayerActions = {
     };
   },
 
-  nextSong(currentSong) {
+  nextSong() {
     return {
       type: ActionTypes.NEXT_SONG,
       payload: {}
     };
   },
 
-  prevSong(currentSong) {
+  prevSong() {
     return {
       type: ActionTypes.PREV_SONG,
       payload: {}
