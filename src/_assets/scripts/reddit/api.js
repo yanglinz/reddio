@@ -6,7 +6,10 @@ import { logError } from './../core/utils.js';
 class RedditParser {
   static listing(listing={}) {
     let posts = _.filter(listing.data.children, function postFilter(post) {
-      return !post.data.is_self && !post.data.stickied;
+      const isSong = !post.data.is_self && !post.data.stickied;
+      const isYoutube = _.includes(post.data.url, 'you');
+      const isSoundcloud = _.includes(post.data.url, 'soundcloud');
+      return isSong && (isYoutube || isSoundcloud);
     });
 
     return _.map(posts, RedditParser.post);
