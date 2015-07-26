@@ -81,6 +81,12 @@ if (!isProd) {
  */
 
 if (isProd) {
+  config.module.loaders = [].concat({
+    test: /\.js?$/,
+    loaders: ['babel'],
+    include: path.join(__dirname, 'src')
+  }, config.module.loaders);
+
   config.plugins = [].concat([
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.UglifyJsPlugin({
