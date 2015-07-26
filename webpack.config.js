@@ -1,34 +1,106 @@
 var _ = require('lodash');
+var path = require('path');
+var webpack = require('webpack');
 var environment = require('./build/environment.js');
 
-var baseConfig = require('./build/webpack/base.config.js');
-var prodConfig = require('./build/webpack/prod.config.js');
-var devServerConfig = require('./build/webpack/devserver.config.js');
-
-/**
- * Create the webpack config for local development.
- * This config inherits from both the base configuration
- * as well as the development server configuration.
- */
-
-var webpackConfig = _.extend({}, baseConfig, devServerConfig);
-
-/**
- * Extend the webpack config if the environment is in production.
- * This config inherits from base configuration, development server configuration
- * as well as some production specific configuration.
- */
-
-var isProd = [
-  environment.ENV === 'prod',
-  environment.ENV === 'production',
+var isProd = _.any([
+  environment.CI,
+  environment.TRAVIS,
   environment.ENV === 'stage',
   environment.ENV === 'staging',
-  environment.CI,
-  environment.TRAVIS
-];
-if (_.any(isProd)) {
-  webpackConfig = _.extend({}, webpackConfig, prodConfig);
+  environment.ENV === 'prod',
+  environment.ENV === 'production'
+]);
+
+/**
+ * Define base config for webpack.
+ * This is the set of config that affects builds for all environments
+ */
+
+var config = {
+  entry: ['./src/_assets/scripts/main'],
+  output: {
+    path: path.join(__dirname, 'src/_assets/scripts'),
+    filename: '[name].bundle.js'
+  },
+  plugins: [],
+  module: {
+    loaders: []
+  }
+};
+
+/**
+ * Extend the base config for dev development environments
+ */
+
+if (!isProd) {
+  config.debug = true;
+  config.devtool = 'eval';
 }
 
-module.exports = webpackConfig;
+/**
+ * Configure react hot loader
+ */
+
+if (!isProd) {
+  config.entry = [].concat([
+    'webpack-dev-server/client?http://localhost:3000',
+    'webpack/hot/only-dev-server'
+  ], config.entry);
+
+  config.output.publicPath = '/_assets/scripts/';
+
+  config.plugins = [].concat([
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin()
+  ], config.plugins);
+
+  config.module.loaders = [].concat({
+    test: /\.js?$/,
+    loaders: ['react-hot', 'babel'],
+    include: path.join(__dirname, 'src')
+  }, config.module.loaders);
+}
+
+/**
+ * Configure webpack dev server
+ */
+
+if (!isProd) {
+  config.devServer = {
+    contentBase: "./src/",
+    publicPath: config.output.publicPath,
+    hot: true,
+    historyApiFallback: true,
+    port: 3000
+  };
+}
+
+/**
+ * Configure production build
+ */
+
+if (isProd) {
+  config.plugins = [].concat([
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.UglifyJsPlugin({
+      mangle: {
+        except: ['require', 'export', '$super']
+      },
+      compress: {
+        warnings: false,
+        sequences: true,
+        dead_code: true,
+        conditionals: true,
+        booleans: true,
+        unused: true,
+        if_return: true,
+        join_vars: true,
+        drop_console: true
+      },
+      sourceMap: false
+    })
+  ], config.plugins);
+}
+
+module.exports = config;
