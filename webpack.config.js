@@ -68,7 +68,7 @@ if (!isProd) {
 
 if (!isProd) {
   config.devServer = {
-    contentBase: "./src/",
+    contentBase: './src/',
     publicPath: config.output.publicPath,
     hot: true,
     historyApiFallback: true,
