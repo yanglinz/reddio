@@ -168,8 +168,20 @@ class AudioPlayer {
   }
 
   pause() {
+    this._pauseYoutube();
+    this._pauseSoundcloud();
+  }
+
+  _pauseYoutube() {
     try {
       this._player.youtubePlayer.stopVideo();
+    } catch (err) {
+      logError(err);
+    }
+  }
+
+  _pauseSoundcloud() {
+    try {
       this._player.soundcloudPlayer.pause();
     } catch (err) {
       logError(err);
