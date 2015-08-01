@@ -38,6 +38,7 @@
     "esprima-fb": "15001.1.0-dev-harmony-fb",
     "gulp": "3.9.0",
     "jscs": "1.13.1",
+    "json-loader": "0.5.2",
     "lodash": "3.10.0",
     "node-libs-browser": "0.5.2",
     "react-hot-loader": "1.2.8",

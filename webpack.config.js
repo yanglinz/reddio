@@ -25,7 +25,11 @@ var config = {
   },
   plugins: [],
   module: {
-    loaders: []
+    loaders: [{
+      test: /\.json$/,
+      loader: 'json'
+    }],
+    noParse: /lie\.js$|\/leveldown\//
   }
 };
 
@@ -56,9 +60,10 @@ if (!isProd) {
   ], config.plugins);
 
   config.module.loaders = [].concat({
-    test: /\.js?$/,
+    test: /\.(js|jsx)?$/,
     loaders: ['react-hot', 'babel'],
-    include: path.join(__dirname, 'src')
+    include: path.join(__dirname, 'src'),
+    exclude: /node_modules/
   }, config.module.loaders);
 }
 
