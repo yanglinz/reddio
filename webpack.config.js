@@ -28,8 +28,7 @@ var config = {
     loaders: [{
       test: /\.json$/,
       loader: 'json'
-    }],
-    noParse: /lie\.js$|\/leveldown\//
+    }]
   }
 };
 
@@ -52,7 +51,7 @@ if (!isProd) {
     'webpack/hot/only-dev-server'
   ], config.entry);
 
-  config.output.publicPath = '/_assets/scripts/';
+  config.output.publicPath = path.resolve('/_assets/scripts/');
 
   config.plugins = [].concat([
     new webpack.HotModuleReplacementPlugin(),
