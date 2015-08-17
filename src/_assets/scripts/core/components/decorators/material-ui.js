@@ -34,20 +34,22 @@ let ThemeManager = new mui.Styles.ThemeManager();
 ThemeManager.setPalette(CustomMaterialPalette);
 ThemeManager.setComponentThemes(CustomMaterialComponentThemes);
 
-class MaterialDesignWrapper extends Component {
-  constructor(props) {
-    super(props);
+function materialUI(target) {
+  let TargetComponent = target;
+
+  class Decorated extends TargetComponent {
+    getChildContext() {
+      return {
+        muiTheme: ThemeManager.getCurrentTheme()
+      };
+    }
   }
 
-  getChildContext() {
-    return {
-      muiTheme: ThemeManager.getCurrentTheme()
-    };
-  }
+  Decorated.childContextTypes = {
+    muiTheme: React.PropTypes.object
+  };
+
+  return Decorated;
 }
 
-MaterialDesignWrapper.childContextTypes = {
-  muiTheme: React.PropTypes.object
-};
-
-export default MaterialDesignWrapper;
+export default materialUI;
