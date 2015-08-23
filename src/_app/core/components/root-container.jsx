@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { Provider } from 'react-redux';
 import { Router, Route } from 'react-router';
-import configureStore from '../state/store.js';
-import AppContainer from './app-container.jsx';
-import SubredditContainer from '../../reddit/components/subreddit-container.jsx';
-import SortTypeContainer from '../../reddit/components/sort-type-container.jsx';
-import SortRangeContainer from '../../reddit/components/sort-range-container.jsx';
+import configureStore from 'core/state/store.js';
+import AppContainer from 'core/components/app-container.jsx';
+import SubredditContainer from 'reddit/components/subreddit-container.jsx';
+import SortTypeContainer from 'reddit/components/sort-type-container.jsx';
+import SortRangeContainer from 'reddit/components/sort-range-container.jsx';
 
 const store = configureStore();
 

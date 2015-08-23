@@ -1,5 +1,5 @@
 import { extend } from 'lodash';
-import { SET_ACTIVE_SONG } from './actions.js';
+import { SET_ACTIVE_SONG } from 'player/state/actions.js';
 
 const initialState = {
   activeSong: {}

@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import createLogger from 'redux-logger';
-import playerReducer from '../../player/state/reducer.js';
+import playerReducer from 'player/state/reducer.js';
 
 const reducer = combineReducers({
   player: playerReducer

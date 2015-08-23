@@ -24,6 +24,11 @@ var config = {
       include: path.join(__dirname, 'src'),
       exclude: /node_modules/
     }]
+  },
+  resolve: {
+    root: [
+      path.join(__dirname, 'src/_app')
+    ]
   }
 };
 
