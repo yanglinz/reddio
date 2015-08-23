@@ -21,11 +21,11 @@ const ALLOWED_SORT_RANGE = [
 
 class SubredditContainer extends RouterComponent {
   componentDidMount() {
-    this.handleRedirectIfNeeded();
+    this.handle404IfNeeded();
   }
 
   componentDidUpdate() {
-    this.handleRedirectIfNeeded();
+    this.handle404IfNeeded();
   }
 
   getSubredditParams() {
@@ -47,22 +47,18 @@ class SubredditContainer extends RouterComponent {
     }
   }
 
-  handleRedirectIfNeeded() {
+  handle404IfNeeded() {
     const { subreddit, sortType, sortRange } = this.getSubredditParams();
     const isValidSubreddit = includes(ALLOWED_SUBREDDITS, subreddit);
     const isValidSortType = includes(ALLOWED_SORT_TYPES, sortType) || isEmpty(sortType);
     const isValidSortRange = includes(ALLOWED_SORT_RANGE, sortRange) || isEmpty(sortRange);
 
     if (!(isValidSubreddit && isValidSortType && isValidSortRange)) {
-      this.handle404();
+      this.transitionTo('404');
     }
     if (sortType !== 'top' && sortRange) {
-      this.handle404();
+      this.transitionTo('404');
     }
-  }
-
-  handle404() {
-    this.transitionTo('404');
   }
 
   render() {
