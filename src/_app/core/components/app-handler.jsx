@@ -4,7 +4,7 @@ import materialUI from 'core/components/decorators/material-ui.js';
 import './app.css';
 
 @materialUI
-class AppContainer extends Component {
+class AppHandler extends Component {
   render() {
     return (
       <div>
@@ -15,8 +15,8 @@ class AppContainer extends Component {
   }
 }
 
-AppContainer.propTypes = {
+AppHandler.propTypes = {
   children: PropTypes.element
 };
 
-export default AppContainer;
+export default AppHandler;
