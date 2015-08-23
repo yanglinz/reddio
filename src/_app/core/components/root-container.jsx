@@ -3,9 +3,8 @@ import { Provider } from 'react-redux';
 import { Router, Route } from 'react-router';
 import configureStore from 'core/state/store.js';
 import AppContainer from 'core/components/app-container.jsx';
+import NotFoundContainer from 'core/components/404-container.jsx';
 import SubredditContainer from 'reddit/components/subreddit-container.jsx';
-import SortTypeContainer from 'reddit/components/sort-type-container.jsx';
-import SortRangeContainer from 'reddit/components/sort-range-container.jsx';
 
 const store = configureStore();
 
@@ -19,11 +18,12 @@ class RootContainer extends Component {
               <Route path="/" component={AppContainer}>
                 <Route path="r">
                   <Route path=":subreddit" component={SubredditContainer}>
-                    <Route path=":sortType" component={SortTypeContainer}>
-                      <Route path=":sortRange" component={SortRangeContainer} />
+                    <Route path=":sortType">
+                      <Route path=":sortRange"/>
                     </Route>
                   </Route>
                 </Route>
+                <Route path="404" component={NotFoundContainer} />
               </Route>
             </Router>
           }

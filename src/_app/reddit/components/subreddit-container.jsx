@@ -1,18 +1,78 @@
-import React, { Component, PropTypes } from 'react';
+import { all, isEmpty, includes } from 'lodash';
+import React, { PropTypes } from 'react';
+import RouterComponent from 'core/components/higher-order/router.jsx';
 
-class SubredditContainer extends Component {
+const ALLOWED_SUBREDDITS = [
+  'listentothis'
+];
+const ALLOWED_SORT_TYPES = [
+  'new',
+  'hot',
+  'top'
+];
+const ALLOWED_SORT_RANGE = [
+  'hour',
+  'day',
+  'week',
+  'month',
+  'year',
+  'all'
+];
+
+class SubredditContainer extends RouterComponent {
+  componentDidMount() {
+    this.handleRedirectIfNeeded();
+  }
+
+  componentDidUpdate() {
+    this.handleRedirectIfNeeded();
+  }
+
+  getSubredditParams() {
+    const subreddit = this.props.params.subreddit;
+    let sortType = this.props.params.sortType;
+    let sortRange = this.props.params.sortRange;
+
+    if (subreddit && !sortType) {
+      sortType = 'hot';
+    }
+    if (sortType === 'top' && !sortRange) {
+      sortRange = 'day';
+    }
+
+    return {
+      subreddit: subreddit,
+      sortType: sortType,
+      sortRange: sortRange
+    }
+  }
+
+  handleRedirectIfNeeded() {
+    const { subreddit, sortType, sortRange } = this.getSubredditParams();
+    const isValidSubreddit = includes(ALLOWED_SUBREDDITS, subreddit);
+    const isValidSortType = includes(ALLOWED_SORT_TYPES, sortType) || isEmpty(sortType);
+    const isValidSortRange = includes(ALLOWED_SORT_RANGE, sortRange) || isEmpty(sortRange);
+
+    if (!(isValidSubreddit && isValidSortType && isValidSortRange)) {
+      this.handle404();
+    }
+    if (sortType !== 'top' && sortRange) {
+      this.handle404();
+    }
+  }
+
+  handle404() {
+    this.transitionTo('404');
+  }
+
   render() {
+    const { subreddit, sortType, sortRange } = this.getSubredditParams();
     return (
       <div>
-        <h1>Subreddit container</h1>
-        {this.props.children}
+        <h1>Subreddit container {subreddit} {sortType} {sortRange}</h1>
       </div>
     );
   }
 }
-
-SubredditContainer.propTypes = {
-  children: PropTypes.element
-};
 
 export default SubredditContainer;

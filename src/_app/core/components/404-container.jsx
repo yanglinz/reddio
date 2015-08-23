@@ -1,18 +1,18 @@
 import React, { Component, PropTypes } from 'react';
 
-class SortTypeContainer extends Component {
+class NotFoundContainer extends Component {
   render() {
     return (
       <div>
-        <h1>Sort type container</h1>
+        <h1>404 container</h1>
         {this.props.children}
       </div>
     );
   }
 }
 
-SortTypeContainer.propTypes = {
+NotFoundContainer.propTypes = {
   children: PropTypes.element
 };
 
-export default SortTypeContainer;
+export default NotFoundContainer;
