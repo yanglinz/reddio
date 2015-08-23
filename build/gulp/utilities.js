@@ -4,7 +4,7 @@ var childProcess = require('child_process');
 
 function spawnChildProcess(command, options) {
   var params = _.defaults(options, {
-    cwd: path.resolve(__dirname, '..'),
+    cwd: path.resolve(__dirname, '../..'),
     callback: _.noop
   });
 

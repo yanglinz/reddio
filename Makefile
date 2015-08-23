@@ -7,25 +7,29 @@ BIN := ./node_modules/.bin
 GULP := $(BIN)/gulp
 ESLINT := $(BIN)/eslint
 JSCS := $(BIN)/jscs
-WEBPACK := $(BIN)/webpack
-WEBPACK_DEV_SERVER := $(BIN)/webpack-dev-server
 
 
 # ------------------------------------
 # Define make commands
 # ------------------------------------
 
-build:
+setup:
+	./build/scripts/setup.sh
+
+build: clean
 	$(GULP) build
 
-lint:
+lint: clean
 	$(JSCS) .
-	$(ESLINT) .
+	$(ESLINT) --ext .jsx --ext .js .
 
-run:
+run: clean
 	$(GULP) run
 
 deploy: build
 	$(GULP) deploy
+
+clean:
+	./build/scripts/clean.sh
 
 .PHONY: build

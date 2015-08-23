@@ -1,11 +1,13 @@
 # Project
 dist/
-src/_assets/scripts/*.bundle.js
+src/_app/main.bundle.css
+src/_app/main.bundle.js
 .env
 
 # Logs
 logs/
 *.log
+npm-debug.log*
 
 # Runtime data
 pids/

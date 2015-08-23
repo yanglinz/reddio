@@ -1,51 +1,53 @@
 {
-  "name": "formwork",
+  "name": "reddio",
   "version": "1.0.0",
-  "description": "My personal boilerplate for static frontend-heavy sites",
+  "description": "An internet radio player for reddit",
   "main": "index.js",
   "scripts": {
     "test": "make test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/yanglinz/formwork.git"
+    "url": "git+https://github.com/yanglinz/reddio.git"
   },
   "author": "Yanglin Zhao",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/yanglinz/formwork/issues"
+    "url": "https://github.com/yanglinz/reddio/issues"
   },
-  "homepage": "https://github.com/yanglinz/formwork#readme",
+  "homepage": "https://github.com/yanglinz/reddio#readme",
   "dependencies": {
-    "axios": "0.5.4",
-    "material-ui": "0.9.2",
-    "moment": "2.10.2",
-    "nprogress": "0.2.0",
-    "radium": "0.13.0",
+    "es6-promise": "3.0.2",
+    "material-ui": "0.10.4",
+    "normalize.css": "3.0.3",
     "react": "0.13.3",
+    "react-redux": "0.9.0",
+    "react-router": "1.0.0-beta3",
     "react-tap-event-plugin": "0.1.7",
-    "rsvp": "3.0.18",
-    "rx": "2.5.3"
+    "redux": "1.0.1",
+    "redux-logger": "1.0.0"
   },
   "devDependencies": {
-    "babel": "5.8.3",
-    "babel-core": "5.8.3",
-    "babel-eslint": "3.1.26",
+    "autoprefixer-core": "5.2.1",
+    "babel": "5.8.21",
+    "babel-core": "5.8.22",
+    "babel-eslint": "4.0.10",
     "babel-loader": "5.3.2",
+    "css-loader": "0.16.0",
+    "cssnext-loader": "1.0.1",
     "dotenv": "1.2.0",
-    "eslint": "0.24.1",
-    "eslint-plugin-react": "3.0.0",
-    "esprima-fb": "15001.1.0-dev-harmony-fb",
+    "eslint": "1.1.0",
+    "eslint-config-airbnb": "0.0.7",
+    "eslint-plugin-react": "3.2.3",
+    "extract-text-webpack-plugin": "0.8.2",
     "gulp": "3.9.0",
-    "jscs": "1.13.1",
-    "json-loader": "0.5.2",
-    "lodash": "3.10.0",
-    "node-libs-browser": "0.5.2",
+    "jscs": "2.1.0",
+    "lodash": "3.10.1",
+    "postcss-loader": "0.5.1",
     "react-hot-loader": "1.2.8",
-    "rimraf": "2.4.2",
     "run-sequence": "1.1.2",
-    "surge": "0.14.3",
-    "webpack": "1.10.5",
+    "style-loader": "0.12.3",
+    "webpack": "1.11.0",
     "webpack-dev-server": "1.10.1"
   }
 }

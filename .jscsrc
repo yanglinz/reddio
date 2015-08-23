@@ -1,12 +1,17 @@
 {
-  "esprima": "esprima-fb",
+  "esnext": true,
   "excludeFiles": [
     "dist/**",
     "node_modules/**",
-    "src/_assets/scripts/*.bundle.js"
+    "src/_app/*.bundle.js"
   ],
+  "fileExtensions": [".js", ".jsx"],
   "preset": "airbnb",
   "maximumLineLength": 120,
   "validateIndentation": 2,
+  "validateQuoteMarks": null,
+  "disallowTrailingComma": true,
+  "requireTrailingComma": null,
+  "requirePaddingNewLinesAfterBlocks": null,
   "requireCamelCaseOrUpperCaseIdentifiers": null
 }
