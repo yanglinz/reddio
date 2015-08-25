@@ -1,23 +1,8 @@
 import { all, isEmpty, includes } from 'lodash';
 import React, { PropTypes } from 'react';
 import RouterComponent from 'core/components/higher-order/router.jsx';
-
-const ALLOWED_SUBREDDITS = [
-  'listentothis'
-];
-const ALLOWED_SORT_TYPES = [
-  'new',
-  'hot',
-  'top'
-];
-const ALLOWED_SORT_RANGE = [
-  'hour',
-  'day',
-  'week',
-  'month',
-  'year',
-  'all'
-];
+import SubredditContainer from 'reddit/components/subreddit-container.jsx';
+import { SUBREDDITS, SORT_TYPES, SORT_RANGES } from 'reddit/constants.js';
 
 class SubredditHandler extends RouterComponent {
   componentDidMount() {
@@ -49,9 +34,9 @@ class SubredditHandler extends RouterComponent {
 
   handle404IfNeeded() {
     const { subreddit, sortType, sortRange } = this.getSubredditParams();
-    const isValidSubreddit = includes(ALLOWED_SUBREDDITS, subreddit);
-    const isValidSortType = includes(ALLOWED_SORT_TYPES, sortType) || isEmpty(sortType);
-    const isValidSortRange = includes(ALLOWED_SORT_RANGE, sortRange) || isEmpty(sortRange);
+    const isValidSubreddit = includes(SUBREDDITS, subreddit);
+    const isValidSortType = includes(SORT_TYPES, sortType) || isEmpty(sortType);
+    const isValidSortRange = includes(SORT_RANGES, sortRange) || isEmpty(sortRange);
 
     if (!(isValidSubreddit && isValidSortType && isValidSortRange)) {
       this.transitionTo('404');
@@ -78,9 +63,10 @@ class SubredditHandler extends RouterComponent {
   render() {
     const { subreddit, sortType, sortRange } = this.getSubredditParams();
     return (
-      <div>
-        <h1>Subreddit handler {subreddit} {sortType} {sortRange}</h1>
-      </div>
+      <SubredditContainer
+        activeSubreddit={subreddit}
+        activeSortType={sortType}
+        activeSortRange={sortRange} />
     );
   }
 }
