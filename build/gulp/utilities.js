@@ -1,16 +1,16 @@
-var _ = require('lodash');
-var path = require('path');
-var childProcess = require('child_process');
+import { defaults, first, rest, noop } from 'lodash';
+import path from 'path';
+import childProcess from 'child_process';
 
 function spawnChildProcess(command, options) {
-  var params = _.defaults(options, {
+  const params = defaults(options, {
     cwd: path.resolve(__dirname, '../..'),
-    callback: _.noop
+    callback: noop
   });
 
-  var bin = _.first(command.split(' '));
-  var payload = _.rest(command.split(' '));
-  var process = childProcess.spawn(bin, payload, {
+  const bin = first(command.split(' '));
+  const payload = rest(command.split(' '));
+  const process = childProcess.spawn(bin, payload, {
     cwd: params.cwd,
     stdio: 'inherit'  // pipe output as is
   });
@@ -18,6 +18,4 @@ function spawnChildProcess(command, options) {
   process.on('close', params.callback);
 }
 
-module.exports = {
-  spawnChildProcess: spawnChildProcess
-};
+export { spawnChildProcess };

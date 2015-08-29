@@ -1,18 +1,20 @@
-var _ = require('lodash');
-var dotenv = require('dotenv');
+import { any } from 'lodash';
+import dotenv from 'dotenv';
 
 dotenv.load();  // source environmental variables from .env
 
-var ENVIRONMENT = process.env.ENVIRONMENT;
-var IS_PROD = _.any([
+const ENVIRONMENT = process.env.ENVIRONMENT;
+const IS_PROD = any([
   ENVIRONMENT === 'stage',
   ENVIRONMENT === 'staging',
   ENVIRONMENT === 'prod',
   ENVIRONMENT === 'production'
 ]);
 
-module.exports = {
+const settings = {
   ENVIRONMENT: ENVIRONMENT,
   IS_PROD: IS_PROD,
   IS_LOCAL: !IS_PROD
 };
+
+export default settings;

@@ -1,19 +1,19 @@
-var path = require('path');
-var gulp = require('gulp');
-var runSequence = require('run-sequence');
-var utilities = require('./utilities.js');
+import path from 'path';
+import gulp from 'gulp';
+import runSequence from 'run-sequence';
+import { spawnChildProcess } from './utilities.js';
 
-gulp.task('build:webpack', function(callback) {
-  var webpackCli = path.resolve(__dirname, '../../node_modules/.bin/webpack');
-  utilities.spawnChildProcess(webpackCli, {callback: callback});
+gulp.task('build:webpack', (callback) => {
+  const webpackCli = path.resolve(__dirname, '../../node_modules/.bin/webpack');
+  spawnChildProcess(webpackCli, {callback: callback});
 });
 
-gulp.task('build:copy', function() {
+gulp.task('build:copy', () => {
   return gulp.src('src/**')
-  .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist'));
 });
 
-gulp.task('build:all', function(callback) {
+gulp.task('build:all', (callback) => {
   runSequence(
     'build:webpack',
     'build:copy',

@@ -1,16 +1,17 @@
-var path = require('path');
-var _ = require('lodash');
-var webpack = require('webpack');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var autoprefixer = require('autoprefixer-core');
-var settings = require('./settings.js');
+import path from 'path';
+import { contains, each } from 'lodash';
+import ip from 'ip';
+import webpack from 'webpack';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import autoprefixer from 'autoprefixer-core';
+import settings from './settings.js';
 
 /**
  * Define base config for webpack.
  * This is the set of config that affects builds for all environments
  */
 
-var config = {
+const config = {
   entry: ['./src/_app/main'],
   output: {
     path: path.join(__dirname, 'src/_app'),
@@ -36,7 +37,7 @@ var config = {
  * Configure css, postcss and cssnext post-processors
  */
 
-var cssLoaders = 'css-loader!cssnext-loader!postcss-loader';
+const cssLoaders = 'css-loader!cssnext-loader!postcss-loader';
 
 config.module.loaders = [].concat(config.module.loaders, {
   test: /\.css$/,
@@ -49,7 +50,7 @@ if (settings.IS_PROD) {
   ]);
 }
 
-config.postcss = function() {
+config.postcss = () => {
   return [
     autoprefixer({
       browsers: ['> 1%', 'last 2 versions', 'ie 8', 'ie 9'],
@@ -74,7 +75,7 @@ if (settings.IS_LOCAL) {
 
 if (settings.IS_LOCAL) {
   config.entry = [].concat([
-    'webpack-dev-server/client?http://localhost:3000',
+    `webpack-dev-server/client?http://${ip.address()}:8081`,
     'webpack/hot/only-dev-server'
   ], config.entry);
 
@@ -85,9 +86,9 @@ if (settings.IS_LOCAL) {
     new webpack.NoErrorsPlugin()
   ], config.plugins);
 
-  _.each(config.module.loaders, function(loader) {
+  each(config.module.loaders, (loader) => {
     // for instances where babel loader is used, react-hot loader must precede it for HMR to work
-    if (_.contains(loader.loaders, 'babel')) {
+    if (contains(loader.loaders, 'babel')) {
       loader.loaders = [].concat('react-hot', loader.loaders);
     }
   });
@@ -103,7 +104,8 @@ if (settings.IS_LOCAL) {
     publicPath: config.output.publicPath,
     hot: true,
     historyApiFallback: true,
-    port: 3000
+    port: 8081,
+    host: '0.0.0.0'
   };
 }
 
@@ -134,4 +136,4 @@ if (settings.IS_PROD) {
   ], config.plugins);
 }
 
-module.exports = config;
+export default config;
