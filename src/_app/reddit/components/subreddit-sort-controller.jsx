@@ -25,7 +25,7 @@ class SubredditSortController extends RouterComponent {
       return {
         payload: sortType,
         text: capitalize(sortType)
-      }
+      };
     });
     const activeIndex = findIndex(menuItems, (item) => {
       return item.payload === this.props.activeSortType;
@@ -48,7 +48,7 @@ class SubredditSortController extends RouterComponent {
       return {
         payload: sortRange,
         text: capitalize(sortRange)
-      }
+      };
     });
     const activeIndex = findIndex(menuItems, (item) => {
       return item.payload === this.props.activeSortRange;

@@ -29,7 +29,7 @@ class SubredditHandler extends RouterComponent {
       subreddit: subreddit,
       sortType: sortType,
       sortRange: sortRange
-    }
+    };
   }
 
   handle404IfNeeded() {

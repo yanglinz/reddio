@@ -5,7 +5,7 @@ import { logError } from './../core/utils.js';
 
 class RedditParser {
   static listing(listing={}) {
-    let posts = _.filter(listing.data.children, function postFilter(post) {
+    const posts = _.filter(listing.data.children, function postFilter(post) {
       const isSong = !post.data.is_self && !post.data.stickied;
       const isYoutube = _.includes(post.data.url, 'you');
       const isSoundcloud = _.includes(post.data.url, 'soundcloud');
@@ -49,7 +49,7 @@ class RedditApi {
         }
       })
       .then(function onResponse(response) {
-        let posts = RedditParser.listing(response.data);
+        const posts = RedditParser.listing(response.data);
         return {
           posts: posts
         };

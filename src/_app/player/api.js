@@ -20,7 +20,7 @@ class Utilities {
   static youtubeUrlToId(url) {
     const youtubeShortUrl = 'youtu.be';
     let videoId;
-    let parser = document.createElement('a');
+    const parser = document.createElement('a');
     parser.href = url;
     if (_.includes(url, youtubeShortUrl)) {
       videoId = parser.pathname.split('/')[1];
@@ -28,7 +28,7 @@ class Utilities {
       let params = parser.search;
       params = params.replace('?', '').split('&');
       params = _.reduce(params, function generateParams(memo, p) {
-        let key = p.split('=')[0];
+        const key = p.split('=')[0];
         memo[key] = p.split('=')[1];
         return memo;
       }, {});
@@ -60,11 +60,11 @@ class AudioPlayer {
      * Load the soundcloud api script.
      * The soundcloud script synchronously attaches a global `SC` object
      */
-    let _this = this;
+    const _this = this;
     if (_.isEmpty(_this._soundcloudApiPromise)) {
       const mountNode = 'soundcloud-mount-node';
       const playerElementId = 'soundcloud-iframe-container';
-      let soundcloudIframe = document.createElement('iframe');
+      const soundcloudIframe = document.createElement('iframe');
       soundcloudIframe.id = playerElementId;
       soundcloudIframe.width = '100%';
       soundcloudIframe.height = '140';
@@ -95,11 +95,11 @@ class AudioPlayer {
      * The youtube script asynchronously loads the iframe api.
      * When loaded, it will fire the `window.onYouTubeIframeAPIReady`
      */
-    let _this = this;
+    const _this = this;
     if (_.isEmpty(_this._youtubeApiPromise)) {
-      let tag = document.createElement('script');
+      const tag = document.createElement('script');
       tag.src = 'https://www.youtube.com/iframe_api';
-      let firstScriptTag = document.getElementsByTagName('script')[0];
+      const firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
       _this._youtubeApiPromise = new RSVP.Promise(function handleYoutubePromise(resolve, reject) {

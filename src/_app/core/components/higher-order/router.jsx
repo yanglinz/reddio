@@ -1,4 +1,3 @@
-import { last } from 'lodash';
 import React from 'react';
 import { Navigation, State } from 'react-router';
 

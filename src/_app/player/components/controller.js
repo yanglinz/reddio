@@ -9,7 +9,7 @@ import dispatcher from '../../core/dispatcher.js';
 import PlayerActions from '../../player/actions.js';
 import { appState } from '../../core/state.js';
 
-let styles = {
+const styles = {
   hidden: {
     display: 'none'
   }
@@ -27,7 +27,7 @@ class PlayerController extends React.Component {
   }
 
   componentDidUpdate() {
-    let currentSong = _.first(this.state.queue);
+    const currentSong = _.first(this.state.queue);
     if (this.state.isPlaying && !_.isEmpty(currentSong)) {
       this.audioPlayer.play(currentSong.url);
     }
@@ -41,28 +41,28 @@ class PlayerController extends React.Component {
   }
 
   isSoundcloudActive() {
-    let currentSong = _.first(this.state.queue) || {};
+    const currentSong = _.first(this.state.queue) || {};
     const soundcloudUrl = 'soundcloud';
     return _.includes(currentSong.url, soundcloudUrl);
   }
 
   playSong() {
-    let action = PlayerActions.playSong();
+    const action = PlayerActions.playSong();
     dispatcher.dispatch(action);
   }
 
   pauseSong() {
-    let action = PlayerActions.pauseSong();
+    const action = PlayerActions.pauseSong();
     return dispatcher.dispatch(action);
   }
 
   nextSong() {
-    let action = PlayerActions.nextSong();
+    const action = PlayerActions.nextSong();
     dispatcher.dispatch(action);
   }
 
   prevSong() {
-    let action = PlayerActions.prevSong();
+    const action = PlayerActions.prevSong();
     dispatcher.dispatch(action);
   }
 

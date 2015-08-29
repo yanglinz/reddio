@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import mui, { Styles } from 'material-ui';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
@@ -30,13 +30,11 @@ const CustomMaterialComponentThemes = {
   }
 };
 
-let ThemeManager = new mui.Styles.ThemeManager();
+const ThemeManager = new mui.Styles.ThemeManager();
 ThemeManager.setPalette(CustomMaterialPalette);
 ThemeManager.setComponentThemes(CustomMaterialComponentThemes);
 
-function materialUI(target) {
-  let TargetComponent = target;
-
+function materialUI(TargetComponent) {
   class Decorated extends TargetComponent {
     getChildContext() {
       return {

@@ -5,7 +5,7 @@ class SubredditListings extends Component {
     return this.props.subreddits.map((subreddit) => {
       return (
         <h2 key={subreddit}>{subreddit}</h2>
-      )
+      );
     });
   }
 
