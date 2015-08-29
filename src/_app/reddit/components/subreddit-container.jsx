@@ -5,14 +5,6 @@ import SubredditSortController from 'reddit/components/subreddit-sort-controller
 import { SUBREDDITS, SORT_TYPES, SORT_RANGES } from 'reddit/constants.js';
 
 class SubredditContainer extends RouterComponent {
-  handleSortTypeChange(sortType) {
-    console.log('handleSortTypeChange');
-  }
-
-  handleSortRangeChange(sortRange) {
-    console.log('handleSortRangeChange');
-  }
-
   render() {
     const { activeSubreddit, activeSortType, activeSortRange } = this.props;
     return (
@@ -22,12 +14,11 @@ class SubredditContainer extends RouterComponent {
           subreddits={SUBREDDITS}
           activeSubreddit={activeSubreddit} />
         <SubredditSortController
+          activeSubreddit={activeSubreddit}
           sortTypes={SORT_TYPES}
           activeSortType={activeSortType}
           sortRanges={SORT_RANGES}
-          activeSortRange={activeSortRange}
-          handleSortTypeChange={this.handleSortTypeChange}
-          handleSortRangeChange={this.handleSortRangeChange} />
+          activeSortRange={activeSortRange} />
       </div>
     );
   }

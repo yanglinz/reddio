@@ -1,10 +1,25 @@
 import { map, capitalize, findIndex } from 'lodash';
-import React, { Component, PropTypes } from 'react';
+import React, { PropTypes } from 'react';
 import { DropDownMenu } from 'material-ui';
+import RouterComponent from 'core/components/higher-order/router.jsx';
 import materialUI from 'core/components/decorators/material-ui.js';
 
 @materialUI
-class SubredditSortController extends Component {
+class SubredditSortController extends RouterComponent {
+  handleChangeSortType(e, selectedIndex, menuItem) {
+    const sortType = menuItem.payload;
+    const { activeSubreddit } = this.props;
+    const urlPath = `/r/${activeSubreddit}/${sortType}`;
+    this.transitionTo(urlPath);
+  }
+
+  handleChangeSortRange(e, selectedIndex, menuItem) {
+    const sortRange = menuItem.payload;
+    const { activeSubreddit, activeSortType } = this.props;
+    const urlPath = `/r/${activeSubreddit}/${activeSortType}/${sortRange}`;
+    this.transitionTo(urlPath);
+  }
+
   renderSortTypeController() {
     const menuItems = map(this.props.sortTypes, (sortType) => {
       return {
@@ -20,7 +35,7 @@ class SubredditSortController extends Component {
       <DropDownMenu
         selectedIndex={activeIndex}
         menuItems={menuItems}
-        onChange={() => this.props.handleSortTypeChange()} />
+        onChange={this.handleChangeSortType.bind(this)} />
     );
   }
 
@@ -43,7 +58,7 @@ class SubredditSortController extends Component {
       <DropDownMenu
         selectedIndex={activeIndex}
         menuItems={menuItems}
-        onChange={() => this.props.handleSortRangeChange()} />
+        onChange={this.handleChangeSortRange.bind(this)} />
     );
   }
 
@@ -58,12 +73,11 @@ class SubredditSortController extends Component {
 }
 
 SubredditSortController.propTypes = {
+  activeSubreddit: PropTypes.string.isRequired,
   sortTypes: PropTypes.array.isRequired,
   activeSortType: PropTypes.string.isRequired,
   sortRanges: PropTypes.array.isRequired,
-  activeSortRange: PropTypes.string,
-  handleSortTypeChange: PropTypes.func.isRequired,
-  handleSortRangeChange: PropTypes.func.isRequired
+  activeSortRange: PropTypes.string
 };
 
 export default SubredditSortController;
