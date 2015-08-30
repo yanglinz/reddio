@@ -1,5 +1,6 @@
 export const SUBREDDITS = [
-  'listentothis'
+  'listentothis',
+  'rock'
 ];
 
 export const SORT_TYPES = [
