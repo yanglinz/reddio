@@ -1,64 +1,69 @@
-import _ from 'lodash';
+import { contains, defaults, filter, map } from 'lodash';
+import { ajax } from 'jquery'
+import { Promise } from 'es6-promise';
 import moment from 'moment';
-import axios from 'axios';
-import { logError } from './../core/utils.js';
+import { logError } from 'core/logger.js';
 
-class RedditParser {
-  static listing(listing={}) {
-    const posts = _.filter(listing.data.children, function postFilter(post) {
-      const isSong = !post.data.is_self && !post.data.stickied;
-      const isYoutube = _.includes(post.data.url, 'you');
-      const isSoundcloud = _.includes(post.data.url, 'soundcloud');
-      return isSong && (isYoutube || isSoundcloud);
-    });
-
-    return _.map(posts, RedditParser.post);
-  }
-
-  static post(post={}) {
-    const p = post.data || {};
-    const timeCreated = moment.unix(p.created_utc).fromNow();
-    return {
-      commentsCount: p.num_comments,
-      domain: p.domain,
-      id: p.id,
-      permalink: p.permalink,
-      name: p.name,
-      score: p.score,
-      thumbnail: p.thumbnail,
-      timeCreated: timeCreated,
-      title: p.title,
-      url: p.url
-    };
-  }
+function isPostYoutube(post) {
+  return contains(post.data.url, 'you');
 }
 
-class RedditApi {
-  static getEndpoint(subreddit, listingType) {
-    return `http://www.reddit.com/r/${subreddit}/${listingType}.json`;
-  }
-
-  static get(params) {
-    const url = RedditApi.getEndpoint(params.subreddit, params.listingType);
-    return axios
-      .get(url, {
-        params: {
-          t: params.listingType === 'top' ? params.sortRange : null,
-          limit: params.limit,
-          after: params.after
-        }
-      })
-      .then(function onResponse(response) {
-        const posts = RedditParser.listing(response.data);
-        return {
-          posts: posts
-        };
-      })
-      .catch(function onError(err) {
-        logError(err);
-        return [];
-      });
-  }
+function isPostSoundcloud(post) {
+  return contains(post.data.url, 'soundcloud');
 }
 
-export { RedditApi, RedditParser };
+function isPostSong(post) {
+  const isSong = !post.data.is_self && !post.data.stickied;
+  return isSong && (isPostYoutube(post) || isPostSoundcloud(post));
+}
+
+function parsePost(post) {
+  const p = post.data;
+  const createdUtcHuman = moment.unix(p.created_utc).fromNow();
+  return {
+    createdUtcHuman: createdUtcHuman,
+    domain: p.domain,
+    id: p.id,
+    name: p.name,
+    numComments: p.num_comments,
+    permalink: p.permalink,
+    score: p.score,
+    thumbnail: p.thumbnail,
+    title: p.title,
+    url: p.url
+  };
+}
+
+function parseListing(data) {
+  const validPosts = filter(data.data.children, isPostSong);
+  return map(validPosts, parsePost);
+}
+
+function fetchPosts(subreddit, params={}) {
+  const { sortType, sortRange, limit, after } = defaults(params, {
+    sortType: 'hot',
+    sortRange: null,
+    limit: 25,
+    after: null
+  });
+
+  const request = new Promise((resolve, reject) => {
+    ajax({
+      url: `http://www.reddit.com/r/${subreddit}/${sortType}.json`,
+      method: 'GET',
+      data: {
+        t: sortRange,
+        limit: limit,
+        after: after
+      }
+    }).done(resolve).fail(reject);
+  });
+
+  return request
+    .then((data) => {
+      return parseListing(data);
+    })
+    .catch(logError);
+}
+
+export { fetchPosts };

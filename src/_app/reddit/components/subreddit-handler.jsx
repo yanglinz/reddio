@@ -2,6 +2,7 @@ import { all, every, includes, isEmpty } from 'lodash';
 import React, { PropTypes } from 'react';
 import RouterComponent from 'core/components/higher-order/router.jsx';
 import SubredditContainer from 'reddit/components/subreddit-container.jsx';
+import RedditPosts from 'reddit/components/subreddit-posts.jsx';
 import { SUBREDDITS, SORT_TYPES, SORT_RANGES } from 'reddit/constants.js';
 
 class SubredditHandler extends RouterComponent {
@@ -44,20 +45,6 @@ class SubredditHandler extends RouterComponent {
     if (sortType !== 'top' && sortRange) {
       this.transitionTo('404');
     }
-  }
-
-  setSortType(sortType) {
-    const { subreddit, sortRange } = this.getSubredditParams();
-    const newRoute = sortRange ?
-      `r/${subreddit}}/${sortType}/${sortRange}` :
-      `r/${subreddit}}/${sortType}}`;
-    this.transitionTo(newRoute);
-  }
-
-  setSortRange(sortRange) {
-    const { subreddit, sortType } = this.getSubredditParams();
-    const newRoute = `r/${subreddit}}/${sortType}/${sortRange}`;
-    this.transitionTo(newRoute);
   }
 
   render() {
