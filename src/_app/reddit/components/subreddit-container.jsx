@@ -26,10 +26,16 @@ class SubredditContainer extends RouterComponent {
     this.fetchPostsIfEmpty(prevProps);
   }
 
+  getPosts() {
+    const { posts, query } = this.props;
+    const { subreddit, sortType, sortRange } = this.props.params;
+    return query.getActivePosts(posts, subreddit, sortType, sortRange);
+  }
+
   shouldFetchPosts(prevProps={}) {
     const { subreddit, sortType, sortRange } = this.props.params;
     const isFetching = this.props.isFetching;
-    const hasPosts = !isEmpty(this.props.activePosts);
+    const hasPosts = !isEmpty(this.getPosts());
     const hasSubreddit = contains(SUBREDDITS, subreddit);
     const hasSortType = contains(SORT_TYPES, sortType);
 
@@ -50,9 +56,8 @@ class SubredditContainer extends RouterComponent {
   }
 
   render() {
-    const { posts, query } = this.props;
     const { subreddit, sortType, sortRange } = this.props.params;
-    const activePosts = query.getActivePosts(posts, subreddit, sortType, sortRange);
+    const activePosts = this.getPosts();
     return (
       <div>
         <h1>Subreddit handler {subreddit} {sortType} {sortRange}</h1>
