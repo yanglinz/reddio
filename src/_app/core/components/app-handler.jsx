@@ -8,18 +8,18 @@ import { setRouterState } from 'core/state/actions.js';
 
 @connect(() => ({}))
 class AppHandler extends RouterComponent {
-  componentDidMount() {
+  componentWillMount() {
     this.setRouterState({}, this.props);
   }
 
-  componentDidUpdate(prevProps) {
-    this.setRouterState(prevProps, this.props);
+  componentWillUpdate(nextProps) {
+    this.setRouterState(this.props, nextProps);
   }
 
-  setRouterState(previousProps={}, currentProps={}) {
-    const hasNewRoute = !isEqual(previousProps.route, currentProps.route);
-    const hasNewParams = !isEqual(previousProps.params, currentProps.params);
-    const hasNewRouteParams = !isEqual(previousProps.routeParams, currentProps.routeParams);
+  setRouterState(previousProps={}, nextProps={}) {
+    const hasNewRoute = !isEqual(previousProps.route, nextProps.route);
+    const hasNewParams = !isEqual(previousProps.params, nextProps.params);
+    const hasNewRouteParams = !isEqual(previousProps.routeParams, nextProps.routeParams);
     if (hasNewRoute || hasNewParams || hasNewRouteParams) {
       const routerState = {
         currentRouteName: this.getCurrentRouteName(),
