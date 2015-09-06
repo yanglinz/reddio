@@ -1,4 +1,4 @@
-import { extend, flatten, map, object, reduce } from 'lodash';
+import { cloneDeep, extend, flatten, map, object, reduce } from 'lodash';
 import moment from 'moment';
 import { SET_POSTS, SET_FETCH_BEGIN, SET_FETCH_END  } from 'reddit/state/actions.js';
 import { SUBREDDITS, SORT_TYPES, SORT_RANGES } from 'reddit/constants.js';
@@ -19,7 +19,7 @@ storageKeys = object(storageKeys, map(storageKeys, () => {
 }));
 
 const initialPosts = object(SUBREDDITS, map(SUBREDDITS, () => {
-  return storageKeys;
+  return cloneDeep(storageKeys);
 }));
 
 function getActivePosts(posts, subreddit, sortType, sortRange) {

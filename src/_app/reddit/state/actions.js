@@ -26,11 +26,9 @@ export function setFetchEnd() {
   }
 }
 
-export const FETCH_POSTS = 'FETCH_POSTS';
 export function fetchPosts(subreddit, sortType, sortRange, params={}) {
   return (dispatch, getState) => {
     dispatch(setFetchBegin());
-
     const payload = {
       sortType: sortType,
       sortRange: sortRange
