@@ -1,4 +1,4 @@
-import { contains, isEmpty, isEqual } from 'lodash';
+import { contains, defaults, isEmpty, isEqual } from 'lodash';
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import RouterComponent from 'core/components/higher-order/router.jsx';
@@ -61,14 +61,15 @@ class SubredditContainer extends RouterComponent {
   }
 
   redirectIfIndex() {
-    const { subreddit, sortType, sortRange } = this.props.params;
-    const parsedSubreddit = isEmpty(subreddit) ? 'listentothis': subreddit;
-    const parsedSortType = isEmpty(sortType) ? 'hot' : sortType;
-    const parsedSortRange = isEmpty(sortRange) ? 'day' : sortRange;
-    const route = parsedSubreddit === 'top' ?
-      `/${parsedSubreddit}/${parsedSortType}/${parsedSortRange}` :
-      `/${parsedSubreddit}/${parsedSortType}`;
-    this.transitionTo(route);
+    let { subreddit, sortType } = this.props.params;
+    const hasSubreddit = contains(SUBREDDITS, subreddit);
+    const hasSortType = contains(SORT_TYPES, sortType);
+    if (!hasSubreddit && !hasSortType) {
+      const defaultSubreddit = 'listentothis';
+      const defaultSortType = 'hot';
+      const route = `/${defaultSubreddit}/${defaultSortType}`;
+      this.transitionTo(route);
+    }
   }
 }
 

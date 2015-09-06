@@ -9,15 +9,18 @@ class SubredditSortController extends RouterComponent {
   handleChangeSortType(e, selectedIndex, menuItem) {
     const sortType = menuItem.payload;
     const { activeSubreddit } = this.props;
-    const urlPath = `/${activeSubreddit}/${sortType}`;
-    this.transitionTo(urlPath);
+    const defaultSortRange = 'day';
+    const route = sortType === 'top' ?
+      `/${activeSubreddit}/${sortType}/${defaultSortRange}` :
+      `/${activeSubreddit}/${sortType}`;
+    this.transitionTo(route);
   }
 
   handleChangeSortRange(e, selectedIndex, menuItem) {
     const sortRange = menuItem.payload;
     const { activeSubreddit, activeSortType } = this.props;
-    const urlPath = `/${activeSubreddit}/${activeSortType}/${sortRange}`;
-    this.transitionTo(urlPath);
+    const route = `/${activeSubreddit}/${activeSortType}/${sortRange}`;
+    this.transitionTo(route);
   }
 
   renderSortTypeController() {

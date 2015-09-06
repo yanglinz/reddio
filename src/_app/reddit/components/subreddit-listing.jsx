@@ -8,8 +8,8 @@ import materialUI from 'core/components/decorators/material-ui.js';
 class SubredditListings extends RouterComponent {
   handleChangeSubreddit(subreddit) {
     if (subreddit !== this.props.activeSubreddit) {
-      const newRoute = `r/${subreddit}`;
-      this.transitionTo(newRoute);
+      const route = `/${subreddit}`;
+      this.transitionTo(route);
     }
   }
 
