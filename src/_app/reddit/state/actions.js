@@ -37,8 +37,8 @@ export function fetchPosts(subreddit, sortType, sortRange, params={}) {
     };
     redditFetchPosts(subreddit, payload)
       .then((posts) => {
-        dispatch(setFetchEnd());
         dispatch(setPosts(posts, subreddit, sortType, sortRange));
+        dispatch(setFetchEnd());
       })
       .catch((err) => {
         logError(err);

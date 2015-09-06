@@ -10,8 +10,10 @@ import { fetchPosts } from 'reddit/state/actions.js';
 
 @connect(state => ({
   params: state.core.params,
-  activePosts: state.reddit.activePosts,
-  isFetching: state.reddit.isFetching
+  posts: state.reddit.posts,
+  query: state.reddit.query,
+  isFetching: state.reddit.isFetching,
+  updatedAt: state.reddit.updatedAt
 }))
 class SubredditContainer extends RouterComponent {
   componentDidMount() {
@@ -19,30 +21,38 @@ class SubredditContainer extends RouterComponent {
     this.fetchPostsIfEmpty();
   }
 
-  componentDidUpdate() {
+  componentDidUpdate(prevProps) {
     this.redirectIfIndex();
-    this.fetchPostsIfEmpty();
+    this.fetchPostsIfEmpty(prevProps);
   }
 
-  shouldFetchPosts() {
-    const { subreddit, sortType } = this.props.params;
+  shouldFetchPosts(prevProps={}) {
+    const { subreddit, sortType, sortRange } = this.props.params;
     const isFetching = this.props.isFetching;
     const hasPosts = !isEmpty(this.props.activePosts);
     const hasSubreddit = contains(SUBREDDITS, subreddit);
     const hasSortType = contains(SORT_TYPES, sortType);
-    return !isFetching && !hasPosts && hasSubreddit && hasSortType;
+
+    const prevParams = prevProps.params || {};
+    const hasNewSubreddit = !isEqual(subreddit, prevParams.subreddit);
+    const hasNewSortType = !isEqual(sortType, prevParams.sortType);
+    const hasNewSortRange = !isEqual(sortRange, prevParams.sortRange);
+    const hasNewParams = hasNewSubreddit || hasNewSortType || hasNewSortRange;
+
+    return !isFetching && !hasPosts && hasSubreddit && hasSortType && hasNewParams;
   }
 
-  fetchPostsIfEmpty() {
-    if (this.shouldFetchPosts()) {
+  fetchPostsIfEmpty(prevProps={}) {
+    if (this.shouldFetchPosts(prevProps)) {
       const { subreddit, sortType, sortRange } = this.props.params;
       this.props.dispatch(fetchPosts(subreddit, sortType, sortRange));
     }
   }
 
   render() {
-    const { activePosts } = this.props;
+    const { posts, query } = this.props;
     const { subreddit, sortType, sortRange } = this.props.params;
+    const activePosts = query.getActivePosts(posts, subreddit, sortType, sortRange);
     return (
       <div>
         <h1>Subreddit handler {subreddit} {sortType} {sortRange}</h1>
@@ -55,7 +65,7 @@ class SubredditContainer extends RouterComponent {
           activeSortType={sortType}
           sortRanges={SORT_RANGES}
           activeSortRange={sortRange} />
-        <SubredditPosts posts={activePosts} />
+        <SubredditPosts posts={activePosts || []} />
       </div>
     );
   }
@@ -64,10 +74,12 @@ class SubredditContainer extends RouterComponent {
     let { subreddit, sortType } = this.props.params;
     const hasSubreddit = contains(SUBREDDITS, subreddit);
     const hasSortType = contains(SORT_TYPES, sortType);
-    if (!hasSubreddit && !hasSortType) {
+    if (!hasSubreddit || !hasSortType) {
       const defaultSubreddit = 'listentothis';
       const defaultSortType = 'hot';
-      const route = `/${defaultSubreddit}/${defaultSortType}`;
+      const route = hasSubreddit ?
+        `/${subreddit}/${defaultSortType}` :
+        `/${defaultSubreddit}/${defaultSortType}`;
       this.transitionTo(route);
     }
   }

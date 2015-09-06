@@ -1,4 +1,5 @@
 import { extend, flatten, map, object, reduce } from 'lodash';
+import moment from 'moment';
 import { SET_POSTS, SET_FETCH_BEGIN, SET_FETCH_END  } from 'reddit/state/actions.js';
 import { SUBREDDITS, SORT_TYPES, SORT_RANGES } from 'reddit/constants.js';
 
@@ -21,10 +22,22 @@ const initialPosts = object(SUBREDDITS, map(SUBREDDITS, () => {
   return storageKeys;
 }));
 
+function getActivePosts(posts, subreddit, sortType, sortRange) {
+  const storageKey = sortType === 'top' ?
+    `${sortType}:${sortRange}` : sortType;
+  return posts[subreddit][storageKey] || [];
+}
+
 const initialState = {
   posts: initialPosts,
-  activePosts: [],
-  isFetching: false
+  query: {
+    getActivePosts
+  },
+  meta: {
+    isFetching: false,
+    createdAt: moment().valueOf(),
+    updatedAt: null
+  }
 };
 
 function redditReducer(state=initialState, action={}) {
@@ -37,10 +50,11 @@ function redditReducer(state=initialState, action={}) {
     state.activePosts = posts;
     return state;
   case SET_FETCH_BEGIN:
-    state.isFetching = true;
+    state.meta.isFetching = true;
     return state;
   case SET_FETCH_END:
-    state.isFetching = false;
+    state.meta.isFetching = false;
+    state.updatedAt = moment().valueOf();
     return state;
   default:
     return state;
