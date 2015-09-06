@@ -1,4 +1,4 @@
-import { map } from 'lodash';
+import { isEmpty, map } from 'lodash';
 import React, { Component } from 'react';
 import { Avatar, FontIcon, IconButton, List, ListItem, RaisedButton } from 'material-ui';
 import materialUI from 'core/components/decorators/material-ui.js';
@@ -29,12 +29,27 @@ class RedditPosts extends Component {
     });
   }
 
+  renderActiveState() {
+    return (
+      <List>
+        {this.renderPosts()}
+      </List>
+    );
+  }
+
+  renderInactiveState() {
+    return (
+      <div className="empty"></div>
+    );
+  }
+
   render() {
+    const subredditPosts = isEmpty(this.props.posts) ?
+      this.renderInactiveState() :
+      this.renderActiveState();
     return (
       <div className="posts-list">
-        <List>
-          {this.renderPosts()}
-        </List>
+        {subredditPosts}
       </div>
     );
   }

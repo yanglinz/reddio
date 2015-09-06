@@ -1,4 +1,4 @@
-import { map } from 'lodash';
+import { isEmpty, map } from 'lodash';
 import React, { PropTypes } from 'react';
 import RouterComponent from 'core/components/higher-order/router.jsx';
 import { FontIcon, IconButton, List, ListItem } from 'material-ui';
@@ -32,12 +32,27 @@ class SubredditListings extends RouterComponent {
     });
   }
 
+  renderActiveState() {
+    return (
+      <List subheader="Subreddits">
+        {this.renderSubreddits()}
+      </List>
+    );
+  }
+
+  renderInactiveState() {
+    return (
+      <div className="empty"></div>
+    );
+  }
+
   render() {
+    const subredditListing = isEmpty(this.props.activeSubreddit) ?
+      this.renderInactiveState() :
+      this.renderActiveState();
     return (
       <div className="subreddit-listings">
-        <List subheader="Subreddits">
-          {this.renderSubreddits()}
-        </List>
+        {subredditListing}
       </div>
     );
   }
@@ -45,7 +60,7 @@ class SubredditListings extends RouterComponent {
 
 SubredditListings.propTypes = {
   subreddits: PropTypes.array.isRequired,
-  activeSubreddit: PropTypes.string.isRequired
+  activeSubreddit: PropTypes.string
 };
 
 export default SubredditListings;

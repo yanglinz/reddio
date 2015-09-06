@@ -1,4 +1,4 @@
-import { map, capitalize, findIndex } from 'lodash';
+import { isEmpty, map, capitalize, findIndex } from 'lodash';
 import React, { PropTypes } from 'react';
 import { DropDownMenu } from 'material-ui';
 import RouterComponent from 'core/components/higher-order/router.jsx';
@@ -9,14 +9,14 @@ class SubredditSortController extends RouterComponent {
   handleChangeSortType(e, selectedIndex, menuItem) {
     const sortType = menuItem.payload;
     const { activeSubreddit } = this.props;
-    const urlPath = `/r/${activeSubreddit}/${sortType}`;
+    const urlPath = `/${activeSubreddit}/${sortType}`;
     this.transitionTo(urlPath);
   }
 
   handleChangeSortRange(e, selectedIndex, menuItem) {
     const sortRange = menuItem.payload;
     const { activeSubreddit, activeSortType } = this.props;
-    const urlPath = `/r/${activeSubreddit}/${activeSortType}/${sortRange}`;
+    const urlPath = `/${activeSubreddit}/${activeSortType}/${sortRange}`;
     this.transitionTo(urlPath);
   }
 
@@ -62,20 +62,39 @@ class SubredditSortController extends RouterComponent {
     );
   }
 
-  render() {
+  renderActiveState() {
     return (
-      <div className="subreddit-sort-controller">
+      <div>
         {this.renderSortTypeController()}
         {this.renderSortRangeController()}
+      </div>
+    );
+  }
+
+  renderInactiveState() {
+    return (
+      <div className="empty"></div>
+    );
+  }
+
+  render() {
+    const { activeSubreddit, activeSortType } = this.props;
+    const isActive = !isEmpty(activeSubreddit) && !isEmpty(activeSortType);
+    const subredditSortController = isActive ?
+      this.renderActiveState() :
+      this.renderInactiveState();
+    return (
+      <div className="subreddit-sort-controller">
+        {subredditSortController}
       </div>
     );
   }
 }
 
 SubredditSortController.propTypes = {
-  activeSubreddit: PropTypes.string.isRequired,
+  activeSubreddit: PropTypes.string,
   sortTypes: PropTypes.array.isRequired,
-  activeSortType: PropTypes.string.isRequired,
+  activeSortType: PropTypes.string,
   sortRanges: PropTypes.array.isRequired,
   activeSortRange: PropTypes.string
 };
