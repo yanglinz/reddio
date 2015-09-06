@@ -2,7 +2,6 @@ import { extend } from 'lodash';
 import { SET_ROUTER_STATE } from 'core/state/actions.js';
 
 const initialState = {
-  currentRouteName: '',
   params: {},
   route: {},
   routeParams: {},

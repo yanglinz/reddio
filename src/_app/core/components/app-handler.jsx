@@ -22,11 +22,10 @@ class AppHandler extends RouterComponent {
     const hasNewRouteParams = !isEqual(previousProps.routeParams, nextProps.routeParams);
     if (hasNewRoute || hasNewParams || hasNewRouteParams) {
       const routerState = {
-        currentRouteName: this.getCurrentRouteName(),
-        params: this.props.params,
-        route: this.props.route,
-        routeParams: this.props.routeParams,
-        location: this.props.location
+        params: nextProps.params,
+        route: nextProps.route,
+        routeParams: nextProps.routeParams,
+        location: nextProps.location
       };
       this.props.dispatch(setRouterState(routerState));
     }
