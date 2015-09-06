@@ -47,7 +47,6 @@ function redditReducer(state=initialState, action={}) {
     const storageKey = sortType === 'top' ?
       `${sortType}:${sortRange}` : sortType;
     state.posts[subreddit][storageKey] = posts;
-    state.activePosts = posts;
     return state;
   case SET_FETCH_BEGIN:
     state.meta.isFetching = true;
