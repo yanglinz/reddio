@@ -1,4 +1,4 @@
-import { any } from 'lodash';
+import { any, isEmpty } from 'lodash';
 import dotenv from 'dotenv';
 
 dotenv.load();  // source environmental variables from .env
@@ -11,13 +11,13 @@ const IS_PROD = any([
   ENVIRONMENT === 'production'
 ]);
 
+const USE_IP = !isEmpty(process.env.USE_IP);
+
 const settings = {
   ENVIRONMENT: ENVIRONMENT,
   IS_PROD: IS_PROD,
   IS_LOCAL: !IS_PROD,
-  IS_TRAVIS: process.env.TRAVIS,
-  SURGE_DOMAIN: process.env.SURGE_DOMAIN,
-  SURGE_TOKEN: process.env.SURGE_TOKEN
+  USE_IP: USE_IP
 };
 
 export default settings;

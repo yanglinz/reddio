@@ -74,8 +74,9 @@ if (settings.IS_LOCAL) {
  */
 
 if (settings.IS_LOCAL) {
+  const host = settings.USE_IP ? ip.address() : 'localhost';
   config.entry = [].concat([
-    `webpack-dev-server/client?http://${ip.address()}:8081`,
+    `webpack-dev-server/client?http://${host}:8081`,
     'webpack/hot/only-dev-server'
   ], config.entry);
 
