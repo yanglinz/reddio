@@ -4,7 +4,6 @@ import { Router, Route } from 'react-router';
 import configureStore from 'core/state/store.js';
 import AppHandler from 'core/components/app-handler.jsx';
 import NotFoundHandler from 'core/components/404-handler.jsx';
-import SubredditHandler from 'reddit/components/subreddit-handler.jsx';
 
 const store = configureStore();
 
@@ -16,14 +15,11 @@ class RootHandler extends Component {
           {() =>
             <Router history={this.props.history}>
               <Route path="/" component={AppHandler}>
-                <Route path="r">
-                  <Route path=":subreddit" component={SubredditHandler}>
-                    <Route path=":sortType">
-                      <Route path=":sortRange"/>
-                    </Route>
+                <Route path=":subreddit">
+                  <Route path=":sortType">
+                    <Route path=":sortRange"/>
                   </Route>
                 </Route>
-                <Route path="404" component={NotFoundHandler} />
               </Route>
             </Router>
           }
