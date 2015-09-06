@@ -1,60 +1,67 @@
-import { isEmpty } from 'lodash';
-import React, { Component, PropTypes } from 'react';
+import { contains, isEmpty } from 'lodash';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import RouterComponent from 'core/components/higher-order/router.jsx';
 import SubredditListings from 'reddit/components/subreddit-listing.jsx';
 import SubredditSortController from 'reddit/components/subreddit-sort-controller.jsx';
 import SubredditPosts from 'reddit/components/subreddit-posts.jsx';
 import { SUBREDDITS, SORT_TYPES, SORT_RANGES } from 'reddit/constants.js';
-import { fetchPosts } from 'reddit/api.js';
-import { setPosts } from 'reddit/state/actions.js';
-import { logError } from 'core/logger.js';
+import { fetchPosts } from 'reddit/state/actions.js';
 
 @connect(state => ({
-  activePosts: state.reddit.activePosts
+  params: state.core.params,
+  activePosts: state.reddit.activePosts,
+  isFetching: state.reddit.isFetching
 }))
 class SubredditContainer extends RouterComponent {
   componentDidMount() {
-    this.fetchPostsIfNeeded();
+    this.fetchPostsIfEmpty();
   }
 
   componentDidUpdate() {
-    this.fetchPostsIfNeeded();
+    this.fetchPostsIfEmpty();
   }
 
-  fetchPosts() {
-    const { activeSubreddit, activeSortType, activeSortRange } = this.props;
-    fetchPosts(activeSubreddit, {
-      sortType: activeSortType,
-      sortRange: activeSortRange
-    })
-    .then((posts) => {
-      const action = setPosts(posts, activeSubreddit, activeSortType, activeSortRange);
-      this.props.dispatch(action);
-    })
-    .catch(logError);
+  getSubredditParams(params={}) {
+    const { subreddit, sortType, sortRange } = params;
+    return {
+      subreddit: isEmpty(subreddit) ? 'listentothis': subreddit,
+      sortType: isEmpty(sortType) ? 'hot' : sortType,
+      sortRange: (sortType === 'top' && !sortRange) ? 'day' : sortRange
+    };
   }
 
-  fetchPostsIfNeeded() {
-    if (isEmpty(this.props.activePosts)) {
-      this.fetchPosts();
+  shouldFetchPosts() {
+    const { subreddit, sortType } = this.getSubredditParams();
+    const isFetching = this.props.isFetching;
+    const hasPosts = !isEmpty(this.props.activePosts);
+    const hasSubreddit = contains(SUBREDDITS, subreddit);
+    const hasSortType = contains(SORT_TYPES, sortType);
+    return !isFetching && !hasPosts && hasSubreddit && hasSortType;
+  }
+
+  fetchPostsIfEmpty() {
+    if (this.shouldFetchPosts()) {
+      const { subreddit, sortType, sortRange } = this.getSubredditParams();
+      this.props.dispatch(fetchPosts(subreddit, sortType, sortRange));
     }
   }
 
   render() {
-    const { activePosts, activeSubreddit, activeSortType, activeSortRange } = this.props;
+    const { activePosts } = this.props;
+    const { subreddit, sortType, sortRange } = this.getSubredditParams(this.props.params);
     return (
       <div>
-        <h1>Subreddit handler {activeSubreddit} {activeSortType} {activeSortRange}</h1>
+        <h1>Subreddit handler {subreddit} {sortType} {sortRange}</h1>
         <SubredditListings
           subreddits={SUBREDDITS}
-          activeSubreddit={activeSubreddit} />
+          activeSubreddit={subreddit} />
         <SubredditSortController
-          activeSubreddit={activeSubreddit}
+          activeSubreddit={subreddit}
           sortTypes={SORT_TYPES}
-          activeSortType={activeSortType}
+          activeSortType={sortType}
           sortRanges={SORT_RANGES}
-          activeSortRange={activeSortRange} />
+          activeSortRange={sortRange} />
         <SubredditPosts posts={activePosts} />
       </div>
     );
@@ -62,9 +69,7 @@ class SubredditContainer extends RouterComponent {
 }
 
 SubredditContainer.propTypes = {
-  activeSubreddit: PropTypes.string.isRequired,
-  activeSortType: PropTypes.string.isRequired,
-  activeSortRange: PropTypes.string
+  dispatch: PropTypes.func
 };
 
 export default SubredditContainer;
