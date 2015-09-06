@@ -1,5 +1,5 @@
 import { contains, defaults, filter, map } from 'lodash';
-import { ajax } from 'jquery'
+import { ajax } from 'jquery';
 import { Promise } from 'es6-promise';
 import moment from 'moment';
 import { logError } from 'core/logger.js';

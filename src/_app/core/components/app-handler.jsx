@@ -27,7 +27,7 @@ class AppHandler extends RouterComponent {
         routeParams: this.props.routeParams,
         location: this.props.location
       };
-      this.props.dispatch(setRouterState(routerState))
+      this.props.dispatch(setRouterState(routerState));
     }
   }
 
@@ -41,7 +41,12 @@ class AppHandler extends RouterComponent {
 }
 
 AppHandler.propTypes = {
-  children: PropTypes.element
+  children: PropTypes.element,
+  params: PropTypes.object,
+  route: PropTypes.object,
+  routeParams: PropTypes.object,
+  location: PropTypes.object,
+  dispatch: PropTypes.func
 };
 
 export default AppHandler;
