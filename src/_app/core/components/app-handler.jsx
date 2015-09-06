@@ -1,14 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import { AppBar } from 'material-ui';
-import materialUI from 'core/components/decorators/material-ui.js';
-import './app.css';
+import Header from 'core/components/common/header.jsx';
 
-@materialUI
 class AppHandler extends Component {
   render() {
     return (
       <div>
-        <AppBar title="reddio" />
+        <Header title="reddio" />
         {this.props.children}
       </div>
     );
