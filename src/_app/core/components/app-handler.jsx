@@ -3,6 +3,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import RouterComponent from 'core/components/higher-order/router.jsx';
 import Header from 'core/components/common/header.jsx';
+import SubredditContainer from 'reddit/components/subreddit-container.jsx';
 import { setRouterState } from 'core/state/actions.js';
 
 @connect(() => ({}))
@@ -35,6 +36,7 @@ class AppHandler extends RouterComponent {
     return (
       <div>
         <Header title="reddio" />
+        <SubredditContainer />
       </div>
     );
   }

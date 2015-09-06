@@ -1,7 +1,13 @@
 import { extend } from 'lodash';
-import { SET_ROUTER_STATE } from 'core/store/actions.js';
+import { SET_ROUTER_STATE } from 'core/state/actions.js';
 
-const initialState = {};
+const initialState = {
+  currentRouteName: '',
+  params: {},
+  route: {},
+  routeParams: {},
+  location: {}
+};
 
 function routerReducer(state=initialState, action={}) {
   switch (action.type) {
