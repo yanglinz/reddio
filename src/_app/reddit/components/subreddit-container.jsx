@@ -1,4 +1,4 @@
-import { contains, isEmpty } from 'lodash';
+import { contains, isEmpty, isEqual } from 'lodash';
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import RouterComponent from 'core/components/higher-order/router.jsx';
@@ -15,24 +15,17 @@ import { fetchPosts } from 'reddit/state/actions.js';
 }))
 class SubredditContainer extends RouterComponent {
   componentDidMount() {
+    this.redirectIfIndex();
     this.fetchPostsIfEmpty();
   }
 
   componentDidUpdate() {
+    this.redirectIfIndex();
     this.fetchPostsIfEmpty();
   }
 
-  getSubredditParams(params={}) {
-    const { subreddit, sortType, sortRange } = params;
-    return {
-      subreddit: isEmpty(subreddit) ? 'listentothis': subreddit,
-      sortType: isEmpty(sortType) ? 'hot' : sortType,
-      sortRange: (sortType === 'top' && !sortRange) ? 'day' : sortRange
-    };
-  }
-
   shouldFetchPosts() {
-    const { subreddit, sortType } = this.getSubredditParams();
+    const { subreddit, sortType } = this.props.params;
     const isFetching = this.props.isFetching;
     const hasPosts = !isEmpty(this.props.activePosts);
     const hasSubreddit = contains(SUBREDDITS, subreddit);
@@ -42,14 +35,14 @@ class SubredditContainer extends RouterComponent {
 
   fetchPostsIfEmpty() {
     if (this.shouldFetchPosts()) {
-      const { subreddit, sortType, sortRange } = this.getSubredditParams();
+      const { subreddit, sortType, sortRange } = this.props.params;
       this.props.dispatch(fetchPosts(subreddit, sortType, sortRange));
     }
   }
 
   render() {
     const { activePosts } = this.props;
-    const { subreddit, sortType, sortRange } = this.getSubredditParams(this.props.params);
+    const { subreddit, sortType, sortRange } = this.props.params;
     return (
       <div>
         <h1>Subreddit handler {subreddit} {sortType} {sortRange}</h1>
@@ -65,6 +58,17 @@ class SubredditContainer extends RouterComponent {
         <SubredditPosts posts={activePosts} />
       </div>
     );
+  }
+
+  redirectIfIndex() {
+    const { subreddit, sortType, sortRange } = this.props.params;
+    const parsedSubreddit = isEmpty(subreddit) ? 'listentothis': subreddit;
+    const parsedSortType = isEmpty(sortType) ? 'hot' : sortType;
+    const parsedSortRange = isEmpty(sortRange) ? 'day' : sortRange;
+    const route = parsedSubreddit === 'top' ?
+      `/${parsedSubreddit}/${parsedSortType}/${parsedSortRange}` :
+      `/${parsedSubreddit}/${parsedSortType}`;
+    this.transitionTo(route);
   }
 }
 
