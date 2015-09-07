@@ -1,6 +1,6 @@
 import { isEmpty, map } from 'lodash';
-import React, { Component } from 'react';
-import { Avatar, FontIcon, IconButton, List, ListItem } from 'material-ui';
+import React, { Component, PropTypes } from 'react';
+import { Avatar, FontIcon, IconButton, List, ListItem, RaisedButton } from 'material-ui';
 import materialUI from 'core/components/decorators/material-ui.js';
 
 @materialUI
@@ -29,6 +29,17 @@ class RedditPosts extends Component {
     });
   }
 
+  renderLoader() {
+    if (this.props.isFetching) {
+      return null;
+    }
+    return (
+      <div className="posts-list__loader">
+        <RaisedButton label="Load more" />
+      </div>
+    );
+  }
+
   renderActiveState() {
     return (
       <List>
@@ -50,13 +61,15 @@ class RedditPosts extends Component {
     return (
       <div className="posts-list">
         {subredditPosts}
+        {this.renderLoader()}
       </div>
     );
   }
 }
 
 RedditPosts.propTypes = {
-  posts: React.PropTypes.array.isRequired
+  isFetching: PropTypes.bool.isRequired,
+  posts: PropTypes.array.isRequired
 };
 
 export default RedditPosts;

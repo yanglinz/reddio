@@ -12,8 +12,8 @@ import { fetchPosts } from 'reddit/state/actions.js';
   params: state.core.params,
   posts: state.reddit.posts,
   query: state.reddit.query,
-  isFetching: state.reddit.isFetching,
-  updatedAt: state.reddit.updatedAt
+  isFetching: state.reddit.meta.isFetching,
+  updatedAt: state.reddit.meta.updatedAt
 }))
 class SubredditContainer extends RouterComponent {
   componentDidMount() {
@@ -56,7 +56,8 @@ class SubredditContainer extends RouterComponent {
   }
 
   render() {
-    const { subreddit, sortType, sortRange } = this.props.params;
+    const { isFetching, params } = this.props;
+    const { subreddit, sortType, sortRange } = params;
     const activePosts = this.getPosts();
     return (
       <div>
@@ -70,7 +71,9 @@ class SubredditContainer extends RouterComponent {
           activeSortType={sortType}
           sortRanges={SORT_RANGES}
           activeSortRange={sortRange} />
-        <SubredditPosts posts={activePosts || []} />
+        <SubredditPosts
+          posts={activePosts || []}
+          isFetching={isFetching} />
       </div>
     );
   }
