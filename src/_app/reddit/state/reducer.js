@@ -1,9 +1,9 @@
-import { cloneDeep, extend, flatten, map, object, reduce } from 'lodash';
+import { cloneDeep, flatten, isEmpty, map, object } from 'lodash';
 import moment from 'moment';
 import { SET_POSTS, SET_FETCH_BEGIN, SET_FETCH_END  } from 'reddit/state/actions.js';
 import { SUBREDDITS, SORT_TYPES, SORT_RANGES } from 'reddit/constants.js';
 
-let topStorageKeys = map(SORT_RANGES, (sortRange) => {
+const topStorageKeys = map(SORT_RANGES, (sortRange) => {
   return `top:${sortRange}`;
 });
 
@@ -23,6 +23,9 @@ const initialPosts = object(SUBREDDITS, map(SUBREDDITS, () => {
 }));
 
 function getActivePosts(posts, subreddit, sortType, sortRange) {
+  if (isEmpty(posts) || isEmpty(sortType)) {
+    return [];
+  }
   const storageKey = sortType === 'top' ?
     `${sortType}:${sortRange}` : sortType;
   return posts[subreddit][storageKey] || [];

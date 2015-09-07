@@ -44,7 +44,7 @@ class SubredditSortController extends RouterComponent {
 
   renderSortRangeController() {
     if (!(this.props.activeSortType === 'top')) {
-      return;
+      return null;
     }
 
     const menuItems = map(this.props.sortRanges, (sortRange) => {

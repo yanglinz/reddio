@@ -1,6 +1,6 @@
 import { isEmpty, map } from 'lodash';
 import React, { Component } from 'react';
-import { Avatar, FontIcon, IconButton, List, ListItem, RaisedButton } from 'material-ui';
+import { Avatar, FontIcon, IconButton, List, ListItem } from 'material-ui';
 import materialUI from 'core/components/decorators/material-ui.js';
 
 @materialUI
@@ -10,7 +10,7 @@ class RedditPosts extends Component {
       const thumbnail = (
         <Avatar src={post.thumbnail} />
       );
-      let playButton = (
+      const playButton = (
         <IconButton>
           <FontIcon className="material-icons">play_circle_filled</FontIcon>
         </IconButton>

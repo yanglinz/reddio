@@ -16,18 +16,18 @@ export const SET_FETCH_BEGIN = 'SET_FETCH_BEGIN';
 export function setFetchBegin() {
   return {
     type: SET_FETCH_BEGIN
-  }
+  };
 }
 
 export const SET_FETCH_END = 'SET_FETCH_END';
 export function setFetchEnd() {
   return {
     type: SET_FETCH_END
-  }
+  };
 }
 
-export function fetchPosts(subreddit, sortType, sortRange, params={}) {
-  return (dispatch, getState) => {
+export function fetchPosts(subreddit, sortType, sortRange) {
+  return (dispatch) => {
     dispatch(setFetchBegin());
     const payload = {
       sortType: sortType,

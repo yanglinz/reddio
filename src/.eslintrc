@@ -30,6 +30,7 @@
         "componentWillUnmount",
         "/^initialize.+$/",
         "/^mount.+$/",
+        "/^should.+$/",
         "/^on.+$/",
         "/^get.+$/",
         "/^fetch.+$/",

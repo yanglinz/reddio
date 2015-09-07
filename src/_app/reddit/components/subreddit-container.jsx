@@ -1,4 +1,4 @@
-import { contains, defaults, isEmpty, isEqual } from 'lodash';
+import { contains, isEmpty, isEqual } from 'lodash';
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import RouterComponent from 'core/components/higher-order/router.jsx';
@@ -26,12 +26,6 @@ class SubredditContainer extends RouterComponent {
     this.fetchPostsIfEmpty(prevProps);
   }
 
-  getPosts() {
-    const { posts, query } = this.props;
-    const { subreddit, sortType, sortRange } = this.props.params;
-    return query.getActivePosts(posts, subreddit, sortType, sortRange);
-  }
-
   shouldFetchPosts(prevProps={}) {
     const { subreddit, sortType, sortRange } = this.props.params;
     const isFetching = this.props.isFetching;
@@ -46,6 +40,12 @@ class SubredditContainer extends RouterComponent {
     const hasNewParams = hasNewSubreddit || hasNewSortType || hasNewSortRange;
 
     return !isFetching && !hasPosts && hasSubreddit && hasSortType && hasNewParams;
+  }
+
+  getPosts() {
+    const { posts, query } = this.props;
+    const { subreddit, sortType, sortRange } = this.props.params;
+    return query.getActivePosts(posts, subreddit, sortType, sortRange);
   }
 
   fetchPostsIfEmpty(prevProps={}) {
@@ -76,7 +76,7 @@ class SubredditContainer extends RouterComponent {
   }
 
   redirectIfIndex() {
-    let { subreddit, sortType } = this.props.params;
+    const { subreddit, sortType } = this.props.params;
     const hasSubreddit = contains(SUBREDDITS, subreddit);
     const hasSortType = contains(SORT_TYPES, sortType);
     if (!hasSubreddit || !hasSortType) {
@@ -91,6 +91,11 @@ class SubredditContainer extends RouterComponent {
 }
 
 SubredditContainer.propTypes = {
+  params: PropTypes.object,
+  posts: PropTypes.object,
+  query: PropTypes.object,
+  isFetching: PropTypes.bool,
+  updatedAt: PropTypes.number,
   dispatch: PropTypes.func
 };
 
