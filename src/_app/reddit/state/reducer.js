@@ -1,4 +1,4 @@
-import { cloneDeep, flatten, isEmpty, map, object } from 'lodash';
+import { cloneDeep, flatten, isEmpty, map, object, uniq } from 'lodash';
 import moment from 'moment';
 import { SET_POSTS, SET_FETCH_BEGIN, SET_FETCH_END  } from 'reddit/state/actions.js';
 import { SUBREDDITS, SORT_TYPES, SORT_RANGES } from 'reddit/constants.js';
@@ -49,7 +49,12 @@ function redditReducer(state=initialState, action={}) {
     const { posts, subreddit, sortType, sortRange } = action;
     const storageKey = sortType === 'top' ?
       `${sortType}:${sortRange}` : sortType;
-    state.posts[subreddit][storageKey] = posts;
+    state.posts[subreddit][storageKey] = []
+      .concat(state.posts[subreddit][storageKey])
+      .concat(posts);
+    state.posts[subreddit][storageKey] = uniq(state.posts[subreddit][storageKey], (post) => {
+      return post.id;
+    });
     return state;
   case SET_FETCH_BEGIN:
     state.meta.isFetching = true;

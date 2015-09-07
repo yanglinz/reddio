@@ -30,12 +30,18 @@ class RedditPosts extends Component {
   }
 
   renderLoader() {
-    if (this.props.isFetching) {
+    const { isFetching, activeSubreddit, activeSortType, activeSortRange, posts } = this.props;
+    if (isFetching) {
       return null;
     }
     return (
       <div className="posts-list__loader">
-        <RaisedButton label="Load more" />
+        <div
+          onClick={() => {
+            this.props.handleFetchPosts(activeSubreddit, activeSortType, activeSortRange, posts);
+          }}>
+          <RaisedButton label="Load more" />
+        </div>
       </div>
     );
   }
@@ -69,7 +75,11 @@ class RedditPosts extends Component {
 
 RedditPosts.propTypes = {
   isFetching: PropTypes.bool.isRequired,
-  posts: PropTypes.array.isRequired
+  posts: PropTypes.array.isRequired,
+  activeSubreddit: PropTypes.string,
+  activeSortType: PropTypes.string,
+  activeSortRange: PropTypes.string,
+  handleFetchPosts: PropTypes.func
 };
 
 export default RedditPosts;

@@ -1,3 +1,4 @@
+import { extend } from 'lodash';
 import { fetchPosts as redditFetchPosts } from 'reddit/api.js';
 import { logError } from 'core/logger.js';
 
@@ -26,13 +27,13 @@ export function setFetchEnd() {
   };
 }
 
-export function fetchPosts(subreddit, sortType, sortRange) {
+export function fetchPosts(subreddit, sortType, sortRange, params={}) {
   return (dispatch) => {
     dispatch(setFetchBegin());
-    const payload = {
+    const payload = extend({}, params, {
       sortType: sortType,
       sortRange: sortRange
-    };
+    });
     redditFetchPosts(subreddit, payload)
       .then((posts) => {
         dispatch(setPosts(posts, subreddit, sortType, sortRange));

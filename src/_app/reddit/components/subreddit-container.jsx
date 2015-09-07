@@ -1,4 +1,4 @@
-import { contains, isEmpty, isEqual } from 'lodash';
+import { contains, isEmpty, isEqual, last } from 'lodash';
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import RouterComponent from 'core/components/higher-order/router.jsx';
@@ -55,6 +55,13 @@ class SubredditContainer extends RouterComponent {
     }
   }
 
+  handleFetchPosts(subreddit, sortType, sortRange, currentPosts=[]) {
+    const lastPost = last(currentPosts) || {};
+    this.props.dispatch(fetchPosts(subreddit, sortType, sortRange, {
+      after: lastPost.name
+    }));
+  }
+
   render() {
     const { isFetching, params } = this.props;
     const { subreddit, sortType, sortRange } = params;
@@ -73,7 +80,12 @@ class SubredditContainer extends RouterComponent {
           activeSortRange={sortRange} />
         <SubredditPosts
           posts={activePosts || []}
-          isFetching={isFetching} />
+          activeSubreddit={subreddit}
+          activeSortType={sortType}
+          activeSortRange={sortRange}
+          isFetching={isFetching}
+          handleFetchPosts={this.handleFetchPosts.bind(this)}
+          />
       </div>
     );
   }
