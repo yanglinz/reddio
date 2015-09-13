@@ -85,6 +85,7 @@ class SubredditContainer extends RouterComponent {
           activeSortRange={sortRange}
           isFetching={isFetching}
           handleFetchPosts={this.handleFetchPosts.bind(this)}
+          dispatch={this.props.dispatch}
           />
       </div>
     );

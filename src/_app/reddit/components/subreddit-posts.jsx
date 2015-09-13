@@ -1,12 +1,21 @@
-import { isEmpty, map } from 'lodash';
+import { isEmpty, map, takeRightWhile } from 'lodash';
 import React, { Component, PropTypes } from 'react';
 import { Avatar, FontIcon, IconButton, List, ListItem, RaisedButton } from 'material-ui';
 import materialUI from 'core/components/decorators/material-ui.js';
+import { setActiveSong, setQueue } from 'player/state/actions.js';
 
 @materialUI
 class RedditPosts extends Component {
+  handleClickPost(post) {
+    const { dispatch, posts } = this.props;
+    const queuedPosts = takeRightWhile(posts, (p) => p.id !== post.id);
+    dispatch(setActiveSong(post));
+    dispatch(setQueue(queuedPosts));
+  }
+
   renderPosts() {
-    return map(this.props.posts, (post) => {
+    const { posts } = this.props;
+    return map(posts, (post) => {
       const thumbnail = (
         <Avatar src={post.thumbnail} />
       );
@@ -16,7 +25,9 @@ class RedditPosts extends Component {
         </IconButton>
       );
       return (
-        <div key={post.id}>
+        <div
+          key={post.id}
+          onClick={this.handleClickPost.bind(this, post)}>
           <ListItem
             leftAvatar={thumbnail}
             rightIconButton={playButton}>
@@ -74,6 +85,7 @@ class RedditPosts extends Component {
 }
 
 RedditPosts.propTypes = {
+  dispatch: PropTypes.func,
   isFetching: PropTypes.bool.isRequired,
   posts: PropTypes.array.isRequired,
   activeSubreddit: PropTypes.string,
