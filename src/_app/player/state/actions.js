@@ -13,3 +13,27 @@ export function setQueue(songs) {
     songs: songs
   };
 }
+
+export const SET_HISTORY = 'SET_HISTORY';
+export function setHistory(songs) {
+  return {
+    type: SET_HISTORY,
+    songs: songs
+  };
+}
+
+export const SET_TO_PLAY = 'SET_TO_PLAY';
+export function setToPlay() {
+  return {
+    type: SET_TO_PLAY,
+    isPlaying: true
+  };
+}
+
+export const SET_TO_PAUSE = 'SET_TO_PAUSE';
+export function setToPause() {
+  return {
+    type: SET_TO_PAUSE,
+    isPlaying: false
+  };
+}
