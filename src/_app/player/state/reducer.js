@@ -11,8 +11,7 @@ import {
 const initialState = {
   isPlaying: false,
   activeSong: {},
-  songs: [],
-  history: []
+  songs: []
 };
 
 function servicesReducer(state=initialState, action={}) {
