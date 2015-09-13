@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { IconButton } from 'material-ui';
 import materialUI from 'core/components/decorators/material-ui.js';
-import { setToPlay, setToPause } from 'player/state/actions.js';
+import { setToPlay, setToPause, playNextSong, playPrevSong } from 'player/state/actions.js';
 
 @materialUI
 class PlayerControls extends Component {
@@ -11,6 +11,14 @@ class PlayerControls extends Component {
 
   handleClickPause() {
     this.props.dispatch(setToPause());
+  }
+
+  handleClickNext() {
+    this.props.dispatch(playNextSong());
+  }
+
+  handleClickPrev() {
+    this.props.dispatch(playPrevSong());
   }
 
   render() {
@@ -35,9 +43,17 @@ class PlayerControls extends Component {
     return (
       <div className="player-controls">
         <h2>Controls</h2>
-        <IconButton iconClassName="material-icons">fast_rewind</IconButton>
+        <IconButton
+          onClick={this.handleClickPrev.bind(this)}
+          iconClassName="material-icons">
+          fast_rewind
+        </IconButton>
         {playButton}
-        <IconButton iconClassName="material-icons">fast_forward</IconButton>
+        <IconButton
+          onClick={this.handleClickNext.bind(this)}
+          iconClassName="material-icons">
+          fast_forward
+        </IconButton>
       </div>
     );
   }

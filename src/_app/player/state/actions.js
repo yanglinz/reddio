@@ -37,3 +37,17 @@ export function setToPause() {
     isPlaying: false
   };
 }
+
+export const PLAY_NEXT_SONG = 'PLAY_NEXT_SONG';
+export function playNextSong() {
+  return {
+    type: PLAY_NEXT_SONG
+  };
+}
+
+export const PLAY_PREV_SONG = 'PLAY_PREV_SONG';
+export function playPrevSong() {
+  return {
+    type: PLAY_PREV_SONG
+  };
+}
