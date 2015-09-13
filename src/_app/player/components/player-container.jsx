@@ -5,7 +5,7 @@ import Player from 'player/components/player.jsx';
 @connect(state => ({
   isPlaying: state.player.isPlaying,
   activeSong: state.player.activeSong,
-  queue: state.player.queue
+  songs: state.player.songs
 }))
 class PlayerContainer extends Component {
   render() {
@@ -13,7 +13,7 @@ class PlayerContainer extends Component {
       <Player
         isPlaying={this.props.isPlaying}
         activeSong={this.props.activeSong}
-        queue={this.props.queue}
+        songs={this.props.songs}
         dispatch={this.props.dispatch} />
     );
   }
@@ -22,7 +22,7 @@ class PlayerContainer extends Component {
 PlayerContainer.propTypes = {
   isPlaying: PropTypes.bool,
   activeSong: PropTypes.object,
-  queue: PropTypes.array,
+  songs: PropTypes.array,
   dispatch: PropTypes.func
 };
 

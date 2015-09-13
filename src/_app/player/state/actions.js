@@ -6,10 +6,10 @@ export function setActiveSong(song) {
   };
 }
 
-export const SET_QUEUE = 'SET_QUEUE';
-export function setQueue(songs) {
+export const SET_SONGS = 'SET_SONGS';
+export function setSongs(songs) {
   return {
-    type: SET_QUEUE,
+    type: SET_SONGS,
     songs: songs
   };
 }

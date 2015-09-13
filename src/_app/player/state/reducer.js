@@ -1,7 +1,7 @@
-import { isEmpty, extend, initial, first, last, rest } from 'lodash';
+import { isEmpty, extend, initial, findIndex, first, last, rest } from 'lodash';
 import {
   SET_ACTIVE_SONG,
-  SET_QUEUE,
+  SET_SONGS,
   SET_TO_PLAY,
   SET_TO_PAUSE,
   PLAY_NEXT_SONG,
@@ -11,20 +11,23 @@ import {
 const initialState = {
   isPlaying: false,
   activeSong: {},
-  queue: [],
+  songs: [],
   history: []
 };
 
 function servicesReducer(state=initialState, action={}) {
+  const hasSongs = !isEmpty(state.songs);
+  const hasActiveSong = !isEmpty(state.activeSong);
+
   switch (action.type) {
   case SET_ACTIVE_SONG:
     return extend({}, state, {
       isPlaying: true,
       activeSong: action.song
     });
-  case SET_QUEUE:
+  case SET_SONGS:
     return extend({}, state, {
-      queue: action.songs
+      songs: action.songs
     });
   case SET_TO_PLAY:
     return extend({}, state, {
@@ -35,19 +38,21 @@ function servicesReducer(state=initialState, action={}) {
       isPlaying: false
     });
   case PLAY_NEXT_SONG:
-    if (!isEmpty(state.queue)) {
-      state.isPlaying = true;
-      state.history.push(state.activeSong);
-      state.activeSong = first(state.queue) || {};
-      state.queue = rest(state.queue) || {};
+    if (hasSongs) {
+      if (hasActiveSong) {
+        const isActiveSongLast = state.activeSong.id === (last(state.songs) || {}).id;
+        const activeSongIndex = findIndex(state.songs, (song) => song.id === state.activeSong.id);
+        state.activeSong = isActiveSongLast ? {} : state.songs[activeSongIndex + 1];
+      }
     }
     return state;
   case PLAY_PREV_SONG:
-    if (!isEmpty(state.history)) {
-      state.isPlaying = true;
-      state.queue = [].concat(state.activeSong).concat(state.queue);
-      state.activeSong = last(state.history) || {};
-      state.history = initial(state.history) || [];
+    if (hasSongs) {
+      if (hasActiveSong) {
+        const isActiveSongFirst = state.activeSong.id === (first(state.songs) || {}).id;
+        const activeSongIndex = findIndex(state.songs, (song) => song.id === state.activeSong.id);
+        state.activeSong = isActiveSongFirst ? state.activeSong : state.songs[activeSongIndex - 1];
+      }
     }
     return state;
   default:

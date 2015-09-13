@@ -2,15 +2,14 @@ import { isEmpty, map, takeRightWhile } from 'lodash';
 import React, { Component, PropTypes } from 'react';
 import { Avatar, FontIcon, IconButton, List, ListItem, RaisedButton } from 'material-ui';
 import materialUI from 'core/components/decorators/material-ui.js';
-import { setActiveSong, setQueue } from 'player/state/actions.js';
+import { setActiveSong, setSongs } from 'player/state/actions.js';
 
 @materialUI
 class RedditPosts extends Component {
   handleClickPost(post) {
     const { dispatch, posts } = this.props;
-    const queuedPosts = takeRightWhile(posts, (p) => p.id !== post.id);
     dispatch(setActiveSong(post));
-    dispatch(setQueue(queuedPosts));
+    dispatch(setSongs(posts));
   }
 
   renderPosts() {
