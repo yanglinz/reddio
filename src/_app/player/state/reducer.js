@@ -42,6 +42,7 @@ function servicesReducer(state=initialState, action={}) {
         const isActiveSongLast = state.activeSong.id === (last(state.songs) || {}).id;
         const activeSongIndex = findIndex(state.songs, (song) => song.id === state.activeSong.id);
         state.activeSong = isActiveSongLast ? {} : state.songs[activeSongIndex + 1];
+        state.isPlaying = true;
       }
     }
     return state;
@@ -51,6 +52,7 @@ function servicesReducer(state=initialState, action={}) {
         const isActiveSongFirst = state.activeSong.id === (first(state.songs) || {}).id;
         const activeSongIndex = findIndex(state.songs, (song) => song.id === state.activeSong.id);
         state.activeSong = isActiveSongFirst ? state.activeSong : state.songs[activeSongIndex - 1];
+        state.isPlaying = true;
       }
     }
     return state;
