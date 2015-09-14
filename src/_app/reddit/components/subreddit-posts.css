@@ -1,0 +1,8 @@
+.subreddit-posts {
+  padding-bottom: 150px;
+}
+
+.subreddit-posts .posts-loader {
+  display: flex;
+  justify-content: center;
+}

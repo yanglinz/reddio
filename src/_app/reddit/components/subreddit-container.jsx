@@ -67,7 +67,7 @@ class SubredditContainer extends RouterComponent {
     const { subreddit, sortType, sortRange } = params;
     const activePosts = this.getPosts();
     return (
-      <div>
+      <div className="subreddit-container">
         <h1>Subreddit handler {subreddit} {sortType} {sortRange}</h1>
         <SubredditListings
           subreddits={SUBREDDITS}

@@ -51,7 +51,7 @@ class SubredditListings extends RouterComponent {
       this.renderInactiveState() :
       this.renderActiveState();
     return (
-      <div className="subreddit-listings">
+      <div className="subreddit-listing">
         {subredditListing}
       </div>
     );

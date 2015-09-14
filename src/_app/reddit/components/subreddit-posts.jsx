@@ -3,6 +3,7 @@ import React, { Component, PropTypes } from 'react';
 import { Avatar, FontIcon, IconButton, List, ListItem, RaisedButton } from 'material-ui';
 import materialUI from 'core/components/decorators/material-ui.js';
 import { setActiveSong, setSongs } from 'player/state/actions.js';
+import './subreddit-posts.css';
 
 @materialUI
 class RedditPosts extends Component {
@@ -45,7 +46,7 @@ class RedditPosts extends Component {
       return null;
     }
     return (
-      <div className="posts-list__loader">
+      <div className="posts-loader">
         <div
           onClick={() => {
             this.props.handleFetchPosts(activeSubreddit, activeSortType, activeSortRange, posts);
@@ -75,7 +76,7 @@ class RedditPosts extends Component {
       this.renderInactiveState() :
       this.renderActiveState();
     return (
-      <div className="posts-list">
+      <div className="subreddit-posts">
         {subredditPosts}
         {this.renderLoader()}
       </div>
