@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { Router, Route } from 'react-router';
 import configureStore from 'core/state/store.js';
 import AppHandler from 'core/components/app-handler.jsx';
+import './root-handler.css';
 
 const store = configureStore();
 
