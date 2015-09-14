@@ -1,4 +1,4 @@
-import { isEmpty, extend, initial, findIndex, first, last, rest } from 'lodash';
+import { isEmpty, extend, findIndex, first, last } from 'lodash';
 import {
   SET_ACTIVE_SONG,
   SET_SONGS,

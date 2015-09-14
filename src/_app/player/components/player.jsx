@@ -1,18 +1,19 @@
 import React, { Component, PropTypes } from 'react';
 import PlayerControls from 'player/components/player-controls.jsx';
+import PlayerStatus from 'player/components/player-status.jsx';
+import PlayerUtility from 'player/components/player-utility.jsx';
 import './player.css';
 
 class Player extends Component {
   render() {
-    const { activeSong, songs } = this.props;
+    const { activeSong } = this.props;
     return (
       <div className="player">
-        <h2>Player</h2>
-        <h4>{activeSong.title} is currently playing</h4>
-        <h4>{songs.length} songs in pool</h4>
         <PlayerControls
           isPlaying={this.props.isPlaying}
           dispatch={this.props.dispatch} />
+        <PlayerStatus activeSong={activeSong} />
+        <PlayerUtility activeSong={activeSong} />
       </div>
     );
   }

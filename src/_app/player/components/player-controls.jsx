@@ -42,18 +42,19 @@ class PlayerControls extends Component {
     }
     return (
       <div className="player-controls">
-        <h2>Controls</h2>
-        <IconButton
-          onClick={this.handleClickPrev.bind(this)}
-          iconClassName="material-icons">
-          fast_rewind
-        </IconButton>
-        {playButton}
-        <IconButton
-          onClick={this.handleClickNext.bind(this)}
-          iconClassName="material-icons">
-          fast_forward
-        </IconButton>
+        <div className="control-buttons">
+          <IconButton
+            onClick={this.handleClickPrev.bind(this)}
+            iconClassName="material-icons">
+            fast_rewind
+          </IconButton>
+          {playButton}
+          <IconButton
+            onClick={this.handleClickNext.bind(this)}
+            iconClassName="material-icons">
+            fast_forward
+          </IconButton>
+        </div>
       </div>
     );
   }

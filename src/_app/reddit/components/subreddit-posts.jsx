@@ -1,4 +1,4 @@
-import { isEmpty, map, takeRightWhile } from 'lodash';
+import { isEmpty, map } from 'lodash';
 import React, { Component, PropTypes } from 'react';
 import { Avatar, FontIcon, IconButton, List, ListItem, RaisedButton } from 'material-ui';
 import materialUI from 'core/components/decorators/material-ui.js';
