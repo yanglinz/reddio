@@ -6,7 +6,7 @@ class PlayerStatus extends Component {
     return (
       <div className="player-status">
         <div className="song-status">
-          <h4>{activeSong.title} is currently playing</h4>
+          <h4>{activeSong.title}</h4>
         </div>
       </div>
     );
