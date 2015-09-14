@@ -1,16 +1,33 @@
-import { isEmpty, map } from 'lodash';
+import { isEmpty, isEqual, last, map } from 'lodash';
 import React, { Component, PropTypes } from 'react';
 import { Avatar, FontIcon, IconButton, List, ListItem, RaisedButton } from 'material-ui';
 import materialUI from 'core/components/decorators/material-ui.js';
+import { fetchPosts } from 'reddit/state/actions.js';
 import { setActiveSong, setSongs } from 'player/state/actions.js';
 import './subreddit-posts.css';
 
 @materialUI
 class RedditPosts extends Component {
+  componentDidUpdate(prevProps) {
+    const { dispatch, posts } = this.props;
+    const hasNewPosts = !isEqual(prevProps.posts, posts);
+    if (hasNewPosts) {
+      dispatch(setSongs(posts));
+    }
+  }
+
   handleClickPost(post) {
     const { dispatch, posts } = this.props;
     dispatch(setActiveSong(post));
     dispatch(setSongs(posts));
+  }
+
+  handleFetchPosts() {
+    const { dispatch, activeSubreddit, activeSortType, activeSortRange, posts } = this.props;
+    const lastPost = last(posts) || {};
+    dispatch(fetchPosts(activeSubreddit, activeSortType, activeSortRange, {
+      after: lastPost.name
+    }));
   }
 
   renderPosts() {
@@ -41,16 +58,13 @@ class RedditPosts extends Component {
   }
 
   renderLoader() {
-    const { isFetching, activeSubreddit, activeSortType, activeSortRange, posts } = this.props;
+    const { isFetching } = this.props;
     if (isFetching) {
       return null;
     }
     return (
       <div className="posts-loader">
-        <div
-          onClick={() => {
-            this.props.handleFetchPosts(activeSubreddit, activeSortType, activeSortRange, posts);
-          }}>
+        <div onClick={this.handleFetchPosts.bind(this)}>
           <RaisedButton label="Load more" />
         </div>
       </div>
@@ -90,8 +104,7 @@ RedditPosts.propTypes = {
   posts: PropTypes.array.isRequired,
   activeSubreddit: PropTypes.string,
   activeSortType: PropTypes.string,
-  activeSortRange: PropTypes.string,
-  handleFetchPosts: PropTypes.func
+  activeSortRange: PropTypes.string
 };
 
 export default RedditPosts;
