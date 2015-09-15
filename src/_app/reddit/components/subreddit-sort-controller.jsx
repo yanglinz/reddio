@@ -65,9 +65,10 @@ class SubredditSortController extends RouterComponent {
     );
   }
 
-  renderActiveState() {
+  renderActiveState(activeSubreddit) {
     return (
       <div>
+        <h4>{activeSubreddit}</h4>
         {this.renderSortTypeController()}
         {this.renderSortRangeController()}
       </div>
@@ -84,7 +85,7 @@ class SubredditSortController extends RouterComponent {
     const { activeSubreddit, activeSortType } = this.props;
     const isActive = !isEmpty(activeSubreddit) && !isEmpty(activeSortType);
     const subredditSortController = isActive ?
-      this.renderActiveState() :
+      this.renderActiveState(activeSubreddit) :
       this.renderInactiveState();
     return (
       <div className="subreddit-sort-controller">

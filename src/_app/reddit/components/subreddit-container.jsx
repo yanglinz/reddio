@@ -7,6 +7,7 @@ import SubredditSortController from 'reddit/components/subreddit-sort-controller
 import SubredditPosts from 'reddit/components/subreddit-posts.jsx';
 import { SUBREDDITS, SORT_TYPES, SORT_RANGES } from 'reddit/constants.js';
 import { fetchPosts } from 'reddit/state/actions.js';
+import './subreddit-container.css';
 
 @connect(state => ({
   params: state.core.params,
@@ -61,24 +62,27 @@ class SubredditContainer extends RouterComponent {
     const activePosts = this.getPosts();
     return (
       <div className="subreddit-container">
-        <h1>Subreddit handler {subreddit} {sortType} {sortRange}</h1>
-        <SubredditListings
-          subreddits={SUBREDDITS}
-          activeSubreddit={subreddit} />
-        <SubredditSortController
-          activeSubreddit={subreddit}
-          sortTypes={SORT_TYPES}
-          activeSortType={sortType}
-          sortRanges={SORT_RANGES}
-          activeSortRange={sortRange} />
-        <SubredditPosts
-          posts={activePosts || []}
-          activeSubreddit={subreddit}
-          activeSortType={sortType}
-          activeSortRange={sortRange}
-          isFetching={isFetching}
-          dispatch={this.props.dispatch}
-          />
+        <div className="subreddit-container-left">
+          <SubredditListings
+            subreddits={SUBREDDITS}
+            activeSubreddit={subreddit} />
+        </div>
+
+        <div className="subreddit-container-right">
+          <SubredditSortController
+            activeSubreddit={subreddit}
+            sortTypes={SORT_TYPES}
+            activeSortType={sortType}
+            sortRanges={SORT_RANGES}
+            activeSortRange={sortRange} />
+          <SubredditPosts
+            posts={activePosts || []}
+            activeSubreddit={subreddit}
+            activeSortType={sortType}
+            activeSortRange={sortRange}
+            isFetching={isFetching}
+            dispatch={this.props.dispatch} />
+        </div>
       </div>
     );
   }
