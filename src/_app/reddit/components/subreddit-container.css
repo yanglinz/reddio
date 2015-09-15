@@ -21,3 +21,7 @@
 .subreddit-container-right {
   flex: 4;
 }
+
+.subreddit-container-right .posts-loader {
+  padding-top: 15px;
+}
