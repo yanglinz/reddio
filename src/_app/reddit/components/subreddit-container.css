@@ -6,6 +6,7 @@
 .subreddit-container-left {
   flex: 1;
   position: relative;
+  max-width: 300px;
 }
 
 .subreddit-container-left .subreddit-listing {
