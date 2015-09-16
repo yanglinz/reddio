@@ -25,3 +25,14 @@
 .subreddit-container-right .posts-loader {
   padding-top: 15px;
 }
+
+.subreddit-container-right .subreddit-sort-controller {
+  display: block;
+  height: 50px;
+  padding: 20px 0;
+}
+
+.subreddit-container-right .subreddit-sort-controller .sort-type-controller,
+.subreddit-container-right .subreddit-sort-controller .sort-range-controller {
+  display: inline-block;
+}

@@ -1,4 +1,4 @@
-import { isEmpty, map, capitalize, findIndex } from 'lodash';
+import { capitalize, isEmpty, map, findIndex } from 'lodash';
 import React, { PropTypes } from 'react';
 import { DropDownMenu } from 'material-ui';
 import RouterComponent from 'core/components/higher-order/router.jsx';
@@ -65,12 +65,19 @@ class SubredditSortController extends RouterComponent {
     );
   }
 
-  renderActiveState(activeSubreddit) {
+  renderActiveState() {
     return (
       <div>
-        <h4>{activeSubreddit}</h4>
-        {this.renderSortTypeController()}
-        {this.renderSortRangeController()}
+        <div className="sort-type-controller">
+          <div className="wrapper">
+            {this.renderSortTypeController()}
+          </div>
+        </div>
+        <div className="sort-range-controller">
+          <div className="wrapper">
+            {this.renderSortRangeController()}
+          </div>
+        </div>
       </div>
     );
   }
@@ -85,7 +92,7 @@ class SubredditSortController extends RouterComponent {
     const { activeSubreddit, activeSortType } = this.props;
     const isActive = !isEmpty(activeSubreddit) && !isEmpty(activeSortType);
     const subredditSortController = isActive ?
-      this.renderActiveState(activeSubreddit) :
+      this.renderActiveState() :
       this.renderInactiveState();
     return (
       <div className="subreddit-sort-controller">
