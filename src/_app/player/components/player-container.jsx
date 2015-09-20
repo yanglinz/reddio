@@ -19,6 +19,7 @@ class PlayerContainer extends Component {
 
   componentDidUpdate(prevProps) {
     this.handlePlaySong(prevProps);
+    this.handlePauseSong(prevProps);
   }
 
   shouldRenderYoutube() {
@@ -36,7 +37,19 @@ class PlayerContainer extends Component {
     const { activeSong } = this.props;
     const isNewSong = !(activeSong.id === prevActiveSong.id);
     if (isNewSong) {
-      this.audioPlayer.play(activeSong.url);
+      this.audioPlayer.play(activeSong.url);  // load new song
+    }
+  }
+
+  handlePauseSong(prevProps) {
+    const { isPlaying: prevIsPlaying } = prevProps;
+    const { isPlaying, activeSong } = this.props;
+    if (prevIsPlaying && !isPlaying) {
+      this.audioPlayer.pause();  // pause song
+    }
+
+    if (!prevIsPlaying && isPlaying) {
+      this.audioPlayer.play(activeSong.url);  // unpause song
     }
   }
 

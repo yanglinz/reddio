@@ -48,6 +48,7 @@ import 'contrib/soundcloud.player.api.js';
 
 class AudioPlayer {
   constructor() {
+    this._currentSong = null;
     this._player = {};
     this._youtubeApiPromise = null;
     this._soundcloudApiPromise = null;
@@ -113,8 +114,7 @@ class AudioPlayer {
             height: '100%',
             width: '100%',
             playerVars: {
-              autohide: 0,
-              controls: 0
+              autohide: 0
             },
             events: {
               onReady: function onYoutubePlayerReady() {
@@ -145,25 +145,37 @@ class AudioPlayer {
   }
 
   _playSoundcloud(url) {
+    const _this = this;
     this.loadSoundcloud().then(function onSuccess(soundcloudPlayer) {
-      soundcloudPlayer.load(url, {
-        buying: false,
-        liking: false,
-        callback: function onPlayerReady() {
-          soundcloudPlayer.play();
-        }
-      });
+      if (_this._currentSong === url) {
+        soundcloudPlayer.play();
+      } else {
+        _this._currentSong = url;
+        soundcloudPlayer.load(url, {
+          buying: false,
+          liking: false,
+          callback: function onPlayerReady() {
+            soundcloudPlayer.play();
+          }
+        });
+      }
     });
   }
 
   _playYoutube(url) {
+    const _this = this;
     this.loadYoutube().then(function onSuccess(youtubePlayer) {
-      const videoId = Utilities.youtubeUrlToId(url);
-      youtubePlayer.loadVideoById({
-        videoId: videoId,
-        startSeconds: 0,
-        suggestedQuality: 'small'
-      });
+      if (_this._currentSong === url) {
+        youtubePlayer.playVideo();
+      } else {
+        _this._currentSong = url;
+        const videoId = Utilities.youtubeUrlToId(url);
+        youtubePlayer.loadVideoById({
+          videoId: videoId,
+          startSeconds: 0,
+          suggestedQuality: 'small'
+        });
+      }
     });
   }
 
