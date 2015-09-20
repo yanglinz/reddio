@@ -7,7 +7,6 @@ class PlayerStatus extends Component {
       <div className="player-status">
         <div className="song-status">
           <h4>{activeSong.title}</h4>
-          <p>{activeSong.url}</p>
         </div>
       </div>
     );
