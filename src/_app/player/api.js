@@ -1,11 +1,11 @@
 /* eslint new-cap: 0 */
 
 import _ from 'lodash';
-import RSVP from 'rsvp';
+import { Promise } from 'es6-promise';
 import Rx from 'rx';
-import { logError } from '../core/utils.js';
+import { logError } from 'core/logger.js';
 
-class Utilities {
+export class Utilities {
   static urlIsSoundcloud(url) {
     const soundcloudUrl = 'soundcloud.com';
     return _.includes(url, soundcloudUrl);
@@ -44,7 +44,7 @@ class Utilities {
  * Load the youtube and soundcloud api script.
  */
 
-import '../contrib/soundcloud.player.api.js';
+import 'contrib/soundcloud.player.api.js';
 
 class AudioPlayer {
   constructor() {
@@ -67,13 +67,13 @@ class AudioPlayer {
       const soundcloudIframe = document.createElement('iframe');
       soundcloudIframe.id = playerElementId;
       soundcloudIframe.width = '100%';
-      soundcloudIframe.height = '140';
+      soundcloudIframe.height = '100%';
       soundcloudIframe.setAttribute('frameborder', 'no');
       soundcloudIframe.setAttribute('scrolling', 'no');
       soundcloudIframe.src = 'https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1848538';
       document.getElementById(mountNode).appendChild(soundcloudIframe);
 
-      _this._soundcloudApiPromise = new RSVP.Promise(function handleSCPromise(resolve, reject) {
+      _this._soundcloudApiPromise = new Promise(function handleSCPromise(resolve, reject) {
         if (_.isEmpty(window.SC.Widget)) {
           reject('window.SC.Widget is undefined');
         }
@@ -102,7 +102,7 @@ class AudioPlayer {
       const firstScriptTag = document.getElementsByTagName('script')[0];
       firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-      _this._youtubeApiPromise = new RSVP.Promise(function handleYoutubePromise(resolve, reject) {
+      _this._youtubeApiPromise = new Promise(function handleYoutubePromise(resolve, reject) {
         window.onYouTubeIframeAPIReady = function onYouTubeIframeAPIReady() {
           if (_.isEmpty(window.YT)) {
             reject('window.YT is undefined');
@@ -110,8 +110,8 @@ class AudioPlayer {
 
           const mountNode = 'youtube-mount-node';
           _this._player.youtubePlayer = new window.YT.Player(mountNode, {
-            width: 200,
-            height: 150,
+            height: '100%',
+            width: '100%',
             playerVars: {
               autohide: 0,
               controls: 0
