@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Player from 'player/components/player.jsx';
 import PlayerIframe from 'player/components/player-iframe.js';
 import AudioPlayer, { Utilities } from 'player/api.js';
+import { logError } from 'core/logger.js';
 import './player-container.css';
 
 @connect(state => ({
@@ -15,6 +16,9 @@ class PlayerContainer extends Component {
     this.audioPlayer = new AudioPlayer();
     this.audioPlayer.loadSoundcloud();
     this.audioPlayer.loadYoutube();
+
+    const playerStream = this.audioPlayer.getStream();
+    this.subscribeToPlayerState(playerStream);
   }
 
   componentDidUpdate(prevProps) {
@@ -72,6 +76,12 @@ class PlayerContainer extends Component {
         </div>
       </div>
     );
+  }
+
+  subscribeToPlayerState(playerEventStream) {
+    playerEventStream.subscribe((event) => {
+      console.log('event', event);
+    }, logError);
   }
 }
 

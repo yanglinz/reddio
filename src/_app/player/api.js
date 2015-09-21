@@ -1,8 +1,8 @@
 /* eslint new-cap: 0 */
 
-import _ from 'lodash';
+import _, { isEmpty } from 'lodash';
 import { Promise } from 'es6-promise';
-import Rx from 'rx';
+import Rx, { Observable } from 'rx';
 import { logError } from 'core/logger.js';
 
 export class Utilities {
@@ -52,8 +52,13 @@ class AudioPlayer {
     this._player = {};
     this._youtubeApiPromise = null;
     this._soundcloudApiPromise = null;
-    this.youtubePlayerStream = new Rx.Subject();
-    this.soundcloudPlayerStream = new Rx.Subject();
+    this._playerStates = {
+      ENDED: 'ENDED',
+      PLAYING: 'PLAYING',
+      PAUSED: 'PAUSED'
+    };
+    this._youtubePlayerStream = new Rx.Subject();
+    this._soundcloudPlayerStream = new Rx.Subject();
   }
 
   loadSoundcloud() {
@@ -82,6 +87,19 @@ class AudioPlayer {
         if (window.SC) {
           const iframeElement = document.querySelector('#' + playerElementId);
           _this._player.soundcloudPlayer = window.SC.Widget(iframeElement);
+
+          const { PLAY, PAUSE, FINISH } = SC.Widget.Events;
+          const { PLAYING, PAUSED, ENDED } = _this._playerStates;
+          _this._player.soundcloudPlayer.bind(PLAY, () => {
+            _this._soundcloudPlayerStream.onNext(PLAYING);
+          });
+          _this._player.soundcloudPlayer.bind(PAUSE, () => {
+            _this._soundcloudPlayerStream.onNext(PAUSED);
+          });
+          _this._player.soundcloudPlayer.bind(FINISH, () => {
+            _this._soundcloudPlayerStream.onNext(ENDED);
+          });
+
           resolve(_this._player.soundcloudPlayer);
         }
       });
@@ -122,7 +140,7 @@ class AudioPlayer {
               },
 
               onStateChange: function onStateChange(event) {
-                _this.youtubePlayerStream.onNext(event);  // pipe raw player events to stream
+                _this._youtubePlayerStream.onNext(event);  // pipe raw player events to stream
               }
             }
           });
@@ -207,6 +225,37 @@ class AudioPlayer {
   setVolume(volume) {
     this._player.youtubePlayer.setVolume(volume);
     this._player.soundcloudPlayer.setVolume(volume);
+  }
+
+  getStream() {
+    const youtubePlayerStream = this._getYoutubeStream();
+    const soundcloudPlayerStream = this._getSoundcloudStream();
+    return Observable.merge(youtubePlayerStream, soundcloudPlayerStream);
+  }
+
+  _getYoutubeStream() {
+    const youtubeStates = {
+      0: this._playerStates.ENDED,
+      1: this._playerStates.PLAYING,
+      2: this._playerStates.PAUSED
+    };
+    return this._youtubePlayerStream
+      .map((state) => {
+        return youtubeStates[state.data];
+      })
+      .filter((state) => {
+        return !isEmpty(state);
+      });
+  }
+
+  _getSoundcloudStream() {
+    return this._soundcloudPlayerStream
+      .map((state) => {
+        return state;
+      })
+      .filter((state) => {
+        return !isEmpty(state);
+      });
   }
 }
 
