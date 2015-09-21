@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import Player from 'player/components/player.jsx';
 import PlayerIframe from 'player/components/player-iframe.js';
 import AudioPlayer, { Utilities } from 'player/api.js';
+import { setToPlay, setToPause, playNextSong } from 'player/state/actions.js';
 import { logError } from 'core/logger.js';
 import './player-container.css';
 
@@ -18,7 +19,7 @@ class PlayerContainer extends Component {
     this.audioPlayer.loadYoutube();
 
     const playerStream = this.audioPlayer.getStream();
-    this.subscribeToPlayerState(playerStream);
+    this.onPlayerStateChange(playerStream);
   }
 
   componentDidUpdate(prevProps) {
@@ -34,6 +35,48 @@ class PlayerContainer extends Component {
   shouldRenderSoundcloud() {
     const { activeSong, isPlaying } = this.props;
     return isPlaying && activeSong && Utilities.urlIsSoundcloud(activeSong.url);
+  }
+
+  onPlayerStateChange(playerEventStream) {
+    const playerStates = {
+      ENDED: 'ENDED',
+      PLAYING: 'PLAYING',
+      PAUSED: 'PAUSED'
+    };
+    playerEventStream.subscribe((event) => {
+      switch (event) {
+      case playerStates.ENDED:
+        this.onPlayerStateEnded();
+        break;
+      case playerStates.PLAYING:
+        this.onPlayerStatePlaying();
+        break;
+      case playerStates.PAUSED:
+        this.onPlayerStatePaused();
+        break;
+      default:
+        break;
+      }
+    }, logError);
+  }
+
+  onPlayerStateEnded() {
+    const { dispatch } = this.props;
+    dispatch(playNextSong());
+  }
+
+  onPlayerStatePlaying() {
+    const { dispatch, isPlaying } = this.props;
+    if (!isPlaying) {
+      dispatch(setToPlay());
+    }
+  }
+
+  onPlayerStatePaused() {
+    const { dispatch, isPlaying } = this.props;
+    if (isPlaying) {
+      dispatch(setToPause());
+    }
   }
 
   handlePlaySong(prevProps) {
@@ -76,12 +119,6 @@ class PlayerContainer extends Component {
         </div>
       </div>
     );
-  }
-
-  subscribeToPlayerState(playerEventStream) {
-    playerEventStream.subscribe((event) => {
-      console.log('event', event);
-    }, logError);
   }
 }
 
