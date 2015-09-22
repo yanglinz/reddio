@@ -3,7 +3,6 @@
 import _, { isEmpty } from 'lodash';
 import { Promise } from 'es6-promise';
 import Rx, { Observable } from 'rx';
-import { logError } from 'core/logger.js';
 
 export class Utilities {
   static urlIsSoundcloud(url) {
@@ -203,18 +202,14 @@ class AudioPlayer {
   }
 
   _pauseYoutube() {
-    try {
-      this._player.youtubePlayer.stopVideo();
-    } catch (err) {
-      logError(err);
+    if (this._player.youtubePlayer) {
+      this._player.youtubePlayer.pauseVideo();
     }
   }
 
   _pauseSoundcloud() {
-    try {
+    if (this._player.soundcloudPlayer) {
       this._player.soundcloudPlayer.pause();
-    } catch (err) {
-      logError(err);
     }
   }
 

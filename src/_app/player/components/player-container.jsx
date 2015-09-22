@@ -1,9 +1,10 @@
+import { noop } from 'lodash';
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Player from 'player/components/player.jsx';
 import PlayerIframe from 'player/components/player-iframe.js';
 import AudioPlayer, { Utilities } from 'player/api.js';
-import { setToPlay, setToPause, playNextSong } from 'player/state/actions.js';
+import { playNextSong } from 'player/state/actions.js';
 import { logError } from 'core/logger.js';
 import './player-container.css';
 
@@ -28,13 +29,13 @@ class PlayerContainer extends Component {
   }
 
   shouldRenderYoutube() {
-    const { activeSong, isPlaying } = this.props;
-    return isPlaying && activeSong && Utilities.urlIsYoutube(activeSong.url);
+    const { activeSong } = this.props;
+    return activeSong && Utilities.urlIsYoutube(activeSong.url);
   }
 
   shouldRenderSoundcloud() {
-    const { activeSong, isPlaying } = this.props;
-    return isPlaying && activeSong && Utilities.urlIsSoundcloud(activeSong.url);
+    const { activeSong } = this.props;
+    return activeSong && Utilities.urlIsSoundcloud(activeSong.url);
   }
 
   onPlayerStateChange(playerEventStream) {
@@ -66,17 +67,11 @@ class PlayerContainer extends Component {
   }
 
   onPlayerStatePlaying() {
-    const { dispatch, isPlaying } = this.props;
-    if (!isPlaying) {
-      dispatch(setToPlay());
-    }
+    noop();
   }
 
   onPlayerStatePaused() {
-    const { dispatch, isPlaying } = this.props;
-    if (isPlaying) {
-      dispatch(setToPause());
-    }
+    noop();
   }
 
   handlePlaySong(prevProps) {
