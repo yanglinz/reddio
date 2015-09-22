@@ -1,7 +1,7 @@
 import path from 'path';
 import assert from 'assert';
 import gulp from 'gulp';
-import { spawnChildProcess } from '../utilities.js';
+import { spawnChildProcess } from './utilities.js';
 import settings from '../../settings.js';
 
 gulp.task('deploy:surge', (callback) => {

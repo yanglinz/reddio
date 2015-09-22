@@ -3,7 +3,13 @@ import dotenv from 'dotenv';
 
 dotenv.load();  // source environmental variables from .env
 
-const ENVIRONMENT = process.env.ENVIRONMENT;
+const {
+  ENVIRONMENT,
+  SURGE_DOMAIN,
+  SURGE_TOKEN,
+  IS_TRAVIS
+} = process.env;
+
 const IS_PROD = any([
   ENVIRONMENT === 'stage',
   ENVIRONMENT === 'staging',
@@ -14,10 +20,13 @@ const IS_PROD = any([
 const USE_IP = !isEmpty(process.env.USE_IP);
 
 const settings = {
-  ENVIRONMENT: ENVIRONMENT,
-  IS_PROD: IS_PROD,
+  ENVIRONMENT,
+  IS_PROD,
   IS_LOCAL: !IS_PROD,
-  USE_IP: USE_IP
+  SURGE_DOMAIN,
+  SURGE_TOKEN,
+  IS_TRAVIS,
+  USE_IP
 };
 
 export default settings;
