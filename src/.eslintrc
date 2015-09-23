@@ -6,6 +6,7 @@
   "rules": {
     "comma-dangle": [2, "never"],
     "func-names": 0,
+    "space-infix-ops": 0,
 
     // jsx
     "react/sort-comp": [2, {
@@ -28,9 +29,12 @@
         "componentWillUpdate",
         "componentDidUpdate",
         "componentWillUnmount",
+        "componentWillEnter",
+        "componentDidEnter",
+        "componentWillLeave",
+        "componentDidLeave",
         "/^initialize.+$/",
         "/^mount.+$/",
-        "/^should.+$/",
         "/^on.+$/",
         "/^get.+$/",
         "/^fetch.+$/",

@@ -5,6 +5,7 @@
 
   "rules": {
     "comma-dangle": [2, "never"],
-    "max-len": [1, 120, 4],  // maximum line length of 120 chars
+    "max-len": [1, 120, 4],  // maximum line length of 120 chars,
+    "space-infix-ops": 0
   }
 }
