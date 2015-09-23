@@ -9,10 +9,7 @@
   z-index: 99;
 }
 
-.player-container .player-iframes .mount-node.active {
-}
-
-.player-container .player-iframes .mount-node.inactive {
+.player-container .player-iframes .mount-node--inactive {
   display: none;
   visibility: hidden;
 }

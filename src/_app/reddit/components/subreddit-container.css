@@ -5,8 +5,8 @@
 
 .subreddit-container-left {
   flex: 1;
-  position: relative;
   max-width: 300px;
+  position: relative;
 }
 
 .subreddit-container-left .subreddit-listing {
@@ -33,7 +33,6 @@
   padding: 20px 0;
 }
 
-.subreddit-container-right .subreddit-sort-controller .sort-type-controller,
-.subreddit-container-right .subreddit-sort-controller .sort-range-controller {
+.subreddit-container-right .subreddit-sort-controller .sort-type-controller, .subreddit-container-right .subreddit-sort-controller .sort-range-controller {
   display: inline-block;
 }

@@ -1,4 +1,4 @@
 --quiet
 --format=compact
 --exclude-list=src/_app/main.bundle.css
---ignore=import
+--ignore=import,box-model

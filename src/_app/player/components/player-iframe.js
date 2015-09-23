@@ -22,7 +22,7 @@ class PlayerIframe extends Component {
   render() {
     const { isActive, mountNode } = this.props;
     let activeClass = isActive ? 'active' : 'inactive';
-    activeClass = `mount-node ${activeClass}`;
+    activeClass = `mount-node mount-node--${activeClass}`;
     return (
       <div className={activeClass}>
         <Iframe mountNode={mountNode} />
