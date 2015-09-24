@@ -51,6 +51,7 @@
     "jscs": "2.1.0",
     "lodash": "3.10.1",
     "postcss-loader": "0.5.1",
+    "protractor": "2.2.0",
     "react-hot-loader": "1.2.8",
     "run-sequence": "1.1.2",
     "style-loader": "0.12.3",

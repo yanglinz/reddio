@@ -10,6 +10,8 @@ ESLINT := $(BIN)/eslint
 JSCS := $(BIN)/jscs
 CSSLINT := $(BIN)/csslint
 CSSCOMB := $(BIN)/csscomb
+PROTRACTOR := $(BIN)/protractor
+WEBDRIVER_MANAGER := $(BIN)/webdriver-manager
 
 # ------------------------------------
 # Define make commands
@@ -31,6 +33,14 @@ else
 	$(ESLINT) --ext .jsx --ext .js .
 	$(CSSLINT) ./src
 endif
+
+test: test-e2e
+
+test-e2e: test-e2e-setup
+	$(PROTRACTOR) tests/protractor.conf.js
+
+test-e2e-setup:
+	$(WEBDRIVER_MANAGER) update
 
 run: clean
 	$(GULP) run
