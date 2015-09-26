@@ -7,6 +7,7 @@ var protractorConfig = {
   specs: [
     path.resolve(__dirname, '**/*.spec.js')
   ],
+
   onPrepare: function() {
     browser.ignoreSynchronization = true;  // don't wait for angular.js to load
   }

@@ -10,6 +10,7 @@ ESLINT := $(BIN)/eslint
 JSCS := $(BIN)/jscs
 CSSLINT := $(BIN)/csslint
 CSSCOMB := $(BIN)/csscomb
+KARMA := $(BIN)/karma
 PROTRACTOR := $(BIN)/protractor
 WEBDRIVER_MANAGER := $(BIN)/webdriver-manager
 
@@ -34,7 +35,10 @@ else
 	$(CSSLINT) ./src
 endif
 
-test: test-e2e
+test: test-unit
+
+test-unit:
+	$(KARMA) start tests/karma.conf.js
 
 test-e2e: test-e2e-setup
 	$(PROTRACTOR) tests/protractor.conf.js
