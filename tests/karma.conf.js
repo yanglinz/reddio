@@ -23,8 +23,7 @@ module.exports = function(config) {
     ],
 
     preprocessors: {
-      './karma.test-entry.js': ['webpack', 'sourcemap'],
-      '../src/**/!(__tests__)/*.js': ['coverage', 'sourcemap']
+      './karma.test-entry.js': ['webpack', 'sourcemap']
     },
 
     coverageReporter: {
@@ -41,10 +40,10 @@ module.exports = function(config) {
           exclude: /(node_modules)/
         }],
 
-        postLoaders: [{
+        preLoaders: [{
           test: /\.(js|jsx)$/,
-          loader: 'istanbul-instrumenter',
-          exclude: /(node_modules)\//
+          loader: 'isparta-instrumenter-loader',
+          exclude: /(tests|__tests__|node_modules)\//
         }]
       }
     },
