@@ -37,13 +37,13 @@ endif
 
 test: test-unit
 
-test-unit:
+test-unit: clean
 	$(KARMA) start tests/karma.conf.js
 
 test-e2e: test-e2e-setup
 	$(PROTRACTOR) tests/protractor.conf.js
 
-test-e2e-setup:
+test-e2e-setup: clean
 	$(WEBDRIVER_MANAGER) update
 
 run: clean

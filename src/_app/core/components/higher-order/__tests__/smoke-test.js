@@ -7,5 +7,5 @@ describe('smoke test', () => {
 
   it('should display test coverage correctly', () => {
     expect(partialCoverage()).to.equal(true);
-  })
+  });
 });

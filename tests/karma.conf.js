@@ -3,7 +3,7 @@
  * medium.com/@scbarrus/how-to-get-test-coverage-on-react-with-karma-babel-and-webpack-c9273d805063
  */
 
-module.exports = function(config) {
+module.exports = function setConfig(config) {
   config.set({
     browsers: ['Chrome'],
 
@@ -30,8 +30,8 @@ module.exports = function(config) {
     },
 
     coverageReporter: {
-      type : 'html',
-      dir : 'coverage/'
+      type: 'html',
+      dir: 'coverage/'
     },
 
     webpack: {
@@ -60,5 +60,5 @@ module.exports = function(config) {
     colors: true,
     autoWatch: false,
     singleRun: true
-  })
+  });
 };

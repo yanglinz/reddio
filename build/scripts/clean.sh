@@ -4,6 +4,7 @@ set -e
 
 echo "Clearing build directory"
 rm -rf dist
+rm -rf tests/coverage
 
 echo "Re-setting webpack bundles"
 BUNDLE_JS="./src/_app/main.bundle.js"
