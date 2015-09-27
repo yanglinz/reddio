@@ -1,4 +1,7 @@
-// https://medium.com/@scbarrus/how-to-get-test-coverage-on-react-with-karma-babel-and-webpack-c9273d805063
+/**
+ * Karma config with ES6, Mocha, Chai, Webpack, Babel, and code coverage
+ * medium.com/@scbarrus/how-to-get-test-coverage-on-react-with-karma-babel-and-webpack-c9273d805063
+ */
 
 module.exports = function(config) {
   config.set({
@@ -13,11 +16,11 @@ module.exports = function(config) {
     ],
 
     plugins: [
-      'karma-webpack',
+      'karma-chrome-launcher',
       'karma-mocha',
       'karma-chai',
-      'karma-chrome-launcher',
       'karma-mocha-reporter',
+      'karma-webpack',
       'karma-sourcemap-loader',
       'karma-coverage'
     ],
