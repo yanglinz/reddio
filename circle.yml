@@ -11,6 +11,6 @@ test:
     - make test
   post:
     - make test-e2e-server:
-      background: true
+        background: true
     - sleep 30
     - make test-e2e
