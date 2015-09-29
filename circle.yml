@@ -17,5 +17,7 @@ test:
     - make test-e2e
 
 deployment:
-  override:
-    - make deploy
+  production:
+    branch: master
+    commands:
+      - make deploy
