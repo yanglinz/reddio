@@ -1,6 +1,7 @@
 machine:
   environment:
     ENVIRONMENT: production
+    SURGE_DOMAIN: reddio.co
   node:
     version: 4.1.1
 
@@ -14,3 +15,7 @@ test:
         background: true
     - sleep 30
     - make test-e2e
+
+deploy:
+  override:
+    - make deploy
