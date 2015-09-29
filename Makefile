@@ -1,7 +1,3 @@
-# ------------------------------------
-# Define binary
-# ------------------------------------
-
 NPM ?= npm
 NODE ?= node
 BIN := ./node_modules/.bin
@@ -13,10 +9,6 @@ CSSCOMB := $(BIN)/csscomb
 KARMA := $(BIN)/karma
 PROTRACTOR := $(BIN)/protractor
 WEBDRIVER_MANAGER := $(BIN)/webdriver-manager
-
-# ------------------------------------
-# Define make commands
-# ------------------------------------
 
 setup:
 	./build/scripts/setup.sh
