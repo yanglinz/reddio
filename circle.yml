@@ -1,7 +1,4 @@
 machine:
-  environment:
-    ENVIRONMENT: production
-    SURGE_DOMAIN: reddio.co
   node:
     version: 4.1.1
 
@@ -17,7 +14,16 @@ test:
     - make test-e2e
 
 deployment:
-  production:
+  staging:
     branch: master
     commands:
-      - make deploy
+      - make deploy:
+      environemnt:
+        SURGE_DOMAIN: reddio-staging.surge.sh
+
+  production:
+      branch: production
+      commands:
+        - make deploy:
+        environemnt:
+          SURGE_DOMAIN: reddio.co

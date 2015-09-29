@@ -6,7 +6,7 @@ import settings from '../../settings.js';
 
 gulp.task('deploy:surge', (callback) => {
   assert(settings.SURGE_DOMAIN);
-  if (settings.IS_TRAVIS) {
+  if (settings.IS_CI) {
     assert(settings.SURGE_TOKEN);
   }
 
