@@ -16,6 +16,6 @@ test:
     - sleep 30
     - make test-e2e
 
-deploy:
+deployment:
   override:
     - make deploy
