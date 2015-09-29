@@ -18,12 +18,12 @@ deployment:
     branch: master
     commands:
       - make deploy:
-      environemnt:
-        SURGE_DOMAIN: reddio-staging.surge.sh
+        environemnt:
+          SURGE_DOMAIN: reddio-staging.surge.sh
 
   production:
       branch: production
       commands:
         - make deploy:
-        environemnt:
-          SURGE_DOMAIN: reddio.co
+          environemnt:
+            SURGE_DOMAIN: reddio.co
