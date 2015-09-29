@@ -8,22 +8,19 @@ test:
   override:
     - make test
   post:
+    - make build
     - make test-e2e-server:
         background: true
-    - sleep 30
+    - sleep 10
     - make test-e2e
 
 deployment:
   staging:
     branch: master
     commands:
-      - make deploy:
-        environemnt:
-          SURGE_DOMAIN: reddio-staging.surge.sh
+      - SURGE_DOMAIN=reddio-staging.surge.sh make deploy
 
   production:
-      branch: production
-      commands:
-        - make deploy:
-          environemnt:
-            SURGE_DOMAIN: reddio.co
+    branch: production
+    commands:
+      - SURGE_DOMAIN=reddio.co make deploy

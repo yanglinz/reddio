@@ -41,7 +41,7 @@ test-e2e: test-e2e-setup
 test-e2e-setup:
 	$(WEBDRIVER_MANAGER) update
 
-test-e2e-server: build
+test-e2e-server:
 	cd dist && python -m SimpleHTTPServer
 
 deploy: clean build
