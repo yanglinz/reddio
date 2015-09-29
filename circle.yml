@@ -1,0 +1,16 @@
+machine:
+  environment:
+    ENVIRONMENT: production
+  node:
+    version: 4.1.1
+
+test:
+  pre:
+    - make lint
+  override:
+    - make test
+  post:
+    - make test-e2e-server:
+      background: true
+    - sleep 30
+    - make test-e2e
