@@ -2,8 +2,11 @@
 
 require('babel/register');  // write specs in ES6
 var path = require('path');
+var settings = require('../settings');
 
 var protractorConfig = {
+  baseUrl: settings.DOMAIN,
+
   specs: [
     path.resolve(__dirname, '**/*.spec.js')
   ],

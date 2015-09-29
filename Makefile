@@ -13,10 +13,13 @@ WEBDRIVER_MANAGER := $(BIN)/webdriver-manager
 setup:
 	./build/scripts/setup.sh
 
-build: clean
+build:
 	$(GULP) build
 
-lint: clean
+run:
+	$(GULP) run
+
+lint:
 ifdef FIX
 	$(JSCS) . --fix
 	$(ESLINT) --ext .jsx --ext .js . --fix
@@ -29,19 +32,19 @@ endif
 
 test: test-unit
 
-test-unit: clean
+test-unit:
 	$(KARMA) start tests/karma.conf.js
 
 test-e2e: test-e2e-setup
 	$(PROTRACTOR) tests/protractor.conf.js
 
-test-e2e-setup: clean
+test-e2e-setup:
 	$(WEBDRIVER_MANAGER) update
 
-run: clean
-	$(GULP) run
+test-e2e-server: build
+	cd dist && python -m SimpleHTTPServer
 
-deploy: build
+deploy: clean build
 	$(GULP) deploy
 
 clean:

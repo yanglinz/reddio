@@ -10,6 +10,8 @@ const {
   IS_TRAVIS
 } = process.env;
 
+const DOMAIN = process.env.DOMAIN || 'http://localhost:8000';
+
 const IS_PROD = any([
   ENVIRONMENT === 'stage',
   ENVIRONMENT === 'staging',
@@ -23,6 +25,7 @@ const settings = {
   ENVIRONMENT,
   IS_PROD,
   IS_LOCAL: !IS_PROD,
+  DOMAIN,
   SURGE_DOMAIN,
   SURGE_TOKEN,
   IS_TRAVIS,
