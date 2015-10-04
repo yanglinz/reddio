@@ -1,4 +1,4 @@
-import { memoize } from '../decorators.js';
+import { memoize, once } from '../decorators.js';
 
 describe('decorators test', () => {
   describe('memoize test', () => {
@@ -10,12 +10,8 @@ describe('decorators test', () => {
           this.callCount = 0;
         }
 
-        increment() {
-          this.callCount++;
-        }
-
         @memoize()
-        memoizedIncrement() {
+        increment() {
           this.callCount++;
         }
 
@@ -26,16 +22,38 @@ describe('decorators test', () => {
       memoizeTarget = new Target();
     });
 
-    it('should increment when not memoized', () => {
+    it('should not increment when decorated with memoize', () => {
       memoizeTarget.increment();
       memoizeTarget.increment();
-      expect(memoizeTarget.getCount()).to.equal(2);
+      expect(memoizeTarget.getCount()).to.equal(1);
+    });
+  });
+
+  describe('once test', () => {
+    let target;
+
+    beforeEach(() => {
+      class Target {
+        constructor() {
+          this.callCount = 0;
+        }
+
+        @once()
+        increment() {
+          this.callCount++;
+        }
+
+        getCount() {
+          return this.callCount;
+        }
+      }
+      target = new Target();
     });
 
-    it('should not increment when memoized', () => {
-      memoizeTarget.memoizedIncrement();
-      memoizeTarget.memoizedIncrement(); // should not increment
-      expect(memoizeTarget.getCount()).to.equal(1);
+    it('should not increment when decorated with once', () => {
+      target.increment();
+      target.increment();
+      expect(target.getCount()).to.equal(1);
     });
   });
 });
