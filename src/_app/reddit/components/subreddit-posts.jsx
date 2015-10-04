@@ -1,4 +1,4 @@
-import { isEmpty, isEqual, last, map } from 'lodash';
+import { isEmpty, isEqual, last, map, unescape } from 'lodash';
 import React, { Component, PropTypes } from 'react';
 import { Avatar, FontIcon, IconButton, List, ListItem, RaisedButton } from 'material-ui';
 import materialUI from 'core/components/decorators/material-ui.js';
@@ -49,7 +49,7 @@ class RedditPosts extends Component {
             leftAvatar={thumbnail}
             rightIconButton={playButton}>
             <div className="posts">
-              {post.title}
+              {unescape(post.title)}
             </div>
           </ListItem>
         </div>
