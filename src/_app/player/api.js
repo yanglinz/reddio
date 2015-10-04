@@ -3,6 +3,7 @@
 import _, { isEmpty } from 'lodash';
 import { Promise } from 'es6-promise';
 import Rx, { Observable } from 'rx';
+import { memoize } from 'core/utilities/decorators.js';
 import { isYoutube, isSoundcloud } from 'reddit/api.js';
 
 const _parser = document.createElement('a');
@@ -35,8 +36,6 @@ class AudioPlayer {
   constructor() {
     this._currentSong = null;
     this._player = {};
-    this._youtubeApiPromise = null;
-    this._soundcloudApiPromise = null;
     this._playerStates = {
       ENDED: 'ENDED',
       PLAYING: 'PLAYING',
@@ -46,53 +45,51 @@ class AudioPlayer {
     this._soundcloudPlayerStream = new Rx.Subject();
   }
 
+  @memoize()
   loadSoundcloud() {
     /**
      * Load the soundcloud api script.
      * The soundcloud script synchronously attaches a global `SC` object
      */
     const _this = this;
-    if (_.isEmpty(_this._soundcloudApiPromise)) {
-      const mountNode = 'soundcloud-mount-node';
-      const playerElementId = 'soundcloud-iframe-container';
-      const soundcloudIframe = document.createElement('iframe');
-      soundcloudIframe.id = playerElementId;
-      soundcloudIframe.width = '100%';
-      soundcloudIframe.height = '100%';
-      soundcloudIframe.setAttribute('frameborder', 'no');
-      soundcloudIframe.setAttribute('scrolling', 'no');
-      soundcloudIframe.src = 'https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1848538';
-      document.getElementById(mountNode).appendChild(soundcloudIframe);
+    const mountNode = 'soundcloud-mount-node';
+    const playerElementId = 'soundcloud-iframe-container';
+    const soundcloudIframe = document.createElement('iframe');
+    soundcloudIframe.id = playerElementId;
+    soundcloudIframe.width = '100%';
+    soundcloudIframe.height = '100%';
+    soundcloudIframe.setAttribute('frameborder', 'no');
+    soundcloudIframe.setAttribute('scrolling', 'no');
+    soundcloudIframe.src = 'https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F1848538';
+    document.getElementById(mountNode).appendChild(soundcloudIframe);
 
-      _this._soundcloudApiPromise = new Promise(function handleSCPromise(resolve, reject) {
-        if (_.isEmpty(window.SC.Widget)) {
-          reject('window.SC.Widget is undefined');
-        }
+    return new Promise(function handleSCPromise(resolve, reject) {
+      if (_.isEmpty(window.SC.Widget)) {
+        reject('window.SC.Widget is undefined');
+      }
 
-        if (window.SC) {
-          const iframeElement = document.querySelector('#' + playerElementId);
-          _this._player.soundcloudPlayer = window.SC.Widget(iframeElement);
+      if (window.SC) {
+        const iframeElement = document.querySelector('#' + playerElementId);
+        _this._player.soundcloudPlayer = window.SC.Widget(iframeElement);
 
-          const { PLAY, PAUSE, FINISH } = SC.Widget.Events;
-          const { PLAYING, PAUSED, ENDED } = _this._playerStates;
-          _this._player.soundcloudPlayer.bind(PLAY, () => {
-            _this._soundcloudPlayerStream.onNext(PLAYING);
-          });
-          _this._player.soundcloudPlayer.bind(PAUSE, () => {
-            _this._soundcloudPlayerStream.onNext(PAUSED);
-          });
-          _this._player.soundcloudPlayer.bind(FINISH, () => {
-            _this._soundcloudPlayerStream.onNext(ENDED);
-          });
+        const { PLAY, PAUSE, FINISH } = SC.Widget.Events;
+        const { PLAYING, PAUSED, ENDED } = _this._playerStates;
+        _this._player.soundcloudPlayer.bind(PLAY, () => {
+          _this._soundcloudPlayerStream.onNext(PLAYING);
+        });
+        _this._player.soundcloudPlayer.bind(PAUSE, () => {
+          _this._soundcloudPlayerStream.onNext(PAUSED);
+        });
+        _this._player.soundcloudPlayer.bind(FINISH, () => {
+          _this._soundcloudPlayerStream.onNext(ENDED);
+        });
 
-          resolve(_this._player.soundcloudPlayer);
-        }
-      });
-    }
-
-    return _this._soundcloudApiPromise;
+        resolve(_this._player.soundcloudPlayer);
+      }
+    });
   }
 
+  @memoize()
   loadYoutube() {
     /**
      * Load the youtube api script.
@@ -100,40 +97,36 @@ class AudioPlayer {
      * When loaded, it will fire the `window.onYouTubeIframeAPIReady`
      */
     const _this = this;
-    if (_.isEmpty(_this._youtubeApiPromise)) {
-      const tag = document.createElement('script');
-      tag.src = 'https://www.youtube.com/iframe_api';
-      const firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    const tag = document.createElement('script');
+    tag.src = 'https://www.youtube.com/iframe_api';
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-      _this._youtubeApiPromise = new Promise(function handleYoutubePromise(resolve, reject) {
-        window.onYouTubeIframeAPIReady = function onYouTubeIframeAPIReady() {
-          if (_.isEmpty(window.YT)) {
-            reject('window.YT is undefined');
-          }
+    return new Promise(function handleYoutubePromise(resolve, reject) {
+      window.onYouTubeIframeAPIReady = function onYouTubeIframeAPIReady() {
+        if (_.isEmpty(window.YT)) {
+          reject('window.YT is undefined');
+        }
 
-          const mountNode = 'youtube-mount-node';
-          _this._player.youtubePlayer = new window.YT.Player(mountNode, {
-            height: '100%',
-            width: '100%',
-            playerVars: {
-              autohide: 0
+        const mountNode = 'youtube-mount-node';
+        _this._player.youtubePlayer = new window.YT.Player(mountNode, {
+          height: '100%',
+          width: '100%',
+          playerVars: {
+            autohide: 0
+          },
+          events: {
+            onReady: function onYoutubePlayerReady() {
+              resolve(_this._player.youtubePlayer);  // resolve promise
             },
-            events: {
-              onReady: function onYoutubePlayerReady() {
-                resolve(_this._player.youtubePlayer);  // resolve promise
-              },
 
-              onStateChange: function onStateChange(event) {
-                _this._youtubePlayerStream.onNext(event);  // pipe raw player events to stream
-              }
+            onStateChange: function onStateChange(event) {
+              _this._youtubePlayerStream.onNext(event);  // pipe raw player events to stream
             }
-          });
-        };
-      });
-    }
-
-    return _this._youtubeApiPromise;
+          }
+        });
+      };
+    });
   }
 
   play(url) {
