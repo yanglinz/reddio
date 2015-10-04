@@ -41,17 +41,26 @@ class RedditPosts extends Component {
           <FontIcon className="material-icons">play_circle_filled</FontIcon>
         </IconButton>
       );
+      const primaryText = (
+        <div className="post-title">
+          {unescape(post.title)}
+        </div>
+      );
+      const secondaryText = (
+        <div className="post-info">
+          {post.createdUtcHuman} | {post.score} points | {post.domain}
+        </div>
+      );
       return (
         <div
+          className="post"
           key={post.id}
           onClick={this.handleClickPost.bind(this, post)}>
           <ListItem
             leftAvatar={thumbnail}
-            rightIconButton={playButton}>
-            <div className="posts">
-              {unescape(post.title)}
-            </div>
-          </ListItem>
+            rightIconButton={playButton}
+            primaryText={primaryText}
+            secondaryText={secondaryText} />
         </div>
       );
     });
