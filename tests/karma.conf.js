@@ -3,6 +3,10 @@
  * medium.com/@scbarrus/how-to-get-test-coverage-on-react-with-karma-babel-and-webpack-c9273d805063
  */
 
+/* eslint no-var: 0 */
+
+var path = require('path');
+
 module.exports = function setConfig(config) {
   config.set({
     browsers: ['Chrome'],
@@ -48,6 +52,11 @@ module.exports = function setConfig(config) {
           loader: 'isparta-instrumenter-loader',
           exclude: /(tests|__tests__|node_modules)\//
         }]
+      },
+      resolve: {
+        root: [
+          path.join(__dirname, '../src/_app')
+        ]
       }
     },
 

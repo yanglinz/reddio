@@ -3,7 +3,8 @@
   "excludeFiles": [
     "dist/**",
     "node_modules/**",
-    "src/_app/*.bundle.js"
+    "src/_app/*.bundle.js",
+    "tests/coverage/**"
   ],
   "fileExtensions": [".js", ".jsx"],
   "preset": "airbnb",

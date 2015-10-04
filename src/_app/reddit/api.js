@@ -4,17 +4,24 @@ import { Promise } from 'es6-promise';
 import moment from 'moment';
 import { logError } from 'core/logger.js';
 
-function isPostYoutube(post) {
-  return contains(post.data.url, 'you');
+export function isYoutube(url) {
+  const youtubeUrl = 'youtube.com';
+  const youtubeShortUrl = 'youtu.be';
+  return contains(url, youtubeUrl) || contains(url, youtubeShortUrl);
 }
 
-function isPostSoundcloud(post) {
-  return contains(post.data.url, 'soundcloud');
+export function isSoundcloud(url) {
+  const soundcloudUrl = 'soundcloud.com';
+  return contains(url, soundcloudUrl);
 }
 
 function isPostSong(post) {
-  const isSong = !post.data.is_self && !post.data.stickied;
-  return isSong && (isPostYoutube(post) || isPostSoundcloud(post));
+  const {
+    is_self: isSelf,
+    stickied: isStickied,
+    url
+  } = post.data;
+  return !isSelf && !isStickied && (isYoutube(url) || isSoundcloud(url));
 }
 
 function parsePost(post) {
