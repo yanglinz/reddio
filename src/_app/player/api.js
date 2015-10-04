@@ -6,12 +6,10 @@ import Rx, { Observable } from 'rx';
 import { isYoutube, isSoundcloud } from 'reddit/api.js';
 
 const _parser = document.createElement('a');
-
 export function getYoutubeID(url) {
-  const youtubeShortUrl = 'youtu.be';
   let videoId;
   _parser.href = url;
-  if (_.includes(url, youtubeShortUrl)) {
+  if (_parser.hostname === 'youtu.be') {
     videoId = _parser.pathname.split('/')[1];
   } else {
     let params = _parser.search;
@@ -21,7 +19,6 @@ export function getYoutubeID(url) {
       memo[key] = p.split('=')[1];
       return memo;
     }, {});
-
     videoId = params.v;
   }
 
