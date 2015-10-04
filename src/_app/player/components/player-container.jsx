@@ -3,8 +3,9 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Player from 'player/components/player.jsx';
 import PlayerIframe from 'player/components/player-iframe.js';
-import AudioPlayer, { Utilities } from 'player/api.js';
+import AudioPlayer from 'player/api.js';
 import { playNextSong } from 'player/state/actions.js';
+import { isSoundcloud, isYoutube } from 'reddit/api.js';
 import { logError } from 'core/logger.js';
 import './player-container.css';
 
@@ -30,12 +31,12 @@ class PlayerContainer extends Component {
 
   shouldRenderYoutube() {
     const { activeSong } = this.props;
-    return activeSong && Utilities.urlIsYoutube(activeSong.url);
+    return activeSong && isYoutube(activeSong.url);
   }
 
   shouldRenderSoundcloud() {
     const { activeSong } = this.props;
-    return activeSong && Utilities.urlIsSoundcloud(activeSong.url);
+    return activeSong && isSoundcloud(activeSong.url);
   }
 
   onPlayerStateChange(playerEventStream) {

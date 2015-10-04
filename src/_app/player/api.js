@@ -3,40 +3,29 @@
 import _, { isEmpty } from 'lodash';
 import { Promise } from 'es6-promise';
 import Rx, { Observable } from 'rx';
+import { isYoutube, isSoundcloud } from 'reddit/api.js';
 
-export class Utilities {
-  static urlIsSoundcloud(url) {
-    const soundcloudUrl = 'soundcloud.com';
-    return _.includes(url, soundcloudUrl);
+const _parser = document.createElement('a');
+
+export function getYoutubeID(url) {
+  const youtubeShortUrl = 'youtu.be';
+  let videoId;
+  _parser.href = url;
+  if (_.includes(url, youtubeShortUrl)) {
+    videoId = _parser.pathname.split('/')[1];
+  } else {
+    let params = _parser.search;
+    params = params.replace('?', '').split('&');
+    params = _.reduce(params, function generateParams(memo, p) {
+      const key = p.split('=')[0];
+      memo[key] = p.split('=')[1];
+      return memo;
+    }, {});
+
+    videoId = params.v;
   }
 
-  static urlIsYoutube(url) {
-    const youtubeUrl = 'youtube.com';
-    const youtubeShortUrl = 'youtu.be';
-    return _.includes(url, youtubeUrl) || _.includes(url, youtubeShortUrl);
-  }
-
-  static youtubeUrlToId(url) {
-    const youtubeShortUrl = 'youtu.be';
-    let videoId;
-    const parser = document.createElement('a');
-    parser.href = url;
-    if (_.includes(url, youtubeShortUrl)) {
-      videoId = parser.pathname.split('/')[1];
-    } else {
-      let params = parser.search;
-      params = params.replace('?', '').split('&');
-      params = _.reduce(params, function generateParams(memo, p) {
-        const key = p.split('=')[0];
-        memo[key] = p.split('=')[1];
-        return memo;
-      }, {});
-
-      videoId = params.v;
-    }
-
-    return videoId;
-  }
+  return videoId;
 }
 
 /**
@@ -152,11 +141,11 @@ class AudioPlayer {
 
   play(url) {
     this.pause();  // pause any currently playing song
-    if (Utilities.urlIsSoundcloud(url)) {
+    if (isSoundcloud(url)) {
       this._playSoundcloud(url);
     }
 
-    if (Utilities.urlIsYoutube(url)) {
+    if (isYoutube(url)) {
       this._playYoutube(url);
     }
   }
@@ -186,7 +175,7 @@ class AudioPlayer {
         youtubePlayer.playVideo();
       } else {
         _this._currentSong = url;
-        const videoId = Utilities.youtubeUrlToId(url);
+        const videoId = getYoutubeID(url);
         youtubePlayer.loadVideoById({
           videoId: videoId,
           startSeconds: 0,
