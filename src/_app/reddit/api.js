@@ -2,6 +2,7 @@ import { contains, defaults, filter, map } from 'lodash';
 import { ajax } from 'jquery';
 import { Promise } from 'es6-promise';
 import moment from 'moment';
+import { SUBREDDITS_META } from 'reddit/constants.js';
 import { logError } from 'core/logger.js';
 
 export function isYoutube(url) {
@@ -55,8 +56,10 @@ function fetchPosts(subreddit, params={}) {
   });
 
   const request = new Promise((resolve, reject) => {
+    const subredditUrl = SUBREDDITS_META[subreddit].url;
+    const requestUrl = `${subredditUrl}/${sortType}.json`;
     ajax({
-      url: `http://www.reddit.com/r/${subreddit}/${sortType}.json`,
+      url: requestUrl,
       method: 'GET',
       data: {
         t: sortRange,
