@@ -1,50 +1,38 @@
-import React from 'react';
-import mui, { Styles } from 'material-ui';
+import { extend } from 'lodash';
+import { PropTypes } from 'react';
+import { Styles } from 'material-ui';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 injectTapEventPlugin();  // get touch events to work for mui
 
-const CustomMaterialPalette = {
-  primary1Color: Styles.Colors.blue700,
-  primary2Color: Styles.Colors.cyan700,
-  primary3Color: Styles.Colors.cyan100,
-  accent1Color: Styles.Colors.pinkA200,
-  accent2Color: Styles.Colors.pinkA400,
-  accent3Color: Styles.Colors.pinkA100,
-  textColor: Styles.Colors.darkBlack,
-  canvasColor: Styles.Colors.white,
-  borderColor: Styles.Colors.grey300
-};
-
-const CustomMaterialComponentThemes = {
-  raisedButton: {
-    primaryColor: Styles.Colors.blue700
-  },
-  slider: {
-    trackColor: Styles.Colors.minBlack,
-    trackColorSelected: Styles.Colors.grey500,
-    handleColorZero: Styles.Colors.grey400,
-    handleFillColor: Styles.Colors.white,
-    selectionColor: Styles.Colors.blue700,
-    rippleColor: Styles.Colors.blue700
+const { ThemeManager, LightRawTheme, Colors } = Styles;
+const CustomLightTheme = extend({}, LightRawTheme, {
+  palette: {
+    primary1Color: Colors.blue600,
+    primary2Color: Colors.blue700,
+    primary3Color: Colors.lightBlack,
+    accent1Color: Colors.pinkA200,
+    accent2Color: Colors.grey100,
+    accent3Color: Colors.grey500,
+    textColor: Colors.darkBlack,
+    alternateTextColor: Colors.white,
+    canvasColor: Colors.white,
+    borderColor: Colors.grey300,
+    disabledColor: Colors.grey300
   }
-};
-
-const ThemeManager = new mui.Styles.ThemeManager();
-ThemeManager.setPalette(CustomMaterialPalette);
-ThemeManager.setComponentThemes(CustomMaterialComponentThemes);
+});
 
 function materialUI(TargetComponent) {
   class Decorated extends TargetComponent {
     getChildContext() {
       return {
-        muiTheme: ThemeManager.getCurrentTheme()
+        muiTheme: ThemeManager.getMuiTheme(CustomLightTheme)
       };
     }
   }
 
   Decorated.childContextTypes = {
-    muiTheme: React.PropTypes.object
+    muiTheme: PropTypes.object
   };
 
   return Decorated;

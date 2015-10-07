@@ -67,17 +67,22 @@ class RedditPosts extends Component {
   }
 
   renderLoader() {
-    const { isFetching } = this.props;
-    if (isFetching) {
-      return null;
-    }
-    return (
-      <div className="posts-loader">
-        <div onClick={this.handleFetchPosts.bind(this)}>
-          <RaisedButton label="Load more" />
+    let loader;
+    if (this.props.isFetching) {
+      loader = (
+        <div className="posts-loader">
         </div>
-      </div>
-    );
+      );
+    } else {
+      loader = (
+        <div className="posts-loader">
+          <div onClick={this.handleFetchPosts.bind(this)}>
+            <RaisedButton label="Load more" />
+          </div>
+        </div>
+      );
+    }
+    return loader;
   }
 
   renderActiveState() {

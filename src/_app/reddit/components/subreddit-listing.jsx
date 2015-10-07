@@ -24,9 +24,9 @@ class SubredditListings extends RouterComponent {
         <div
           key={subreddit}
           onClick={this.handleChangeSubreddit.bind(this, subreddit)}>
-          <ListItem rightIconButton={subredditIcon}>
-            {subreddit}
-          </ListItem>
+          <ListItem
+            rightIconButton={subredditIcon}
+            primaryText={subreddit} />
         </div>
       );
     });
