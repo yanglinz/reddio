@@ -9,7 +9,6 @@ function makeWebpackConfig() {
   const webpackConfig = {};
 
   const VENDOR_MODULES = [
-    'jquery',
     'react'
   ];
 
