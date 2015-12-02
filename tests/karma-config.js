@@ -11,14 +11,17 @@ module.exports = function createKarmaConfig(config) {
     frameworks: ['jasmine'],
 
     // list of files / patterns to load in the browser
-    files: ['./tests/karma-entry.js'],
+    files: [
+      './node_modules/babel-polyfill/dist/polyfill.js',
+      './src/**/_tests/*-test.js'
+    ],
 
     // list of files to exclude
     exclude: [],
 
     // preprocess matching files before serving them to the browser https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      './tests/karma-entry.js': ['webpack', 'sourcemap']
+      './src/**/_tests/*-test.js': ['webpack', 'sourcemap']
     },
 
     webpack: {

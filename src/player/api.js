@@ -59,6 +59,10 @@ class BasePlayer {
 
   initialize() {
     this.source$.onNext({ type: EVENTS.COMMAND_INITIALIZE });
+    return this.sink$
+      .filter(event => event.type === EVENTS.PLAYER_READY)
+      .first()
+      .toPromise();
   }
 
   play(url) {
