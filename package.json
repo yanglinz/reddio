@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/yanglinz/reddio/issues"
   },
-  "homepage": "https://github.com/yanglinz/reddio#readme"
+  "homepage": "https://github.com/yanglinz/reddio#readme",
+  "devDependencies": {
+    "typescript": "1.8.9"
+  }
 }
