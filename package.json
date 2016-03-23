@@ -1,0 +1,19 @@
+{
+  "name": "reddio",
+  "version": "0.0.1",
+  "description": "Reddit powered internet radio",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yanglinz/reddio.git"
+  },
+  "author": "Yanglin Zhao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yanglinz/reddio/issues"
+  },
+  "homepage": "https://github.com/yanglinz/reddio#readme"
+}
