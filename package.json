@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/yanglinz/reddio#readme",
   "devDependencies": {
+    "foreman": "1.4.1",
     "typescript": "1.8.9"
   }
 }
