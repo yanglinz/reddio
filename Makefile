@@ -1,16 +1,18 @@
 BIN := node_modules/.bin
+ESLINT := $(BIN)/eslint
 FOREMAN := $(BIN)/nf
-TYPESCRIPT := $(BIN)/tsc
+WEBPACK := $(BIN)/webpack
 
-TYPESCRIPT_FLAGS := --module system --sourceMap --allowJs
+lint:
+	@$(ESLINT) .
 
-build-ts:
-	$(TYPESCRIPT) $(TYPESCRIPT_FLAGS) --outfile dist/app/main.js src/app/main.ts
+build-webpack:
+	@$(WEBPACK)
 
-watch-ts:
-	$(TYPESCRIPT) $(TYPESCRIPT_FLAGS) --outfile dist/app/main.js src/app/main.ts --watch
-
-build: build-ts
+build: clean build-webpack
 
 watch:
-	$(FOREMAN) start dev-ts
+	@$(FOREMAN) start dev-ts
+
+clean:
+	@rm -rf dist
