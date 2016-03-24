@@ -1,9 +1,10 @@
-# Automatic-static
+# Reddio
+
+A reddit powered internet radio.
+
+# Running locally
 
 ```
-make setup
-make lint
-make test
-make run
+make build
 make watch
 ```
