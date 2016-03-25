@@ -33,12 +33,28 @@ OUTPUT.filename = 'main.bundle.js';
 OUTPUT.path = path.resolve(projectRoot, 'dist/app');
 
 /**
+ * Options affecting the normal modules
+ */
+const MODULE = {};
+
+/**
+ * Loaders that affect file transformation
+ */
+const typescriptLoader = {
+  test: /\.tsx?$/,
+  loader: 'ts-loader'
+};
+
+MODULE.loaders = [typescriptLoader];
+
+/**
  * Webpack config factory
  */
 export function webpackConfig() {
   return {
     context: CONTEXT,
     entry: ENTRY,
-    output: OUTPUT
+    output: OUTPUT,
+    module: MODULE
   };
 }

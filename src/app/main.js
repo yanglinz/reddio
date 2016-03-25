@@ -1,1 +1,1 @@
-document.body.innerHTML = 'Hello world!';
+require('./main.ts');
