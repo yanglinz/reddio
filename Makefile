@@ -6,10 +6,8 @@ WEBPACK := $(BIN)/webpack
 lint:
 	@$(ESLINT) .
 
-build-webpack:
+build: clean
 	@$(WEBPACK)
-
-build: clean build-webpack
 
 watch:
 	@$(FOREMAN) start dev-ts
