@@ -5,7 +5,7 @@ import dotenv from 'dotenv';
 dotenv.config({ silent: true });
 
 const environment = _.defaults({}, process.env, {
-  NODE_ENV: 'foo'
+  NODE_ENV: 'development'
 });
 
 export const NODE_ENV = environment.NODE_ENV;
