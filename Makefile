@@ -1,6 +1,7 @@
 BIN := node_modules/.bin
 ESLINT := $(BIN)/eslint
 FOREMAN := $(BIN)/nf
+GULP := $(BIN)/gulp
 WEBPACK := $(BIN)/webpack
 
 setup:
@@ -12,6 +13,7 @@ lint:
 	@$(ESLINT) .
 
 build: clean
+	@$(GULP)
 	@$(WEBPACK)
 
 watch:
