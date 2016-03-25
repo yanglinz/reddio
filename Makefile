@@ -3,6 +3,11 @@ ESLINT := $(BIN)/eslint
 FOREMAN := $(BIN)/nf
 WEBPACK := $(BIN)/webpack
 
+setup:
+	node --version
+	npm --version
+	@npm install
+
 lint:
 	@$(ESLINT) .
 

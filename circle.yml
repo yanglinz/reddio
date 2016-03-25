@@ -1,12 +1,10 @@
 machine:
   node:
     version: 5.x
-  npm:
-    version: 3.x
 
 dependencies:
   override:
-    - npm install
+    - make setup
 
 test:
   override:
