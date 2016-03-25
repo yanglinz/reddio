@@ -1,4 +1,5 @@
 BIN := node_modules/.bin
+BABEL_NODE := $(BIN)/babel-node
 ESLINT := $(BIN)/eslint
 FOREMAN := $(BIN)/nf
 GULP := $(BIN)/gulp
@@ -13,6 +14,7 @@ lint:
 	@$(ESLINT) .
 
 build: clean
+	@$(BABEL_NODE) ./tools/custom/debug-info.js
 	@$(GULP)
 	@$(WEBPACK)
 
