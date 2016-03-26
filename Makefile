@@ -25,7 +25,7 @@ lint:
 build: clean
 	@$(BABEL_NODE) ./tools/custom/debug-info.js
 	@$(WEBPACK)
-	@$(GULP)
+	@$(GULP) build
 
 watch:
 	@$(FOREMAN) start dev-ts
