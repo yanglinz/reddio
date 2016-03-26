@@ -1,5 +1,8 @@
 {
   "name": "reddio",
   "version": false,
-  "dependencies": {}
+  "dependencies": {},
+  "ambientDependencies": {
+    "react": "registry:dt/react#0.14.0+20160319053454"
+  }
 }
