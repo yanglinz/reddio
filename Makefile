@@ -6,15 +6,16 @@ GULP := $(BIN)/gulp
 SHRINKPACK := $(BIN)/shrinkpack
 WEBPACK := $(BIN)/webpack
 
+NPM_FLAGS := --loglevel=http
+
 setup:
 	node --version
 	npm --version
-	@npm install --loglevel=http
+	@npm install $(NPM_FLAGS)
 
 deps:
-	npm install shrinkpack --loglevel=http
-	npm shrinkwrap --dev
-	$(SHRINKPACK)
+	@npm shrinkwrap --dev
+	@$(SHRINKPACK)
 
 lint:
 	@$(ESLINT) .
