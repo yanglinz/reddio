@@ -540,6 +540,11 @@
       "from": "balanced-match@>=0.3.0 <0.4.0",
       "resolved": "./node_shrinkwrap/balanced-match-0.3.0.tgz"
     },
+    "base62": {
+      "version": "0.1.1",
+      "from": "base62@0.1.1",
+      "resolved": "./node_shrinkwrap/base62-0.1.1.tgz"
+    },
     "Base64": {
       "version": "0.2.1",
       "from": "Base64@>=0.2.0 <0.3.0",
@@ -936,6 +941,11 @@
       "from": "enhanced-resolve@>=0.9.0 <0.10.0",
       "resolved": "./node_shrinkwrap/enhanced-resolve-0.9.1.tgz"
     },
+    "envify": {
+      "version": "3.4.0",
+      "from": "envify@>=3.0.0 <4.0.0",
+      "resolved": "./node_shrinkwrap/envify-3.4.0.tgz"
+    },
     "errno": {
       "version": "0.1.4",
       "from": "errno@>=0.1.3 <0.2.0",
@@ -1104,6 +1114,11 @@
       "version": "1.1.3",
       "from": "fast-levenshtein@>=1.1.0 <2.0.0",
       "resolved": "./node_shrinkwrap/fast-levenshtein-1.1.3.tgz"
+    },
+    "fbjs": {
+      "version": "0.6.1",
+      "from": "fbjs@>=0.6.1 <0.7.0",
+      "resolved": "./node_shrinkwrap/fbjs-0.6.1.tgz"
     },
     "figures": {
       "version": "1.5.0",
@@ -2372,6 +2387,23 @@
       "version": "1.2.2",
       "from": "jsprim@>=1.2.2 <2.0.0",
       "resolved": "./node_shrinkwrap/jsprim-1.2.2.tgz"
+    },
+    "jstransform": {
+      "version": "10.1.0",
+      "from": "jstransform@>=10.0.1 <11.0.0",
+      "resolved": "./node_shrinkwrap/jstransform-10.1.0.tgz",
+      "dependencies": {
+        "esprima-fb": {
+          "version": "13001.1001.0-dev-harmony-fb",
+          "from": "esprima-fb@13001.1001.0-dev-harmony-fb",
+          "resolved": "./node_shrinkwrap/esprima-fb-13001.1001.0-dev-harmony-fb.tgz"
+        },
+        "source-map": {
+          "version": "0.1.31",
+          "from": "source-map@0.1.31",
+          "resolved": "./node_shrinkwrap/source-map-0.1.31.tgz"
+        }
+      }
     },
     "kind-of": {
       "version": "3.0.2",
@@ -4262,6 +4294,11 @@
       "from": "progress@>=1.1.8 <2.0.0",
       "resolved": "./node_shrinkwrap/progress-1.1.8.tgz"
     },
+    "promise": {
+      "version": "7.1.1",
+      "from": "promise@>=7.0.3 <8.0.0",
+      "resolved": "./node_shrinkwrap/promise-7.1.1.tgz"
+    },
     "promise-finally": {
       "version": "2.1.0",
       "from": "promise-finally@>=2.0.1 <3.0.0",
@@ -4306,6 +4343,16 @@
       "version": "1.1.6",
       "from": "rc@>=1.1.5 <2.0.0",
       "resolved": "./node_shrinkwrap/rc-1.1.6.tgz"
+    },
+    "react": {
+      "version": "0.14.7",
+      "from": "react@latest",
+      "resolved": "./node_shrinkwrap/react-0.14.7.tgz"
+    },
+    "react-dom": {
+      "version": "0.14.7",
+      "from": "react-dom@latest",
+      "resolved": "./node_shrinkwrap/react-dom-0.14.7.tgz"
     },
     "read-all-stream": {
       "version": "3.1.0",
@@ -4865,6 +4912,11 @@
         }
       }
     },
+    "ua-parser-js": {
+      "version": "0.7.10",
+      "from": "ua-parser-js@>=0.7.9 <0.8.0",
+      "resolved": "./node_shrinkwrap/ua-parser-js-0.7.10.tgz"
+    },
     "uglify-js": {
       "version": "2.6.2",
       "from": "uglify-js@>=2.6.0 <2.7.0",
@@ -5059,6 +5111,11 @@
           "resolved": "./node_shrinkwrap/source-map-0.4.4.tgz"
         }
       }
+    },
+    "whatwg-fetch": {
+      "version": "0.9.0",
+      "from": "whatwg-fetch@>=0.9.0 <0.10.0",
+      "resolved": "./node_shrinkwrap/whatwg-fetch-0.9.0.tgz"
     },
     "when": {
       "version": "3.7.3",

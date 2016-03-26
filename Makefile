@@ -4,6 +4,7 @@ ESLINT := $(BIN)/eslint
 FOREMAN := $(BIN)/nf
 GULP := $(BIN)/gulp
 SHRINKPACK := $(BIN)/shrinkpack
+TYPINGS := $(BIN)/typings
 WEBPACK := $(BIN)/webpack
 
 NPM_FLAGS := --loglevel=http
@@ -12,6 +13,7 @@ setup:
 	node --version
 	npm --version
 	@npm install $(NPM_FLAGS)
+	@$(TYPINGS) install
 
 deps:
 	@npm shrinkwrap --dev
