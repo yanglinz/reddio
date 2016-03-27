@@ -2096,6 +2096,11 @@
         }
       }
     },
+    "gulp-data": {
+      "version": "1.2.1",
+      "from": "gulp-data@latest",
+      "resolved": "./node_shrinkwrap/gulp-data-1.2.1.tgz"
+    },
     "gulp-nunjucks": {
       "version": "2.2.0",
       "from": "gulp-nunjucks@2.2.0",
@@ -5303,6 +5308,11 @@
       "version": "1.0.2",
       "from": "util-deprecate@>=1.0.1 <1.1.0",
       "resolved": "./node_shrinkwrap/util-deprecate-1.0.2.tgz"
+    },
+    "util-extend": {
+      "version": "1.0.3",
+      "from": "util-extend@>=1.0.1 <2.0.0",
+      "resolved": "./node_shrinkwrap/util-extend-1.0.3.tgz"
     },
     "utils-merge": {
       "version": "1.0.0",
