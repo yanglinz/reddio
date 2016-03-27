@@ -27,7 +27,7 @@ build: clean
 	@$(WEBPACK)
 	@$(GULP) build
 
-watch:
+watch: clean
 	@$(FOREMAN) start dev-webpack,dev-gulp
 
 clean:

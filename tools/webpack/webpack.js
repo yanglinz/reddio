@@ -93,3 +93,23 @@ export function webpackConfig() {
     devServer: DEV_SERVER
   };
 }
+
+/**
+ * Get an array of scripts and stylesheets for normal builds, meant for production use
+ */
+export function webpackAssets() {
+  const scripts = [`/app/${OUTPUT.filename}`];
+  const stylesheets = [];
+  return { scripts, stylesheets };
+}
+
+/**
+ * Get an array of scripts and stylesheets for watch builds, meant for development use
+ */
+export function webpackWatchAssets() {
+  const scripts = [
+    `/${OUTPUT.filename}`
+  ];
+  const stylesheets = [];
+  return { scripts, stylesheets };
+}

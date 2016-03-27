@@ -6,7 +6,13 @@
   <title>Reddio</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  {% for css in stylesheets %}
+  <link rel="stylesheet" href="{{ css | safe }}">
+  {% endfor %}
 </head>
 <body>
+  {% for js in scripts %}
+  <script src="{{ js | safe }}"></script>
+  {% endfor %}
 </body>
 </html>

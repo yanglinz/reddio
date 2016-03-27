@@ -34,6 +34,7 @@
     "eslint-plugin-react": "4.2.3",
     "foreman": "1.4.1",
     "gulp": "github:gulpjs/gulp#4.0",
+    "gulp-data": "1.2.1",
     "gulp-nunjucks": "2.2.0",
     "shrinkpack": "0.4.1",
     "ts-loader": "0.8.1",
