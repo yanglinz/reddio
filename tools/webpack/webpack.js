@@ -57,16 +57,19 @@ MODULE.loaders = [typescriptLoader];
  * Webpack dev server
  */
 const DEV_SERVER = {};
+const DEV_SERVER_WATCH = {};
 
 /**
  * Port for the webpack dev server to run
  */
 DEV_SERVER.port = config.PORT;
+DEV_SERVER_WATCH.port = DEV_SERVER.port;
 
 /**
  * Serve static assets from build directory
  */
 DEV_SERVER.contentBase = path.resolve(projectRoot, 'dist');
+DEV_SERVER_WATCH.contentBase = DEV_SERVER.contentBase;
 
 /**
  * Make webpack dev server less noisy
@@ -80,6 +83,7 @@ DEV_SERVER.stats = {
   chunks: true,
   chunkModules: false
 };
+DEV_SERVER_WATCH.stats = DEV_SERVER.stats;
 
 /**
  * Webpack config factory
@@ -89,7 +93,8 @@ export function webpackConfig() {
     context: CONTEXT,
     entry: ENTRY,
     output: OUTPUT,
-    module: MODULE
+    module: MODULE,
+    devServer: DEV_SERVER
   };
 }
 
@@ -102,7 +107,7 @@ export function webpackWatchConfig() {
     entry: ENTRY,
     output: OUTPUT,
     module: MODULE,
-    devServer: DEV_SERVER
+    devServer: DEV_SERVER_WATCH
   };
 }
 
