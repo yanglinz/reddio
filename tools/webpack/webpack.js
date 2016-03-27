@@ -119,9 +119,7 @@ export function webpackAssets() {
  * Get an array of scripts and stylesheets for watch builds, meant for development use
  */
 export function webpackWatchAssets() {
-  const scripts = [
-    `/${OUTPUT.filename}`
-  ];
+  const scripts = [`/${OUTPUT.filename}`];
   const stylesheets = [];
   return { scripts, stylesheets };
 }
