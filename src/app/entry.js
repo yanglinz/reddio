@@ -1,4 +1,4 @@
-require('./entry.ts');
+require('./main.ts');
 
 if (module.hot) {
   module.hot.accept();

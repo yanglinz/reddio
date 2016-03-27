@@ -12,7 +12,7 @@ const CONTEXT = projectRoot;
 /**
  * The entry point for the bundle
  */
-const ENTRY = './src/app/main';
+const ENTRY = './src/app/entry';
 
 /**
  * Options affecting the output of the compilation
@@ -22,7 +22,7 @@ const OUTPUT = {};
 /**
  * Specifies the name of each output file on disk, cannot be a path
  */
-OUTPUT.filename = 'main.bundle.js';
+OUTPUT.filename = 'reddio.bundle.js';
 
 /**
  * The output directory as absolute path
