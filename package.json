@@ -36,6 +36,7 @@
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-data": "1.2.1",
     "gulp-nunjucks": "2.2.0",
+    "protractor": "3.2.2",
     "shrinkpack": "0.4.1",
     "ts-loader": "0.8.1",
     "typescript": "1.8.9",
