@@ -4,7 +4,6 @@ import nunjucks from 'gulp-nunjucks';
 
 import { webpackAssets, webpackWatchAssets } from '../webpack/webpack.js';
 
-
 const templates = ['src/**/*.html'];
 
 function buildTemplate() {

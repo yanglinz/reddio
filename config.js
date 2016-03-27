@@ -1,7 +1,6 @@
 import _ from 'lodash';
 import dotenv from 'dotenv';
 
-
 dotenv.config({ silent: true });
 
 const environment = _.defaults({}, process.env, {
