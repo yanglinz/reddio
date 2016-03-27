@@ -64,6 +64,24 @@ const DEV_SERVER = {};
 DEV_SERVER.port = config.PORT;
 
 /**
+ * Serve static assets from build directory
+ */
+DEV_SERVER.contentBase = path.resolve(projectRoot, 'dist');
+
+/**
+ * Add hot module reloading
+ */
+DEV_SERVER.hot = true;
+DEV_SERVER.inline = true;
+
+/**
+ * Make webpack dev server less noisy
+ */
+DEV_SERVER.stats = {
+  chunks: false
+};
+
+/**
  * Webpack config factory
  */
 export function webpackConfig() {

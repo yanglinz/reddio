@@ -6,7 +6,6 @@ GULP := $(BIN)/gulp
 SHRINKPACK := $(BIN)/shrinkpack
 TYPINGS := $(BIN)/typings
 WEBPACK := $(BIN)/webpack
-WEBPACK_DEV_SERVER := $(BIN)/webpack-dev-server
 
 NPM_FLAGS := --loglevel=http
 
@@ -28,11 +27,8 @@ build: clean
 	@$(WEBPACK)
 	@$(GULP) build
 
-watch-webpack:
-	@$(WEBPACK_DEV_SERVER)
-
 watch:
-	@$(FOREMAN) start dev-ts
+	@$(FOREMAN) start dev-webpack,dev-gulp
 
 clean:
 	@rm -rf dist
