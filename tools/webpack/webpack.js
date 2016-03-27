@@ -5,36 +5,32 @@ import * as config from '../../config.js';
 const projectRoot = path.resolve(__dirname, '../..');
 
 /**
- * The base directory (absolute path!) for resolving the entry option.
- * If output.pathinfo is set, the included pathinfo is shortened to this directory.
+ * The base directory (absolute path!) for resolving the entry option
  */
 const CONTEXT = projectRoot;
 
 /**
- * The entry point for the bundle.
- * If you pass a string: The string is resolved to a module which is loaded upon startup.
+ * The entry point for the bundle
  */
 const ENTRY = './src/app/main';
 
 /**
- * Options affecting the output of the compilation.
- * Output options tell Webpack how to write the compiled files to disk.
+ * Options affecting the output of the compilation
  */
 const OUTPUT = {};
 
 /**
- * Specifies the name of each output file on disk.
- * Cannot be a path, which is specified elsewhere.
+ * Specifies the name of each output file on disk, cannot be a path
  */
 OUTPUT.filename = 'main.bundle.js';
 
 /**
- * The output directory as absolute path.
+ * The output directory as absolute path
  */
 OUTPUT.path = path.resolve(projectRoot, 'dist/app');
 
 /**
- * The publicPath specifies the public URL address of the output files when referenced in a browser.
+ * Specifies the public URL address of the output files when referenced in a browser.
  */
 OUTPUT.publicPath = '/';
 
@@ -86,7 +82,7 @@ DEV_SERVER.stats = {
 DEV_SERVER_WATCH.stats = DEV_SERVER.stats;
 
 /**
- * Webpack config factory
+ * Webpack config factory for regular builds
  */
 export function webpackConfig() {
   return {
@@ -99,7 +95,7 @@ export function webpackConfig() {
 }
 
 /**
- * Webpack dev server watch config factory
+ * Webpack config factory for watch development builds
  */
 export function webpackWatchConfig() {
   return {
@@ -112,7 +108,7 @@ export function webpackWatchConfig() {
 }
 
 /**
- * Get an array of scripts and stylesheets for normal builds, meant for production use
+ * Get an array of scripts and stylesheets for regular builds
  */
 export function webpackAssets() {
   const scripts = [`/app/${OUTPUT.filename}`];
@@ -121,7 +117,7 @@ export function webpackAssets() {
 }
 
 /**
- * Get an array of scripts and stylesheets for watch builds, meant for development use
+ * Get an array of scripts and stylesheets for watch development builds
  */
 export function webpackWatchAssets() {
   const scripts = [`/${OUTPUT.filename}`];
