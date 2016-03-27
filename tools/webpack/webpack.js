@@ -69,22 +69,34 @@ DEV_SERVER.port = config.PORT;
 DEV_SERVER.contentBase = path.resolve(projectRoot, 'dist');
 
 /**
- * Add hot module reloading
- */
-DEV_SERVER.hot = true;
-DEV_SERVER.inline = true;
-
-/**
  * Make webpack dev server less noisy
  */
 DEV_SERVER.stats = {
-  chunks: false
+  assets: false,
+  colors: true,
+  version: false,
+  hash: false,
+  timings: false,
+  chunks: true,
+  chunkModules: false
 };
 
 /**
  * Webpack config factory
  */
 export function webpackConfig() {
+  return {
+    context: CONTEXT,
+    entry: ENTRY,
+    output: OUTPUT,
+    module: MODULE
+  };
+}
+
+/**
+ * Webpack dev server watch config factory
+ */
+export function webpackWatchConfig() {
   return {
     context: CONTEXT,
     entry: ENTRY,
