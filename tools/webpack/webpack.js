@@ -1,5 +1,6 @@
 import path from 'path';
 
+import * as config from '../../config.js';
 
 const projectRoot = path.resolve(__dirname, '../..');
 
@@ -33,6 +34,11 @@ OUTPUT.filename = 'main.bundle.js';
 OUTPUT.path = path.resolve(projectRoot, 'dist/app');
 
 /**
+ * The publicPath specifies the public URL address of the output files when referenced in a browser.
+ */
+OUTPUT.publicPath = '/';
+
+/**
  * Options affecting the normal modules
  */
 const MODULE = {};
@@ -48,6 +54,16 @@ const typescriptLoader = {
 MODULE.loaders = [typescriptLoader];
 
 /**
+ * Webpack dev server
+ */
+const DEV_SERVER = {};
+
+/**
+ * Port for the webpack dev server to run
+ */
+DEV_SERVER.port = config.PORT;
+
+/**
  * Webpack config factory
  */
 export function webpackConfig() {
@@ -55,6 +71,7 @@ export function webpackConfig() {
     context: CONTEXT,
     entry: ENTRY,
     output: OUTPUT,
-    module: MODULE
+    module: MODULE,
+    devServer: DEV_SERVER
   };
 }
