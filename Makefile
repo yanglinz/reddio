@@ -3,8 +3,10 @@ BABEL_NODE := $(BIN)/babel-node
 ESLINT := $(BIN)/eslint
 FOREMAN := $(BIN)/nf
 GULP := $(BIN)/gulp
+PROTRACTOR := $(BIN)/protractor
 SHRINKPACK := $(BIN)/shrinkpack
 TYPINGS := $(BIN)/typings
+WEBDRIVER_MANAGER := $(BIN)/webdriver-manager
 WEBPACK := $(BIN)/webpack
 WEBPACK_DEV_SERVER := $(BIN)/webpack-dev-server
 
@@ -15,6 +17,7 @@ setup:
 	npm --version
 	@npm install $(NPM_FLAGS)
 	@$(TYPINGS) install
+	@$(WEBDRIVER_MANAGER) update
 
 deps:
 	@npm shrinkwrap --dev
@@ -33,6 +36,9 @@ run: build
 
 watch: clean
 	@$(FOREMAN) start dev-webpack,dev-gulp
+
+test-full:
+	$(PROTRACTOR)
 
 clean:
 	@rm -rf dist
