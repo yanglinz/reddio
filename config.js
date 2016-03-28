@@ -1,3 +1,5 @@
+import assert from 'assert';
+
 import _ from 'lodash';
 import dotenv from 'dotenv';
 
@@ -11,5 +13,11 @@ const environment = _.defaults({}, process.env, {
 
 export const NODE_ENV = environment.NODE_ENV;
 export const ENVIRONMENT = NODE_ENV;
+export const CI = environment.CI;
+export const IS_PROD = ENVIRONMENT === 'production';
 export const HOSTNAME = environment.HOSTNAME;
 export const PORT = environment.PORT;
+
+if (CI) {
+  assert(IS_PROD, 'In CI, ENVIRONMENT must be set to production');
+}
