@@ -7,8 +7,6 @@ dependencies:
     - make setup
 
 test:
-  pre:
-    - ./scripts/update-chrome.sh
   override:
     - make build
     - make test-full

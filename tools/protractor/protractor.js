@@ -9,7 +9,7 @@ const baseUrl = `http://${config.HOSTNAME}:${config.PORT}`;
  * Test suite against a single browser
  */
 const capabilities = {
-  browserName: 'chrome'
+  browserName: config.CI ? 'firefox' : 'chrome'
 };
 
 /**
