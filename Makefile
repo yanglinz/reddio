@@ -34,7 +34,7 @@ build: clean
 run: build
 	$(WEBPACK_DEV_SERVER)
 
-watch: clean
+watch: build
 	@$(BABEL_NODE) ./tools/custom/debug-info.js
 	@$(FOREMAN) start dev-webpack,dev-gulp
 
