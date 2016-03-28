@@ -35,10 +35,12 @@ run: build
 	$(WEBPACK_DEV_SERVER)
 
 watch: clean
+	@$(BABEL_NODE) ./tools/custom/debug-info.js
 	@$(FOREMAN) start dev-webpack,dev-gulp
 
 test-full:
-	$(PROTRACTOR)
+	@$(BABEL_NODE) ./tools/custom/debug-info.js
+	@$(PROTRACTOR)
 
 clean:
 	@rm -rf dist
