@@ -47,9 +47,9 @@ watch: build
 
 artifact: clean
 	@$(BABEL_NODE) ./tools/custom/debug-info.js
-    @$(WEBPACK)
-    @$(GULP) build
-    @$(GULP) artifact
+	@$(WEBPACK)
+	@$(GULP) build
+	@$(GULP) artifact
 
 deploy: artifact
 	@$(GULP) deploy
