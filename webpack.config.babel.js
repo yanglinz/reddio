@@ -1,4 +1,4 @@
 import { webpackConfig } from './tools/webpack/webpack.js';
 
-const webpackConfig = webpackConfig();
-export default webpackConfi;
+const cfg = webpackConfig();
+export default cfg;

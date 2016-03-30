@@ -5,5 +5,5 @@ import { webpackWatchConfig } from './tools/webpack/webpack.js';
 
 assert(!config.IS_PROD, 'Cannot run watch in production');
 
-const webpackConfig = webpackWatchConfig();
-export default webpackConfig;
+const cfg = webpackWatchConfig();
+export default cfg;
