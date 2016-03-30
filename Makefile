@@ -45,7 +45,7 @@ watch: clean
 	@$(BABEL_NODE) ./tools/custom/debug-info.js
 	@$(FOREMAN) start dev-webpack,dev-gulp
 
-deploy: build
+deploy:
 	@$(GULP) deploy
 
 clean:
