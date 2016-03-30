@@ -605,6 +605,11 @@
       "from": "bl@>=1.0.0 <1.1.0",
       "resolved": "./node_shrinkwrap/bl-1.0.3.tgz"
     },
+    "block-stream": {
+      "version": "0.0.8",
+      "from": "block-stream@*",
+      "resolved": "./node_shrinkwrap/block-stream-0.0.8.tgz"
+    },
     "bluebird": {
       "version": "3.3.4",
       "from": "bluebird@>=3.1.1 <4.0.0",
@@ -622,7 +627,8 @@
       "dependencies": {
         "repeating": {
           "version": "2.0.0",
-          "from": "repeating@>=2.0.0 <3.0.0"
+          "from": "repeating@2.0.0",
+          "resolved": "./node_shrinkwrap/repeating-2.0.0.tgz"
         }
       }
     },
@@ -858,6 +864,16 @@
       "from": "crypto-browserify@>=3.2.6 <3.3.0",
       "resolved": "./node_shrinkwrap/crypto-browserify-3.2.8.tgz"
     },
+    "ctype": {
+      "version": "0.5.3",
+      "from": "ctype@0.5.3",
+      "resolved": "./node_shrinkwrap/ctype-0.5.3.tgz"
+    },
+    "cycle": {
+      "version": "1.0.3",
+      "from": "cycle@>=1.0.0 <1.1.0",
+      "resolved": "./node_shrinkwrap/cycle-1.0.3.tgz"
+    },
     "d": {
       "version": "0.1.1",
       "from": "d@>=0.1.1 <0.2.0",
@@ -894,6 +910,11 @@
       "version": "1.2.0",
       "from": "decamelize@>=1.1.2 <2.0.0",
       "resolved": "./node_shrinkwrap/decamelize-1.2.0.tgz"
+    },
+    "deep-equal": {
+      "version": "1.0.1",
+      "from": "deep-equal@*",
+      "resolved": "./node_shrinkwrap/deep-equal-1.0.1.tgz"
     },
     "deep-extend": {
       "version": "0.4.1",
@@ -976,6 +997,18 @@
       "version": "2.0.0",
       "from": "dotenv@2.0.0",
       "resolved": "./node_shrinkwrap/dotenv-2.0.0.tgz"
+    },
+    "du": {
+      "version": "0.1.0",
+      "from": "du@0.1.0",
+      "resolved": "./node_shrinkwrap/du-0.1.0.tgz",
+      "dependencies": {
+        "async": {
+          "version": "0.1.22",
+          "from": "async@>=0.1.22 <0.2.0",
+          "resolved": "./node_shrinkwrap/async-0.1.22.tgz"
+        }
+      }
     },
     "duplexer2": {
       "version": "0.0.2",
@@ -1231,6 +1264,11 @@
       "version": "1.0.2",
       "from": "extsprintf@1.0.2",
       "resolved": "./node_shrinkwrap/extsprintf-1.0.2.tgz"
+    },
+    "eyes": {
+      "version": "0.1.8",
+      "from": "eyes@>=0.1.0 <0.2.0",
+      "resolved": "./node_shrinkwrap/eyes-0.1.8.tgz"
     },
     "fancy-log": {
       "version": "1.2.0",
@@ -1998,6 +2036,16 @@
         }
       }
     },
+    "fstream": {
+      "version": "1.0.8",
+      "from": "fstream@>=1.0.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/fstream-1.0.8.tgz"
+    },
+    "fstream-ignore": {
+      "version": "1.0.2",
+      "from": "fstream-ignore@1.0.2",
+      "resolved": "./node_shrinkwrap/fstream-ignore-1.0.2.tgz"
+    },
     "function-bind": {
       "version": "1.1.0",
       "from": "function-bind@>=1.0.2 <2.0.0",
@@ -2364,6 +2412,11 @@
       "from": "https-proxy-agent@>=1.0.0 <2.0.0",
       "resolved": "./node_shrinkwrap/https-proxy-agent-1.0.0.tgz"
     },
+    "i": {
+      "version": "0.3.4",
+      "from": "i@>=0.3.0 <0.4.0",
+      "resolved": "./node_shrinkwrap/i-0.3.4.tgz"
+    },
     "ieee754": {
       "version": "1.1.6",
       "from": "ieee754@>=1.1.4 <2.0.0",
@@ -2465,6 +2518,11 @@
       "version": "1.0.0",
       "from": "is-builtin-module@>=1.0.0 <2.0.0",
       "resolved": "./node_shrinkwrap/is-builtin-module-1.0.0.tgz"
+    },
+    "is-domain": {
+      "version": "0.0.1",
+      "from": "is-domain@0.0.1",
+      "resolved": "./node_shrinkwrap/is-domain-0.0.1.tgz"
     },
     "is-dotfile": {
       "version": "1.0.2",
@@ -2735,6 +2793,11 @@
         }
       }
     },
+    "keypress": {
+      "version": "0.1.0",
+      "from": "keypress@>=0.1.0 <0.2.0",
+      "resolved": "./node_shrinkwrap/keypress-0.1.0.tgz"
+    },
     "kind-of": {
       "version": "3.0.2",
       "from": "kind-of@>=3.0.2 <4.0.0",
@@ -2956,7 +3019,8 @@
       "dependencies": {
         "lodash.keys": {
           "version": "2.4.1",
-          "from": "lodash.keys@>=2.4.1 <2.5.0"
+          "from": "lodash.keys@2.4.1",
+          "resolved": "./node_shrinkwrap/lodash.keys-2.4.1.tgz"
         }
       }
     },
@@ -3150,7 +3214,8 @@
       "dependencies": {
         "lodash.keys": {
           "version": "2.4.1",
-          "from": "lodash.keys@>=2.4.1 <2.5.0"
+          "from": "lodash.keys@2.4.1",
+          "resolved": "./node_shrinkwrap/lodash.keys-2.4.1.tgz"
         }
       }
     },
@@ -3286,6 +3351,11 @@
         }
       }
     },
+    "moniker": {
+      "version": "0.1.2",
+      "from": "moniker@0.1.2",
+      "resolved": "./node_shrinkwrap/moniker-0.1.2.tgz"
+    },
     "ms": {
       "version": "0.7.1",
       "from": "ms@0.7.1",
@@ -3316,10 +3386,20 @@
       "from": "nan@>=2.1.0 <3.0.0",
       "resolved": "./node_shrinkwrap/nan-2.2.0.tgz"
     },
+    "ncp": {
+      "version": "0.4.2",
+      "from": "ncp@>=0.4.0 <0.5.0",
+      "resolved": "./node_shrinkwrap/ncp-0.4.2.tgz"
+    },
     "negotiator": {
       "version": "0.6.0",
       "from": "negotiator@0.6.0",
       "resolved": "./node_shrinkwrap/negotiator-0.6.0.tgz"
+    },
+    "netrc": {
+      "version": "0.1.4",
+      "from": "netrc@0.1.4",
+      "resolved": "./node_shrinkwrap/netrc-0.1.4.tgz"
     },
     "next-tick": {
       "version": "0.2.2",
@@ -3750,7 +3830,8 @@
           "dependencies": {
             "ansi": {
               "version": "0.3.1",
-              "from": "ansi@>=0.3.1 <0.4.0"
+              "from": "ansi@>=0.3.1 <0.4.0",
+              "resolved": "./node_shrinkwrap/ansi-0.3.1.tgz"
             },
             "concat-stream": {
               "version": "1.5.0",
@@ -4649,6 +4730,11 @@
       "from": "pinkie-promise@>=2.0.0 <3.0.0",
       "resolved": "./node_shrinkwrap/pinkie-promise-2.0.0.tgz"
     },
+    "pkginfo": {
+      "version": "0.4.0",
+      "from": "pkginfo@>=0.0.0 <1.0.0",
+      "resolved": "./node_shrinkwrap/pkginfo-0.4.0.tgz"
+    },
     "pluralize": {
       "version": "1.2.1",
       "from": "pluralize@>=1.2.1 <2.0.0",
@@ -4755,6 +4841,11 @@
       "version": "2.1.0",
       "from": "promise-finally@>=2.0.1 <3.0.0",
       "resolved": "./node_shrinkwrap/promise-finally-2.1.0.tgz"
+    },
+    "prompt": {
+      "version": "0.2.14",
+      "from": "prompt@>=0.2.14 <0.3.0",
+      "resolved": "./node_shrinkwrap/prompt-0.2.14.tgz"
     },
     "protractor": {
       "version": "3.2.2",
@@ -4869,6 +4960,11 @@
       "version": "0.14.7",
       "from": "react-dom@latest",
       "resolved": "./node_shrinkwrap/react-dom-0.14.7.tgz"
+    },
+    "read": {
+      "version": "1.0.5",
+      "from": "read@1.0.5",
+      "resolved": "./node_shrinkwrap/read-1.0.5.tgz"
     },
     "read-all-stream": {
       "version": "3.1.0",
@@ -5001,6 +5097,11 @@
       "version": "1.0.1",
       "from": "restore-cursor@>=1.0.1 <2.0.0",
       "resolved": "./node_shrinkwrap/restore-cursor-1.0.1.tgz"
+    },
+    "revalidator": {
+      "version": "0.1.8",
+      "from": "revalidator@>=0.1.0 <0.2.0",
+      "resolved": "./node_shrinkwrap/revalidator-0.1.8.tgz"
     },
     "right-align": {
       "version": "0.1.3",
@@ -5253,6 +5354,11 @@
       "from": "spdx-license-ids@>=1.0.2 <2.0.0",
       "resolved": "./node_shrinkwrap/spdx-license-ids-1.2.0.tgz"
     },
+    "split": {
+      "version": "0.3.1",
+      "from": "split@0.3.1",
+      "resolved": "./node_shrinkwrap/split-0.3.1.tgz"
+    },
     "sprintf-js": {
       "version": "1.0.3",
       "from": "sprintf-js@>=1.0.2 <1.1.0",
@@ -5345,6 +5451,118 @@
       "from": "supports-color@>=2.0.0 <3.0.0",
       "resolved": "./node_shrinkwrap/supports-color-2.0.0.tgz"
     },
+    "surge": {
+      "version": "0.17.7",
+      "from": "surge@0.17.7",
+      "resolved": "./node_shrinkwrap/surge-0.17.7.tgz",
+      "dependencies": {
+        "asn1": {
+          "version": "0.1.11",
+          "from": "asn1@0.1.11",
+          "resolved": "./node_shrinkwrap/asn1-0.1.11.tgz"
+        },
+        "assert-plus": {
+          "version": "0.1.5",
+          "from": "assert-plus@>=0.1.5 <0.2.0",
+          "resolved": "./node_shrinkwrap/assert-plus-0.1.5.tgz"
+        },
+        "async": {
+          "version": "0.9.2",
+          "from": "async@>=0.9.0 <0.10.0",
+          "resolved": "./node_shrinkwrap/async-0.9.2.tgz"
+        },
+        "aws-sign2": {
+          "version": "0.5.0",
+          "from": "aws-sign2@>=0.5.0 <0.6.0",
+          "resolved": "./node_shrinkwrap/aws-sign2-0.5.0.tgz"
+        },
+        "boom": {
+          "version": "0.4.2",
+          "from": "boom@>=0.4.0 <0.5.0",
+          "resolved": "./node_shrinkwrap/boom-0.4.2.tgz"
+        },
+        "combined-stream": {
+          "version": "0.0.7",
+          "from": "combined-stream@>=0.0.4 <0.1.0",
+          "resolved": "./node_shrinkwrap/combined-stream-0.0.7.tgz"
+        },
+        "cryptiles": {
+          "version": "0.2.2",
+          "from": "cryptiles@>=0.2.0 <0.3.0",
+          "resolved": "./node_shrinkwrap/cryptiles-0.2.2.tgz"
+        },
+        "delayed-stream": {
+          "version": "0.0.5",
+          "from": "delayed-stream@0.0.5",
+          "resolved": "./node_shrinkwrap/delayed-stream-0.0.5.tgz"
+        },
+        "forever-agent": {
+          "version": "0.5.2",
+          "from": "forever-agent@>=0.5.0 <0.6.0",
+          "resolved": "./node_shrinkwrap/forever-agent-0.5.2.tgz"
+        },
+        "form-data": {
+          "version": "0.1.4",
+          "from": "form-data@>=0.1.0 <0.2.0",
+          "resolved": "./node_shrinkwrap/form-data-0.1.4.tgz"
+        },
+        "hawk": {
+          "version": "1.1.1",
+          "from": "hawk@1.1.1",
+          "resolved": "./node_shrinkwrap/hawk-1.1.1.tgz"
+        },
+        "hoek": {
+          "version": "0.9.1",
+          "from": "hoek@>=0.9.0 <0.10.0",
+          "resolved": "./node_shrinkwrap/hoek-0.9.1.tgz"
+        },
+        "http-signature": {
+          "version": "0.10.1",
+          "from": "http-signature@>=0.10.0 <0.11.0",
+          "resolved": "./node_shrinkwrap/http-signature-0.10.1.tgz"
+        },
+        "mime": {
+          "version": "1.2.11",
+          "from": "mime@>=1.2.11 <1.3.0",
+          "resolved": "./node_shrinkwrap/mime-1.2.11.tgz"
+        },
+        "mime-types": {
+          "version": "1.0.2",
+          "from": "mime-types@>=1.0.1 <1.1.0",
+          "resolved": "./node_shrinkwrap/mime-types-1.0.2.tgz"
+        },
+        "minimist": {
+          "version": "1.1.1",
+          "from": "minimist@1.1.1",
+          "resolved": "./node_shrinkwrap/minimist-1.1.1.tgz"
+        },
+        "oauth-sign": {
+          "version": "0.3.0",
+          "from": "oauth-sign@>=0.3.0 <0.4.0",
+          "resolved": "./node_shrinkwrap/oauth-sign-0.3.0.tgz"
+        },
+        "qs": {
+          "version": "1.0.2",
+          "from": "qs@>=1.0.0 <1.1.0",
+          "resolved": "./node_shrinkwrap/qs-1.0.2.tgz"
+        },
+        "request": {
+          "version": "2.40.0",
+          "from": "request@2.40.0",
+          "resolved": "./node_shrinkwrap/request-2.40.0.tgz"
+        },
+        "sntp": {
+          "version": "0.2.4",
+          "from": "sntp@>=0.2.0 <0.3.0",
+          "resolved": "./node_shrinkwrap/sntp-0.2.4.tgz"
+        }
+      }
+    },
+    "surge-ignore": {
+      "version": "0.2.0",
+      "from": "surge-ignore@0.2.0",
+      "resolved": "./node_shrinkwrap/surge-ignore-0.2.0.tgz"
+    },
     "table": {
       "version": "3.7.8",
       "from": "table@>=3.7.8 <4.0.0",
@@ -5354,6 +5572,38 @@
       "version": "0.1.10",
       "from": "tapable@>=0.1.8 <0.2.0",
       "resolved": "./node_shrinkwrap/tapable-0.1.10.tgz"
+    },
+    "tar": {
+      "version": "1.0.0",
+      "from": "tar@1.0.0",
+      "resolved": "./node_shrinkwrap/tar-1.0.0.tgz"
+    },
+    "tar.gz": {
+      "version": "0.1.1",
+      "from": "tar.gz@0.1.1",
+      "resolved": "./node_shrinkwrap/tar.gz-0.1.1.tgz",
+      "dependencies": {
+        "commander": {
+          "version": "1.1.1",
+          "from": "commander@>=1.1.0 <1.2.0",
+          "resolved": "./node_shrinkwrap/commander-1.1.1.tgz"
+        },
+        "fstream": {
+          "version": "0.1.31",
+          "from": "fstream@>=0.1.0 <0.2.0",
+          "resolved": "./node_shrinkwrap/fstream-0.1.31.tgz"
+        },
+        "graceful-fs": {
+          "version": "3.0.8",
+          "from": "graceful-fs@>=3.0.2 <3.1.0",
+          "resolved": "./node_shrinkwrap/graceful-fs-3.0.8.tgz"
+        },
+        "tar": {
+          "version": "0.1.20",
+          "from": "tar@>=0.1.0 <0.2.0",
+          "resolved": "./node_shrinkwrap/tar-0.1.20.tgz"
+        }
+      }
     },
     "text-table": {
       "version": "0.2.0",
@@ -5630,6 +5880,11 @@
         }
       }
     },
+    "url-parse-as-address": {
+      "version": "1.0.0",
+      "from": "url-parse-as-address@1.0.0",
+      "resolved": "./node_shrinkwrap/url-parse-as-address-1.0.0.tgz"
+    },
     "url-parse-lax": {
       "version": "1.0.0",
       "from": "url-parse-lax@>=1.0.0 <2.0.0",
@@ -5659,6 +5914,18 @@
       "version": "1.0.3",
       "from": "util-extend@>=1.0.1 <2.0.0",
       "resolved": "./node_shrinkwrap/util-extend-1.0.3.tgz"
+    },
+    "utile": {
+      "version": "0.2.1",
+      "from": "utile@>=0.2.0 <0.3.0",
+      "resolved": "./node_shrinkwrap/utile-0.2.1.tgz",
+      "dependencies": {
+        "async": {
+          "version": "0.2.10",
+          "from": "async@>=0.2.9 <0.3.0",
+          "resolved": "./node_shrinkwrap/async-0.2.10.tgz"
+        }
+      }
     },
     "utils-merge": {
       "version": "1.0.0",
@@ -5819,6 +6086,28 @@
       "version": "0.1.4",
       "from": "window-size@>=0.1.4 <0.2.0",
       "resolved": "./node_shrinkwrap/window-size-0.1.4.tgz"
+    },
+    "winston": {
+      "version": "0.8.3",
+      "from": "winston@>=0.8.0 <0.9.0",
+      "resolved": "./node_shrinkwrap/winston-0.8.3.tgz",
+      "dependencies": {
+        "async": {
+          "version": "0.2.10",
+          "from": "async@>=0.2.0 <0.3.0",
+          "resolved": "./node_shrinkwrap/async-0.2.10.tgz"
+        },
+        "colors": {
+          "version": "0.6.2",
+          "from": "colors@>=0.6.0 <0.7.0",
+          "resolved": "./node_shrinkwrap/colors-0.6.2.tgz"
+        },
+        "pkginfo": {
+          "version": "0.3.1",
+          "from": "pkginfo@>=0.3.0 <0.4.0",
+          "resolved": "./node_shrinkwrap/pkginfo-0.3.1.tgz"
+        }
+      }
     },
     "wordwrap": {
       "version": "1.0.0",

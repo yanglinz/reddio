@@ -42,6 +42,7 @@
     "protractor": "3.2.2",
     "q-io": "1.13.2",
     "shrinkpack": "0.4.1",
+    "surge": "0.17.7",
     "ts-loader": "0.8.1",
     "typescript": "1.8.9",
     "typings": "0.7.9",
