@@ -26,6 +26,13 @@ deps:
 lint:
 	@$(ESLINT) .
 
+test:
+	@echo "Running unit tests"
+
+test-full:
+	@$(BABEL_NODE) ./tools/custom/debug-info.js
+	@$(PROTRACTOR)
+
 build: clean
 	@$(BABEL_NODE) ./tools/custom/debug-info.js
 	@$(WEBPACK)
@@ -34,13 +41,15 @@ build: clean
 run: build
 	$(WEBPACK_DEV_SERVER)
 
-watch: build
+watch: clean
 	@$(BABEL_NODE) ./tools/custom/debug-info.js
 	@$(FOREMAN) start dev-webpack,dev-gulp
 
-test-full:
-	@$(BABEL_NODE) ./tools/custom/debug-info.js
-	@$(PROTRACTOR)
+deploy:
+	@$(GULP) deploy
 
 clean:
 	@rm -rf dist
+
+.PHONY: setup deps lint test test-full build run watch artifact deploy clean
+
