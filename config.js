@@ -17,6 +17,9 @@ export const CI = environment.CI;
 export const IS_PROD = ENVIRONMENT === 'production';
 export const HOSTNAME = environment.HOSTNAME;
 export const PORT = environment.PORT;
+export const SURGE_LOGIN = environment.SURGE_LOGIN;
+export const SURGE_TOKEN = environment.SURGE_TOKEN;
+export const SURGE_DOMAIN = environment.SURGE_DOMAIN;
 
 if (CI) {
   assert(IS_PROD, 'In CI, ENVIRONMENT must be set to production');
