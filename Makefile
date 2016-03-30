@@ -41,17 +41,11 @@ build: clean
 run: build
 	$(WEBPACK_DEV_SERVER)
 
-watch: build
+watch: clean
 	@$(BABEL_NODE) ./tools/custom/debug-info.js
 	@$(FOREMAN) start dev-webpack,dev-gulp
 
-artifact: clean
-	@$(BABEL_NODE) ./tools/custom/debug-info.js
-	@$(WEBPACK)
-	@$(GULP) build
-	@$(GULP) artifact
-
-deploy: artifact
+deploy: build
 	@$(GULP) deploy
 
 clean:

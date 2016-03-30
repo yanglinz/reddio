@@ -8,7 +8,7 @@ dependencies:
 
 test:
   override:
-    - make artifact
+    - make build
     - make run:
         background: true
     - sleep 15
