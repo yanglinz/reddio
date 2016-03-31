@@ -1,3 +1,5 @@
-import config from './core/config.ts';
+import * as _ from 'lodash';
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 
-console.log('Hello world!', config);
+import config from './core/config.ts';
