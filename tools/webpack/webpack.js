@@ -1,6 +1,9 @@
 import path from 'path';
 
+import { DefinePlugin } from 'webpack';
+
 import * as config from '../../config.js';
+import { browserConfigs } from '../../config.js';
 
 const projectRoot = path.resolve(__dirname, '../..');
 
@@ -82,6 +85,15 @@ DEV_SERVER.stats = {
 DEV_SERVER_WATCH.stats = DEV_SERVER.stats;
 
 /**
+ * Plugins
+ */
+const definePlugin = new DefinePlugin({
+  __WEBPACK_DEFINE__: JSON.stringify(browserConfigs())
+});
+
+const PLUGINS = [definePlugin];
+
+/**
  * Webpack config factory for regular builds
  */
 export function webpackConfig() {
@@ -90,7 +102,8 @@ export function webpackConfig() {
     entry: ENTRY,
     output: OUTPUT,
     module: MODULE,
-    devServer: DEV_SERVER
+    devServer: DEV_SERVER,
+    plugins: PLUGINS
   };
 }
 
@@ -103,7 +116,8 @@ export function webpackWatchConfig() {
     entry: ENTRY,
     output: OUTPUT,
     module: MODULE,
-    devServer: DEV_SERVER_WATCH
+    devServer: DEV_SERVER_WATCH,
+    plugins: PLUGINS
   };
 }
 
