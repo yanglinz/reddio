@@ -45,7 +45,13 @@ const MODULE = {};
 /**
  * Loaders that affect file transformation
  */
-MODULE.loaders = [];
+const babelLoader = {
+  test: /\.jsx?$/,
+  exclude: /node_modules/,
+  loader: 'babel'
+};
+
+MODULE.loaders = [babelLoader];
 
 /**
  * Webpack dev server
