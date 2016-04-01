@@ -56,6 +56,11 @@
       "from": "amdefine@>=0.0.4",
       "resolved": "./node_shrinkwrap/amdefine-1.0.0.tgz"
     },
+    "analytics.js-loader": {
+      "version": "2.1.2",
+      "from": "analytics.js-loader@latest",
+      "resolved": "./node_shrinkwrap/analytics.js-loader-2.1.2.tgz"
+    },
     "ansi": {
       "version": "0.3.1",
       "from": "ansi@0.3.1",

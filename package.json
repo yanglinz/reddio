@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/yanglinz/reddio#readme",
   "dependencies": {
+    "analytics.js-loader": "2.1.2",
     "lodash": "4.6.1",
     "react": "0.14.7",
     "react-dom": "0.14.7"
