@@ -45,12 +45,7 @@ const MODULE = {};
 /**
  * Loaders that affect file transformation
  */
-const typescriptLoader = {
-  test: /\.tsx?$/,
-  loader: 'ts-loader'
-};
-
-MODULE.loaders = [typescriptLoader];
+MODULE.loaders = [];
 
 /**
  * Webpack dev server

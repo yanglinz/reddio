@@ -2,7 +2,6 @@
 .env
 node_modules/
 dist/
-typings/
 
 # editor
 .idea/

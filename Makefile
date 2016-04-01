@@ -5,7 +5,6 @@ FOREMAN := $(BIN)/nf
 GULP := $(BIN)/gulp
 PROTRACTOR := $(BIN)/protractor
 SHRINKPACK := $(BIN)/shrinkpack
-TYPINGS := $(BIN)/typings
 WEBDRIVER_MANAGER := $(BIN)/webdriver-manager
 WEBPACK := $(BIN)/webpack
 WEBPACK_DEV_SERVER := $(BIN)/webpack-dev-server
@@ -16,7 +15,6 @@ setup:
 	node --version
 	npm --version
 	@npm install $(NPM_FLAGS)
-	@$(TYPINGS) install
 	@$(WEBDRIVER_MANAGER) update
 
 deps:
