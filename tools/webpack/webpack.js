@@ -54,6 +54,19 @@ const babelLoader = {
 MODULE.loaders = [babelLoader];
 
 /**
+ * Resolve
+ */
+const RESOLVE = {};
+
+/**
+ * Resolve module relative to src/app
+ */
+RESOLVE.modulesDirectories = [
+  'node_modules',
+  'src/app'
+];
+
+/**
  * Webpack dev server
  */
 const DEV_SERVER = {};
@@ -103,6 +116,7 @@ export function webpackConfig() {
     entry: ENTRY,
     output: OUTPUT,
     module: MODULE,
+    resolve: RESOLVE,
     devServer: DEV_SERVER,
     plugins: PLUGINS
   };
@@ -117,6 +131,7 @@ export function webpackWatchConfig() {
     entry: ENTRY,
     output: OUTPUT,
     module: MODULE,
+    resolve: RESOLVE,
     devServer: DEV_SERVER_WATCH,
     plugins: PLUGINS
   };
