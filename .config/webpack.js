@@ -2,10 +2,10 @@ import path from 'path';
 
 import { DefinePlugin } from 'webpack';
 
-import * as config from '../../config.js';
-import { browserConfigs } from '../../config.js';
+import * as config from '../config.js';
+import { browserConfigs } from '../config.js';
 
-const projectRoot = path.resolve(__dirname, '../..');
+const projectRoot = path.resolve(__dirname, '..');
 
 /**
  * The base directory (absolute path!) for resolving the entry option

@@ -2,7 +2,7 @@ import gulp from 'gulp';
 import data from 'gulp-data';
 import nunjucks from 'gulp-nunjucks';
 
-import { webpackAssets, webpackWatchAssets } from '../webpack/webpack.js';
+import { webpackAssets, webpackWatchAssets } from '../../.config/webpack.js';
 
 const templates = ['src/**/*.html'];
 

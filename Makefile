@@ -28,11 +28,11 @@ test:
 	@echo "Running unit tests"
 
 test-full:
-	@$(BABEL_NODE) ./tools/custom/debug-info.js
+	@$(BABEL_NODE) ./scripts/custom/debug-info.js
 	@$(PROTRACTOR)
 
 build: clean
-	@$(BABEL_NODE) ./tools/custom/debug-info.js
+	@$(BABEL_NODE) ./scripts/custom/debug-info.js
 	@$(WEBPACK)
 	@$(GULP) build
 
@@ -40,7 +40,7 @@ run: build
 	$(WEBPACK_DEV_SERVER)
 
 watch: clean
-	@$(BABEL_NODE) ./tools/custom/debug-info.js
+	@$(BABEL_NODE) ./scripts/custom/debug-info.js
 	@$(FOREMAN) start dev-webpack,dev-gulp
 
 deploy:

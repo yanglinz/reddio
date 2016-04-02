@@ -1,9 +1,9 @@
 import gulp from 'gulp';
 
 import * as config from './config.js';
-import './tools/gulp/deploy.js';
-import './tools/gulp/fingerprint.js';
-import './tools/gulp/template.js';
+import './scripts/gulp/deploy.js';
+import './scripts/gulp/fingerprint.js';
+import './scripts/gulp/template.js';
 
 const buildPipeline = [
   'template:build',
