@@ -2,7 +2,7 @@
 .env
 node_modules/
 dist/
-typings/
+npm-debug.log
 
 # editor
 .idea/

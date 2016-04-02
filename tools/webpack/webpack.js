@@ -1,6 +1,9 @@
 import path from 'path';
 
+import { DefinePlugin } from 'webpack';
+
 import * as config from '../../config.js';
+import { browserConfigs } from '../../config.js';
 
 const projectRoot = path.resolve(__dirname, '../..');
 
@@ -42,12 +45,26 @@ const MODULE = {};
 /**
  * Loaders that affect file transformation
  */
-const typescriptLoader = {
-  test: /\.tsx?$/,
-  loader: 'ts-loader'
+const babelLoader = {
+  test: /\.jsx?$/,
+  exclude: /node_modules/,
+  loader: 'babel'
 };
 
-MODULE.loaders = [typescriptLoader];
+MODULE.loaders = [babelLoader];
+
+/**
+ * Resolve
+ */
+const RESOLVE = {};
+
+/**
+ * Resolve module relative to src/app
+ */
+RESOLVE.modulesDirectories = [
+  'node_modules',
+  'src/app'
+];
 
 /**
  * Webpack dev server
@@ -82,6 +99,15 @@ DEV_SERVER.stats = {
 DEV_SERVER_WATCH.stats = DEV_SERVER.stats;
 
 /**
+ * Plugins
+ */
+const definePlugin = new DefinePlugin({
+  __WEBPACK_DEFINE__: JSON.stringify(browserConfigs())
+});
+
+const PLUGINS = [definePlugin];
+
+/**
  * Webpack config factory for regular builds
  */
 export function webpackConfig() {
@@ -90,7 +116,9 @@ export function webpackConfig() {
     entry: ENTRY,
     output: OUTPUT,
     module: MODULE,
-    devServer: DEV_SERVER
+    resolve: RESOLVE,
+    devServer: DEV_SERVER,
+    plugins: PLUGINS
   };
 }
 
@@ -103,7 +131,9 @@ export function webpackWatchConfig() {
     entry: ENTRY,
     output: OUTPUT,
     module: MODULE,
-    devServer: DEV_SERVER_WATCH
+    resolve: RESOLVE,
+    devServer: DEV_SERVER_WATCH,
+    plugins: PLUGINS
   };
 }
 
