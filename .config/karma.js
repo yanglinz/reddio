@@ -4,13 +4,15 @@ import { webpackConfig } from './webpack.js';
  * Test files to run tests against
  */
 const UNIT_TESTS = 'src/**/__tests__/*-test.js';
-const FILES = [UNIT_TESTS];
+const INTEGRATION_TESTS = 'src/**/tests/*-test.js';
+const FILES = [UNIT_TESTS, INTEGRATION_TESTS];
 
 /**
  * Preprocessors
  */
 const PREPROCESSORS = {
-  [UNIT_TESTS]: ['webpack']
+  [UNIT_TESTS]: ['webpack'],
+  [INTEGRATION_TESTS]: ['webpack']
 };
 
 /**
