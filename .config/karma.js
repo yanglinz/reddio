@@ -28,7 +28,7 @@ const BROWSERS = ['Chrome'];
 /**
  * Reporters
  */
-const REPORTERS = ['progress'];
+const REPORTERS = ['mocha'];
 
 /**
  * Custom webpack middleware
