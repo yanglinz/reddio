@@ -36,7 +36,8 @@
     },
     "ansi": {
       "version": "0.3.1",
-      "from": "ansi@>=0.3.0 <0.4.0"
+      "from": "ansi@0.3.1",
+      "resolved": "./node_shrinkwrap/ansi-0.3.1.tgz"
     },
     "anymatch": {
       "version": "1.3.0",
@@ -5578,7 +5579,8 @@
       "dependencies": {
         "lodash": {
           "version": "3.10.1",
-          "from": "lodash@>=3.10.1 <4.0.0"
+          "from": "lodash@3.10.1",
+          "resolved": "./node_shrinkwrap/lodash-3.10.1.tgz"
         }
       }
     },
@@ -13923,7 +13925,8 @@
       "dependencies": {
         "isarray": {
           "version": "0.0.1",
-          "from": "isarray@0.0.1"
+          "from": "isarray@0.0.1",
+          "resolved": "./node_shrinkwrap/isarray-0.0.1.tgz"
         }
       }
     },
@@ -14133,6 +14136,11 @@
       "from": "karma-mocha@*",
       "resolved": "./node_shrinkwrap/karma-mocha-0.2.2.tgz"
     },
+    "karma-mocha-reporter": {
+      "version": "2.0.0",
+      "from": "karma-mocha-reporter@latest",
+      "resolved": "./node_shrinkwrap/karma-mocha-reporter-2.0.0.tgz"
+    },
     "karma-webpack": {
       "version": "1.7.0",
       "from": "karma-webpack@latest",
@@ -14140,7 +14148,8 @@
       "dependencies": {
         "lodash": {
           "version": "3.10.1",
-          "from": "lodash@>=3.8.0 <4.0.0"
+          "from": "lodash@3.10.1",
+          "resolved": "./node_shrinkwrap/lodash-3.10.1.tgz"
         },
         "source-map": {
           "version": "0.1.43",
@@ -15690,8 +15699,7 @@
               "dependencies": {
                 "ansi": {
                   "version": "0.3.1",
-                  "from": "ansi@>=0.3.1 <0.4.0",
-                  "resolved": "./node_shrinkwrap/ansi-0.3.1.tgz"
+                  "from": "ansi@>=0.3.1 <0.4.0"
                 },
                 "concat-stream": {
                   "version": "1.5.0",
@@ -16420,7 +16428,8 @@
       "dependencies": {
         "isarray": {
           "version": "0.0.1",
-          "from": "isarray@0.0.1"
+          "from": "isarray@0.0.1",
+          "resolved": "./node_shrinkwrap/isarray-0.0.1.tgz"
         },
         "socket.io-parser": {
           "version": "2.2.2",
