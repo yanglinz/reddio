@@ -4,6 +4,7 @@ ESLINT := $(BIN)/eslint
 FOREMAN := $(BIN)/nf
 GULP := $(BIN)/gulp
 PROTRACTOR := $(BIN)/protractor
+KARMA := $(BIN)/karma
 SHRINKPACK := $(BIN)/shrinkpack
 WEBDRIVER_MANAGER := $(BIN)/webdriver-manager
 WEBPACK := $(BIN)/webpack
@@ -25,7 +26,8 @@ lint:
 	@$(ESLINT) .
 
 test:
-	@echo "Running unit tests"
+	@$(BABEL_NODE) ./scripts/custom/debug-info.js
+	@$(KARMA) start --single-run
 
 test-full:
 	@$(BABEL_NODE) ./scripts/custom/debug-info.js

@@ -9,6 +9,7 @@ dependencies:
 test:
   override:
     - make build
+    - make test
     - make run:
         background: true
     - sleep 15
