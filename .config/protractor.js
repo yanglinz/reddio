@@ -15,7 +15,7 @@ const capabilities = {
 /**
  * Spec globs are relative to the root of the project
  */
-const specs = ['tests/**/*-spec.js'];
+const specs = ['test/**/*-spec.js'];
 
 /**
  * Write spec in jasmine flavor specs
