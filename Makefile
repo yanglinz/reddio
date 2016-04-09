@@ -3,8 +3,9 @@ BABEL_NODE := $(BIN)/babel-node
 ESLINT := $(BIN)/eslint
 FOREMAN := $(BIN)/nf
 GULP := $(BIN)/gulp
-PROTRACTOR := $(BIN)/protractor
 KARMA := $(BIN)/karma
+MERMAID := $(BIN)/mermaid
+PROTRACTOR := $(BIN)/protractor
 SHRINKPACK := $(BIN)/shrinkpack
 WEBDRIVER_MANAGER := $(BIN)/webdriver-manager
 WEBPACK := $(BIN)/webpack
@@ -17,6 +18,9 @@ setup:
 	npm --version
 	@npm install $(NPM_FLAGS)
 	@$(WEBDRIVER_MANAGER) update
+
+doc:
+	$(MERMAID) --outputDir doc/diagrams doc/diagrams/*.mmd
 
 deps:
 	@npm shrinkwrap --dev
@@ -51,5 +55,5 @@ deploy:
 clean:
 	@rm -rf dist
 
-.PHONY: setup deps lint test test-full build run watch artifact deploy clean
+.PHONY: setup deps lint test test-full build run watch artifact deploy doc clean
 
