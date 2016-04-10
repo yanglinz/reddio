@@ -1,6 +1,5 @@
 digraph ReddioArchitecture {
   rankdir=LR;
-  splines=ortho;
 
   redux_state [label="Redux state", shape=Msquare];
   redux_action [label="Redux action", shape=Msquare];
