@@ -3,8 +3,8 @@ BABEL_NODE := $(BIN)/babel-node
 ESLINT := $(BIN)/eslint
 FOREMAN := $(BIN)/nf
 GULP := $(BIN)/gulp
-PROTRACTOR := $(BIN)/protractor
 KARMA := $(BIN)/karma
+PROTRACTOR := $(BIN)/protractor
 SHRINKPACK := $(BIN)/shrinkpack
 WEBDRIVER_MANAGER := $(BIN)/webdriver-manager
 WEBPACK := $(BIN)/webpack
@@ -39,7 +39,7 @@ build: clean
 	@$(GULP) build
 
 run: build
-	$(WEBPACK_DEV_SERVER)
+	@$(WEBPACK_DEV_SERVER)
 
 watch: clean
 	@$(BABEL_NODE) ./scripts/custom/debug-info.js
@@ -48,8 +48,11 @@ watch: clean
 deploy:
 	@$(GULP) deploy
 
+doc:
+	@dot -Tpng docs/diagrams/architecture.dot -o docs/diagrams/architecture.png
+
 clean:
 	@rm -rf dist
 
-.PHONY: setup deps lint test test-full build run watch artifact deploy clean
+.PHONY: setup deps lint test test-full build run watch artifact deploy doc clean
 
