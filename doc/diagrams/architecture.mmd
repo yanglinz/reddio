@@ -1,0 +1,13 @@
+%% Reddio client architecture
+graph LR
+  %% Entities
+  STATE[State]
+  SOURCE[Source]
+  VIEW[View]
+  SINK[Sink]
+
+  %% Flow
+  STATE-->SOURCE
+  SOURCE-->VIEW
+  VIEW-->SINK
+  SINK-->STATE
