@@ -6946,6 +6946,11 @@
       "from": "finalhandler@0.4.1",
       "resolved": "./node_shrinkwrap/finalhandler-0.4.1.tgz"
     },
+    "flux-standard-action": {
+      "version": "0.6.1",
+      "from": "flux-standard-action@>=0.6.1 <0.7.0",
+      "resolved": "./node_shrinkwrap/flux-standard-action-0.6.1.tgz"
+    },
     "for-in": {
       "version": "0.1.5",
       "from": "for-in@>=0.1.5 <0.2.0",
@@ -13940,6 +13945,11 @@
       "from": "has-unicode@>=2.0.0 <3.0.0",
       "resolved": "./node_shrinkwrap/has-unicode-2.0.0.tgz"
     },
+    "hoist-non-react-statics": {
+      "version": "1.0.5",
+      "from": "hoist-non-react-statics@>=1.0.3 <2.0.0",
+      "resolved": "./node_shrinkwrap/hoist-non-react-statics-1.0.5.tgz"
+    },
     "home-or-tmp": {
       "version": "1.0.0",
       "from": "home-or-tmp@>=1.0.0 <2.0.0",
@@ -14172,6 +14182,36 @@
       "version": "4.6.1",
       "from": "lodash@4.6.1",
       "resolved": "./node_shrinkwrap/lodash-4.6.1.tgz"
+    },
+    "lodash-es": {
+      "version": "4.10.0",
+      "from": "lodash-es@>=4.2.1 <5.0.0",
+      "resolved": "./node_shrinkwrap/lodash-es-4.10.0.tgz"
+    },
+    "lodash._basefor": {
+      "version": "3.0.3",
+      "from": "lodash._basefor@>=3.0.0 <4.0.0",
+      "resolved": "./node_shrinkwrap/lodash._basefor-3.0.3.tgz"
+    },
+    "lodash.isarguments": {
+      "version": "3.0.8",
+      "from": "lodash.isarguments@>=3.0.0 <4.0.0",
+      "resolved": "./node_shrinkwrap/lodash.isarguments-3.0.8.tgz"
+    },
+    "lodash.isarray": {
+      "version": "3.0.4",
+      "from": "lodash.isarray@>=3.0.0 <4.0.0",
+      "resolved": "./node_shrinkwrap/lodash.isarray-3.0.4.tgz"
+    },
+    "lodash.isplainobject": {
+      "version": "3.2.0",
+      "from": "lodash.isplainobject@>=3.2.0 <4.0.0",
+      "resolved": "./node_shrinkwrap/lodash.isplainobject-3.2.0.tgz"
+    },
+    "lodash.keysin": {
+      "version": "3.0.8",
+      "from": "lodash.keysin@>=3.0.0 <4.0.0",
+      "resolved": "./node_shrinkwrap/lodash.keysin-3.0.8.tgz"
     },
     "lodash.pad": {
       "version": "4.1.0",
@@ -15252,6 +15292,11 @@
       "from": "react-dom@0.14.7",
       "resolved": "./node_shrinkwrap/react-dom-0.14.7.tgz"
     },
+    "react-redux": {
+      "version": "4.4.4",
+      "from": "react-redux@latest",
+      "resolved": "./node_shrinkwrap/react-redux-4.4.4.tgz"
+    },
     "readable-stream": {
       "version": "2.0.6",
       "from": "readable-stream@>=2.0.0 <3.0.0||>=1.1.13 <2.0.0",
@@ -15261,6 +15306,26 @@
       "version": "2.0.0",
       "from": "readdirp@>=2.0.0 <3.0.0",
       "resolved": "./node_shrinkwrap/readdirp-2.0.0.tgz"
+    },
+    "redux": {
+      "version": "3.4.0",
+      "from": "redux@latest",
+      "resolved": "./node_shrinkwrap/redux-3.4.0.tgz"
+    },
+    "redux-logger": {
+      "version": "2.6.1",
+      "from": "redux-logger@latest",
+      "resolved": "./node_shrinkwrap/redux-logger-2.6.1.tgz"
+    },
+    "redux-promise": {
+      "version": "0.5.3",
+      "from": "redux-promise@latest",
+      "resolved": "./node_shrinkwrap/redux-promise-0.5.3.tgz"
+    },
+    "redux-thunk": {
+      "version": "2.0.1",
+      "from": "redux-thunk@latest",
+      "resolved": "./node_shrinkwrap/redux-thunk-2.0.1.tgz"
     },
     "regex-cache": {
       "version": "0.4.3",
@@ -15291,6 +15356,11 @@
       "version": "2.5.2",
       "from": "rimraf@>=2.3.3 <3.0.0",
       "resolved": "./node_shrinkwrap/rimraf-2.5.2.tgz"
+    },
+    "rxjs": {
+      "version": "5.0.0-beta.6",
+      "from": "rxjs@latest",
+      "resolved": "./node_shrinkwrap/rxjs-5.0.0-beta.6.tgz"
     },
     "semver": {
       "version": "4.3.6",
