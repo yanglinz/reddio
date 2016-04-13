@@ -2869,6 +2869,18 @@
         }
       }
     },
+    "babel-helper-builder-react-jsx": {
+      "version": "6.7.5",
+      "from": "babel-helper-builder-react-jsx@>=6.7.5 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-helper-builder-react-jsx-6.7.5.tgz",
+      "dependencies": {
+        "lodash": {
+          "version": "3.10.1",
+          "from": "lodash@>=3.10.0 <4.0.0",
+          "resolved": "./node_shrinkwrap/lodash-3.10.1.tgz"
+        }
+      }
+    },
     "babel-helpers": {
       "version": "6.6.0",
       "from": "babel-helpers@>=6.6.0 <7.0.0",
@@ -2919,6 +2931,36 @@
       "version": "6.7.2",
       "from": "babel-messages@>=6.7.2 <7.0.0",
       "resolved": "./node_shrinkwrap/babel-messages-6.7.2.tgz"
+    },
+    "babel-plugin-syntax-flow": {
+      "version": "6.5.0",
+      "from": "babel-plugin-syntax-flow@>=6.3.13 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-plugin-syntax-flow-6.5.0.tgz"
+    },
+    "babel-plugin-syntax-jsx": {
+      "version": "6.5.0",
+      "from": "babel-plugin-syntax-jsx@>=6.3.13 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-plugin-syntax-jsx-6.5.0.tgz"
+    },
+    "babel-plugin-transform-flow-strip-types": {
+      "version": "6.7.0",
+      "from": "babel-plugin-transform-flow-strip-types@>=6.3.13 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-flow-strip-types-6.7.0.tgz"
+    },
+    "babel-plugin-transform-react-display-name": {
+      "version": "6.5.0",
+      "from": "babel-plugin-transform-react-display-name@>=6.3.13 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-react-display-name-6.5.0.tgz"
+    },
+    "babel-plugin-transform-react-jsx": {
+      "version": "6.7.5",
+      "from": "babel-plugin-transform-react-jsx@>=6.3.13 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-react-jsx-6.7.5.tgz"
+    },
+    "babel-plugin-transform-react-jsx-source": {
+      "version": "6.5.0",
+      "from": "babel-plugin-transform-react-jsx-source@>=6.3.13 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-react-jsx-source-6.5.0.tgz"
     },
     "babel-preset-es2015": {
       "version": "6.6.0",
@@ -5542,6 +5584,11 @@
           }
         }
       }
+    },
+    "babel-preset-react": {
+      "version": "6.5.0",
+      "from": "babel-preset-react@latest",
+      "resolved": "./node_shrinkwrap/babel-preset-react-6.5.0.tgz"
     },
     "babel-register": {
       "version": "6.7.2",
