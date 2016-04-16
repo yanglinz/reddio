@@ -14,3 +14,4 @@
     comma-dangle:
       - 2
       - "never"
+    new-cap: 0

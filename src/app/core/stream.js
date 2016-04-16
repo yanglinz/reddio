@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import Rx from 'rxjs';
+import rx from 'rxjs';
 
 import { playerStreamReducer } from 'player/stream.js';
 
@@ -8,8 +8,8 @@ import { playerStreamReducer } from 'player/stream.js';
  * Source stream represents incoming events and commands
  * Sink stream represents filtered actions that will be given to redux actions
  */
-const _source$ = Rx.Subject();
-const _sink$ = Rx.Subject();
+const _source$ = rx.Subject();
+const _sink$ = rx.Subject();
 
 /**
  * Dispatch an event or command to the source stream
@@ -28,12 +28,12 @@ const defaultStreamReducers = [
  */
 export function applyReducers(source$ = _source$, streamReducers = defaultStreamReducers) {
   const streams = _.map(streamReducers, (streamReducer) => streamReducer(source$));
-  return Rx.Observable.merge(streams);
+  return rx.Observable.merge(streams);
 }
 
 /**
  * Register stream to dispatch sink stream actions to redux store
  */
 export function registerStreams(source$ = _source$, sink$ = _sink$) {
-  const sink$ = reduceStream(source$, defaultStreamReducers);
+  const sink$ = applyReducers(source$, defaultStreamReducers);
 }
