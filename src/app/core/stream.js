@@ -22,20 +22,20 @@ const _sink$ = rx.Subject();
 /**
  * Dispatch an event to the source stream
  */
-export function dispatchEvent(payload, stream = _source$) {
+export function dispatchEvent(payload, source$ = _source$) {
   payload = assign(payload, { __type: SOURCE_TYPES.EVENT });
-  stream.onNext(payload);
+  source$.onNext(payload);
 }
 
 /**
  * Dispatch a command to source stream
  */
-export function dispatchCommand(payload, stream = _source$) {
+export function dispatchCommand(payload, source$ = _source$) {
   payload = assign(payload, { __type: SOURCE_TYPES.COMMAND });
-  stream.onNext(payload);
+  source$.onNext(payload);
 }
 
-const defaultStreamReducers = [
+const defaultReducers = [
   playerStreamReducer
 ];
 
@@ -43,14 +43,7 @@ const defaultStreamReducers = [
  * Apply a set of reducing functions to the source stream
  * These transforming functions will ultimately map a single source stream to a single sink stream
  */
-export function applyReducers(source$ = _source$, streamReducers = defaultStreamReducers) {
-  const streams = _.map(streamReducers, (streamReducer) => streamReducer(source$));
-  return rx.Observable.merge(streams);
-}
-
-/**
- * Register stream to dispatch sink stream actions to redux store
- */
-export function registerStreams(source$ = _source$, sink$ = _sink$) {
-  const sink$ = applyReducers(source$, defaultStreamReducers);
+export function applyReducers(reducers = defaultReducers, source$ = _source$, sink$ = _sink$) {
+  const streams = _.map(reducers, (streamReducer) => streamReducer(source$));
+  source$.subscribe(sink$.onNext);
 }
