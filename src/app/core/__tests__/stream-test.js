@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import rx from 'rxjs';
 import { expect } from 'chai';
 
@@ -37,8 +38,8 @@ describe('core event command stream', () => {
   });
 
   it('should apply a single reducer to source stream', () => {
-    function testReducer(source$) {
-      return source$.filter(event => !event.ignore);
+    function testReducer(stream$) {
+      return stream$.filter(event => !event.ignore);
     }
     const reducers = [testReducer];
     applyReducers(reducers, source$, sink$);
@@ -54,11 +55,11 @@ describe('core event command stream', () => {
   });
 
   it('should apply multiple reducers to source stream', () => {
-    function testReducer1(source$) {
-      return source$.filter(event => event.domain === 'foo');
+    function testReducer1(stream$) {
+      return stream$.filter(event => event.domain === 'foo');
     }
-    function testReducer2(source$) {
-      return source$.filter(event => event.domain === 'bar');
+    function testReducer2(stream$) {
+      return stream$.filter(event => event.domain === 'bar');
     }
     const reducers = [testReducer1, testReducer2];
     applyReducers(reducers, source$, sink$);
