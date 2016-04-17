@@ -77,4 +77,8 @@ describe('core event command stream', () => {
       expect(values).to.deep.equal(['foo', 'bar']);
     });
   });
+
+  it('should apply reducers with default parameters', () => {
+    applyReducers();
+  });
 });
