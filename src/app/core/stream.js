@@ -9,30 +9,28 @@ import { playerStreamReducer } from 'player/stream.js';
 export const SOURCE_TYPES = {
   EVENT: 'EVENT',
   COMMAND: 'COMMAND'
-}
+};
 
 /**
  * Create singleton source and sink subject streams
  * Source stream represents incoming events and commands
  * Sink stream represents filtered actions that will be given to redux actions
  */
-const _source$ = rx.Subject();
-const _sink$ = rx.Subject();
+const _source$ = new rx.Subject();
+const _sink$ = new rx.Subject();
 
 /**
  * Dispatch an event to the source stream
  */
 export function dispatchEvent(payload, source$ = _source$) {
-  payload = assign(payload, { __type: SOURCE_TYPES.EVENT });
-  source$.onNext(payload);
+  source$.next(_.assign({}, payload, { __type: SOURCE_TYPES.EVENT }));
 }
 
 /**
  * Dispatch a command to source stream
  */
 export function dispatchCommand(payload, source$ = _source$) {
-  payload = assign(payload, { __type: SOURCE_TYPES.COMMAND });
-  source$.onNext(payload);
+  source$.next(_.assign({}, payload, { __type: SOURCE_TYPES.COMMAND }));
 }
 
 const defaultReducers = [
@@ -45,5 +43,6 @@ const defaultReducers = [
  */
 export function applyReducers(reducers = defaultReducers, source$ = _source$, sink$ = _sink$) {
   const streams = _.map(reducers, (streamReducer) => streamReducer(source$));
-  source$.subscribe(sink$.onNext);
+  const merged$ = rx.Observable.merge(...streams);
+  merged$.subscribe(action => sink$.next(action));
 }
