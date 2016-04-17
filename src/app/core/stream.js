@@ -45,4 +45,5 @@ export function applyReducers(reducers = defaultReducers, source$ = _source$, si
   const streams = _.map(reducers, (streamReducer) => streamReducer(source$));
   const merged$ = rx.Observable.merge(...streams);
   merged$.subscribe(action => sink$.next(action));
+  return sink$;
 }
