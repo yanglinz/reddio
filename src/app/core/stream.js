@@ -4,14 +4,6 @@ import rx from 'rxjs';
 import { playerStreamReducer } from 'player/stream.js';
 
 /**
- * Source stream types
- */
-export const SOURCE_TYPES = {
-  EVENT: 'EVENT',
-  COMMAND: 'COMMAND'
-};
-
-/**
  * Create singleton source and sink subject streams
  * Source stream represents incoming events and commands
  * Sink stream represents filtered actions that will be given to redux actions
@@ -23,14 +15,7 @@ const _sink$ = new rx.Subject();
  * Dispatch an event to the source stream
  */
 export function dispatchEvent(payload, source$ = _source$) {
-  source$.next(_.assign({}, payload, { __type: SOURCE_TYPES.EVENT }));
-}
-
-/**
- * Dispatch a command to source stream
- */
-export function dispatchCommand(payload, source$ = _source$) {
-  source$.next(_.assign({}, payload, { __type: SOURCE_TYPES.COMMAND }));
+  source$.next(payload);
 }
 
 const defaultReducers = [

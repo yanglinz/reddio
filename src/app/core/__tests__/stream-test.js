@@ -2,7 +2,7 @@ import _ from 'lodash';
 import rx from 'rxjs';
 import { expect } from 'chai';
 
-import { SOURCE_TYPES, dispatchEvent, dispatchCommand, applyReducers } from '../stream.js';
+import { dispatchEvent, applyReducers } from '../stream.js';
 
 describe('core event command stream', () => {
   let source$;
@@ -22,18 +22,6 @@ describe('core event command stream', () => {
 
     return dispatchedEvent$.then((dispatchedEvent) => {
       expect(dispatchedEvent.value).to.equal('foo');
-      expect(dispatchedEvent.__type).to.equal(SOURCE_TYPES.EVENT);
-    });
-  });
-
-  it('should dispatch command to source stream', () => {
-    const payload = { value: 'foo' };
-    const dispatchedPayload$ = source$.first().toPromise();
-    dispatchCommand(payload, source$);
-
-    return dispatchedPayload$.then(dispatchedPayload => {
-      expect(dispatchedPayload.value).to.equal('foo');
-      expect(dispatchedPayload.__type).to.equal(SOURCE_TYPES.COMMAND);
     });
   });
 
