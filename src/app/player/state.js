@@ -17,7 +17,8 @@ export function initialState() {
 }
 
 function reduceSetState(state, action) {
-  return state;
+  const { payload } = action;
+  return _.assign({}, state, { state: payload.state });
 }
 
 function reduceSetQueue(state, action) {
@@ -56,5 +57,5 @@ const reducerByAction = {
 
 export function playerReducer(state = initialState(), action) {
   const reducer = reducerByAction[action.type] || _.identity;
-  return reducer(state);
+  return reducer(state, action);
 }
