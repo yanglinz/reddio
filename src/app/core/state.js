@@ -16,8 +16,14 @@ export function configureStream(store) {
   sinkStream$.subscribe((action) => store.dispatch(action));
 }
 
+export function isLoggerEnabled() {
+  const isLocal = !config.IS_PROD;
+  const isKarma = window !== window.top;
+  return isLocal && !isKarma;
+}
+
 export function configureStore(initialState) {
-  const loggerMiddleware = createLogger({ predicate: () => !config.IS_PROD });
+  const loggerMiddleware = createLogger({ predicate: isLoggerEnabled });
   const middleware = applyMiddleware(thunkMiddleware, promiseMiddleware, loggerMiddleware);
   const store = createStore(rootReducer(), initialState, middleware);
   configureStream(store);
