@@ -1,5 +1,8 @@
 require('babel-core/register');
+
+const protractorConfigGenerator = require('./.config/protractor.js');
+
 module.exports = {
-  config: require('./.config/protractor.js').protractorConfig()
+  config: protractorConfigGenerator.protractorConfig()
 };
 
