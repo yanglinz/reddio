@@ -9,7 +9,8 @@ describe('config test', () => {
       'NODE_ENV',
       'ENVIRONMENT',
       'IS_PROD',
-      'SEGMENT_API_KEY'
+      'SEGMENT_API_KEY',
+      'SENTRY_DSN'
     ]);
   });
 });

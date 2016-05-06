@@ -4447,6 +4447,11 @@
       "from": "range-parser@>=1.0.3 <2.0.0",
       "resolved": "./node_shrinkwrap/range-parser-1.0.3.tgz"
     },
+    "raven-js": {
+      "version": "3.0.2",
+      "from": "raven-js@latest",
+      "resolved": "./node_shrinkwrap/raven-js-3.0.2.tgz"
+    },
     "raw-body": {
       "version": "2.1.6",
       "from": "raw-body@>=2.1.5 <2.2.0",

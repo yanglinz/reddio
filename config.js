@@ -21,6 +21,7 @@ export const SURGE_LOGIN = environment.SURGE_LOGIN;
 export const SURGE_TOKEN = environment.SURGE_TOKEN;
 export const SURGE_DOMAIN = environment.SURGE_DOMAIN;
 export const SEGMENT_API_KEY = environment.SEGMENT_API_KEY;
+export const SENTRY_DSN = environment.SENTRY_DSN;
 
 if (CI) {
   assert(IS_PROD, 'In CI, ENVIRONMENT must be set to production');
@@ -31,6 +32,7 @@ export function browserConfigs() {
     NODE_ENV,
     ENVIRONMENT,
     IS_PROD,
-    SEGMENT_API_KEY
+    SEGMENT_API_KEY,
+    SENTRY_DSN
   };
 }
