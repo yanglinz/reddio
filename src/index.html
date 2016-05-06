@@ -9,6 +9,7 @@
   {% for css in stylesheets %}
   <link rel="stylesheet" href="{{ css | safe }}">
   {% endfor %}
+  {% include "./_templates/newrelic.html" %}
 </head>
 <body>
   <div id="app-mount"></div>
