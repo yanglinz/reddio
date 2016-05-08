@@ -22,26 +22,30 @@ function reduceSetState(state, action) {
 }
 
 function reduceSetQueue(state, action) {
+  const { payload } = action;
+  _.noop(payload);
   return state;
 }
 
 function reduceSetCurrentSong(state, action) {
+  const { payload } = action;
+  _.noop(payload);
   return state;
 }
 
-function reduceSetNextSong(state, action) {
+function reduceSetNextSong(state) {
   return state;
 }
 
-function reduceSetPreviousSong(state, action) {
+function reduceSetPreviousSong(state) {
   return state;
 }
 
-function reduceShuffle(state, action) {
+function reduceShuffle(state) {
   return state;
 }
 
-function reduceUnshuffle(state, action) {
+function reduceUnshuffle(state) {
   return state;
 }
 
