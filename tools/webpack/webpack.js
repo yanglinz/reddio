@@ -31,7 +31,7 @@ function baseConfig() {
 function absoluteImportConfig() {
   const modulesDirectories = [
     'node_modules',
-    'src/app'
+    'src'
   ];
   const resolve = { modulesDirectories };
   return { resolve };
