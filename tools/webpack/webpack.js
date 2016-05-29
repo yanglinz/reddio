@@ -28,6 +28,15 @@ function baseConfig() {
   return { context, entry, output };
 }
 
+function absoluteImportConfig() {
+  const modulesDirectories = [
+    'node_modules',
+    'src/app'
+  ];
+  const resolve = { modulesDirectories };
+  return { resolve };
+}
+
 function htmlEntryConfig() {
   const htmlWebpackPlugin = new HTMLWebpackPlugin({ template: './index.jade' });
   const plugins = [htmlWebpackPlugin];
@@ -131,6 +140,7 @@ function sourceMapConfig(target) {
 
 function webpackConfig(target) {
   const configsCreators = [
+    absoluteImportConfig,
     htmlEntryConfig,
     babelConfig,
     sassConfig,
