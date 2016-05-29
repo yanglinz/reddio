@@ -1,6 +1,6 @@
+import 'babel-polyfill';
 import 'analytics/segment.js';
 import 'analytics/sentry.js';
-
 import './core/entry.js';
 import './core/styles/main.scss';
 
