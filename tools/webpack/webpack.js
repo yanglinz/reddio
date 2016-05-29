@@ -111,6 +111,7 @@ function environmentConfig() {
 function vendorBundleConfig(target) {
   const entry = {
     vendor: [
+      'babel-polyfill',
       'lodash',
       'react',
       'react-dom',
