@@ -1,7 +1,7 @@
 import Raven from 'raven-js';
 
-import config from 'core/config.js';
+import settings from 'core/settings.js';
 
-if (config.IS_PROD) {
-  Raven.config(config.SENTRY_DSN).install();
+if (settings.IS_PROD) {
+  Raven.settings(settings.SENTRY_DSN).install();
 }

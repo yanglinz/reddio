@@ -1,9 +1,9 @@
 import analyticsLoader from 'analytics.js-loader';
 
-import config from 'core/config.js';
+import settings from 'core/settings.js';
 
 const analytics = analyticsLoader({
-  writeKey: config.SEGMENT_API_KEY
+  writeKey: settings.SEGMENT_API_KEY
 });
 
 export function track(eventName, params = {}) {
