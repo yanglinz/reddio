@@ -17,7 +17,6 @@ function karmaConfig(config) {
   const webpackMiddleware = { noInfo: true };
 
   config.set({
-    frameworks,
     files,
     preprocessors,
     browsers,

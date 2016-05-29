@@ -96,7 +96,12 @@ function imageConfig() {
 function environmentConfig() {
   const injectedEnv = {
     'process.env': { NODE_ENV: JSON.stringify(env.NODE_ENV) },
-    __WEBPACK_DEFINE__: JSON.stringify(_.pick(env, ['NODE_ENV']))
+    __WEBPACK_DEFINE__: JSON.stringify(_.pick(env, [
+      'NODE_ENV',
+      'IS_PROD',
+      'SEGMENT_API_KEY',
+      'SENTRY_DSN'
+    ]))
   };
   const definePlugin = new webpack.DefinePlugin(injectedEnv);
   const plugins = [definePlugin];

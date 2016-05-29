@@ -11,7 +11,7 @@ export function rootReducer() {
   return combineReducers({ player: playerReducer });
 }
 
-export function settingsureStream(store) {
+export function configureStream(store) {
   const sinkStream$ = applyReducers();
   sinkStream$.subscribe((action) => store.dispatch(action));
 }
@@ -22,13 +22,13 @@ export function isLoggerEnabled() {
   return isLocal && !isKarma;
 }
 
-export function settingsureStore(initialState) {
+export function configureStore(initialState) {
   const loggerMiddleware = createLogger({ predicate: isLoggerEnabled });
   const middleware = applyMiddleware(thunkMiddleware, promiseMiddleware, loggerMiddleware);
   const store = createStore(rootReducer(), initialState, middleware);
-  settingsureStream(store);
+  configureStream(store);
   return store;
 }
 
-const store = settingsureStore();
+const store = configureStore();
 export default store;
