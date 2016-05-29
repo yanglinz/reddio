@@ -1,0 +1,13 @@
+version: '2'
+
+services:
+  frontend:
+    build: .
+    tty: true
+    expose:
+      - "4444"
+      - "5999"
+    ports:
+     - "8765:8765"
+    volumes:
+     - .:/app

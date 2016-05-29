@@ -1,58 +1,60 @@
-BIN := node_modules/.bin
-BABEL_NODE := $(BIN)/babel-node
-ESLINT := $(BIN)/eslint
-FOREMAN := $(BIN)/nf
-GULP := $(BIN)/gulp
-KARMA := $(BIN)/karma
-PROTRACTOR := $(BIN)/protractor
-SHRINKPACK := $(BIN)/shrinkpack
-WEBDRIVER_MANAGER := $(BIN)/webdriver-manager
-WEBPACK := $(BIN)/webpack
-WEBPACK_DEV_SERVER := $(BIN)/webpack-dev-server
+PROJECT:=reddio
 
-NPM_FLAGS := --loglevel=http
+BIN:=node_modules/.bin
+ESLINT:=$(BIN)/eslint
+GULP:=$(BIN)/gulp
+KARMA:=$(BIN)/karma
+PROTRACTOR:=$(BIN)/protractor
+SHRINKPACK:=$(BIN)/shrinkpack
+STORYBOOK:=$(BIN)/start-storybook
+WEBDRIVER_MANAGER:=$(BIN)/webdriver-manager
+WEBPACK:=$(BIN)/webpack
+WEBPACK_DEV_SERVER:=$(BIN)/webpack-dev-server
 
 setup:
 	node --version
 	npm --version
-	@npm install $(NPM_FLAGS)
+	@npm install --loglevel=http
 	@$(WEBDRIVER_MANAGER) update
-
-deps:
-	@npm shrinkwrap --dev
-	@$(SHRINKPACK)
 
 lint:
 	@$(ESLINT) .
 
-test:
-	@$(BABEL_NODE) ./scripts/custom/debug-info.js
-	@$(KARMA) start --single-run
-
-test-full:
-	@$(BABEL_NODE) ./scripts/custom/debug-info.js
-	@$(PROTRACTOR)
+deps:
+	@npm prune
+	@npm shrinkwrap --dev
+	@$(SHRINKPACK)
 
 build: clean
-	@$(BABEL_NODE) ./scripts/custom/debug-info.js
-	@$(WEBPACK)
-	@$(GULP) build
-
-run: build
-	@$(WEBPACK_DEV_SERVER)
+	@$(WEBPACK) --progress -p
 
 watch: clean
-	@$(BABEL_NODE) ./scripts/custom/debug-info.js
-	@$(FOREMAN) start dev-webpack,dev-gulp
+	@$(WEBPACK_DEV_SERVER) --hot --inline --config webpack.watch.config.js
+
+storybook:
+	$(STORYBOOK) --port 9001 --config-dir tools/storybook
+
+test:
+	@$(KARMA) start --single-run
+
+test-watch:
+	$(KARMA) start
+
+test-e2e:
+	@$(PROTRACTOR) protractor.conf.js
+
+docker:
+	docker-compose up --remove-orphans
+
+docker-shell:
+	docker-compose run --service-ports frontend /bin/bash
 
 deploy:
 	@$(GULP) deploy
 
-doc:
-	@dot -Tpng docs/diagrams/architecture.dot -o docs/diagrams/architecture.png
-
 clean:
 	@rm -rf dist
 
-.PHONY: setup deps lint test test-full build run watch artifact deploy doc clean
-
+.PHONY: setup lint deps build test
+.PHONY: docker docker-shell
+.PHONY: clean

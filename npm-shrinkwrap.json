@@ -1,40 +1,67 @@
 {
   "name": "reddio",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "dependencies": {
-    "accepts": {
-      "version": "1.1.4",
-      "from": "accepts@1.1.4",
-      "resolved": "./node_shrinkwrap/accepts-1.1.4.tgz",
+    "@kadira/react-split-pane": {
+      "version": "1.4.1",
+      "from": "@kadira/react-split-pane@>=1.4.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/@kadira-react-split-pane-1.4.1.tgz"
+    },
+    "@kadira/storybook": {
+      "version": "1.27.0",
+      "from": "@kadira/storybook@latest",
+      "resolved": "./node_shrinkwrap/@kadira-storybook-1.27.0.tgz",
       "dependencies": {
-        "mime-db": {
-          "version": "1.12.0",
-          "from": "mime-db@>=1.12.0 <1.13.0",
-          "resolved": "./node_shrinkwrap/mime-db-1.12.0.tgz"
-        },
-        "mime-types": {
-          "version": "2.0.14",
-          "from": "mime-types@>=2.0.4 <2.1.0",
-          "resolved": "./node_shrinkwrap/mime-types-2.0.14.tgz"
+        "qs": {
+          "version": "6.2.0",
+          "from": "qs@>=6.1.0 <7.0.0",
+          "resolved": "./node_shrinkwrap/qs-6.2.0.tgz"
         }
       }
     },
-    "acorn": {
-      "version": "1.2.2",
-      "from": "acorn@>=1.0.3 <2.0.0",
-      "resolved": "./node_shrinkwrap/acorn-1.2.2.tgz"
+    "@kadira/storybook-core": {
+      "version": "1.26.1",
+      "from": "@kadira/storybook-core@>=1.26.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/@kadira-storybook-core-1.26.1.tgz",
+      "dependencies": {
+        "qs": {
+          "version": "6.2.0",
+          "from": "qs@>=6.2.0 <7.0.0",
+          "resolved": "./node_shrinkwrap/qs-6.2.0.tgz"
+        }
+      }
     },
-    "acorn-jsx": {
-      "version": "2.0.1",
-      "from": "acorn-jsx@>=2.0.1 <3.0.0",
-      "resolved": "./node_shrinkwrap/acorn-jsx-2.0.1.tgz",
+    "abbrev": {
+      "version": "1.0.7",
+      "from": "abbrev@>=1.0.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/abbrev-1.0.7.tgz"
+    },
+    "accepts": {
+      "version": "1.3.3",
+      "from": "accepts@>=1.3.3 <1.4.0",
+      "resolved": "./node_shrinkwrap/accepts-1.3.3.tgz"
+    },
+    "acorn": {
+      "version": "3.1.0",
+      "from": "acorn@>=3.0.0 <4.0.0",
+      "resolved": "./node_shrinkwrap/acorn-3.1.0.tgz"
+    },
+    "acorn-globals": {
+      "version": "1.0.9",
+      "from": "acorn-globals@>=1.0.3 <2.0.0",
+      "resolved": "./node_shrinkwrap/acorn-globals-1.0.9.tgz",
       "dependencies": {
         "acorn": {
           "version": "2.7.0",
-          "from": "acorn@>=2.0.1 <3.0.0",
+          "from": "acorn@>=2.1.0 <3.0.0",
           "resolved": "./node_shrinkwrap/acorn-2.7.0.tgz"
         }
       }
+    },
+    "acorn-jsx": {
+      "version": "3.0.1",
+      "from": "acorn-jsx@>=3.0.0 <4.0.0",
+      "resolved": "./node_shrinkwrap/acorn-jsx-3.0.1.tgz"
     },
     "adm-zip": {
       "version": "0.4.7",
@@ -58,25 +85,40 @@
         }
       }
     },
+    "airbnb-js-shims": {
+      "version": "1.0.0",
+      "from": "airbnb-js-shims@>=1.0.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/airbnb-js-shims-1.0.0.tgz"
+    },
     "align-text": {
       "version": "0.1.4",
       "from": "align-text@>=0.1.3 <0.2.0",
       "resolved": "./node_shrinkwrap/align-text-0.1.4.tgz"
+    },
+    "alphanum-sort": {
+      "version": "1.0.2",
+      "from": "alphanum-sort@>=1.0.1 <2.0.0",
+      "resolved": "./node_shrinkwrap/alphanum-sort-1.0.2.tgz"
     },
     "amdefine": {
       "version": "1.0.0",
       "from": "amdefine@>=0.0.4",
       "resolved": "./node_shrinkwrap/amdefine-1.0.0.tgz"
     },
-    "analytics.js-loader": {
-      "version": "2.1.2",
-      "from": "analytics.js-loader@2.1.2",
-      "resolved": "./node_shrinkwrap/analytics.js-loader-2.1.2.tgz"
+    "ansi": {
+      "version": "0.3.1",
+      "from": "ansi@>=0.3.1 <0.4.0",
+      "resolved": "./node_shrinkwrap/ansi-0.3.1.tgz"
     },
     "ansi-escapes": {
       "version": "1.4.0",
       "from": "ansi-escapes@>=1.1.0 <2.0.0",
       "resolved": "./node_shrinkwrap/ansi-escapes-1.4.0.tgz"
+    },
+    "ansi-html": {
+      "version": "0.0.5",
+      "from": "ansi-html@0.0.5",
+      "resolved": "./node_shrinkwrap/ansi-html-0.0.5.tgz"
     },
     "ansi-regex": {
       "version": "2.0.0",
@@ -98,6 +140,11 @@
       "from": "archy@>=1.0.0 <2.0.0",
       "resolved": "./node_shrinkwrap/archy-1.0.0.tgz"
     },
+    "are-we-there-yet": {
+      "version": "1.1.2",
+      "from": "are-we-there-yet@>=1.1.2 <1.2.0",
+      "resolved": "./node_shrinkwrap/are-we-there-yet-1.1.2.tgz"
+    },
     "argparse": {
       "version": "1.0.7",
       "from": "argparse@>=1.0.7 <2.0.0",
@@ -118,11 +165,6 @@
       "from": "array-differ@>=1.0.0 <2.0.0",
       "resolved": "./node_shrinkwrap/array-differ-1.0.0.tgz"
     },
-    "array-filter": {
-      "version": "0.0.1",
-      "from": "array-filter@>=0.0.0 <0.1.0",
-      "resolved": "./node_shrinkwrap/array-filter-0.0.1.tgz"
-    },
     "array-find-index": {
       "version": "1.0.1",
       "from": "array-find-index@>=1.0.0 <2.0.0",
@@ -133,15 +175,15 @@
       "from": "array-flatten@1.1.1",
       "resolved": "./node_shrinkwrap/array-flatten-1.1.1.tgz"
     },
-    "array-map": {
-      "version": "0.0.0",
-      "from": "array-map@>=0.0.0 <0.1.0",
-      "resolved": "./node_shrinkwrap/array-map-0.0.0.tgz"
+    "array-includes": {
+      "version": "3.0.2",
+      "from": "array-includes@>=3.0.2 <4.0.0",
+      "resolved": "./node_shrinkwrap/array-includes-3.0.2.tgz"
     },
-    "array-reduce": {
-      "version": "0.0.0",
-      "from": "array-reduce@>=0.0.0 <0.1.0",
-      "resolved": "./node_shrinkwrap/array-reduce-0.0.0.tgz"
+    "array-index": {
+      "version": "1.0.0",
+      "from": "array-index@>=1.0.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/array-index-1.0.0.tgz"
     },
     "array-slice": {
       "version": "0.2.3",
@@ -155,7 +197,7 @@
     },
     "array-uniq": {
       "version": "1.0.2",
-      "from": "array-uniq@>=1.0.0 <2.0.0",
+      "from": "array-uniq@>=1.0.1 <2.0.0",
       "resolved": "./node_shrinkwrap/array-uniq-1.0.2.tgz"
     },
     "array-unique": {
@@ -174,9 +216,9 @@
       "resolved": "./node_shrinkwrap/arrify-1.0.1.tgz"
     },
     "asap": {
-      "version": "2.0.3",
-      "from": "asap@>=2.0.3 <2.1.0",
-      "resolved": "./node_shrinkwrap/asap-2.0.3.tgz"
+      "version": "1.0.0",
+      "from": "asap@>=1.0.0 <1.1.0",
+      "resolved": "./node_shrinkwrap/asap-1.0.0.tgz"
     },
     "asn1": {
       "version": "0.2.3",
@@ -198,25 +240,25 @@
       "from": "assertion-error@>=1.0.1 <2.0.0",
       "resolved": "./node_shrinkwrap/assertion-error-1.0.1.tgz"
     },
-    "ast-types": {
-      "version": "0.8.16",
-      "from": "ast-types@0.8.16",
-      "resolved": "./node_shrinkwrap/ast-types-0.8.16.tgz"
-    },
     "async": {
       "version": "1.5.2",
-      "from": "async@>=1.5.2 <2.0.0",
+      "from": "async@>=1.3.0 <2.0.0",
       "resolved": "./node_shrinkwrap/async-1.5.2.tgz"
     },
     "async-done": {
-      "version": "1.2.0",
-      "from": "async-done@>=1.1.1 <2.0.0",
-      "resolved": "./node_shrinkwrap/async-done-1.2.0.tgz"
+      "version": "1.2.1",
+      "from": "async-done@>=1.2.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/async-done-1.2.1.tgz"
     },
     "async-each": {
       "version": "1.0.0",
       "from": "async-each@>=1.0.0 <2.0.0",
       "resolved": "./node_shrinkwrap/async-each-1.0.0.tgz"
+    },
+    "async-foreach": {
+      "version": "0.1.3",
+      "from": "async-foreach@>=0.1.3 <0.2.0",
+      "resolved": "./node_shrinkwrap/async-foreach-0.1.3.tgz"
     },
     "async-settle": {
       "version": "0.2.1",
@@ -235,64 +277,57 @@
         }
       }
     },
+    "autoprefixer": {
+      "version": "6.3.6",
+      "from": "autoprefixer@>=6.3.1 <7.0.0",
+      "resolved": "./node_shrinkwrap/autoprefixer-6.3.6.tgz"
+    },
     "aws-sign2": {
       "version": "0.6.0",
       "from": "aws-sign2@>=0.6.0 <0.7.0",
       "resolved": "./node_shrinkwrap/aws-sign2-0.6.0.tgz"
     },
-    "aws4": {
-      "version": "1.3.2",
-      "from": "aws4@>=1.2.1 <2.0.0",
-      "resolved": "./node_shrinkwrap/aws4-1.3.2.tgz"
-    },
     "babel": {
       "version": "6.5.2",
-      "from": "babel@6.5.2",
+      "from": "babel@latest",
       "resolved": "./node_shrinkwrap/babel-6.5.2.tgz"
     },
-    "babel-cli": {
-      "version": "6.7.7",
-      "from": "babel-cli@6.7.7",
-      "resolved": "./node_shrinkwrap/babel-cli-6.7.7.tgz",
-      "dependencies": {
-        "chalk": {
-          "version": "1.1.1",
-          "from": "chalk@1.1.1",
-          "resolved": "./node_shrinkwrap/chalk-1.1.1.tgz"
-        },
-        "lodash": {
-          "version": "3.10.1",
-          "from": "lodash@>=3.2.0 <4.0.0",
-          "resolved": "./node_shrinkwrap/lodash-3.10.1.tgz"
-        }
-      }
-    },
     "babel-code-frame": {
-      "version": "6.7.7",
-      "from": "babel-code-frame@>=6.7.7 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-code-frame-6.7.7.tgz"
+      "version": "6.8.0",
+      "from": "babel-code-frame@>=6.8.0 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-code-frame-6.8.0.tgz"
     },
     "babel-core": {
-      "version": "6.7.7",
-      "from": "babel-core@6.7.7",
-      "resolved": "./node_shrinkwrap/babel-core-6.7.7.tgz",
+      "version": "6.8.0",
+      "from": "babel-core@latest",
+      "resolved": "./node_shrinkwrap/babel-core-6.8.0.tgz",
       "dependencies": {
+        "json5": {
+          "version": "0.4.0",
+          "from": "json5@>=0.4.0 <0.5.0",
+          "resolved": "./node_shrinkwrap/json5-0.4.0.tgz"
+        },
         "lodash": {
           "version": "3.10.1",
           "from": "lodash@>=3.10.0 <4.0.0",
           "resolved": "./node_shrinkwrap/lodash-3.10.1.tgz"
+        },
+        "minimatch": {
+          "version": "2.0.10",
+          "from": "minimatch@>=2.0.3 <3.0.0",
+          "resolved": "./node_shrinkwrap/minimatch-2.0.10.tgz"
         }
       }
     },
     "babel-eslint": {
       "version": "6.0.4",
-      "from": "babel-eslint@6.0.4",
+      "from": "babel-eslint@latest",
       "resolved": "./node_shrinkwrap/babel-eslint-6.0.4.tgz"
     },
     "babel-generator": {
-      "version": "6.7.7",
-      "from": "babel-generator@>=6.7.7 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-generator-6.7.7.tgz",
+      "version": "6.8.0",
+      "from": "babel-generator@>=6.8.0 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-generator-6.8.0.tgz",
       "dependencies": {
         "lodash": {
           "version": "3.10.1",
@@ -301,10 +336,15 @@
         }
       }
     },
+    "babel-helper-builder-binary-assignment-operator-visitor": {
+      "version": "6.8.0",
+      "from": "babel-helper-builder-binary-assignment-operator-visitor@>=6.8.0 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-helper-builder-binary-assignment-operator-visitor-6.8.0.tgz"
+    },
     "babel-helper-builder-react-jsx": {
-      "version": "6.7.5",
-      "from": "babel-helper-builder-react-jsx@>=6.7.5 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-helper-builder-react-jsx-6.7.5.tgz",
+      "version": "6.8.0",
+      "from": "babel-helper-builder-react-jsx@>=6.8.0 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-helper-builder-react-jsx-6.8.0.tgz",
       "dependencies": {
         "lodash": {
           "version": "3.10.1",
@@ -314,14 +354,14 @@
       }
     },
     "babel-helper-call-delegate": {
-      "version": "6.6.5",
-      "from": "babel-helper-call-delegate@>=6.6.5 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-helper-call-delegate-6.6.5.tgz"
+      "version": "6.8.0",
+      "from": "babel-helper-call-delegate@>=6.8.0 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-helper-call-delegate-6.8.0.tgz"
     },
     "babel-helper-define-map": {
-      "version": "6.6.5",
-      "from": "babel-helper-define-map@>=6.6.5 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-helper-define-map-6.6.5.tgz",
+      "version": "6.8.0",
+      "from": "babel-helper-define-map@>=6.8.0 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-helper-define-map-6.8.0.tgz",
       "dependencies": {
         "lodash": {
           "version": "3.10.1",
@@ -329,31 +369,36 @@
           "resolved": "./node_shrinkwrap/lodash-3.10.1.tgz"
         }
       }
+    },
+    "babel-helper-explode-assignable-expression": {
+      "version": "6.8.0",
+      "from": "babel-helper-explode-assignable-expression@>=6.8.0 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-helper-explode-assignable-expression-6.8.0.tgz"
     },
     "babel-helper-function-name": {
-      "version": "6.6.0",
-      "from": "babel-helper-function-name@>=6.6.0 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-helper-function-name-6.6.0.tgz"
+      "version": "6.8.0",
+      "from": "babel-helper-function-name@>=6.8.0 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-helper-function-name-6.8.0.tgz"
     },
     "babel-helper-get-function-arity": {
-      "version": "6.6.5",
-      "from": "babel-helper-get-function-arity@>=6.3.13 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-helper-get-function-arity-6.6.5.tgz"
+      "version": "6.8.0",
+      "from": "babel-helper-get-function-arity@>=6.8.0 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-helper-get-function-arity-6.8.0.tgz"
     },
     "babel-helper-hoist-variables": {
-      "version": "6.6.5",
-      "from": "babel-helper-hoist-variables@>=6.6.5 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-helper-hoist-variables-6.6.5.tgz"
+      "version": "6.8.0",
+      "from": "babel-helper-hoist-variables@>=6.8.0 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-helper-hoist-variables-6.8.0.tgz"
     },
     "babel-helper-optimise-call-expression": {
-      "version": "6.6.0",
-      "from": "babel-helper-optimise-call-expression@>=6.6.0 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-helper-optimise-call-expression-6.6.0.tgz"
+      "version": "6.8.0",
+      "from": "babel-helper-optimise-call-expression@>=6.8.0 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-helper-optimise-call-expression-6.8.0.tgz"
     },
     "babel-helper-regex": {
-      "version": "6.6.5",
-      "from": "babel-helper-regex@>=6.3.13 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-helper-regex-6.6.5.tgz",
+      "version": "6.8.0",
+      "from": "babel-helper-regex@>=6.8.0 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-helper-regex-6.8.0.tgz",
       "dependencies": {
         "lodash": {
           "version": "3.10.1",
@@ -362,15 +407,20 @@
         }
       }
     },
+    "babel-helper-remap-async-to-generator": {
+      "version": "6.8.0",
+      "from": "babel-helper-remap-async-to-generator@>=6.8.0 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-helper-remap-async-to-generator-6.8.0.tgz"
+    },
     "babel-helper-replace-supers": {
-      "version": "6.7.0",
-      "from": "babel-helper-replace-supers@>=6.6.5 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-helper-replace-supers-6.7.0.tgz"
+      "version": "6.8.0",
+      "from": "babel-helper-replace-supers@>=6.8.0 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-helper-replace-supers-6.8.0.tgz"
     },
     "babel-helpers": {
-      "version": "6.6.0",
-      "from": "babel-helpers@>=6.6.0 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-helpers-6.6.0.tgz"
+      "version": "6.8.0",
+      "from": "babel-helpers@>=6.8.0 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-helpers-6.8.0.tgz"
     },
     "babel-loader": {
       "version": "6.2.4",
@@ -378,44 +428,64 @@
       "resolved": "./node_shrinkwrap/babel-loader-6.2.4.tgz"
     },
     "babel-messages": {
-      "version": "6.7.2",
-      "from": "babel-messages@>=6.7.2 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-messages-6.7.2.tgz"
+      "version": "6.8.0",
+      "from": "babel-messages@>=6.8.0 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-messages-6.8.0.tgz"
     },
     "babel-plugin-check-es2015-constants": {
-      "version": "6.7.2",
+      "version": "6.8.0",
       "from": "babel-plugin-check-es2015-constants@>=6.3.13 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-plugin-check-es2015-constants-6.7.2.tgz"
+      "resolved": "./node_shrinkwrap/babel-plugin-check-es2015-constants-6.8.0.tgz"
     },
     "babel-plugin-syntax-async-functions": {
-      "version": "6.5.0",
-      "from": "babel-plugin-syntax-async-functions@>=6.3.13 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-plugin-syntax-async-functions-6.5.0.tgz"
+      "version": "6.8.0",
+      "from": "babel-plugin-syntax-async-functions@>=6.8.0 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-plugin-syntax-async-functions-6.8.0.tgz"
+    },
+    "babel-plugin-syntax-exponentiation-operator": {
+      "version": "6.8.0",
+      "from": "babel-plugin-syntax-exponentiation-operator@>=6.8.0 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-plugin-syntax-exponentiation-operator-6.8.0.tgz"
     },
     "babel-plugin-syntax-flow": {
-      "version": "6.5.0",
-      "from": "babel-plugin-syntax-flow@>=6.5.0 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-plugin-syntax-flow-6.5.0.tgz"
+      "version": "6.8.0",
+      "from": "babel-plugin-syntax-flow@>=6.3.13 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-plugin-syntax-flow-6.8.0.tgz"
     },
     "babel-plugin-syntax-jsx": {
-      "version": "6.5.0",
+      "version": "6.8.0",
       "from": "babel-plugin-syntax-jsx@>=6.3.13 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-plugin-syntax-jsx-6.5.0.tgz"
+      "resolved": "./node_shrinkwrap/babel-plugin-syntax-jsx-6.8.0.tgz"
+    },
+    "babel-plugin-syntax-object-rest-spread": {
+      "version": "6.8.0",
+      "from": "babel-plugin-syntax-object-rest-spread@>=6.8.0 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-plugin-syntax-object-rest-spread-6.8.0.tgz"
+    },
+    "babel-plugin-syntax-trailing-function-commas": {
+      "version": "6.8.0",
+      "from": "babel-plugin-syntax-trailing-function-commas@>=6.3.13 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-plugin-syntax-trailing-function-commas-6.8.0.tgz"
+    },
+    "babel-plugin-transform-async-to-generator": {
+      "version": "6.8.0",
+      "from": "babel-plugin-transform-async-to-generator@>=6.3.13 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-async-to-generator-6.8.0.tgz"
     },
     "babel-plugin-transform-es2015-arrow-functions": {
-      "version": "6.7.7",
+      "version": "6.8.0",
       "from": "babel-plugin-transform-es2015-arrow-functions@>=6.3.13 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-arrow-functions-6.7.7.tgz"
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-arrow-functions-6.8.0.tgz"
     },
     "babel-plugin-transform-es2015-block-scoped-functions": {
-      "version": "6.6.5",
+      "version": "6.8.0",
       "from": "babel-plugin-transform-es2015-block-scoped-functions@>=6.3.13 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-block-scoped-functions-6.6.5.tgz"
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-block-scoped-functions-6.8.0.tgz"
     },
     "babel-plugin-transform-es2015-block-scoping": {
-      "version": "6.7.1",
+      "version": "6.8.0",
       "from": "babel-plugin-transform-es2015-block-scoping@>=6.6.0 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-block-scoping-6.7.1.tgz",
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-block-scoping-6.8.0.tgz",
       "dependencies": {
         "lodash": {
           "version": "3.10.1",
@@ -425,136 +495,156 @@
       }
     },
     "babel-plugin-transform-es2015-classes": {
-      "version": "6.7.7",
+      "version": "6.8.0",
       "from": "babel-plugin-transform-es2015-classes@>=6.6.0 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-classes-6.7.7.tgz"
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-classes-6.8.0.tgz"
     },
     "babel-plugin-transform-es2015-computed-properties": {
-      "version": "6.6.5",
+      "version": "6.8.0",
       "from": "babel-plugin-transform-es2015-computed-properties@>=6.3.13 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-computed-properties-6.6.5.tgz"
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-computed-properties-6.8.0.tgz"
     },
     "babel-plugin-transform-es2015-destructuring": {
-      "version": "6.6.5",
+      "version": "6.8.0",
       "from": "babel-plugin-transform-es2015-destructuring@>=6.6.0 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-destructuring-6.6.5.tgz"
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-destructuring-6.8.0.tgz"
     },
     "babel-plugin-transform-es2015-duplicate-keys": {
-      "version": "6.6.4",
+      "version": "6.8.0",
       "from": "babel-plugin-transform-es2015-duplicate-keys@>=6.6.0 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-duplicate-keys-6.6.4.tgz"
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-duplicate-keys-6.8.0.tgz"
     },
     "babel-plugin-transform-es2015-for-of": {
-      "version": "6.6.0",
+      "version": "6.8.0",
       "from": "babel-plugin-transform-es2015-for-of@>=6.6.0 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-for-of-6.6.0.tgz"
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-for-of-6.8.0.tgz"
     },
     "babel-plugin-transform-es2015-function-name": {
-      "version": "6.5.0",
+      "version": "6.8.0",
       "from": "babel-plugin-transform-es2015-function-name@>=6.3.13 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-function-name-6.5.0.tgz"
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-function-name-6.8.0.tgz"
     },
     "babel-plugin-transform-es2015-literals": {
-      "version": "6.5.0",
+      "version": "6.8.0",
       "from": "babel-plugin-transform-es2015-literals@>=6.3.13 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-literals-6.5.0.tgz"
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-literals-6.8.0.tgz"
     },
     "babel-plugin-transform-es2015-modules-commonjs": {
-      "version": "6.7.7",
+      "version": "6.8.0",
       "from": "babel-plugin-transform-es2015-modules-commonjs@>=6.6.0 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-modules-commonjs-6.7.7.tgz"
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-modules-commonjs-6.8.0.tgz"
     },
     "babel-plugin-transform-es2015-object-super": {
-      "version": "6.6.5",
+      "version": "6.8.0",
       "from": "babel-plugin-transform-es2015-object-super@>=6.3.13 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-object-super-6.6.5.tgz"
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-object-super-6.8.0.tgz"
     },
     "babel-plugin-transform-es2015-parameters": {
-      "version": "6.7.0",
+      "version": "6.8.0",
       "from": "babel-plugin-transform-es2015-parameters@>=6.6.0 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-parameters-6.7.0.tgz"
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-parameters-6.8.0.tgz"
     },
     "babel-plugin-transform-es2015-shorthand-properties": {
-      "version": "6.5.0",
+      "version": "6.8.0",
       "from": "babel-plugin-transform-es2015-shorthand-properties@>=6.3.13 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-shorthand-properties-6.5.0.tgz"
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-shorthand-properties-6.8.0.tgz"
     },
     "babel-plugin-transform-es2015-spread": {
-      "version": "6.6.5",
+      "version": "6.8.0",
       "from": "babel-plugin-transform-es2015-spread@>=6.3.13 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-spread-6.6.5.tgz"
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-spread-6.8.0.tgz"
     },
     "babel-plugin-transform-es2015-sticky-regex": {
-      "version": "6.5.0",
+      "version": "6.8.0",
       "from": "babel-plugin-transform-es2015-sticky-regex@>=6.3.13 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-sticky-regex-6.5.0.tgz"
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-sticky-regex-6.8.0.tgz"
     },
     "babel-plugin-transform-es2015-template-literals": {
-      "version": "6.6.5",
+      "version": "6.8.0",
       "from": "babel-plugin-transform-es2015-template-literals@>=6.6.0 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-template-literals-6.6.5.tgz"
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-template-literals-6.8.0.tgz"
     },
     "babel-plugin-transform-es2015-typeof-symbol": {
-      "version": "6.6.0",
+      "version": "6.8.0",
       "from": "babel-plugin-transform-es2015-typeof-symbol@>=6.6.0 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-typeof-symbol-6.6.0.tgz"
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-typeof-symbol-6.8.0.tgz"
     },
     "babel-plugin-transform-es2015-unicode-regex": {
-      "version": "6.5.0",
+      "version": "6.8.0",
       "from": "babel-plugin-transform-es2015-unicode-regex@>=6.3.13 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-unicode-regex-6.5.0.tgz"
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-es2015-unicode-regex-6.8.0.tgz"
+    },
+    "babel-plugin-transform-exponentiation-operator": {
+      "version": "6.8.0",
+      "from": "babel-plugin-transform-exponentiation-operator@>=6.3.13 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-exponentiation-operator-6.8.0.tgz"
     },
     "babel-plugin-transform-flow-strip-types": {
-      "version": "6.7.0",
+      "version": "6.8.0",
       "from": "babel-plugin-transform-flow-strip-types@>=6.3.13 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-plugin-transform-flow-strip-types-6.7.0.tgz"
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-flow-strip-types-6.8.0.tgz"
+    },
+    "babel-plugin-transform-object-rest-spread": {
+      "version": "6.8.0",
+      "from": "babel-plugin-transform-object-rest-spread@>=6.3.13 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-object-rest-spread-6.8.0.tgz"
     },
     "babel-plugin-transform-react-display-name": {
-      "version": "6.5.0",
+      "version": "6.8.0",
       "from": "babel-plugin-transform-react-display-name@>=6.3.13 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-plugin-transform-react-display-name-6.5.0.tgz"
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-react-display-name-6.8.0.tgz"
     },
     "babel-plugin-transform-react-jsx": {
-      "version": "6.7.5",
+      "version": "6.8.0",
       "from": "babel-plugin-transform-react-jsx@>=6.3.13 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-plugin-transform-react-jsx-6.7.5.tgz"
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-react-jsx-6.8.0.tgz"
     },
     "babel-plugin-transform-react-jsx-source": {
-      "version": "6.5.0",
+      "version": "6.8.0",
       "from": "babel-plugin-transform-react-jsx-source@>=6.3.13 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-plugin-transform-react-jsx-source-6.5.0.tgz"
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-react-jsx-source-6.8.0.tgz"
     },
     "babel-plugin-transform-regenerator": {
-      "version": "6.6.5",
+      "version": "6.8.0",
       "from": "babel-plugin-transform-regenerator@>=6.6.0 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-plugin-transform-regenerator-6.6.5.tgz"
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-regenerator-6.8.0.tgz"
     },
     "babel-plugin-transform-strict-mode": {
-      "version": "6.6.5",
-      "from": "babel-plugin-transform-strict-mode@>=6.6.5 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-plugin-transform-strict-mode-6.6.5.tgz"
+      "version": "6.8.0",
+      "from": "babel-plugin-transform-strict-mode@>=6.8.0 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-plugin-transform-strict-mode-6.8.0.tgz"
     },
     "babel-polyfill": {
-      "version": "6.7.4",
-      "from": "babel-polyfill@>=6.6.0 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-polyfill-6.7.4.tgz",
+      "version": "6.9.0",
+      "from": "babel-polyfill@>=6.3.15 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-polyfill-6.9.0.tgz",
       "dependencies": {
-        "core-js": {
-          "version": "2.3.0",
-          "from": "core-js@>=2.1.0 <3.0.0",
-          "resolved": "./node_shrinkwrap/core-js-2.3.0.tgz"
+        "babel-runtime": {
+          "version": "6.9.0",
+          "from": "babel-runtime@>=6.9.0 <7.0.0",
+          "resolved": "./node_shrinkwrap/babel-runtime-6.9.0.tgz"
         }
       }
     },
     "babel-preset-es2015": {
       "version": "6.6.0",
-      "from": "babel-preset-es2015@6.6.0",
+      "from": "babel-preset-es2015@latest",
       "resolved": "./node_shrinkwrap/babel-preset-es2015-6.6.0.tgz"
     },
     "babel-preset-react": {
       "version": "6.5.0",
-      "from": "babel-preset-react@6.5.0",
+      "from": "babel-preset-react@latest",
       "resolved": "./node_shrinkwrap/babel-preset-react-6.5.0.tgz"
+    },
+    "babel-preset-stage-2": {
+      "version": "6.5.0",
+      "from": "babel-preset-stage-2@>=6.3.13 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-preset-stage-2-6.5.0.tgz"
+    },
+    "babel-preset-stage-3": {
+      "version": "6.5.0",
+      "from": "babel-preset-stage-3@>=6.3.13 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-preset-stage-3-6.5.0.tgz"
     },
     "babel-regenerator-runtime": {
       "version": "6.5.0",
@@ -562,15 +652,10 @@
       "resolved": "./node_shrinkwrap/babel-regenerator-runtime-6.5.0.tgz"
     },
     "babel-register": {
-      "version": "6.7.2",
-      "from": "babel-register@6.7.2",
-      "resolved": "./node_shrinkwrap/babel-register-6.7.2.tgz",
+      "version": "6.8.0",
+      "from": "babel-register@>=6.8.0 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-register-6.8.0.tgz",
       "dependencies": {
-        "core-js": {
-          "version": "2.3.0",
-          "from": "core-js@>=2.1.0 <3.0.0",
-          "resolved": "./node_shrinkwrap/core-js-2.3.0.tgz"
-        },
         "lodash": {
           "version": "3.10.1",
           "from": "lodash@>=3.10.0 <4.0.0",
@@ -579,14 +664,14 @@
       }
     },
     "babel-runtime": {
-      "version": "5.8.38",
-      "from": "babel-runtime@>=5.0.0 <6.0.0",
-      "resolved": "./node_shrinkwrap/babel-runtime-5.8.38.tgz"
+      "version": "6.6.1",
+      "from": "babel-runtime@>=6.0.0 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-runtime-6.6.1.tgz"
     },
     "babel-template": {
-      "version": "6.7.0",
-      "from": "babel-template@>=6.7.0 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-template-6.7.0.tgz",
+      "version": "6.8.0",
+      "from": "babel-template@>=6.8.0 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-template-6.8.0.tgz",
       "dependencies": {
         "lodash": {
           "version": "3.10.1",
@@ -596,9 +681,9 @@
       }
     },
     "babel-traverse": {
-      "version": "6.7.6",
-      "from": "babel-traverse@>=6.7.6 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-traverse-6.7.6.tgz",
+      "version": "6.8.0",
+      "from": "babel-traverse@>=6.8.0 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-traverse-6.8.0.tgz",
       "dependencies": {
         "lodash": {
           "version": "3.10.1",
@@ -608,9 +693,9 @@
       }
     },
     "babel-types": {
-      "version": "6.7.7",
-      "from": "babel-types@>=6.7.7 <7.0.0",
-      "resolved": "./node_shrinkwrap/babel-types-6.7.7.tgz",
+      "version": "6.8.1",
+      "from": "babel-types@>=6.8.0 <7.0.0",
+      "resolved": "./node_shrinkwrap/babel-types-6.8.1.tgz",
       "dependencies": {
         "lodash": {
           "version": "3.10.1",
@@ -620,9 +705,9 @@
       }
     },
     "babylon": {
-      "version": "6.7.0",
+      "version": "6.8.0",
       "from": "babylon@>=6.7.0 <7.0.0",
-      "resolved": "./node_shrinkwrap/babylon-6.7.0.tgz"
+      "resolved": "./node_shrinkwrap/babylon-6.8.0.tgz"
     },
     "bach": {
       "version": "0.5.0",
@@ -635,9 +720,9 @@
       "resolved": "./node_shrinkwrap/backo2-1.0.2.tgz"
     },
     "balanced-match": {
-      "version": "0.3.0",
-      "from": "balanced-match@>=0.3.0 <0.4.0",
-      "resolved": "./node_shrinkwrap/balanced-match-0.3.0.tgz"
+      "version": "0.4.1",
+      "from": "balanced-match@>=0.4.1 <0.5.0",
+      "resolved": "./node_shrinkwrap/balanced-match-0.4.1.tgz"
     },
     "Base64": {
       "version": "0.2.1",
@@ -661,7 +746,7 @@
     },
     "batch": {
       "version": "0.5.3",
-      "from": "batch@>=0.5.3 <0.6.0",
+      "from": "batch@0.5.3",
       "resolved": "./node_shrinkwrap/batch-0.5.3.tgz"
     },
     "beeper": {
@@ -684,25 +769,15 @@
       "from": "big.js@>=3.1.3 <4.0.0",
       "resolved": "./node_shrinkwrap/big.js-3.1.3.tgz"
     },
-    "bin-version": {
-      "version": "1.0.4",
-      "from": "bin-version@>=1.0.0 <2.0.0",
-      "resolved": "./node_shrinkwrap/bin-version-1.0.4.tgz"
-    },
-    "bin-version-check": {
-      "version": "2.1.0",
-      "from": "bin-version-check@>=2.1.0 <3.0.0",
-      "resolved": "./node_shrinkwrap/bin-version-check-2.1.0.tgz"
-    },
     "binary-extensions": {
       "version": "1.4.0",
       "from": "binary-extensions@>=1.0.0 <2.0.0",
       "resolved": "./node_shrinkwrap/binary-extensions-1.4.0.tgz"
     },
     "bl": {
-      "version": "1.1.2",
-      "from": "bl@>=1.1.2 <1.2.0",
-      "resolved": "./node_shrinkwrap/bl-1.1.2.tgz",
+      "version": "1.0.3",
+      "from": "bl@>=1.0.0 <1.1.0",
+      "resolved": "./node_shrinkwrap/bl-1.0.3.tgz",
       "dependencies": {
         "readable-stream": {
           "version": "2.0.6",
@@ -717,9 +792,9 @@
       "resolved": "./node_shrinkwrap/blob-0.0.4.tgz"
     },
     "block-stream": {
-      "version": "0.0.8",
+      "version": "0.0.9",
       "from": "block-stream@*",
-      "resolved": "./node_shrinkwrap/block-stream-0.0.8.tgz"
+      "resolved": "./node_shrinkwrap/block-stream-0.0.9.tgz"
     },
     "bluebird": {
       "version": "3.3.5",
@@ -727,9 +802,26 @@
       "resolved": "./node_shrinkwrap/bluebird-3.3.5.tgz"
     },
     "body-parser": {
-      "version": "1.15.0",
+      "version": "1.15.1",
       "from": "body-parser@>=1.12.4 <2.0.0",
-      "resolved": "./node_shrinkwrap/body-parser-1.15.0.tgz"
+      "resolved": "./node_shrinkwrap/body-parser-1.15.1.tgz",
+      "dependencies": {
+        "http-errors": {
+          "version": "1.4.0",
+          "from": "http-errors@>=1.4.0 <1.5.0",
+          "resolved": "./node_shrinkwrap/http-errors-1.4.0.tgz"
+        },
+        "qs": {
+          "version": "6.1.0",
+          "from": "qs@6.1.0",
+          "resolved": "./node_shrinkwrap/qs-6.1.0.tgz"
+        }
+      }
+    },
+    "boolbase": {
+      "version": "1.0.0",
+      "from": "boolbase@>=1.0.0 <1.1.0",
+      "resolved": "./node_shrinkwrap/boolbase-1.0.0.tgz"
     },
     "boom": {
       "version": "2.10.1",
@@ -737,9 +829,9 @@
       "resolved": "./node_shrinkwrap/boom-2.10.1.tgz"
     },
     "brace-expansion": {
-      "version": "1.1.3",
+      "version": "1.1.4",
       "from": "brace-expansion@>=1.0.0 <2.0.0",
-      "resolved": "./node_shrinkwrap/brace-expansion-1.1.3.tgz"
+      "resolved": "./node_shrinkwrap/brace-expansion-1.1.4.tgz"
     },
     "braces": {
       "version": "1.8.4",
@@ -751,6 +843,11 @@
       "from": "browserify-zlib@>=0.1.4 <0.2.0",
       "resolved": "./node_shrinkwrap/browserify-zlib-0.1.4.tgz"
     },
+    "browserslist": {
+      "version": "1.3.1",
+      "from": "browserslist@>=1.3.1 <1.4.0",
+      "resolved": "./node_shrinkwrap/browserslist-1.3.1.tgz"
+    },
     "buffer": {
       "version": "3.6.0",
       "from": "buffer@>=3.0.3 <4.0.0",
@@ -758,13 +855,13 @@
     },
     "builtin-modules": {
       "version": "1.1.1",
-      "from": "builtin-modules@>=1.0.0 <2.0.0",
+      "from": "builtin-modules@>=1.1.1 <2.0.0",
       "resolved": "./node_shrinkwrap/builtin-modules-1.1.1.tgz"
     },
     "bytes": {
-      "version": "2.2.0",
-      "from": "bytes@2.2.0",
-      "resolved": "./node_shrinkwrap/bytes-2.2.0.tgz"
+      "version": "2.3.0",
+      "from": "bytes@2.3.0",
+      "resolved": "./node_shrinkwrap/bytes-2.3.0.tgz"
     },
     "caller-path": {
       "version": "0.1.0",
@@ -781,15 +878,32 @@
       "from": "callsites@>=0.2.0 <0.3.0",
       "resolved": "./node_shrinkwrap/callsites-0.2.0.tgz"
     },
+    "camel-case": {
+      "version": "1.2.2",
+      "from": "camel-case@>=1.1.1 <2.0.0",
+      "resolved": "./node_shrinkwrap/camel-case-1.2.2.tgz"
+    },
     "camelcase": {
-      "version": "2.1.1",
-      "from": "camelcase@>=2.0.0 <3.0.0",
-      "resolved": "./node_shrinkwrap/camelcase-2.1.1.tgz"
+      "version": "1.2.1",
+      "from": "camelcase@>=1.0.2 <2.0.0",
+      "resolved": "./node_shrinkwrap/camelcase-1.2.1.tgz"
     },
     "camelcase-keys": {
       "version": "2.1.0",
       "from": "camelcase-keys@>=2.0.0 <3.0.0",
-      "resolved": "./node_shrinkwrap/camelcase-keys-2.1.0.tgz"
+      "resolved": "./node_shrinkwrap/camelcase-keys-2.1.0.tgz",
+      "dependencies": {
+        "camelcase": {
+          "version": "2.1.1",
+          "from": "camelcase@>=2.0.0 <3.0.0",
+          "resolved": "./node_shrinkwrap/camelcase-2.1.1.tgz"
+        }
+      }
+    },
+    "caniuse-db": {
+      "version": "1.0.30000466",
+      "from": "caniuse-db@>=1.0.30000444 <2.0.0",
+      "resolved": "./node_shrinkwrap/caniuse-db-1.0.30000466.tgz"
     },
     "caseless": {
       "version": "0.11.0",
@@ -803,7 +917,7 @@
     },
     "chai": {
       "version": "3.5.0",
-      "from": "chai@3.5.0",
+      "from": "chai@latest",
       "resolved": "./node_shrinkwrap/chai-3.5.0.tgz"
     },
     "chalk": {
@@ -811,10 +925,47 @@
       "from": "chalk@1.1.3",
       "resolved": "./node_shrinkwrap/chalk-1.1.3.tgz"
     },
+    "change-case": {
+      "version": "2.3.1",
+      "from": "change-case@>=2.3.0 <2.4.0",
+      "resolved": "./node_shrinkwrap/change-case-2.3.1.tgz"
+    },
+    "character-parser": {
+      "version": "1.2.1",
+      "from": "character-parser@1.2.1",
+      "resolved": "./node_shrinkwrap/character-parser-1.2.1.tgz"
+    },
     "chokidar": {
-      "version": "1.4.3",
+      "version": "1.5.0",
       "from": "chokidar@>=1.0.0 <2.0.0",
-      "resolved": "./node_shrinkwrap/chokidar-1.4.3.tgz"
+      "resolved": "./node_shrinkwrap/chokidar-1.5.0.tgz"
+    },
+    "cjson": {
+      "version": "0.4.0",
+      "from": "cjson@>=0.4.0 <0.5.0",
+      "resolved": "./node_shrinkwrap/cjson-0.4.0.tgz"
+    },
+    "clap": {
+      "version": "1.1.1",
+      "from": "clap@>=1.0.9 <2.0.0",
+      "resolved": "./node_shrinkwrap/clap-1.1.1.tgz"
+    },
+    "clean-css": {
+      "version": "3.4.12",
+      "from": "clean-css@>=3.4.0 <3.5.0",
+      "resolved": "./node_shrinkwrap/clean-css-3.4.12.tgz",
+      "dependencies": {
+        "commander": {
+          "version": "2.8.1",
+          "from": "commander@>=2.8.0 <2.9.0",
+          "resolved": "./node_shrinkwrap/commander-2.8.1.tgz"
+        },
+        "source-map": {
+          "version": "0.4.4",
+          "from": "source-map@>=0.4.0 <0.5.0",
+          "resolved": "./node_shrinkwrap/source-map-0.4.4.tgz"
+        }
+      }
     },
     "cli-cursor": {
       "version": "1.0.2",
@@ -827,13 +978,20 @@
       "resolved": "./node_shrinkwrap/cli-width-2.1.0.tgz"
     },
     "cliui": {
-      "version": "3.2.0",
-      "from": "cliui@>=3.0.3 <4.0.0",
-      "resolved": "./node_shrinkwrap/cliui-3.2.0.tgz"
+      "version": "2.1.0",
+      "from": "cliui@>=2.1.0 <3.0.0",
+      "resolved": "./node_shrinkwrap/cliui-2.1.0.tgz",
+      "dependencies": {
+        "wordwrap": {
+          "version": "0.0.2",
+          "from": "wordwrap@0.0.2",
+          "resolved": "./node_shrinkwrap/wordwrap-0.0.2.tgz"
+        }
+      }
     },
     "clone": {
       "version": "1.0.2",
-      "from": "clone@>=1.0.0 <2.0.0",
+      "from": "clone@>=1.0.2 <2.0.0",
       "resolved": "./node_shrinkwrap/clone-1.0.2.tgz"
     },
     "clone-stats": {
@@ -841,20 +999,45 @@
       "from": "clone-stats@>=0.0.1 <0.0.2",
       "resolved": "./node_shrinkwrap/clone-stats-0.0.1.tgz"
     },
+    "coa": {
+      "version": "1.0.1",
+      "from": "coa@>=1.0.1 <1.1.0",
+      "resolved": "./node_shrinkwrap/coa-1.0.1.tgz"
+    },
     "code-point-at": {
       "version": "1.0.0",
       "from": "code-point-at@>=1.0.0 <2.0.0",
       "resolved": "./node_shrinkwrap/code-point-at-1.0.0.tgz"
     },
-    "collections": {
-      "version": "0.2.2",
-      "from": "collections@>=0.2.0 <0.3.0",
-      "resolved": "./node_shrinkwrap/collections-0.2.2.tgz"
+    "color": {
+      "version": "0.11.1",
+      "from": "color@>=0.11.0 <0.12.0",
+      "resolved": "./node_shrinkwrap/color-0.11.1.tgz"
+    },
+    "color-convert": {
+      "version": "0.5.3",
+      "from": "color-convert@>=0.5.3 <0.6.0",
+      "resolved": "./node_shrinkwrap/color-convert-0.5.3.tgz"
+    },
+    "color-name": {
+      "version": "1.1.1",
+      "from": "color-name@>=1.0.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/color-name-1.1.1.tgz"
+    },
+    "color-string": {
+      "version": "0.3.0",
+      "from": "color-string@>=0.3.0 <0.4.0",
+      "resolved": "./node_shrinkwrap/color-string-0.3.0.tgz"
+    },
+    "colormin": {
+      "version": "1.1.0",
+      "from": "colormin@>=1.0.5 <2.0.0",
+      "resolved": "./node_shrinkwrap/colormin-1.1.0.tgz"
     },
     "colors": {
-      "version": "0.6.2",
-      "from": "colors@>=0.6.0 <0.7.0",
-      "resolved": "./node_shrinkwrap/colors-0.6.2.tgz"
+      "version": "1.1.2",
+      "from": "colors@>=1.1.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/colors-1.1.2.tgz"
     },
     "combined-stream": {
       "version": "1.0.5",
@@ -863,7 +1046,7 @@
     },
     "commander": {
       "version": "2.9.0",
-      "from": "commander@>=2.8.1 <3.0.0",
+      "from": "commander@>=2.9.0 <3.0.0",
       "resolved": "./node_shrinkwrap/commander-2.9.0.tgz"
     },
     "component-bind": {
@@ -882,26 +1065,14 @@
       "resolved": "./node_shrinkwrap/component-inherit-0.0.3.tgz"
     },
     "compressible": {
-      "version": "2.0.7",
-      "from": "compressible@>=2.0.7 <2.1.0",
-      "resolved": "./node_shrinkwrap/compressible-2.0.7.tgz"
+      "version": "2.0.8",
+      "from": "compressible@>=2.0.8 <2.1.0",
+      "resolved": "./node_shrinkwrap/compressible-2.0.8.tgz"
     },
     "compression": {
-      "version": "1.6.1",
+      "version": "1.6.2",
       "from": "compression@>=1.5.2 <2.0.0",
-      "resolved": "./node_shrinkwrap/compression-1.6.1.tgz",
-      "dependencies": {
-        "accepts": {
-          "version": "1.3.2",
-          "from": "accepts@>=1.3.1 <1.4.0",
-          "resolved": "./node_shrinkwrap/accepts-1.3.2.tgz"
-        },
-        "negotiator": {
-          "version": "0.6.0",
-          "from": "negotiator@0.6.0",
-          "resolved": "./node_shrinkwrap/negotiator-0.6.0.tgz"
-        }
-      }
+      "resolved": "./node_shrinkwrap/compression-1.6.2.tgz"
     },
     "concat-map": {
       "version": "0.0.1",
@@ -935,6 +1106,23 @@
       "from": "console-browserify@>=1.1.0 <2.0.0",
       "resolved": "./node_shrinkwrap/console-browserify-1.1.0.tgz"
     },
+    "constant-case": {
+      "version": "1.1.2",
+      "from": "constant-case@>=1.1.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/constant-case-1.1.2.tgz"
+    },
+    "constantinople": {
+      "version": "3.0.2",
+      "from": "constantinople@>=3.0.1 <3.1.0",
+      "resolved": "./node_shrinkwrap/constantinople-3.0.2.tgz",
+      "dependencies": {
+        "acorn": {
+          "version": "2.7.0",
+          "from": "acorn@>=2.1.0 <3.0.0",
+          "resolved": "./node_shrinkwrap/acorn-2.7.0.tgz"
+        }
+      }
+    },
     "constants-browserify": {
       "version": "0.0.1",
       "from": "constants-browserify@0.0.1",
@@ -946,9 +1134,9 @@
       "resolved": "./node_shrinkwrap/content-disposition-0.5.1.tgz"
     },
     "content-type": {
-      "version": "1.0.1",
+      "version": "1.0.2",
       "from": "content-type@>=1.0.1 <1.1.0",
-      "resolved": "./node_shrinkwrap/content-type-1.0.1.tgz"
+      "resolved": "./node_shrinkwrap/content-type-1.0.2.tgz"
     },
     "convert-source-map": {
       "version": "1.2.0",
@@ -966,14 +1154,26 @@
       "resolved": "./node_shrinkwrap/cookie-signature-1.0.6.tgz"
     },
     "core-js": {
-      "version": "1.2.6",
-      "from": "core-js@>=1.0.0 <2.0.0",
-      "resolved": "./node_shrinkwrap/core-js-1.2.6.tgz"
+      "version": "2.4.0",
+      "from": "core-js@>=2.1.0 <3.0.0",
+      "resolved": "./node_shrinkwrap/core-js-2.4.0.tgz"
     },
     "core-util-is": {
       "version": "1.0.2",
       "from": "core-util-is@>=1.0.0 <1.1.0",
       "resolved": "./node_shrinkwrap/core-util-is-1.0.2.tgz"
+    },
+    "cross-spawn-async": {
+      "version": "2.2.2",
+      "from": "cross-spawn-async@>=2.1.9 <3.0.0",
+      "resolved": "./node_shrinkwrap/cross-spawn-async-2.2.2.tgz",
+      "dependencies": {
+        "lru-cache": {
+          "version": "4.0.1",
+          "from": "lru-cache@>=4.0.0 <5.0.0",
+          "resolved": "./node_shrinkwrap/lru-cache-4.0.1.tgz"
+        }
+      }
     },
     "cryptiles": {
       "version": "2.0.5",
@@ -984,6 +1184,61 @@
       "version": "3.2.8",
       "from": "crypto-browserify@>=3.2.6 <3.3.0",
       "resolved": "./node_shrinkwrap/crypto-browserify-3.2.8.tgz"
+    },
+    "css": {
+      "version": "1.0.8",
+      "from": "css@>=1.0.8 <1.1.0",
+      "resolved": "./node_shrinkwrap/css-1.0.8.tgz"
+    },
+    "css-color-names": {
+      "version": "0.0.3",
+      "from": "css-color-names@0.0.3",
+      "resolved": "./node_shrinkwrap/css-color-names-0.0.3.tgz"
+    },
+    "css-loader": {
+      "version": "0.23.1",
+      "from": "css-loader@latest",
+      "resolved": "./node_shrinkwrap/css-loader-0.23.1.tgz"
+    },
+    "css-parse": {
+      "version": "1.0.4",
+      "from": "css-parse@1.0.4",
+      "resolved": "./node_shrinkwrap/css-parse-1.0.4.tgz"
+    },
+    "css-select": {
+      "version": "1.2.0",
+      "from": "css-select@>=1.1.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/css-select-1.2.0.tgz"
+    },
+    "css-selector-tokenizer": {
+      "version": "0.5.4",
+      "from": "css-selector-tokenizer@>=0.5.1 <0.6.0",
+      "resolved": "./node_shrinkwrap/css-selector-tokenizer-0.5.4.tgz"
+    },
+    "css-stringify": {
+      "version": "1.0.5",
+      "from": "css-stringify@1.0.5",
+      "resolved": "./node_shrinkwrap/css-stringify-1.0.5.tgz"
+    },
+    "css-what": {
+      "version": "2.1.0",
+      "from": "css-what@>=2.1.0 <2.2.0",
+      "resolved": "./node_shrinkwrap/css-what-2.1.0.tgz"
+    },
+    "cssesc": {
+      "version": "0.1.0",
+      "from": "cssesc@>=0.1.0 <0.2.0",
+      "resolved": "./node_shrinkwrap/cssesc-0.1.0.tgz"
+    },
+    "cssnano": {
+      "version": "3.5.2",
+      "from": "cssnano@>=2.6.1 <4.0.0",
+      "resolved": "./node_shrinkwrap/cssnano-3.5.2.tgz"
+    },
+    "csso": {
+      "version": "2.0.0",
+      "from": "csso@>=2.0.0 <2.1.0",
+      "resolved": "./node_shrinkwrap/csso-2.0.0.tgz"
     },
     "ctype": {
       "version": "0.5.3",
@@ -1029,12 +1284,12 @@
     },
     "debug": {
       "version": "2.2.0",
-      "from": "debug@>=2.1.1 <3.0.0",
+      "from": "debug@>=2.2.0 <2.3.0",
       "resolved": "./node_shrinkwrap/debug-2.2.0.tgz"
     },
     "decamelize": {
       "version": "1.2.0",
-      "from": "decamelize@>=1.1.2 <2.0.0",
+      "from": "decamelize@>=1.0.0 <2.0.0",
       "resolved": "./node_shrinkwrap/decamelize-1.2.0.tgz"
     },
     "deep-eql": {
@@ -1051,7 +1306,7 @@
     },
     "deep-equal": {
       "version": "1.0.1",
-      "from": "deep-equal@*",
+      "from": "deep-equal@>=1.0.1 <2.0.0",
       "resolved": "./node_shrinkwrap/deep-equal-1.0.1.tgz"
     },
     "deep-is": {
@@ -1064,15 +1319,30 @@
       "from": "default-resolution@>=1.0.0 <2.0.0",
       "resolved": "./node_shrinkwrap/default-resolution-1.0.1.tgz"
     },
+    "define-properties": {
+      "version": "1.1.2",
+      "from": "define-properties@>=1.1.2 <2.0.0",
+      "resolved": "./node_shrinkwrap/define-properties-1.1.2.tgz"
+    },
+    "defined": {
+      "version": "1.0.0",
+      "from": "defined@>=1.0.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/defined-1.0.0.tgz"
+    },
     "del": {
       "version": "2.2.0",
-      "from": "del@2.2.0",
+      "from": "del@>=2.0.2 <3.0.0",
       "resolved": "./node_shrinkwrap/del-2.2.0.tgz"
     },
     "delayed-stream": {
       "version": "1.0.0",
       "from": "delayed-stream@>=1.0.0 <1.1.0",
       "resolved": "./node_shrinkwrap/delayed-stream-1.0.0.tgz"
+    },
+    "delegates": {
+      "version": "1.0.0",
+      "from": "delegates@>=1.0.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/delegates-1.0.0.tgz"
     },
     "depd": {
       "version": "1.1.0",
@@ -1087,7 +1357,14 @@
     "detect-indent": {
       "version": "3.0.1",
       "from": "detect-indent@>=3.0.1 <4.0.0",
-      "resolved": "./node_shrinkwrap/detect-indent-3.0.1.tgz"
+      "resolved": "./node_shrinkwrap/detect-indent-3.0.1.tgz",
+      "dependencies": {
+        "minimist": {
+          "version": "1.2.0",
+          "from": "minimist@>=1.1.0 <2.0.0",
+          "resolved": "./node_shrinkwrap/minimist-1.2.0.tgz"
+        }
+      }
     },
     "di": {
       "version": "0.0.1",
@@ -1111,19 +1388,63 @@
         }
       }
     },
+    "dom-converter": {
+      "version": "0.1.4",
+      "from": "dom-converter@>=0.1.0 <0.2.0",
+      "resolved": "./node_shrinkwrap/dom-converter-0.1.4.tgz",
+      "dependencies": {
+        "utila": {
+          "version": "0.3.3",
+          "from": "utila@>=0.3.0 <0.4.0",
+          "resolved": "./node_shrinkwrap/utila-0.3.3.tgz"
+        }
+      }
+    },
     "dom-serialize": {
       "version": "2.2.1",
       "from": "dom-serialize@>=2.2.0 <3.0.0",
       "resolved": "./node_shrinkwrap/dom-serialize-2.2.1.tgz"
+    },
+    "dom-serializer": {
+      "version": "0.1.0",
+      "from": "dom-serializer@>=0.0.0 <1.0.0",
+      "resolved": "./node_shrinkwrap/dom-serializer-0.1.0.tgz",
+      "dependencies": {
+        "domelementtype": {
+          "version": "1.1.3",
+          "from": "domelementtype@>=1.1.1 <1.2.0",
+          "resolved": "./node_shrinkwrap/domelementtype-1.1.3.tgz"
+        }
+      }
     },
     "domain-browser": {
       "version": "1.1.7",
       "from": "domain-browser@>=1.1.1 <2.0.0",
       "resolved": "./node_shrinkwrap/domain-browser-1.1.7.tgz"
     },
+    "domelementtype": {
+      "version": "1.3.0",
+      "from": "domelementtype@>=1.0.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/domelementtype-1.3.0.tgz"
+    },
+    "domhandler": {
+      "version": "2.1.0",
+      "from": "domhandler@>=2.1.0 <2.2.0",
+      "resolved": "./node_shrinkwrap/domhandler-2.1.0.tgz"
+    },
+    "domutils": {
+      "version": "1.5.1",
+      "from": "domutils@1.5.1",
+      "resolved": "./node_shrinkwrap/domutils-1.5.1.tgz"
+    },
+    "dot-case": {
+      "version": "1.1.2",
+      "from": "dot-case@>=1.1.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/dot-case-1.1.2.tgz"
+    },
     "dotenv": {
       "version": "2.0.0",
-      "from": "dotenv@2.0.0",
+      "from": "dotenv@latest",
       "resolved": "./node_shrinkwrap/dotenv-2.0.0.tgz"
     },
     "du": {
@@ -1177,10 +1498,15 @@
       "from": "ee-first@1.1.1",
       "resolved": "./node_shrinkwrap/ee-first-1.1.1.tgz"
     },
+    "element-class": {
+      "version": "0.2.2",
+      "from": "element-class@>=0.2.0 <0.3.0",
+      "resolved": "./node_shrinkwrap/element-class-0.2.2.tgz"
+    },
     "emojis-list": {
-      "version": "1.0.1",
-      "from": "emojis-list@>=1.0.0 <2.0.0",
-      "resolved": "./node_shrinkwrap/emojis-list-1.0.1.tgz"
+      "version": "2.0.1",
+      "from": "emojis-list@>=2.0.0 <3.0.0",
+      "resolved": "./node_shrinkwrap/emojis-list-2.0.1.tgz"
     },
     "encoding": {
       "version": "0.1.12",
@@ -1193,14 +1519,36 @@
       "resolved": "./node_shrinkwrap/end-of-stream-1.1.0.tgz"
     },
     "engine.io": {
-      "version": "1.6.8",
-      "from": "engine.io@1.6.8",
-      "resolved": "./node_shrinkwrap/engine.io-1.6.8.tgz"
+      "version": "1.6.9",
+      "from": "engine.io@1.6.9",
+      "resolved": "./node_shrinkwrap/engine.io-1.6.9.tgz",
+      "dependencies": {
+        "accepts": {
+          "version": "1.1.4",
+          "from": "accepts@1.1.4",
+          "resolved": "./node_shrinkwrap/accepts-1.1.4.tgz"
+        },
+        "mime-db": {
+          "version": "1.12.0",
+          "from": "mime-db@>=1.12.0 <1.13.0",
+          "resolved": "./node_shrinkwrap/mime-db-1.12.0.tgz"
+        },
+        "mime-types": {
+          "version": "2.0.14",
+          "from": "mime-types@>=2.0.4 <2.1.0",
+          "resolved": "./node_shrinkwrap/mime-types-2.0.14.tgz"
+        },
+        "negotiator": {
+          "version": "0.4.9",
+          "from": "negotiator@0.4.9",
+          "resolved": "./node_shrinkwrap/negotiator-0.4.9.tgz"
+        }
+      }
     },
     "engine.io-client": {
-      "version": "1.6.8",
-      "from": "engine.io-client@1.6.8",
-      "resolved": "./node_shrinkwrap/engine.io-client-1.6.8.tgz"
+      "version": "1.6.9",
+      "from": "engine.io-client@1.6.9",
+      "resolved": "./node_shrinkwrap/engine.io-client-1.6.9.tgz"
     },
     "engine.io-parser": {
       "version": "1.2.4",
@@ -1236,6 +1584,11 @@
       "from": "ent@>=2.2.0 <2.3.0",
       "resolved": "./node_shrinkwrap/ent-2.2.0.tgz"
     },
+    "entities": {
+      "version": "1.1.1",
+      "from": "entities@>=1.1.1 <1.2.0",
+      "resolved": "./node_shrinkwrap/entities-1.1.1.tgz"
+    },
     "errno": {
       "version": "0.1.4",
       "from": "errno@>=0.1.3 <0.2.0",
@@ -1246,10 +1599,30 @@
       "from": "error-ex@>=1.2.0 <2.0.0",
       "resolved": "./node_shrinkwrap/error-ex-1.3.0.tgz"
     },
+    "error-stack-parser": {
+      "version": "1.3.6",
+      "from": "error-stack-parser@>=1.3.6 <2.0.0",
+      "resolved": "./node_shrinkwrap/error-stack-parser-1.3.6.tgz"
+    },
+    "es-abstract": {
+      "version": "1.5.0",
+      "from": "es-abstract@>=1.5.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/es-abstract-1.5.0.tgz"
+    },
+    "es-to-primitive": {
+      "version": "1.1.1",
+      "from": "es-to-primitive@>=1.1.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/es-to-primitive-1.1.1.tgz"
+    },
     "es5-ext": {
       "version": "0.10.11",
       "from": "es5-ext@>=0.10.8 <0.11.0",
       "resolved": "./node_shrinkwrap/es5-ext-0.10.11.tgz"
+    },
+    "es5-shim": {
+      "version": "4.5.8",
+      "from": "es5-shim@>=4.5.7 <5.0.0",
+      "resolved": "./node_shrinkwrap/es5-shim-4.5.8.tgz"
     },
     "es6-iterator": {
       "version": "2.0.0",
@@ -1265,6 +1638,11 @@
       "version": "0.1.4",
       "from": "es6-set@>=0.1.3 <0.2.0",
       "resolved": "./node_shrinkwrap/es6-set-0.1.4.tgz"
+    },
+    "es6-shim": {
+      "version": "0.35.1",
+      "from": "es6-shim@>=0.35.0 <0.36.0",
+      "resolved": "./node_shrinkwrap/es6-shim-0.35.1.tgz"
     },
     "es6-symbol": {
       "version": "3.0.2",
@@ -1292,19 +1670,19 @@
       "resolved": "./node_shrinkwrap/escope-3.6.0.tgz"
     },
     "eslint": {
-      "version": "2.8.0",
-      "from": "eslint@2.8.0",
-      "resolved": "./node_shrinkwrap/eslint-2.8.0.tgz",
+      "version": "2.10.1",
+      "from": "eslint@latest",
+      "resolved": "./node_shrinkwrap/eslint-2.10.1.tgz",
       "dependencies": {
-        "glob": {
-          "version": "7.0.3",
-          "from": "glob@>=7.0.3 <8.0.0",
-          "resolved": "./node_shrinkwrap/glob-7.0.3.tgz"
-        },
         "globals": {
-          "version": "9.5.0",
+          "version": "9.6.0",
           "from": "globals@>=9.2.0 <10.0.0",
-          "resolved": "./node_shrinkwrap/globals-9.5.0.tgz"
+          "resolved": "./node_shrinkwrap/globals-9.6.0.tgz"
+        },
+        "lodash": {
+          "version": "4.12.0",
+          "from": "lodash@>=4.0.0 <5.0.0",
+          "resolved": "./node_shrinkwrap/lodash-4.12.0.tgz"
         },
         "user-home": {
           "version": "2.0.0",
@@ -1314,14 +1692,14 @@
       }
     },
     "eslint-config-airbnb": {
-      "version": "8.0.0",
-      "from": "eslint-config-airbnb@8.0.0",
-      "resolved": "./node_shrinkwrap/eslint-config-airbnb-8.0.0.tgz"
+      "version": "9.0.1",
+      "from": "eslint-config-airbnb@latest",
+      "resolved": "./node_shrinkwrap/eslint-config-airbnb-9.0.1.tgz"
     },
     "eslint-config-airbnb-base": {
-      "version": "1.0.4",
-      "from": "eslint-config-airbnb-base@>=1.0.2 <2.0.0",
-      "resolved": "./node_shrinkwrap/eslint-config-airbnb-base-1.0.4.tgz"
+      "version": "3.0.1",
+      "from": "eslint-config-airbnb-base@>=3.0.0 <4.0.0",
+      "resolved": "./node_shrinkwrap/eslint-config-airbnb-base-3.0.1.tgz"
     },
     "eslint-import-resolver-node": {
       "version": "0.2.0",
@@ -1329,40 +1707,28 @@
       "resolved": "./node_shrinkwrap/eslint-import-resolver-node-0.2.0.tgz"
     },
     "eslint-plugin-import": {
-      "version": "1.6.0",
+      "version": "1.8.0",
       "from": "eslint-plugin-import@latest",
-      "resolved": "./node_shrinkwrap/eslint-plugin-import-1.6.0.tgz"
+      "resolved": "./node_shrinkwrap/eslint-plugin-import-1.8.0.tgz"
     },
     "eslint-plugin-jsx-a11y": {
-      "version": "1.0.3",
+      "version": "1.2.0",
       "from": "eslint-plugin-jsx-a11y@latest",
-      "resolved": "./node_shrinkwrap/eslint-plugin-jsx-a11y-1.0.3.tgz"
+      "resolved": "./node_shrinkwrap/eslint-plugin-jsx-a11y-1.2.0.tgz"
     },
     "eslint-plugin-react": {
-      "version": "5.0.1",
-      "from": "eslint-plugin-react@5.0.1",
-      "resolved": "./node_shrinkwrap/eslint-plugin-react-5.0.1.tgz"
-    },
-    "esmangle-evaluator": {
-      "version": "1.0.0",
-      "from": "esmangle-evaluator@>=1.0.0 <2.0.0",
-      "resolved": "./node_shrinkwrap/esmangle-evaluator-1.0.0.tgz"
+      "version": "5.1.1",
+      "from": "eslint-plugin-react@latest",
+      "resolved": "./node_shrinkwrap/eslint-plugin-react-5.1.1.tgz"
     },
     "espree": {
-      "version": "3.1.3",
-      "from": "espree@3.1.3",
-      "resolved": "./node_shrinkwrap/espree-3.1.3.tgz",
-      "dependencies": {
-        "acorn": {
-          "version": "3.1.0",
-          "from": "acorn@>=3.0.4 <4.0.0",
-          "resolved": "./node_shrinkwrap/acorn-3.1.0.tgz"
-        }
-      }
+      "version": "3.1.4",
+      "from": "espree@3.1.4",
+      "resolved": "./node_shrinkwrap/espree-3.1.4.tgz"
     },
     "esprima": {
       "version": "2.7.2",
-      "from": "esprima@>=2.7.1 <2.8.0",
+      "from": "esprima@>=2.6.0 <3.0.0",
       "resolved": "./node_shrinkwrap/esprima-2.7.2.tgz"
     },
     "esrecurse": {
@@ -1412,6 +1778,11 @@
       "from": "eventsource@>=0.1.3 <0.2.0",
       "resolved": "./node_shrinkwrap/eventsource-0.1.6.tgz"
     },
+    "exenv": {
+      "version": "1.2.0",
+      "from": "exenv@1.2.0",
+      "resolved": "./node_shrinkwrap/exenv-1.2.0.tgz"
+    },
     "exit": {
       "version": "0.1.2",
       "from": "exit@>=0.1.2 <0.2.0",
@@ -1455,9 +1826,9 @@
       "resolved": "./node_shrinkwrap/expand-brackets-0.1.5.tgz"
     },
     "expand-range": {
-      "version": "1.8.1",
+      "version": "1.8.2",
       "from": "expand-range@>=1.8.1 <2.0.0",
-      "resolved": "./node_shrinkwrap/expand-range-1.8.1.tgz"
+      "resolved": "./node_shrinkwrap/expand-range-1.8.2.tgz"
     },
     "express": {
       "version": "4.13.4",
@@ -1474,11 +1845,6 @@
           "from": "negotiator@0.5.3",
           "resolved": "./node_shrinkwrap/negotiator-0.5.3.tgz"
         },
-        "qs": {
-          "version": "4.0.0",
-          "from": "qs@4.0.0",
-          "resolved": "./node_shrinkwrap/qs-4.0.0.tgz"
-        },
         "vary": {
           "version": "1.0.1",
           "from": "vary@>=1.0.1 <1.1.0",
@@ -1488,7 +1854,7 @@
     },
     "extend": {
       "version": "3.0.0",
-      "from": "extend@>=3.0.0 <3.1.0",
+      "from": "extend@>=3.0.0 <4.0.0",
       "resolved": "./node_shrinkwrap/extend-3.0.0.tgz"
     },
     "extend-shallow": {
@@ -1501,6 +1867,11 @@
       "from": "extglob@>=0.3.1 <0.4.0",
       "resolved": "./node_shrinkwrap/extglob-0.3.2.tgz"
     },
+    "extract-text-webpack-plugin": {
+      "version": "1.0.1",
+      "from": "extract-text-webpack-plugin@latest",
+      "resolved": "./node_shrinkwrap/extract-text-webpack-plugin-1.0.1.tgz"
+    },
     "extsprintf": {
       "version": "1.0.2",
       "from": "extsprintf@1.0.2",
@@ -1510,18 +1881,6 @@
       "version": "0.1.8",
       "from": "eyes@>=0.1.0 <0.2.0",
       "resolved": "./node_shrinkwrap/eyes-0.1.8.tgz"
-    },
-    "falafel": {
-      "version": "1.2.0",
-      "from": "falafel@>=1.0.1 <2.0.0",
-      "resolved": "./node_shrinkwrap/falafel-1.2.0.tgz",
-      "dependencies": {
-        "isarray": {
-          "version": "0.0.1",
-          "from": "isarray@0.0.1",
-          "resolved": "./node_shrinkwrap/isarray-0.0.1.tgz"
-        }
-      }
     },
     "fancy-log": {
       "version": "1.2.0",
@@ -1533,25 +1892,52 @@
       "from": "fast-levenshtein@>=1.1.0 <2.0.0",
       "resolved": "./node_shrinkwrap/fast-levenshtein-1.1.3.tgz"
     },
+    "fastparse": {
+      "version": "1.1.1",
+      "from": "fastparse@>=1.1.1 <2.0.0",
+      "resolved": "./node_shrinkwrap/fastparse-1.1.1.tgz"
+    },
     "faye-websocket": {
       "version": "0.10.0",
       "from": "faye-websocket@>=0.10.0 <0.11.0",
       "resolved": "./node_shrinkwrap/faye-websocket-0.10.0.tgz"
     },
     "fbjs": {
-      "version": "0.8.1",
+      "version": "0.8.2",
       "from": "fbjs@>=0.8.0 <0.9.0",
-      "resolved": "./node_shrinkwrap/fbjs-0.8.1.tgz"
+      "resolved": "./node_shrinkwrap/fbjs-0.8.2.tgz",
+      "dependencies": {
+        "asap": {
+          "version": "2.0.3",
+          "from": "asap@>=2.0.3 <2.1.0",
+          "resolved": "./node_shrinkwrap/asap-2.0.3.tgz"
+        },
+        "core-js": {
+          "version": "1.2.6",
+          "from": "core-js@>=1.0.0 <2.0.0",
+          "resolved": "./node_shrinkwrap/core-js-1.2.6.tgz"
+        },
+        "promise": {
+          "version": "7.1.1",
+          "from": "promise@>=7.1.1 <8.0.0",
+          "resolved": "./node_shrinkwrap/promise-7.1.1.tgz"
+        }
+      }
     },
     "figures": {
-      "version": "1.5.0",
+      "version": "1.6.0",
       "from": "figures@>=1.3.5 <2.0.0",
-      "resolved": "./node_shrinkwrap/figures-1.5.0.tgz"
+      "resolved": "./node_shrinkwrap/figures-1.6.0.tgz"
     },
     "file-entry-cache": {
       "version": "1.2.4",
       "from": "file-entry-cache@>=1.1.1 <2.0.0",
       "resolved": "./node_shrinkwrap/file-entry-cache-1.2.4.tgz"
+    },
+    "file-loader": {
+      "version": "0.8.5",
+      "from": "file-loader@latest",
+      "resolved": "./node_shrinkwrap/file-loader-0.8.5.tgz"
     },
     "filename-regex": {
       "version": "2.0.0",
@@ -1580,15 +1966,17 @@
         }
       }
     },
-    "find-versions": {
-      "version": "1.2.1",
-      "from": "find-versions@>=1.0.0 <2.0.0",
-      "resolved": "./node_shrinkwrap/find-versions-1.2.1.tgz"
-    },
     "findup-sync": {
       "version": "0.3.0",
       "from": "findup-sync@>=0.3.0 <0.4.0",
-      "resolved": "./node_shrinkwrap/findup-sync-0.3.0.tgz"
+      "resolved": "./node_shrinkwrap/findup-sync-0.3.0.tgz",
+      "dependencies": {
+        "glob": {
+          "version": "5.0.15",
+          "from": "glob@>=5.0.0 <5.1.0",
+          "resolved": "./node_shrinkwrap/glob-5.0.15.tgz"
+        }
+      }
     },
     "first-chunk-stream": {
       "version": "1.0.0",
@@ -1604,6 +1992,11 @@
       "version": "1.0.10",
       "from": "flat-cache@>=1.0.9 <2.0.0",
       "resolved": "./node_shrinkwrap/flat-cache-1.0.10.tgz"
+    },
+    "flatten": {
+      "version": "1.0.2",
+      "from": "flatten@1.0.2",
+      "resolved": "./node_shrinkwrap/flatten-1.0.2.tgz"
     },
     "flux-standard-action": {
       "version": "0.6.1",
@@ -1624,18 +2017,6 @@
       "version": "2.0.5",
       "from": "foreach@>=2.0.5 <3.0.0",
       "resolved": "./node_shrinkwrap/foreach-2.0.5.tgz"
-    },
-    "foreman": {
-      "version": "1.4.1",
-      "from": "foreman@1.4.1",
-      "resolved": "./node_shrinkwrap/foreman-1.4.1.tgz",
-      "dependencies": {
-        "commander": {
-          "version": "2.1.0",
-          "from": "commander@>=2.1.0 <2.2.0",
-          "resolved": "./node_shrinkwrap/commander-2.1.0.tgz"
-        }
-      }
     },
     "forever-agent": {
       "version": "0.6.1",
@@ -1662,15 +2043,10 @@
       "from": "fs-access@>=1.0.0 <2.0.0",
       "resolved": "./node_shrinkwrap/fs-access-1.0.0.tgz"
     },
-    "fs-readdir-recursive": {
-      "version": "0.1.2",
-      "from": "fs-readdir-recursive@>=0.1.0 <0.2.0",
-      "resolved": "./node_shrinkwrap/fs-readdir-recursive-0.1.2.tgz"
-    },
     "fsevents": {
-      "version": "1.0.11",
+      "version": "1.0.12",
       "from": "fsevents@>=1.0.0 <2.0.0",
-      "resolved": "./node_shrinkwrap/fsevents-1.0.11.tgz",
+      "resolved": "./node_shrinkwrap/fsevents-1.0.12.tgz",
       "dependencies": {
         "ansi": {
           "version": "0.3.1",
@@ -2295,14 +2671,36 @@
       }
     },
     "fstream": {
-      "version": "1.0.8",
+      "version": "1.0.9",
       "from": "fstream@>=1.0.0 <2.0.0",
-      "resolved": "./node_shrinkwrap/fstream-1.0.8.tgz"
+      "resolved": "./node_shrinkwrap/fstream-1.0.9.tgz"
     },
     "fstream-ignore": {
       "version": "1.0.2",
       "from": "fstream-ignore@1.0.2",
-      "resolved": "./node_shrinkwrap/fstream-ignore-1.0.2.tgz"
+      "resolved": "./node_shrinkwrap/fstream-ignore-1.0.2.tgz",
+      "dependencies": {
+        "minimatch": {
+          "version": "2.0.10",
+          "from": "minimatch@>=2.0.1 <3.0.0",
+          "resolved": "./node_shrinkwrap/minimatch-2.0.10.tgz"
+        }
+      }
+    },
+    "function-bind": {
+      "version": "1.1.0",
+      "from": "function-bind@>=1.0.2 <2.0.0",
+      "resolved": "./node_shrinkwrap/function-bind-1.1.0.tgz"
+    },
+    "gauge": {
+      "version": "1.2.7",
+      "from": "gauge@>=1.2.5 <1.3.0",
+      "resolved": "./node_shrinkwrap/gauge-1.2.7.tgz"
+    },
+    "gaze": {
+      "version": "1.0.0",
+      "from": "gaze@>=1.0.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/gaze-1.0.0.tgz"
     },
     "generate-function": {
       "version": "2.0.0",
@@ -2320,9 +2718,9 @@
       "resolved": "./node_shrinkwrap/get-stdin-4.0.1.tgz"
     },
     "getpass": {
-      "version": "0.1.5",
+      "version": "0.1.6",
       "from": "getpass@>=0.1.1 <0.2.0",
-      "resolved": "./node_shrinkwrap/getpass-0.1.5.tgz",
+      "resolved": "./node_shrinkwrap/getpass-0.1.6.tgz",
       "dependencies": {
         "assert-plus": {
           "version": "1.0.0",
@@ -2332,9 +2730,9 @@
       }
     },
     "glob": {
-      "version": "5.0.15",
-      "from": "glob@>=5.0.5 <6.0.0",
-      "resolved": "./node_shrinkwrap/glob-5.0.15.tgz"
+      "version": "7.0.3",
+      "from": "glob@7.0.3",
+      "resolved": "./node_shrinkwrap/glob-7.0.3.tgz"
     },
     "glob-base": {
       "version": "0.3.0",
@@ -2349,7 +2747,34 @@
     "glob-stream": {
       "version": "5.3.2",
       "from": "glob-stream@>=5.3.2 <6.0.0",
-      "resolved": "./node_shrinkwrap/glob-stream-5.3.2.tgz"
+      "resolved": "./node_shrinkwrap/glob-stream-5.3.2.tgz",
+      "dependencies": {
+        "glob": {
+          "version": "5.0.15",
+          "from": "glob@>=5.0.3 <6.0.0",
+          "resolved": "./node_shrinkwrap/glob-5.0.15.tgz"
+        },
+        "isarray": {
+          "version": "0.0.1",
+          "from": "isarray@0.0.1",
+          "resolved": "./node_shrinkwrap/isarray-0.0.1.tgz"
+        },
+        "readable-stream": {
+          "version": "1.0.34",
+          "from": "readable-stream@>=1.0.33-1 <1.1.0-0",
+          "resolved": "./node_shrinkwrap/readable-stream-1.0.34.tgz"
+        },
+        "through2": {
+          "version": "0.6.5",
+          "from": "through2@>=0.6.0 <0.7.0",
+          "resolved": "./node_shrinkwrap/through2-0.6.5.tgz"
+        }
+      }
+    },
+    "glob-watcher": {
+      "version": "3.0.0",
+      "from": "glob-watcher@>=3.0.0 <4.0.0",
+      "resolved": "./node_shrinkwrap/glob-watcher-3.0.0.tgz"
     },
     "globals": {
       "version": "8.18.0",
@@ -2368,6 +2793,35 @@
         }
       }
     },
+    "globule": {
+      "version": "0.2.0",
+      "from": "globule@>=0.2.0 <0.3.0",
+      "resolved": "./node_shrinkwrap/globule-0.2.0.tgz",
+      "dependencies": {
+        "glob": {
+          "version": "3.2.11",
+          "from": "glob@>=3.2.7 <3.3.0",
+          "resolved": "./node_shrinkwrap/glob-3.2.11.tgz",
+          "dependencies": {
+            "minimatch": {
+              "version": "0.3.0",
+              "from": "minimatch@>=0.3.0 <0.4.0",
+              "resolved": "./node_shrinkwrap/minimatch-0.3.0.tgz"
+            }
+          }
+        },
+        "lodash": {
+          "version": "2.4.2",
+          "from": "lodash@>=2.4.1 <2.5.0",
+          "resolved": "./node_shrinkwrap/lodash-2.4.2.tgz"
+        },
+        "minimatch": {
+          "version": "0.2.14",
+          "from": "minimatch@>=0.2.11 <0.3.0",
+          "resolved": "./node_shrinkwrap/minimatch-0.2.14.tgz"
+        }
+      }
+    },
     "glogg": {
       "version": "1.0.0",
       "from": "glogg@>=1.0.0 <2.0.0",
@@ -2375,7 +2829,7 @@
     },
     "graceful-fs": {
       "version": "4.1.3",
-      "from": "graceful-fs@>=4.1.2 <5.0.0",
+      "from": "graceful-fs@4.1.3",
       "resolved": "./node_shrinkwrap/graceful-fs-4.1.3.tgz"
     },
     "graceful-readlink": {
@@ -2384,213 +2838,61 @@
       "resolved": "./node_shrinkwrap/graceful-readlink-1.0.1.tgz"
     },
     "growl": {
-      "version": "1.8.1",
-      "from": "growl@1.8.1",
-      "resolved": "./node_shrinkwrap/growl-1.8.1.tgz"
+      "version": "1.9.2",
+      "from": "growl@1.9.2",
+      "resolved": "./node_shrinkwrap/growl-1.9.2.tgz"
     },
     "gulp": {
       "version": "4.0.0-alpha.2",
-      "from": "git://github.com/gulpjs/gulp.git#37dffae33396e67bf8fa01a174d0920f1ff1ae6b",
+      "from": "git://github.com/gulpjs/gulp.git#4ed9a4a3275559c73a396eff7e1fde3824951ebb",
       "resolved": "./node_shrinkwrap/gulp-4.0.0-alpha.2.tgz",
       "dependencies": {
+        "camelcase": {
+          "version": "2.1.1",
+          "from": "camelcase@>=2.0.1 <3.0.0",
+          "resolved": "./node_shrinkwrap/camelcase-2.1.1.tgz"
+        },
+        "cliui": {
+          "version": "3.2.0",
+          "from": "cliui@>=3.0.3 <4.0.0",
+          "resolved": "./node_shrinkwrap/cliui-3.2.0.tgz"
+        },
         "gulp-cli": {
           "version": "1.2.1",
           "from": "gulp-cli@>=1.0.0 <2.0.0",
           "resolved": "./node_shrinkwrap/gulp-cli-1.2.1.tgz"
-        }
-      }
-    },
-    "gulp-data": {
-      "version": "1.2.1",
-      "from": "gulp-data@1.2.1",
-      "resolved": "./node_shrinkwrap/gulp-data-1.2.1.tgz",
-      "dependencies": {
-        "readable-stream": {
-          "version": "2.0.6",
-          "from": "readable-stream@>=2.0.0 <2.1.0",
-          "resolved": "./node_shrinkwrap/readable-stream-2.0.6.tgz"
         },
-        "through2": {
-          "version": "2.0.1",
-          "from": "through2@>=2.0.0 <3.0.0",
-          "resolved": "./node_shrinkwrap/through2-2.0.1.tgz"
-        }
-      }
-    },
-    "gulp-nunjucks": {
-      "version": "2.2.0",
-      "from": "gulp-nunjucks@2.2.0",
-      "resolved": "./node_shrinkwrap/gulp-nunjucks-2.2.0.tgz",
-      "dependencies": {
-        "readable-stream": {
-          "version": "2.0.6",
-          "from": "readable-stream@>=2.0.0 <2.1.0",
-          "resolved": "./node_shrinkwrap/readable-stream-2.0.6.tgz"
+        "interpret": {
+          "version": "1.0.1",
+          "from": "interpret@>=1.0.0 <2.0.0",
+          "resolved": "./node_shrinkwrap/interpret-1.0.1.tgz"
         },
-        "through2": {
-          "version": "2.0.1",
-          "from": "through2@>=2.0.0 <3.0.0",
-          "resolved": "./node_shrinkwrap/through2-2.0.1.tgz"
-        }
-      }
-    },
-    "gulp-rev-all": {
-      "version": "0.8.24",
-      "from": "gulp-rev-all@0.8.24",
-      "resolved": "./node_shrinkwrap/gulp-rev-all-0.8.24.tgz",
-      "dependencies": {
-        "ansi-regex": {
-          "version": "0.2.1",
-          "from": "ansi-regex@>=0.2.0 <0.3.0",
-          "resolved": "./node_shrinkwrap/ansi-regex-0.2.1.tgz"
+        "window-size": {
+          "version": "0.1.4",
+          "from": "window-size@>=0.1.4 <0.2.0",
+          "resolved": "./node_shrinkwrap/window-size-0.1.4.tgz"
         },
-        "ansi-styles": {
-          "version": "1.0.0",
-          "from": "ansi-styles@>=1.0.0 <1.1.0",
-          "resolved": "./node_shrinkwrap/ansi-styles-1.0.0.tgz"
-        },
-        "chalk": {
-          "version": "0.4.0",
-          "from": "chalk@>=0.4.0 <0.5.0",
-          "resolved": "./node_shrinkwrap/chalk-0.4.0.tgz"
-        },
-        "gulp-util": {
-          "version": "2.2.20",
-          "from": "gulp-util@>=2.2.14 <2.3.0",
-          "resolved": "./node_shrinkwrap/gulp-util-2.2.20.tgz",
-          "dependencies": {
-            "ansi-styles": {
-              "version": "1.1.0",
-              "from": "ansi-styles@>=1.1.0 <2.0.0",
-              "resolved": "./node_shrinkwrap/ansi-styles-1.1.0.tgz"
-            },
-            "chalk": {
-              "version": "0.5.1",
-              "from": "chalk@>=0.5.0 <0.6.0",
-              "resolved": "./node_shrinkwrap/chalk-0.5.1.tgz"
-            },
-            "strip-ansi": {
-              "version": "0.3.0",
-              "from": "strip-ansi@>=0.3.0 <0.4.0",
-              "resolved": "./node_shrinkwrap/strip-ansi-0.3.0.tgz"
-            },
-            "through2": {
-              "version": "0.5.1",
-              "from": "through2@>=0.5.0 <0.6.0",
-              "resolved": "./node_shrinkwrap/through2-0.5.1.tgz"
-            }
-          }
-        },
-        "has-ansi": {
-          "version": "0.1.0",
-          "from": "has-ansi@>=0.1.0 <0.2.0",
-          "resolved": "./node_shrinkwrap/has-ansi-0.1.0.tgz"
-        },
-        "isarray": {
-          "version": "0.0.1",
-          "from": "isarray@0.0.1",
-          "resolved": "./node_shrinkwrap/isarray-0.0.1.tgz"
-        },
-        "lodash._reinterpolate": {
-          "version": "2.4.1",
-          "from": "lodash._reinterpolate@>=2.4.1 <3.0.0",
-          "resolved": "./node_shrinkwrap/lodash._reinterpolate-2.4.1.tgz"
-        },
-        "lodash.defaults": {
-          "version": "2.4.1",
-          "from": "lodash.defaults@>=2.4.1 <2.5.0",
-          "resolved": "./node_shrinkwrap/lodash.defaults-2.4.1.tgz"
-        },
-        "lodash.escape": {
-          "version": "2.4.1",
-          "from": "lodash.escape@>=2.4.1 <2.5.0",
-          "resolved": "./node_shrinkwrap/lodash.escape-2.4.1.tgz"
-        },
-        "lodash.keys": {
-          "version": "2.4.1",
-          "from": "lodash.keys@>=2.4.1 <2.5.0",
-          "resolved": "./node_shrinkwrap/lodash.keys-2.4.1.tgz"
-        },
-        "lodash.template": {
-          "version": "2.4.1",
-          "from": "lodash.template@>=2.4.1 <3.0.0",
-          "resolved": "./node_shrinkwrap/lodash.template-2.4.1.tgz"
-        },
-        "lodash.templatesettings": {
-          "version": "2.4.1",
-          "from": "lodash.templatesettings@>=2.4.1 <2.5.0",
-          "resolved": "./node_shrinkwrap/lodash.templatesettings-2.4.1.tgz"
-        },
-        "minimist": {
-          "version": "0.2.0",
-          "from": "minimist@>=0.2.0 <0.3.0",
-          "resolved": "./node_shrinkwrap/minimist-0.2.0.tgz"
-        },
-        "object-keys": {
-          "version": "0.4.0",
-          "from": "object-keys@>=0.4.0 <0.5.0",
-          "resolved": "./node_shrinkwrap/object-keys-0.4.0.tgz"
-        },
-        "readable-stream": {
-          "version": "1.0.34",
-          "from": "readable-stream@>=1.0.17 <1.1.0",
-          "resolved": "./node_shrinkwrap/readable-stream-1.0.34.tgz"
-        },
-        "strip-ansi": {
-          "version": "0.1.1",
-          "from": "strip-ansi@>=0.1.0 <0.2.0",
-          "resolved": "./node_shrinkwrap/strip-ansi-0.1.1.tgz"
-        },
-        "supports-color": {
-          "version": "0.2.0",
-          "from": "supports-color@>=0.2.0 <0.3.0",
-          "resolved": "./node_shrinkwrap/supports-color-0.2.0.tgz"
-        },
-        "through2": {
-          "version": "0.4.2",
-          "from": "through2@>=0.4.0 <0.5.0",
-          "resolved": "./node_shrinkwrap/through2-0.4.2.tgz",
-          "dependencies": {
-            "xtend": {
-              "version": "2.1.2",
-              "from": "xtend@>=2.1.1 <2.2.0",
-              "resolved": "./node_shrinkwrap/xtend-2.1.2.tgz"
-            }
-          }
-        },
-        "vinyl": {
-          "version": "0.2.3",
-          "from": "vinyl@>=0.2.1 <0.3.0",
-          "resolved": "./node_shrinkwrap/vinyl-0.2.3.tgz"
-        },
-        "xtend": {
-          "version": "3.0.0",
-          "from": "xtend@>=3.0.0 <3.1.0",
-          "resolved": "./node_shrinkwrap/xtend-3.0.0.tgz"
+        "yargs": {
+          "version": "3.32.0",
+          "from": "yargs@>=3.28.0 <4.0.0",
+          "resolved": "./node_shrinkwrap/yargs-3.32.0.tgz"
         }
       }
     },
     "gulp-sourcemaps": {
       "version": "1.6.0",
       "from": "gulp-sourcemaps@>=1.5.2 <2.0.0",
-      "resolved": "./node_shrinkwrap/gulp-sourcemaps-1.6.0.tgz",
-      "dependencies": {
-        "readable-stream": {
-          "version": "2.0.6",
-          "from": "readable-stream@>=2.0.0 <2.1.0",
-          "resolved": "./node_shrinkwrap/readable-stream-2.0.6.tgz"
-        },
-        "through2": {
-          "version": "2.0.1",
-          "from": "through2@>=2.0.0 <3.0.0",
-          "resolved": "./node_shrinkwrap/through2-2.0.1.tgz"
-        }
-      }
+      "resolved": "./node_shrinkwrap/gulp-sourcemaps-1.6.0.tgz"
     },
     "gulp-surge": {
       "version": "0.1.0",
-      "from": "gulp-surge@0.1.0",
-      "resolved": "./node_shrinkwrap/gulp-surge-0.1.0.tgz",
+      "from": "gulp-surge@latest",
+      "resolved": "./node_shrinkwrap/gulp-surge-0.1.0.tgz"
+    },
+    "gulp-util": {
+      "version": "3.0.2",
+      "from": "gulp-util@3.0.2",
+      "resolved": "./node_shrinkwrap/gulp-util-3.0.2.tgz",
       "dependencies": {
         "ansi-regex": {
           "version": "0.2.1",
@@ -2602,31 +2904,6 @@
           "from": "ansi-styles@>=1.1.0 <2.0.0",
           "resolved": "./node_shrinkwrap/ansi-styles-1.1.0.tgz"
         },
-        "asn1": {
-          "version": "0.1.11",
-          "from": "asn1@0.1.11",
-          "resolved": "./node_shrinkwrap/asn1-0.1.11.tgz"
-        },
-        "assert-plus": {
-          "version": "0.1.5",
-          "from": "assert-plus@>=0.1.5 <0.2.0",
-          "resolved": "./node_shrinkwrap/assert-plus-0.1.5.tgz"
-        },
-        "async": {
-          "version": "0.9.2",
-          "from": "async@>=0.9.0 <0.10.0",
-          "resolved": "./node_shrinkwrap/async-0.9.2.tgz"
-        },
-        "aws-sign2": {
-          "version": "0.5.0",
-          "from": "aws-sign2@>=0.5.0 <0.6.0",
-          "resolved": "./node_shrinkwrap/aws-sign2-0.5.0.tgz"
-        },
-        "boom": {
-          "version": "0.4.2",
-          "from": "boom@>=0.4.0 <0.5.0",
-          "resolved": "./node_shrinkwrap/boom-0.4.2.tgz"
-        },
         "chalk": {
           "version": "0.5.1",
           "from": "chalk@>=0.5.1 <0.6.0",
@@ -2637,115 +2914,30 @@
           "from": "clone@>=0.2.0 <0.3.0",
           "resolved": "./node_shrinkwrap/clone-0.2.0.tgz"
         },
-        "combined-stream": {
-          "version": "0.0.7",
-          "from": "combined-stream@>=0.0.4 <0.1.0",
-          "resolved": "./node_shrinkwrap/combined-stream-0.0.7.tgz"
-        },
-        "cryptiles": {
-          "version": "0.2.2",
-          "from": "cryptiles@>=0.2.0 <0.3.0",
-          "resolved": "./node_shrinkwrap/cryptiles-0.2.2.tgz"
-        },
-        "delayed-stream": {
-          "version": "0.0.5",
-          "from": "delayed-stream@0.0.5",
-          "resolved": "./node_shrinkwrap/delayed-stream-0.0.5.tgz"
-        },
-        "forever-agent": {
-          "version": "0.5.2",
-          "from": "forever-agent@>=0.5.0 <0.6.0",
-          "resolved": "./node_shrinkwrap/forever-agent-0.5.2.tgz"
-        },
-        "form-data": {
-          "version": "0.1.4",
-          "from": "form-data@>=0.1.0 <0.2.0",
-          "resolved": "./node_shrinkwrap/form-data-0.1.4.tgz"
-        },
-        "gulp-util": {
-          "version": "3.0.2",
-          "from": "gulp-util@3.0.2",
-          "resolved": "./node_shrinkwrap/gulp-util-3.0.2.tgz"
-        },
         "has-ansi": {
           "version": "0.1.0",
           "from": "has-ansi@>=0.1.0 <0.2.0",
           "resolved": "./node_shrinkwrap/has-ansi-0.1.0.tgz"
         },
-        "hawk": {
-          "version": "1.1.1",
-          "from": "hawk@1.1.1",
-          "resolved": "./node_shrinkwrap/hawk-1.1.1.tgz"
+        "isarray": {
+          "version": "0.0.1",
+          "from": "isarray@0.0.1",
+          "resolved": "./node_shrinkwrap/isarray-0.0.1.tgz"
         },
-        "hoek": {
-          "version": "0.9.1",
-          "from": "hoek@>=0.9.0 <0.10.0",
-          "resolved": "./node_shrinkwrap/hoek-0.9.1.tgz"
-        },
-        "http-signature": {
-          "version": "0.10.1",
-          "from": "http-signature@>=0.10.0 <0.11.0",
-          "resolved": "./node_shrinkwrap/http-signature-0.10.1.tgz"
-        },
-        "lodash._reinterpolate": {
-          "version": "2.4.1",
-          "from": "lodash._reinterpolate@>=2.4.1 <3.0.0",
-          "resolved": "./node_shrinkwrap/lodash._reinterpolate-2.4.1.tgz"
-        },
-        "lodash.defaults": {
-          "version": "2.4.1",
-          "from": "lodash.defaults@>=2.4.1 <2.5.0",
-          "resolved": "./node_shrinkwrap/lodash.defaults-2.4.1.tgz"
-        },
-        "lodash.escape": {
-          "version": "2.4.1",
-          "from": "lodash.escape@>=2.4.1 <2.5.0",
-          "resolved": "./node_shrinkwrap/lodash.escape-2.4.1.tgz"
-        },
-        "lodash.keys": {
-          "version": "2.4.1",
-          "from": "lodash.keys@>=2.4.1 <2.5.0",
-          "resolved": "./node_shrinkwrap/lodash.keys-2.4.1.tgz"
-        },
-        "lodash.template": {
-          "version": "2.4.1",
-          "from": "lodash.template@>=2.4.1 <3.0.0",
-          "resolved": "./node_shrinkwrap/lodash.template-2.4.1.tgz"
-        },
-        "lodash.templatesettings": {
-          "version": "2.4.1",
-          "from": "lodash.templatesettings@>=2.4.1 <2.5.0",
-          "resolved": "./node_shrinkwrap/lodash.templatesettings-2.4.1.tgz"
-        },
-        "mime-types": {
-          "version": "1.0.2",
-          "from": "mime-types@>=1.0.1 <1.1.0",
-          "resolved": "./node_shrinkwrap/mime-types-1.0.2.tgz"
-        },
-        "oauth-sign": {
-          "version": "0.3.0",
-          "from": "oauth-sign@>=0.3.0 <0.4.0",
-          "resolved": "./node_shrinkwrap/oauth-sign-0.3.0.tgz"
+        "minimist": {
+          "version": "1.2.0",
+          "from": "minimist@>=1.1.0 <2.0.0",
+          "resolved": "./node_shrinkwrap/minimist-1.2.0.tgz"
         },
         "object-assign": {
           "version": "2.1.1",
           "from": "object-assign@>=2.0.0 <3.0.0",
           "resolved": "./node_shrinkwrap/object-assign-2.1.1.tgz"
         },
-        "qs": {
-          "version": "1.0.2",
-          "from": "qs@>=1.0.0 <1.1.0",
-          "resolved": "./node_shrinkwrap/qs-1.0.2.tgz"
-        },
-        "request": {
-          "version": "2.40.0",
-          "from": "request@2.40.0",
-          "resolved": "./node_shrinkwrap/request-2.40.0.tgz"
-        },
-        "sntp": {
-          "version": "0.2.4",
-          "from": "sntp@>=0.2.0 <0.3.0",
-          "resolved": "./node_shrinkwrap/sntp-0.2.4.tgz"
+        "readable-stream": {
+          "version": "1.0.34",
+          "from": "readable-stream@>=1.0.33-1 <1.1.0-0",
+          "resolved": "./node_shrinkwrap/readable-stream-1.0.34.tgz"
         },
         "strip-ansi": {
           "version": "0.3.0",
@@ -2757,49 +2949,15 @@
           "from": "supports-color@>=0.2.0 <0.3.0",
           "resolved": "./node_shrinkwrap/supports-color-0.2.0.tgz"
         },
-        "surge": {
-          "version": "0.17.1",
-          "from": "surge@0.17.1",
-          "resolved": "./node_shrinkwrap/surge-0.17.1.tgz",
-          "dependencies": {
-            "minimist": {
-              "version": "1.1.1",
-              "from": "minimist@1.1.1",
-              "resolved": "./node_shrinkwrap/minimist-1.1.1.tgz"
-            }
-          }
+        "through2": {
+          "version": "0.6.5",
+          "from": "through2@>=0.6.3 <0.7.0",
+          "resolved": "./node_shrinkwrap/through2-0.6.5.tgz"
         },
         "vinyl": {
           "version": "0.4.6",
           "from": "vinyl@>=0.4.3 <0.5.0",
           "resolved": "./node_shrinkwrap/vinyl-0.4.6.tgz"
-        }
-      }
-    },
-    "gulp-util": {
-      "version": "3.0.7",
-      "from": "gulp-util@3.0.7",
-      "resolved": "./node_shrinkwrap/gulp-util-3.0.7.tgz",
-      "dependencies": {
-        "object-assign": {
-          "version": "3.0.0",
-          "from": "object-assign@>=3.0.0 <4.0.0",
-          "resolved": "./node_shrinkwrap/object-assign-3.0.0.tgz"
-        },
-        "readable-stream": {
-          "version": "2.0.6",
-          "from": "readable-stream@>=2.0.0 <2.1.0",
-          "resolved": "./node_shrinkwrap/readable-stream-2.0.6.tgz"
-        },
-        "through2": {
-          "version": "2.0.1",
-          "from": "through2@>=2.0.0 <3.0.0",
-          "resolved": "./node_shrinkwrap/through2-2.0.1.tgz"
-        },
-        "vinyl": {
-          "version": "0.5.3",
-          "from": "vinyl@>=0.5.0 <0.6.0",
-          "resolved": "./node_shrinkwrap/vinyl-0.5.3.tgz"
         }
       }
     },
@@ -2810,8 +2968,13 @@
     },
     "har-validator": {
       "version": "2.0.6",
-      "from": "har-validator@>=2.0.6 <2.1.0",
+      "from": "har-validator@>=2.0.2 <2.1.0",
       "resolved": "./node_shrinkwrap/har-validator-2.0.6.tgz"
+    },
+    "has": {
+      "version": "1.0.1",
+      "from": "has@>=1.0.1 <2.0.0",
+      "resolved": "./node_shrinkwrap/has-1.0.1.tgz"
     },
     "has-ansi": {
       "version": "2.0.0",
@@ -2830,11 +2993,6 @@
         }
       }
     },
-    "has-color": {
-      "version": "0.1.7",
-      "from": "has-color@>=0.1.0 <0.2.0",
-      "resolved": "./node_shrinkwrap/has-color-0.1.7.tgz"
-    },
     "has-cors": {
       "version": "1.1.0",
       "from": "has-cors@1.1.0",
@@ -2845,15 +3003,25 @@
       "from": "has-flag@>=1.0.0 <2.0.0",
       "resolved": "./node_shrinkwrap/has-flag-1.0.0.tgz"
     },
-    "has-gulplog": {
-      "version": "0.1.0",
-      "from": "has-gulplog@>=0.1.0 <0.2.0",
-      "resolved": "./node_shrinkwrap/has-gulplog-0.1.0.tgz"
+    "has-own": {
+      "version": "1.0.0",
+      "from": "has-own@>=1.0.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/has-own-1.0.0.tgz"
+    },
+    "has-unicode": {
+      "version": "2.0.0",
+      "from": "has-unicode@>=2.0.0 <3.0.0",
+      "resolved": "./node_shrinkwrap/has-unicode-2.0.0.tgz"
     },
     "hawk": {
       "version": "3.1.3",
-      "from": "hawk@>=3.1.3 <3.2.0",
+      "from": "hawk@>=3.1.0 <3.2.0",
       "resolved": "./node_shrinkwrap/hawk-3.1.3.tgz"
+    },
+    "he": {
+      "version": "1.1.0",
+      "from": "he@>=1.1.0 <1.2.0",
+      "resolved": "./node_shrinkwrap/he-1.1.0.tgz"
     },
     "hoek": {
       "version": "2.16.3",
@@ -2861,9 +3029,9 @@
       "resolved": "./node_shrinkwrap/hoek-2.16.3.tgz"
     },
     "hoist-non-react-statics": {
-      "version": "1.0.5",
+      "version": "1.0.6",
       "from": "hoist-non-react-statics@>=1.0.3 <2.0.0",
-      "resolved": "./node_shrinkwrap/hoist-non-react-statics-1.0.5.tgz"
+      "resolved": "./node_shrinkwrap/hoist-non-react-statics-1.0.6.tgz"
     },
     "home-or-tmp": {
       "version": "1.0.0",
@@ -2875,20 +3043,62 @@
       "from": "hosted-git-info@>=2.1.4 <3.0.0",
       "resolved": "./node_shrinkwrap/hosted-git-info-2.1.4.tgz"
     },
+    "html-comment-regex": {
+      "version": "1.1.0",
+      "from": "html-comment-regex@>=1.1.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/html-comment-regex-1.1.0.tgz"
+    },
+    "html-entities": {
+      "version": "1.2.0",
+      "from": "html-entities@>=1.2.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/html-entities-1.2.0.tgz"
+    },
+    "html-minifier": {
+      "version": "2.1.3",
+      "from": "html-minifier@>=2.1.0 <3.0.0",
+      "resolved": "./node_shrinkwrap/html-minifier-2.1.3.tgz"
+    },
+    "html-webpack-plugin": {
+      "version": "2.17.0",
+      "from": "html-webpack-plugin@latest",
+      "resolved": "./node_shrinkwrap/html-webpack-plugin-2.17.0.tgz"
+    },
+    "htmlparser2": {
+      "version": "3.3.0",
+      "from": "htmlparser2@>=3.3.0 <3.4.0",
+      "resolved": "./node_shrinkwrap/htmlparser2-3.3.0.tgz",
+      "dependencies": {
+        "domutils": {
+          "version": "1.1.6",
+          "from": "domutils@>=1.1.0 <1.2.0",
+          "resolved": "./node_shrinkwrap/domutils-1.1.6.tgz"
+        },
+        "isarray": {
+          "version": "0.0.1",
+          "from": "isarray@0.0.1",
+          "resolved": "./node_shrinkwrap/isarray-0.0.1.tgz"
+        },
+        "readable-stream": {
+          "version": "1.0.34",
+          "from": "readable-stream@>=1.0.0 <1.1.0",
+          "resolved": "./node_shrinkwrap/readable-stream-1.0.34.tgz"
+        }
+      }
+    },
     "http-browserify": {
       "version": "1.7.0",
       "from": "http-browserify@>=1.3.2 <2.0.0",
       "resolved": "./node_shrinkwrap/http-browserify-1.7.0.tgz"
     },
     "http-errors": {
-      "version": "1.4.0",
-      "from": "http-errors@>=1.4.0 <1.5.0",
-      "resolved": "./node_shrinkwrap/http-errors-1.4.0.tgz"
+      "version": "1.3.1",
+      "from": "http-errors@>=1.3.1 <1.4.0",
+      "resolved": "./node_shrinkwrap/http-errors-1.3.1.tgz"
     },
     "http-proxy": {
-      "version": "1.11.3",
-      "from": "http-proxy@>=1.11.1 <1.12.0",
-      "resolved": "./node_shrinkwrap/http-proxy-1.11.3.tgz"
+      "version": "1.13.2",
+      "from": "http-proxy@>=1.11.2 <2.0.0",
+      "resolved": "./node_shrinkwrap/http-proxy-1.13.2.tgz"
     },
     "http-signature": {
       "version": "1.1.1",
@@ -2906,14 +3116,19 @@
       "resolved": "./node_shrinkwrap/https-proxy-agent-1.0.0.tgz"
     },
     "i": {
-      "version": "0.3.4",
+      "version": "0.3.5",
       "from": "i@>=0.3.0 <0.4.0",
-      "resolved": "./node_shrinkwrap/i-0.3.4.tgz"
+      "resolved": "./node_shrinkwrap/i-0.3.5.tgz"
     },
     "iconv-lite": {
       "version": "0.4.13",
-      "from": "iconv-lite@>=0.4.13 <0.5.0",
+      "from": "iconv-lite@0.4.13",
       "resolved": "./node_shrinkwrap/iconv-lite-0.4.13.tgz"
+    },
+    "icss-replace-symbols": {
+      "version": "1.0.2",
+      "from": "icss-replace-symbols@>=1.0.2 <2.0.0",
+      "resolved": "./node_shrinkwrap/icss-replace-symbols-1.0.2.tgz"
     },
     "ieee754": {
       "version": "1.1.6",
@@ -2921,14 +3136,19 @@
       "resolved": "./node_shrinkwrap/ieee754-1.1.6.tgz"
     },
     "ignore": {
-      "version": "3.1.1",
-      "from": "ignore@>=3.0.10 <4.0.0",
-      "resolved": "./node_shrinkwrap/ignore-3.1.1.tgz"
+      "version": "3.1.2",
+      "from": "ignore@>=3.1.2 <4.0.0",
+      "resolved": "./node_shrinkwrap/ignore-3.1.2.tgz"
     },
     "imurmurhash": {
       "version": "0.1.4",
       "from": "imurmurhash@>=0.1.4 <0.2.0",
       "resolved": "./node_shrinkwrap/imurmurhash-0.1.4.tgz"
+    },
+    "in-publish": {
+      "version": "2.0.0",
+      "from": "in-publish@>=2.0.0 <3.0.0",
+      "resolved": "./node_shrinkwrap/in-publish-2.0.0.tgz"
     },
     "indent-string": {
       "version": "2.1.0",
@@ -2942,6 +3162,11 @@
         }
       }
     },
+    "indexes-of": {
+      "version": "1.0.1",
+      "from": "indexes-of@>=1.0.1 <2.0.0",
+      "resolved": "./node_shrinkwrap/indexes-of-1.0.1.tgz"
+    },
     "indexof": {
       "version": "0.0.1",
       "from": "indexof@0.0.1",
@@ -2954,27 +3179,29 @@
     },
     "inherits": {
       "version": "2.0.1",
-      "from": "inherits@>=2.0.1 <3.0.0",
+      "from": "inherits@>=2.0.0 <3.0.0",
       "resolved": "./node_shrinkwrap/inherits-2.0.1.tgz"
-    },
-    "inline-process-browser": {
-      "version": "2.0.1",
-      "from": "inline-process-browser@>=2.0.1 <2.1.0",
-      "resolved": "./node_shrinkwrap/inline-process-browser-2.0.1.tgz"
     },
     "inquirer": {
       "version": "0.12.0",
       "from": "inquirer@>=0.12.0 <0.13.0",
-      "resolved": "./node_shrinkwrap/inquirer-0.12.0.tgz"
+      "resolved": "./node_shrinkwrap/inquirer-0.12.0.tgz",
+      "dependencies": {
+        "lodash": {
+          "version": "4.12.0",
+          "from": "lodash@>=4.3.0 <5.0.0",
+          "resolved": "./node_shrinkwrap/lodash-4.12.0.tgz"
+        }
+      }
     },
     "interpret": {
-      "version": "1.0.0",
-      "from": "interpret@>=1.0.0 <2.0.0",
-      "resolved": "./node_shrinkwrap/interpret-1.0.0.tgz"
+      "version": "0.6.6",
+      "from": "interpret@>=0.6.4 <0.7.0",
+      "resolved": "./node_shrinkwrap/interpret-0.6.6.tgz"
     },
     "invariant": {
       "version": "2.2.1",
-      "from": "invariant@>=2.0.0 <3.0.0",
+      "from": "invariant@>=2.2.0 <3.0.0",
       "resolved": "./node_shrinkwrap/invariant-2.2.1.tgz"
     },
     "invert-kv": {
@@ -2991,6 +3218,11 @@
       "version": "0.1.7",
       "from": "is-absolute@>=0.1.7 <0.2.0",
       "resolved": "./node_shrinkwrap/is-absolute-0.1.7.tgz"
+    },
+    "is-absolute-url": {
+      "version": "2.0.0",
+      "from": "is-absolute-url@>=2.0.0 <3.0.0",
+      "resolved": "./node_shrinkwrap/is-absolute-url-2.0.0.tgz"
     },
     "is-arrayish": {
       "version": "0.2.1",
@@ -3011,6 +3243,16 @@
       "version": "1.0.0",
       "from": "is-builtin-module@>=1.0.0 <2.0.0",
       "resolved": "./node_shrinkwrap/is-builtin-module-1.0.0.tgz"
+    },
+    "is-callable": {
+      "version": "1.1.3",
+      "from": "is-callable@>=1.1.1 <2.0.0",
+      "resolved": "./node_shrinkwrap/is-callable-1.1.3.tgz"
+    },
+    "is-date-object": {
+      "version": "1.0.1",
+      "from": "is-date-object@>=1.0.1 <2.0.0",
+      "resolved": "./node_shrinkwrap/is-date-object-1.0.1.tgz"
     },
     "is-domain": {
       "version": "0.0.1",
@@ -3057,9 +3299,14 @@
       "from": "is-integer@>=1.0.4 <2.0.0",
       "resolved": "./node_shrinkwrap/is-integer-1.0.6.tgz"
     },
+    "is-lower-case": {
+      "version": "1.1.3",
+      "from": "is-lower-case@>=1.1.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/is-lower-case-1.1.3.tgz"
+    },
     "is-my-json-valid": {
       "version": "2.13.1",
-      "from": "is-my-json-valid@>=2.12.4 <3.0.0",
+      "from": "is-my-json-valid@>=2.10.0 <3.0.0",
       "resolved": "./node_shrinkwrap/is-my-json-valid-2.13.1.tgz"
     },
     "is-number": {
@@ -3082,6 +3329,11 @@
       "from": "is-path-inside@>=1.0.0 <2.0.0",
       "resolved": "./node_shrinkwrap/is-path-inside-1.0.0.tgz"
     },
+    "is-plain-obj": {
+      "version": "1.1.0",
+      "from": "is-plain-obj@>=1.0.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/is-plain-obj-1.1.0.tgz"
+    },
     "is-posix-bracket": {
       "version": "0.1.1",
       "from": "is-posix-bracket@>=0.1.0 <0.2.0",
@@ -3092,10 +3344,20 @@
       "from": "is-primitive@>=2.0.0 <3.0.0",
       "resolved": "./node_shrinkwrap/is-primitive-2.0.0.tgz"
     },
+    "is-promise": {
+      "version": "2.1.0",
+      "from": "is-promise@>=2.0.0 <3.0.0",
+      "resolved": "./node_shrinkwrap/is-promise-2.1.0.tgz"
+    },
     "is-property": {
       "version": "1.0.2",
       "from": "is-property@>=1.0.0 <2.0.0",
       "resolved": "./node_shrinkwrap/is-property-1.0.2.tgz"
+    },
+    "is-regex": {
+      "version": "1.0.3",
+      "from": "is-regex@>=1.0.3 <2.0.0",
+      "resolved": "./node_shrinkwrap/is-regex-1.0.3.tgz"
     },
     "is-relative": {
       "version": "0.1.3",
@@ -3112,10 +3374,25 @@
       "from": "is-stream@>=1.0.1 <2.0.0",
       "resolved": "./node_shrinkwrap/is-stream-1.1.0.tgz"
     },
+    "is-svg": {
+      "version": "2.0.1",
+      "from": "is-svg@>=2.0.0 <3.0.0",
+      "resolved": "./node_shrinkwrap/is-svg-2.0.1.tgz"
+    },
+    "is-symbol": {
+      "version": "1.0.1",
+      "from": "is-symbol@>=1.0.1 <2.0.0",
+      "resolved": "./node_shrinkwrap/is-symbol-1.0.1.tgz"
+    },
     "is-typedarray": {
       "version": "1.0.0",
       "from": "is-typedarray@>=1.0.0 <1.1.0",
       "resolved": "./node_shrinkwrap/is-typedarray-1.0.0.tgz"
+    },
+    "is-upper-case": {
+      "version": "1.1.2",
+      "from": "is-upper-case@>=1.1.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/is-upper-case-1.1.2.tgz"
     },
     "is-utf8": {
       "version": "0.2.1",
@@ -3129,7 +3406,7 @@
     },
     "isarray": {
       "version": "1.0.0",
-      "from": "isarray@1.0.0",
+      "from": "isarray@>=1.0.0 <1.1.0",
       "resolved": "./node_shrinkwrap/isarray-1.0.0.tgz"
     },
     "isbinaryfile": {
@@ -3158,21 +3435,21 @@
       "resolved": "./node_shrinkwrap/isstream-0.1.2.tgz"
     },
     "jade": {
-      "version": "0.26.3",
-      "from": "jade@0.26.3",
-      "resolved": "./node_shrinkwrap/jade-0.26.3.tgz",
+      "version": "1.11.0",
+      "from": "jade@latest",
+      "resolved": "./node_shrinkwrap/jade-1.11.0.tgz",
       "dependencies": {
         "commander": {
-          "version": "0.6.1",
-          "from": "commander@0.6.1",
-          "resolved": "./node_shrinkwrap/commander-0.6.1.tgz"
-        },
-        "mkdirp": {
-          "version": "0.3.0",
-          "from": "mkdirp@0.3.0",
-          "resolved": "./node_shrinkwrap/mkdirp-0.3.0.tgz"
+          "version": "2.6.0",
+          "from": "commander@>=2.6.0 <2.7.0",
+          "resolved": "./node_shrinkwrap/commander-2.6.0.tgz"
         }
       }
+    },
+    "jade-loader": {
+      "version": "0.8.0",
+      "from": "jade-loader@latest",
+      "resolved": "./node_shrinkwrap/jade-loader-0.8.0.tgz"
     },
     "jasmine": {
       "version": "2.4.1",
@@ -3184,11 +3461,6 @@
           "from": "glob@>=3.2.11 <4.0.0",
           "resolved": "./node_shrinkwrap/glob-3.2.11.tgz"
         },
-        "lru-cache": {
-          "version": "2.7.3",
-          "from": "lru-cache@>=2.0.0 <3.0.0",
-          "resolved": "./node_shrinkwrap/lru-cache-2.7.3.tgz"
-        },
         "minimatch": {
           "version": "0.3.0",
           "from": "minimatch@>=0.3.0 <0.4.0",
@@ -3198,7 +3470,7 @@
     },
     "jasmine-core": {
       "version": "2.4.1",
-      "from": "jasmine-core@>=2.4.0 <2.5.0",
+      "from": "jasmine-core@latest",
       "resolved": "./node_shrinkwrap/jasmine-core-2.4.1.tgz"
     },
     "jasminewd2": {
@@ -3206,20 +3478,30 @@
       "from": "jasminewd2@0.0.9",
       "resolved": "./node_shrinkwrap/jasminewd2-0.0.9.tgz"
     },
+    "jju": {
+      "version": "1.3.0",
+      "from": "jju@>=1.1.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/jju-1.3.0.tgz"
+    },
     "jodid25519": {
       "version": "1.0.2",
       "from": "jodid25519@>=1.0.0 <2.0.0",
       "resolved": "./node_shrinkwrap/jodid25519-1.0.2.tgz"
     },
+    "js-base64": {
+      "version": "2.1.9",
+      "from": "js-base64@>=2.1.9 <3.0.0",
+      "resolved": "./node_shrinkwrap/js-base64-2.1.9.tgz"
+    },
     "js-tokens": {
       "version": "1.0.3",
-      "from": "js-tokens@>=1.0.1 <2.0.0",
+      "from": "js-tokens@>=1.0.2 <2.0.0",
       "resolved": "./node_shrinkwrap/js-tokens-1.0.3.tgz"
     },
     "js-yaml": {
-      "version": "3.6.0",
+      "version": "3.6.1",
       "from": "js-yaml@>=3.5.1 <4.0.0",
-      "resolved": "./node_shrinkwrap/js-yaml-3.6.0.tgz"
+      "resolved": "./node_shrinkwrap/js-yaml-3.6.1.tgz"
     },
     "jsbn": {
       "version": "0.1.0",
@@ -3230,6 +3512,11 @@
       "version": "0.5.0",
       "from": "jsesc@>=0.5.0 <0.6.0",
       "resolved": "./node_shrinkwrap/jsesc-0.5.0.tgz"
+    },
+    "json-parse-helpfulerror": {
+      "version": "1.0.3",
+      "from": "json-parse-helpfulerror@>=1.0.3 <2.0.0",
+      "resolved": "./node_shrinkwrap/json-parse-helpfulerror-1.0.3.tgz"
     },
     "json-schema": {
       "version": "0.2.2",
@@ -3247,14 +3534,14 @@
       "resolved": "./node_shrinkwrap/json-stringify-safe-5.0.1.tgz"
     },
     "json3": {
-      "version": "3.2.6",
-      "from": "json3@3.2.6",
-      "resolved": "./node_shrinkwrap/json3-3.2.6.tgz"
+      "version": "3.3.2",
+      "from": "json3@>=3.3.2 <4.0.0",
+      "resolved": "./node_shrinkwrap/json3-3.3.2.tgz"
     },
     "json5": {
-      "version": "0.4.0",
-      "from": "json5@>=0.4.0 <0.5.0",
-      "resolved": "./node_shrinkwrap/json5-0.4.0.tgz"
+      "version": "0.5.0",
+      "from": "json5@>=0.5.0 <0.6.0",
+      "resolved": "./node_shrinkwrap/json5-0.5.0.tgz"
     },
     "jsonify": {
       "version": "0.0.0",
@@ -3271,9 +3558,14 @@
       "from": "jsprim@>=1.2.2 <2.0.0",
       "resolved": "./node_shrinkwrap/jsprim-1.2.2.tgz"
     },
+    "jstransformer": {
+      "version": "0.0.2",
+      "from": "jstransformer@0.0.2",
+      "resolved": "./node_shrinkwrap/jstransformer-0.0.2.tgz"
+    },
     "karma": {
       "version": "0.13.22",
-      "from": "karma@0.13.22",
+      "from": "karma@latest",
       "resolved": "./node_shrinkwrap/karma-0.13.22.tgz",
       "dependencies": {
         "bluebird": {
@@ -3281,66 +3573,36 @@
           "from": "bluebird@>=2.9.27 <3.0.0",
           "resolved": "./node_shrinkwrap/bluebird-2.10.2.tgz"
         },
-        "colors": {
-          "version": "1.1.2",
-          "from": "colors@>=1.1.0 <2.0.0",
-          "resolved": "./node_shrinkwrap/colors-1.1.2.tgz"
-        },
-        "core-js": {
-          "version": "2.3.0",
-          "from": "core-js@>=2.1.0 <3.0.0",
-          "resolved": "./node_shrinkwrap/core-js-2.3.0.tgz"
-        },
-        "glob": {
-          "version": "7.0.3",
-          "from": "glob@>=7.0.0 <8.0.0",
-          "resolved": "./node_shrinkwrap/glob-7.0.3.tgz"
-        },
-        "http-proxy": {
-          "version": "1.13.2",
-          "from": "http-proxy@>=1.13.0 <2.0.0",
-          "resolved": "./node_shrinkwrap/http-proxy-1.13.2.tgz"
-        },
         "lodash": {
           "version": "3.10.1",
           "from": "lodash@>=3.8.0 <4.0.0",
           "resolved": "./node_shrinkwrap/lodash-3.10.1.tgz"
-        },
-        "mime": {
-          "version": "1.3.4",
-          "from": "mime@>=1.3.4 <2.0.0",
-          "resolved": "./node_shrinkwrap/mime-1.3.4.tgz"
-        },
-        "minimatch": {
-          "version": "3.0.0",
-          "from": "minimatch@>=3.0.0 <4.0.0",
-          "resolved": "./node_shrinkwrap/minimatch-3.0.0.tgz"
-        },
-        "requires-port": {
-          "version": "1.0.0",
-          "from": "requires-port@>=1.0.0 <2.0.0",
-          "resolved": "./node_shrinkwrap/requires-port-1.0.0.tgz"
         }
       }
     },
     "karma-chrome-launcher": {
-      "version": "0.2.3",
-      "from": "karma-chrome-launcher@0.2.3",
-      "resolved": "./node_shrinkwrap/karma-chrome-launcher-0.2.3.tgz"
+      "version": "1.0.1",
+      "from": "karma-chrome-launcher@latest",
+      "resolved": "./node_shrinkwrap/karma-chrome-launcher-1.0.1.tgz"
+    },
+    "karma-firefox-launcher": {
+      "version": "1.0.0",
+      "from": "karma-firefox-launcher@latest",
+      "resolved": "./node_shrinkwrap/karma-firefox-launcher-1.0.0.tgz"
     },
     "karma-mocha": {
-      "version": "0.2.2",
-      "from": "karma-mocha@0.2.2",
-      "resolved": "./node_shrinkwrap/karma-mocha-0.2.2.tgz"
+      "version": "1.0.1",
+      "from": "karma-mocha@latest",
+      "resolved": "./node_shrinkwrap/karma-mocha-1.0.1.tgz"
     },
     "karma-mocha-reporter": {
-      "version": "2.0.2",
-      "from": "karma-mocha-reporter@2.0.2",
-      "resolved": "./node_shrinkwrap/karma-mocha-reporter-2.0.2.tgz"
+      "version": "2.0.3",
+      "from": "karma-mocha-reporter@latest",
+      "resolved": "./node_shrinkwrap/karma-mocha-reporter-2.0.3.tgz"
     },
     "karma-webpack": {
       "version": "1.7.0",
-      "from": "karma-webpack@1.7.0",
+      "from": "karma-webpack@latest",
       "resolved": "./node_shrinkwrap/karma-webpack-1.7.0.tgz",
       "dependencies": {
         "async": {
@@ -3360,15 +3622,20 @@
         }
       }
     },
+    "keycode": {
+      "version": "2.1.1",
+      "from": "keycode@>=2.1.1 <3.0.0",
+      "resolved": "./node_shrinkwrap/keycode-2.1.1.tgz"
+    },
     "keypress": {
       "version": "0.1.0",
       "from": "keypress@>=0.1.0 <0.2.0",
       "resolved": "./node_shrinkwrap/keypress-0.1.0.tgz"
     },
     "kind-of": {
-      "version": "3.0.2",
+      "version": "3.0.3",
       "from": "kind-of@>=3.0.2 <4.0.0",
-      "resolved": "./node_shrinkwrap/kind-of-3.0.2.tgz"
+      "resolved": "./node_shrinkwrap/kind-of-3.0.3.tgz"
     },
     "last-run": {
       "version": "1.1.0",
@@ -3430,26 +3697,46 @@
       "resolved": "./node_shrinkwrap/load-json-file-1.1.0.tgz"
     },
     "loader-utils": {
-      "version": "0.2.14",
+      "version": "0.2.15",
       "from": "loader-utils@>=0.2.11 <0.3.0",
-      "resolved": "./node_shrinkwrap/loader-utils-0.2.14.tgz",
+      "resolved": "./node_shrinkwrap/loader-utils-0.2.15.tgz"
+    },
+    "lodash": {
+      "version": "4.12.0",
+      "from": "lodash@latest",
+      "resolved": "./node_shrinkwrap/lodash-4.12.0.tgz"
+    },
+    "lodash-es": {
+      "version": "4.12.0",
+      "from": "lodash-es@>=4.2.1 <5.0.0",
+      "resolved": "./node_shrinkwrap/lodash-es-4.12.0.tgz"
+    },
+    "lodash._arraycopy": {
+      "version": "3.0.0",
+      "from": "lodash._arraycopy@>=3.0.0 <4.0.0",
+      "resolved": "./node_shrinkwrap/lodash._arraycopy-3.0.0.tgz"
+    },
+    "lodash._arrayeach": {
+      "version": "3.0.0",
+      "from": "lodash._arrayeach@>=3.0.0 <4.0.0",
+      "resolved": "./node_shrinkwrap/lodash._arrayeach-3.0.0.tgz"
+    },
+    "lodash._baseassign": {
+      "version": "3.2.0",
+      "from": "lodash._baseassign@>=3.0.0 <4.0.0",
+      "resolved": "./node_shrinkwrap/lodash._baseassign-3.2.0.tgz",
       "dependencies": {
-        "json5": {
-          "version": "0.5.0",
-          "from": "json5@>=0.5.0 <0.6.0",
-          "resolved": "./node_shrinkwrap/json5-0.5.0.tgz"
+        "lodash.keys": {
+          "version": "3.1.2",
+          "from": "lodash.keys@>=3.0.0 <4.0.0",
+          "resolved": "./node_shrinkwrap/lodash.keys-3.1.2.tgz"
         }
       }
     },
-    "lodash": {
-      "version": "4.11.1",
-      "from": "lodash@4.11.1",
-      "resolved": "./node_shrinkwrap/lodash-4.11.1.tgz"
-    },
-    "lodash-es": {
-      "version": "4.11.1",
-      "from": "lodash-es@>=4.2.1 <5.0.0",
-      "resolved": "./node_shrinkwrap/lodash-es-4.11.1.tgz"
+    "lodash._basecallback": {
+      "version": "3.3.1",
+      "from": "lodash._basecallback@>=3.0.0 <4.0.0",
+      "resolved": "./node_shrinkwrap/lodash._basecallback-3.3.1.tgz"
     },
     "lodash._basecopy": {
       "version": "3.0.1",
@@ -3457,9 +3744,9 @@
       "resolved": "./node_shrinkwrap/lodash._basecopy-3.0.1.tgz"
     },
     "lodash._baseeach": {
-      "version": "4.1.2",
+      "version": "4.1.3",
       "from": "lodash._baseeach@>=4.1.0 <4.2.0",
-      "resolved": "./node_shrinkwrap/lodash._baseeach-4.1.2.tgz"
+      "resolved": "./node_shrinkwrap/lodash._baseeach-4.1.3.tgz"
     },
     "lodash._basefilter": {
       "version": "4.0.1",
@@ -3477,19 +3764,31 @@
       "resolved": "./node_shrinkwrap/lodash._basefindindex-3.6.0.tgz"
     },
     "lodash._baseflatten": {
-      "version": "4.2.0",
+      "version": "4.2.1",
       "from": "lodash._baseflatten@>=4.2.0 <4.3.0",
-      "resolved": "./node_shrinkwrap/lodash._baseflatten-4.2.0.tgz"
+      "resolved": "./node_shrinkwrap/lodash._baseflatten-4.2.1.tgz"
     },
     "lodash._basefor": {
       "version": "3.0.3",
       "from": "lodash._basefor@>=3.0.0 <4.0.0",
       "resolved": "./node_shrinkwrap/lodash._basefor-3.0.3.tgz"
     },
+    "lodash._baseisequal": {
+      "version": "3.0.7",
+      "from": "lodash._baseisequal@>=3.0.0 <4.0.0",
+      "resolved": "./node_shrinkwrap/lodash._baseisequal-3.0.7.tgz",
+      "dependencies": {
+        "lodash.keys": {
+          "version": "3.1.2",
+          "from": "lodash.keys@>=3.0.0 <4.0.0",
+          "resolved": "./node_shrinkwrap/lodash.keys-3.1.2.tgz"
+        }
+      }
+    },
     "lodash._baseiteratee": {
-      "version": "4.6.1",
-      "from": "lodash._baseiteratee@>=4.6.0 <4.7.0",
-      "resolved": "./node_shrinkwrap/lodash._baseiteratee-4.6.1.tgz"
+      "version": "4.7.0",
+      "from": "lodash._baseiteratee@>=4.7.0 <4.8.0",
+      "resolved": "./node_shrinkwrap/lodash._baseiteratee-4.7.0.tgz"
     },
     "lodash._basereduce": {
       "version": "3.0.2",
@@ -3502,24 +3801,34 @@
       "resolved": "./node_shrinkwrap/lodash._baseslice-4.0.0.tgz"
     },
     "lodash._basetostring": {
-      "version": "3.0.1",
-      "from": "lodash._basetostring@>=3.0.0 <4.0.0",
-      "resolved": "./node_shrinkwrap/lodash._basetostring-3.0.1.tgz"
+      "version": "4.12.0",
+      "from": "lodash._basetostring@>=4.12.0 <4.13.0",
+      "resolved": "./node_shrinkwrap/lodash._basetostring-4.12.0.tgz"
     },
     "lodash._baseuniq": {
       "version": "4.5.1",
       "from": "lodash._baseuniq@>=4.5.0 <4.6.0",
       "resolved": "./node_shrinkwrap/lodash._baseuniq-4.5.1.tgz"
     },
-    "lodash._basevalues": {
+    "lodash._bindcallback": {
+      "version": "3.0.1",
+      "from": "lodash._bindcallback@>=3.0.0 <4.0.0",
+      "resolved": "./node_shrinkwrap/lodash._bindcallback-3.0.1.tgz"
+    },
+    "lodash._createassigner": {
+      "version": "3.1.1",
+      "from": "lodash._createassigner@>=3.0.0 <4.0.0",
+      "resolved": "./node_shrinkwrap/lodash._createassigner-3.1.1.tgz"
+    },
+    "lodash._createcompounder": {
       "version": "3.0.0",
-      "from": "lodash._basevalues@>=3.0.0 <4.0.0",
-      "resolved": "./node_shrinkwrap/lodash._basevalues-3.0.0.tgz"
+      "from": "lodash._createcompounder@>=3.0.0 <4.0.0",
+      "resolved": "./node_shrinkwrap/lodash._createcompounder-3.0.0.tgz"
     },
     "lodash._createset": {
-      "version": "4.0.2",
+      "version": "4.0.3",
       "from": "lodash._createset@>=4.0.0 <4.1.0",
-      "resolved": "./node_shrinkwrap/lodash._createset-4.0.2.tgz"
+      "resolved": "./node_shrinkwrap/lodash._createset-4.0.3.tgz"
     },
     "lodash._escapehtmlchar": {
       "version": "2.4.1",
@@ -3556,20 +3865,10 @@
       "from": "lodash._objecttypes@>=2.4.1 <2.5.0",
       "resolved": "./node_shrinkwrap/lodash._objecttypes-2.4.1.tgz"
     },
-    "lodash._reescape": {
-      "version": "3.0.0",
-      "from": "lodash._reescape@>=3.0.0 <4.0.0",
-      "resolved": "./node_shrinkwrap/lodash._reescape-3.0.0.tgz"
-    },
-    "lodash._reevaluate": {
-      "version": "3.0.0",
-      "from": "lodash._reevaluate@>=3.0.0 <4.0.0",
-      "resolved": "./node_shrinkwrap/lodash._reevaluate-3.0.0.tgz"
-    },
     "lodash._reinterpolate": {
-      "version": "3.0.0",
-      "from": "lodash._reinterpolate@>=3.0.0 <4.0.0",
-      "resolved": "./node_shrinkwrap/lodash._reinterpolate-3.0.0.tgz"
+      "version": "2.4.1",
+      "from": "lodash._reinterpolate@>=2.4.1 <3.0.0",
+      "resolved": "./node_shrinkwrap/lodash._reinterpolate-2.4.1.tgz"
     },
     "lodash._reunescapedhtml": {
       "version": "2.4.1",
@@ -3585,7 +3884,7 @@
     },
     "lodash._root": {
       "version": "3.0.1",
-      "from": "lodash._root@>=3.0.0 <3.1.0",
+      "from": "lodash._root@>=3.0.0 <4.0.0",
       "resolved": "./node_shrinkwrap/lodash._root-3.0.1.tgz"
     },
     "lodash._setcache": {
@@ -3598,37 +3897,45 @@
       "from": "lodash._shimkeys@>=2.4.1 <2.5.0",
       "resolved": "./node_shrinkwrap/lodash._shimkeys-2.4.1.tgz"
     },
-    "lodash._stack": {
-      "version": "4.1.3",
-      "from": "lodash._stack@>=4.1.0 <4.2.0",
-      "resolved": "./node_shrinkwrap/lodash._stack-4.1.3.tgz"
-    },
     "lodash._stringtopath": {
-      "version": "4.7.1",
-      "from": "lodash._stringtopath@>=4.7.0 <4.8.0",
-      "resolved": "./node_shrinkwrap/lodash._stringtopath-4.7.1.tgz"
+      "version": "4.8.0",
+      "from": "lodash._stringtopath@>=4.8.0 <4.9.0",
+      "resolved": "./node_shrinkwrap/lodash._stringtopath-4.8.0.tgz"
     },
     "lodash.assign": {
-      "version": "4.0.8",
+      "version": "4.0.9",
       "from": "lodash.assign@>=4.0.0 <5.0.0",
-      "resolved": "./node_shrinkwrap/lodash.assign-4.0.8.tgz"
+      "resolved": "./node_shrinkwrap/lodash.assign-4.0.9.tgz"
     },
     "lodash.assigninwith": {
-      "version": "4.0.6",
+      "version": "4.0.7",
       "from": "lodash.assigninwith@>=4.0.0 <5.0.0",
-      "resolved": "./node_shrinkwrap/lodash.assigninwith-4.0.6.tgz",
-      "dependencies": {
-        "lodash.keysin": {
-          "version": "4.1.3",
-          "from": "lodash.keysin@>=4.0.0 <5.0.0",
-          "resolved": "./node_shrinkwrap/lodash.keysin-4.1.3.tgz"
-        }
-      }
+      "resolved": "./node_shrinkwrap/lodash.assigninwith-4.0.7.tgz"
+    },
+    "lodash.assignwith": {
+      "version": "4.0.7",
+      "from": "lodash.assignwith@>=4.0.6 <5.0.0",
+      "resolved": "./node_shrinkwrap/lodash.assignwith-4.0.7.tgz"
+    },
+    "lodash.camelcase": {
+      "version": "3.0.1",
+      "from": "lodash.camelcase@>=3.0.1 <4.0.0",
+      "resolved": "./node_shrinkwrap/lodash.camelcase-3.0.1.tgz"
     },
     "lodash.cond": {
-      "version": "4.3.0",
+      "version": "4.4.0",
       "from": "lodash.cond@>=4.3.0 <5.0.0",
-      "resolved": "./node_shrinkwrap/lodash.cond-4.3.0.tgz"
+      "resolved": "./node_shrinkwrap/lodash.cond-4.4.0.tgz"
+    },
+    "lodash.debounce": {
+      "version": "4.0.6",
+      "from": "lodash.debounce@>=4.0.6 <5.0.0",
+      "resolved": "./node_shrinkwrap/lodash.debounce-4.0.6.tgz"
+    },
+    "lodash.deburr": {
+      "version": "3.2.0",
+      "from": "lodash.deburr@>=3.0.0 <4.0.0",
+      "resolved": "./node_shrinkwrap/lodash.deburr-3.2.0.tgz"
     },
     "lodash.defaults": {
       "version": "4.0.1",
@@ -3636,24 +3943,31 @@
       "resolved": "./node_shrinkwrap/lodash.defaults-4.0.1.tgz"
     },
     "lodash.endswith": {
-      "version": "4.0.1",
+      "version": "4.1.0",
       "from": "lodash.endswith@>=4.0.1 <5.0.0",
-      "resolved": "./node_shrinkwrap/lodash.endswith-4.0.1.tgz"
+      "resolved": "./node_shrinkwrap/lodash.endswith-4.1.0.tgz"
     },
     "lodash.escape": {
-      "version": "3.2.0",
-      "from": "lodash.escape@>=3.0.0 <4.0.0",
-      "resolved": "./node_shrinkwrap/lodash.escape-3.2.0.tgz"
+      "version": "2.4.1",
+      "from": "lodash.escape@>=2.4.1 <2.5.0",
+      "resolved": "./node_shrinkwrap/lodash.escape-2.4.1.tgz",
+      "dependencies": {
+        "lodash.keys": {
+          "version": "2.4.1",
+          "from": "lodash.keys@>=2.4.1 <2.5.0",
+          "resolved": "./node_shrinkwrap/lodash.keys-2.4.1.tgz"
+        }
+      }
     },
     "lodash.filter": {
-      "version": "4.3.0",
+      "version": "4.4.0",
       "from": "lodash.filter@>=4.1.0 <5.0.0",
-      "resolved": "./node_shrinkwrap/lodash.filter-4.3.0.tgz"
+      "resolved": "./node_shrinkwrap/lodash.filter-4.4.0.tgz"
     },
     "lodash.find": {
-      "version": "4.3.0",
+      "version": "4.4.0",
       "from": "lodash.find@>=4.3.0 <5.0.0",
-      "resolved": "./node_shrinkwrap/lodash.find-4.3.0.tgz"
+      "resolved": "./node_shrinkwrap/lodash.find-4.4.0.tgz"
     },
     "lodash.flatten": {
       "version": "4.2.0",
@@ -3661,14 +3975,14 @@
       "resolved": "./node_shrinkwrap/lodash.flatten-4.2.0.tgz"
     },
     "lodash.foreach": {
-      "version": "4.2.0",
+      "version": "4.3.0",
       "from": "lodash.foreach@>=4.0.0 <5.0.0",
-      "resolved": "./node_shrinkwrap/lodash.foreach-4.2.0.tgz"
+      "resolved": "./node_shrinkwrap/lodash.foreach-4.3.0.tgz"
     },
     "lodash.initial": {
-      "version": "4.0.3",
+      "version": "4.0.4",
       "from": "lodash.initial@>=4.0.1 <5.0.0",
-      "resolved": "./node_shrinkwrap/lodash.initial-4.0.3.tgz"
+      "resolved": "./node_shrinkwrap/lodash.initial-4.0.4.tgz"
     },
     "lodash.isarguments": {
       "version": "3.0.8",
@@ -3681,9 +3995,9 @@
       "resolved": "./node_shrinkwrap/lodash.isarray-3.0.4.tgz"
     },
     "lodash.isequal": {
-      "version": "4.1.4",
+      "version": "4.2.0",
       "from": "lodash.isequal@>=4.0.0 <5.0.0",
-      "resolved": "./node_shrinkwrap/lodash.isequal-4.1.4.tgz"
+      "resolved": "./node_shrinkwrap/lodash.isequal-4.2.0.tgz"
     },
     "lodash.isobject": {
       "version": "2.4.1",
@@ -3693,17 +4007,29 @@
     "lodash.isplainobject": {
       "version": "3.2.0",
       "from": "lodash.isplainobject@>=3.2.0 <4.0.0",
-      "resolved": "./node_shrinkwrap/lodash.isplainobject-3.2.0.tgz"
+      "resolved": "./node_shrinkwrap/lodash.isplainobject-3.2.0.tgz",
+      "dependencies": {
+        "lodash.keysin": {
+          "version": "3.0.8",
+          "from": "lodash.keysin@>=3.0.0 <4.0.0",
+          "resolved": "./node_shrinkwrap/lodash.keysin-3.0.8.tgz"
+        }
+      }
+    },
+    "lodash.istypedarray": {
+      "version": "3.0.6",
+      "from": "lodash.istypedarray@>=3.0.0 <4.0.0",
+      "resolved": "./node_shrinkwrap/lodash.istypedarray-3.0.6.tgz"
     },
     "lodash.keys": {
-      "version": "4.0.6",
+      "version": "4.0.7",
       "from": "lodash.keys@>=4.0.0 <5.0.0",
-      "resolved": "./node_shrinkwrap/lodash.keys-4.0.6.tgz"
+      "resolved": "./node_shrinkwrap/lodash.keys-4.0.7.tgz"
     },
     "lodash.keysin": {
-      "version": "3.0.8",
-      "from": "lodash.keysin@>=3.0.0 <4.0.0",
-      "resolved": "./node_shrinkwrap/lodash.keysin-3.0.8.tgz"
+      "version": "4.1.4",
+      "from": "lodash.keysin@>=4.0.0 <5.0.0",
+      "resolved": "./node_shrinkwrap/lodash.keysin-4.1.4.tgz"
     },
     "lodash.last": {
       "version": "3.0.0",
@@ -3711,46 +4037,46 @@
       "resolved": "./node_shrinkwrap/lodash.last-3.0.0.tgz"
     },
     "lodash.map": {
-      "version": "4.3.0",
+      "version": "4.4.0",
       "from": "lodash.map@>=4.1.0 <5.0.0",
-      "resolved": "./node_shrinkwrap/lodash.map-4.3.0.tgz"
+      "resolved": "./node_shrinkwrap/lodash.map-4.4.0.tgz"
     },
-    "lodash.pickby": {
-      "version": "4.3.0",
-      "from": "lodash.pickby@>=4.0.0 <5.0.0",
-      "resolved": "./node_shrinkwrap/lodash.pickby-4.3.0.tgz",
+    "lodash.merge": {
+      "version": "3.3.2",
+      "from": "lodash.merge@>=3.3.2 <4.0.0",
+      "resolved": "./node_shrinkwrap/lodash.merge-3.3.2.tgz",
       "dependencies": {
+        "lodash.keys": {
+          "version": "3.1.2",
+          "from": "lodash.keys@>=3.0.0 <4.0.0",
+          "resolved": "./node_shrinkwrap/lodash.keys-3.1.2.tgz"
+        },
         "lodash.keysin": {
-          "version": "4.1.3",
-          "from": "lodash.keysin@>=4.0.0 <5.0.0",
-          "resolved": "./node_shrinkwrap/lodash.keysin-4.1.3.tgz"
+          "version": "3.0.8",
+          "from": "lodash.keysin@>=3.0.0 <4.0.0",
+          "resolved": "./node_shrinkwrap/lodash.keysin-3.0.8.tgz"
         }
       }
     },
-    "lodash.reduce": {
-      "version": "4.3.0",
-      "from": "lodash.reduce@>=4.1.0 <5.0.0",
-      "resolved": "./node_shrinkwrap/lodash.reduce-4.3.0.tgz"
+    "lodash.pad": {
+      "version": "4.4.0",
+      "from": "lodash.pad@>=4.1.0 <5.0.0",
+      "resolved": "./node_shrinkwrap/lodash.pad-4.4.0.tgz"
     },
-    "lodash.rest": {
-      "version": "4.0.2",
-      "from": "lodash.rest@>=4.0.0 <5.0.0",
-      "resolved": "./node_shrinkwrap/lodash.rest-4.0.2.tgz"
+    "lodash.padend": {
+      "version": "4.5.0",
+      "from": "lodash.padend@>=4.1.0 <5.0.0",
+      "resolved": "./node_shrinkwrap/lodash.padend-4.5.0.tgz"
     },
-    "lodash.restparam": {
-      "version": "3.6.1",
-      "from": "lodash.restparam@>=3.0.0 <4.0.0",
-      "resolved": "./node_shrinkwrap/lodash.restparam-3.6.1.tgz"
+    "lodash.padstart": {
+      "version": "4.5.0",
+      "from": "lodash.padstart@>=4.1.0 <5.0.0",
+      "resolved": "./node_shrinkwrap/lodash.padstart-4.5.0.tgz"
     },
-    "lodash.sortby": {
-      "version": "4.4.2",
-      "from": "lodash.sortby@>=4.0.1 <5.0.0",
-      "resolved": "./node_shrinkwrap/lodash.sortby-4.4.2.tgz"
-    },
-    "lodash.template": {
-      "version": "3.6.2",
-      "from": "lodash.template@>=3.0.0 <4.0.0",
-      "resolved": "./node_shrinkwrap/lodash.template-3.6.2.tgz",
+    "lodash.pairs": {
+      "version": "3.0.1",
+      "from": "lodash.pairs@>=3.0.0 <4.0.0",
+      "resolved": "./node_shrinkwrap/lodash.pairs-3.0.1.tgz",
       "dependencies": {
         "lodash.keys": {
           "version": "3.1.2",
@@ -3759,15 +4085,74 @@
         }
       }
     },
+    "lodash.pick": {
+      "version": "4.2.1",
+      "from": "lodash.pick@>=4.2.1 <5.0.0",
+      "resolved": "./node_shrinkwrap/lodash.pick-4.2.1.tgz"
+    },
+    "lodash.pickby": {
+      "version": "4.4.0",
+      "from": "lodash.pickby@>=4.0.0 <5.0.0",
+      "resolved": "./node_shrinkwrap/lodash.pickby-4.4.0.tgz"
+    },
+    "lodash.reduce": {
+      "version": "4.4.0",
+      "from": "lodash.reduce@>=4.1.0 <5.0.0",
+      "resolved": "./node_shrinkwrap/lodash.reduce-4.4.0.tgz"
+    },
+    "lodash.rest": {
+      "version": "4.0.3",
+      "from": "lodash.rest@>=4.0.0 <5.0.0",
+      "resolved": "./node_shrinkwrap/lodash.rest-4.0.3.tgz"
+    },
+    "lodash.restparam": {
+      "version": "3.6.1",
+      "from": "lodash.restparam@>=3.0.0 <4.0.0",
+      "resolved": "./node_shrinkwrap/lodash.restparam-3.6.1.tgz"
+    },
+    "lodash.sortby": {
+      "version": "4.5.0",
+      "from": "lodash.sortby@>=4.0.1 <5.0.0",
+      "resolved": "./node_shrinkwrap/lodash.sortby-4.5.0.tgz"
+    },
+    "lodash.template": {
+      "version": "2.4.1",
+      "from": "lodash.template@>=2.4.1 <3.0.0",
+      "resolved": "./node_shrinkwrap/lodash.template-2.4.1.tgz",
+      "dependencies": {
+        "lodash.defaults": {
+          "version": "2.4.1",
+          "from": "lodash.defaults@>=2.4.1 <2.5.0",
+          "resolved": "./node_shrinkwrap/lodash.defaults-2.4.1.tgz"
+        },
+        "lodash.keys": {
+          "version": "2.4.1",
+          "from": "lodash.keys@>=2.4.1 <2.5.0",
+          "resolved": "./node_shrinkwrap/lodash.keys-2.4.1.tgz"
+        }
+      }
+    },
     "lodash.templatesettings": {
-      "version": "3.1.1",
-      "from": "lodash.templatesettings@>=3.0.0 <4.0.0",
-      "resolved": "./node_shrinkwrap/lodash.templatesettings-3.1.1.tgz"
+      "version": "2.4.1",
+      "from": "lodash.templatesettings@>=2.4.1 <2.5.0",
+      "resolved": "./node_shrinkwrap/lodash.templatesettings-2.4.1.tgz"
+    },
+    "lodash.toplainobject": {
+      "version": "3.0.0",
+      "from": "lodash.toplainobject@>=3.0.0 <4.0.0",
+      "resolved": "./node_shrinkwrap/lodash.toplainobject-3.0.0.tgz",
+      "dependencies": {
+        "lodash.keysin": {
+          "version": "3.0.8",
+          "from": "lodash.keysin@>=3.0.0 <4.0.0",
+          "resolved": "./node_shrinkwrap/lodash.keysin-3.0.8.tgz"
+        }
+      }
     },
     "lodash.tostring": {
-      "version": "4.1.2",
+      "version": "4.1.3",
       "from": "lodash.tostring@>=4.0.0 <5.0.0",
-      "resolved": "./node_shrinkwrap/lodash.tostring-4.1.2.tgz"
+      "resolved": "./node_shrinkwrap/lodash.tostring-4.1.3.tgz"
     },
     "lodash.uniq": {
       "version": "4.2.1",
@@ -3786,15 +4171,15 @@
         }
       }
     },
-    "log-symbols": {
-      "version": "1.0.2",
-      "from": "log-symbols@>=1.0.2 <2.0.0",
-      "resolved": "./node_shrinkwrap/log-symbols-1.0.2.tgz"
+    "lodash.words": {
+      "version": "3.2.0",
+      "from": "lodash.words@>=3.0.0 <4.0.0",
+      "resolved": "./node_shrinkwrap/lodash.words-3.2.0.tgz"
     },
     "log4js": {
-      "version": "0.6.35",
+      "version": "0.6.36",
       "from": "log4js@>=0.6.31 <0.7.0",
-      "resolved": "./node_shrinkwrap/log4js-0.6.35.tgz",
+      "resolved": "./node_shrinkwrap/log4js-0.6.36.tgz",
       "dependencies": {
         "isarray": {
           "version": "0.0.1",
@@ -3815,7 +4200,7 @@
     },
     "loose-envify": {
       "version": "1.1.0",
-      "from": "loose-envify@>=1.1.0 <2.0.0",
+      "from": "loose-envify@>=1.0.0 <2.0.0",
       "resolved": "./node_shrinkwrap/loose-envify-1.1.0.tgz"
     },
     "loud-rejection": {
@@ -3823,10 +4208,25 @@
       "from": "loud-rejection@>=1.0.0 <2.0.0",
       "resolved": "./node_shrinkwrap/loud-rejection-1.3.0.tgz"
     },
+    "lower-case": {
+      "version": "1.1.3",
+      "from": "lower-case@>=1.1.1 <2.0.0",
+      "resolved": "./node_shrinkwrap/lower-case-1.1.3.tgz"
+    },
+    "lower-case-first": {
+      "version": "1.0.2",
+      "from": "lower-case-first@>=1.0.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/lower-case-first-1.0.2.tgz"
+    },
     "lru-cache": {
-      "version": "4.0.1",
-      "from": "lru-cache@>=4.0.0 <5.0.0",
-      "resolved": "./node_shrinkwrap/lru-cache-4.0.1.tgz"
+      "version": "2.2.4",
+      "from": "lru-cache@>=2.2.0 <2.3.0",
+      "resolved": "./node_shrinkwrap/lru-cache-2.2.4.tgz"
+    },
+    "mantra-core": {
+      "version": "1.6.1",
+      "from": "mantra-core@>=1.6.1 <2.0.0",
+      "resolved": "./node_shrinkwrap/mantra-core-1.6.1.tgz"
     },
     "map-obj": {
       "version": "1.0.1",
@@ -3850,13 +4250,15 @@
     },
     "meow": {
       "version": "3.7.0",
-      "from": "meow@>=3.5.0 <4.0.0",
-      "resolved": "./node_shrinkwrap/meow-3.7.0.tgz"
-    },
-    "merge": {
-      "version": "1.2.0",
-      "from": "merge@>=1.2.0 <2.0.0",
-      "resolved": "./node_shrinkwrap/merge-1.2.0.tgz"
+      "from": "meow@>=3.7.0 <4.0.0",
+      "resolved": "./node_shrinkwrap/meow-3.7.0.tgz",
+      "dependencies": {
+        "minimist": {
+          "version": "1.2.0",
+          "from": "minimist@>=1.1.3 <2.0.0",
+          "resolved": "./node_shrinkwrap/minimist-1.2.0.tgz"
+        }
+      }
     },
     "merge-descriptors": {
       "version": "1.0.1",
@@ -3879,51 +4281,39 @@
       "resolved": "./node_shrinkwrap/micromatch-2.3.8.tgz"
     },
     "mime": {
-      "version": "1.2.11",
-      "from": "mime@>=1.2.11 <1.3.0",
-      "resolved": "./node_shrinkwrap/mime-1.2.11.tgz"
+      "version": "1.3.4",
+      "from": "mime@1.3.4",
+      "resolved": "./node_shrinkwrap/mime-1.3.4.tgz"
     },
     "mime-db": {
-      "version": "1.22.0",
-      "from": "mime-db@>=1.22.0 <1.23.0",
-      "resolved": "./node_shrinkwrap/mime-db-1.22.0.tgz"
+      "version": "1.23.0",
+      "from": "mime-db@>=1.23.0 <1.24.0",
+      "resolved": "./node_shrinkwrap/mime-db-1.23.0.tgz"
     },
     "mime-types": {
-      "version": "2.1.10",
-      "from": "mime-types@>=2.1.7 <2.2.0",
-      "resolved": "./node_shrinkwrap/mime-types-2.1.10.tgz"
-    },
-    "mimeparse": {
-      "version": "0.1.4",
-      "from": "mimeparse@>=0.1.4 <0.2.0",
-      "resolved": "./node_shrinkwrap/mimeparse-0.1.4.tgz"
+      "version": "2.1.11",
+      "from": "mime-types@>=2.1.11 <2.2.0",
+      "resolved": "./node_shrinkwrap/mime-types-2.1.11.tgz"
     },
     "minimatch": {
-      "version": "2.0.10",
-      "from": "minimatch@>=2.0.3 <3.0.0",
-      "resolved": "./node_shrinkwrap/minimatch-2.0.10.tgz"
+      "version": "3.0.0",
+      "from": "minimatch@>=2.0.0 <3.0.0||>=3.0.0 <4.0.0",
+      "resolved": "./node_shrinkwrap/minimatch-3.0.0.tgz"
     },
     "minimist": {
-      "version": "1.2.0",
-      "from": "minimist@>=1.1.0 <2.0.0",
-      "resolved": "./node_shrinkwrap/minimist-1.2.0.tgz"
+      "version": "0.0.8",
+      "from": "minimist@0.0.8",
+      "resolved": "./node_shrinkwrap/minimist-0.0.8.tgz"
     },
     "mkdirp": {
       "version": "0.5.1",
-      "from": "mkdirp@>=0.5.1 <0.6.0",
-      "resolved": "./node_shrinkwrap/mkdirp-0.5.1.tgz",
-      "dependencies": {
-        "minimist": {
-          "version": "0.0.8",
-          "from": "minimist@0.0.8",
-          "resolved": "./node_shrinkwrap/minimist-0.0.8.tgz"
-        }
-      }
+      "from": "mkdirp@>=0.5.0 <0.6.0",
+      "resolved": "./node_shrinkwrap/mkdirp-0.5.1.tgz"
     },
     "mocha": {
-      "version": "2.4.5",
-      "from": "mocha@2.4.5",
-      "resolved": "./node_shrinkwrap/mocha-2.4.5.tgz",
+      "version": "2.5.3",
+      "from": "mocha@latest",
+      "resolved": "./node_shrinkwrap/mocha-2.5.3.tgz",
       "dependencies": {
         "commander": {
           "version": "2.3.0",
@@ -3936,24 +4326,31 @@
           "resolved": "./node_shrinkwrap/escape-string-regexp-1.0.2.tgz"
         },
         "glob": {
-          "version": "3.2.3",
-          "from": "glob@3.2.3",
-          "resolved": "./node_shrinkwrap/glob-3.2.3.tgz"
+          "version": "3.2.11",
+          "from": "glob@3.2.11",
+          "resolved": "./node_shrinkwrap/glob-3.2.11.tgz"
         },
-        "graceful-fs": {
-          "version": "2.0.3",
-          "from": "graceful-fs@>=2.0.0 <2.1.0",
-          "resolved": "./node_shrinkwrap/graceful-fs-2.0.3.tgz"
-        },
-        "lru-cache": {
-          "version": "2.7.3",
-          "from": "lru-cache@>=2.0.0 <3.0.0",
-          "resolved": "./node_shrinkwrap/lru-cache-2.7.3.tgz"
+        "jade": {
+          "version": "0.26.3",
+          "from": "jade@0.26.3",
+          "resolved": "./node_shrinkwrap/jade-0.26.3.tgz",
+          "dependencies": {
+            "commander": {
+              "version": "0.6.1",
+              "from": "commander@0.6.1",
+              "resolved": "./node_shrinkwrap/commander-0.6.1.tgz"
+            },
+            "mkdirp": {
+              "version": "0.3.0",
+              "from": "mkdirp@0.3.0",
+              "resolved": "./node_shrinkwrap/mkdirp-0.3.0.tgz"
+            }
+          }
         },
         "minimatch": {
-          "version": "0.2.14",
-          "from": "minimatch@>=0.2.11 <0.3.0",
-          "resolved": "./node_shrinkwrap/minimatch-0.2.14.tgz"
+          "version": "0.3.0",
+          "from": "minimatch@>=0.3.0 <0.4.0",
+          "resolved": "./node_shrinkwrap/minimatch-0.3.0.tgz"
         },
         "supports-color": {
           "version": "1.2.0",
@@ -3972,11 +4369,6 @@
       "from": "ms@0.7.1",
       "resolved": "./node_shrinkwrap/ms-0.7.1.tgz"
     },
-    "mu2": {
-      "version": "0.5.20",
-      "from": "mu2@>=0.5.20 <0.6.0",
-      "resolved": "./node_shrinkwrap/mu2-0.5.20.tgz"
-    },
     "multipipe": {
       "version": "0.1.2",
       "from": "multipipe@>=0.1.2 <0.2.0",
@@ -3993,9 +4385,14 @@
       "resolved": "./node_shrinkwrap/mute-stream-0.0.5.tgz"
     },
     "nan": {
-      "version": "2.3.2",
-      "from": "nan@>=2.1.0 <3.0.0",
-      "resolved": "./node_shrinkwrap/nan-2.3.2.tgz"
+      "version": "2.3.3",
+      "from": "nan@>=2.3.0 <3.0.0",
+      "resolved": "./node_shrinkwrap/nan-2.3.3.tgz"
+    },
+    "ncname": {
+      "version": "1.0.0",
+      "from": "ncname@>=1.0.0 <1.1.0",
+      "resolved": "./node_shrinkwrap/ncname-1.0.0.tgz"
     },
     "ncp": {
       "version": "0.4.2",
@@ -4003,9 +4400,9 @@
       "resolved": "./node_shrinkwrap/ncp-0.4.2.tgz"
     },
     "negotiator": {
-      "version": "0.4.9",
-      "from": "negotiator@0.4.9",
-      "resolved": "./node_shrinkwrap/negotiator-0.4.9.tgz"
+      "version": "0.6.1",
+      "from": "negotiator@0.6.1",
+      "resolved": "./node_shrinkwrap/negotiator-0.6.1.tgz"
     },
     "netrc": {
       "version": "0.1.4",
@@ -4018,9 +4415,33 @@
       "resolved": "./node_shrinkwrap/next-tick-0.2.2.tgz"
     },
     "node-fetch": {
-      "version": "1.5.1",
+      "version": "1.5.2",
       "from": "node-fetch@>=1.0.1 <2.0.0",
-      "resolved": "./node_shrinkwrap/node-fetch-1.5.1.tgz"
+      "resolved": "./node_shrinkwrap/node-fetch-1.5.2.tgz"
+    },
+    "node-gyp": {
+      "version": "3.3.1",
+      "from": "node-gyp@>=3.3.1 <4.0.0",
+      "resolved": "./node_shrinkwrap/node-gyp-3.3.1.tgz",
+      "dependencies": {
+        "glob": {
+          "version": "4.5.3",
+          "from": "glob@>=3.0.0 <4.0.0||>=4.0.0 <5.0.0",
+          "resolved": "./node_shrinkwrap/glob-4.5.3.tgz",
+          "dependencies": {
+            "minimatch": {
+              "version": "2.0.10",
+              "from": "minimatch@>=2.0.1 <3.0.0",
+              "resolved": "./node_shrinkwrap/minimatch-2.0.10.tgz"
+            }
+          }
+        },
+        "minimatch": {
+          "version": "1.0.0",
+          "from": "minimatch@>=1.0.0 <2.0.0",
+          "resolved": "./node_shrinkwrap/minimatch-1.0.0.tgz"
+        }
+      }
     },
     "node-libs-browser": {
       "version": "0.5.3",
@@ -4039,10 +4460,20 @@
         }
       }
     },
+    "node-sass": {
+      "version": "3.7.0",
+      "from": "node-sass@latest",
+      "resolved": "./node_shrinkwrap/node-sass-3.7.0.tgz"
+    },
     "node-uuid": {
       "version": "1.4.7",
       "from": "node-uuid@>=1.4.7 <1.5.0",
       "resolved": "./node_shrinkwrap/node-uuid-1.4.7.tgz"
+    },
+    "nopt": {
+      "version": "3.0.6",
+      "from": "nopt@>=2.0.0 <3.0.0||>=3.0.0 <4.0.0",
+      "resolved": "./node_shrinkwrap/nopt-3.0.6.tgz"
     },
     "normalize-package-data": {
       "version": "2.3.5",
@@ -4054,35 +4485,60 @@
       "from": "normalize-path@>=2.0.1 <3.0.0",
       "resolved": "./node_shrinkwrap/normalize-path-2.0.1.tgz"
     },
+    "normalize-range": {
+      "version": "0.1.2",
+      "from": "normalize-range@>=0.1.2 <0.2.0",
+      "resolved": "./node_shrinkwrap/normalize-range-0.1.2.tgz"
+    },
+    "normalize-url": {
+      "version": "1.5.2",
+      "from": "normalize-url@>=1.4.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/normalize-url-1.5.2.tgz"
+    },
+    "normalize.css": {
+      "version": "4.1.1",
+      "from": "normalize.css@latest",
+      "resolved": "./node_shrinkwrap/normalize.css-4.1.1.tgz"
+    },
     "now-and-later": {
       "version": "0.0.6",
       "from": "now-and-later@0.0.6",
       "resolved": "./node_shrinkwrap/now-and-later-0.0.6.tgz"
+    },
+    "npmlog": {
+      "version": "2.0.3",
+      "from": "npmlog@>=0.0.0 <1.0.0||>=1.0.0 <2.0.0||>=2.0.0 <3.0.0",
+      "resolved": "./node_shrinkwrap/npmlog-2.0.3.tgz"
+    },
+    "nth-check": {
+      "version": "1.0.1",
+      "from": "nth-check@>=1.0.1 <1.1.0",
+      "resolved": "./node_shrinkwrap/nth-check-1.0.1.tgz"
     },
     "null-check": {
       "version": "1.0.0",
       "from": "null-check@>=1.0.0 <2.0.0",
       "resolved": "./node_shrinkwrap/null-check-1.0.0.tgz"
     },
+    "num2fraction": {
+      "version": "1.2.2",
+      "from": "num2fraction@>=1.2.2 <2.0.0",
+      "resolved": "./node_shrinkwrap/num2fraction-1.2.2.tgz"
+    },
     "number-is-nan": {
       "version": "1.0.0",
       "from": "number-is-nan@>=1.0.0 <2.0.0",
       "resolved": "./node_shrinkwrap/number-is-nan-1.0.0.tgz"
     },
-    "nunjucks": {
-      "version": "2.4.2",
-      "from": "nunjucks@>=2.2.0 <3.0.0",
-      "resolved": "./node_shrinkwrap/nunjucks-2.4.2.tgz"
-    },
     "oauth-sign": {
-      "version": "0.8.1",
-      "from": "oauth-sign@>=0.8.1 <0.9.0",
-      "resolved": "./node_shrinkwrap/oauth-sign-0.8.1.tgz"
+      "version": "0.8.2",
+      "from": "oauth-sign@>=0.8.0 <0.9.0",
+      "resolved": "./node_shrinkwrap/oauth-sign-0.8.2.tgz"
     },
     "object-assign": {
-      "version": "4.0.1",
+      "version": "4.1.0",
       "from": "object-assign@>=4.0.1 <5.0.0",
-      "resolved": "./node_shrinkwrap/object-assign-4.0.1.tgz"
+      "resolved": "./node_shrinkwrap/object-assign-4.1.0.tgz"
     },
     "object-component": {
       "version": "0.0.3",
@@ -4091,13 +4547,28 @@
     },
     "object-keys": {
       "version": "1.0.9",
-      "from": "object-keys@>=1.0.6 <2.0.0",
+      "from": "object-keys@>=1.0.8 <2.0.0",
       "resolved": "./node_shrinkwrap/object-keys-1.0.9.tgz"
+    },
+    "object.entries": {
+      "version": "1.0.3",
+      "from": "object.entries@>=1.0.3 <2.0.0",
+      "resolved": "./node_shrinkwrap/object.entries-1.0.3.tgz"
+    },
+    "object.getownpropertydescriptors": {
+      "version": "2.0.2",
+      "from": "object.getownpropertydescriptors@>=2.0.2 <3.0.0",
+      "resolved": "./node_shrinkwrap/object.getownpropertydescriptors-2.0.2.tgz"
     },
     "object.omit": {
       "version": "2.0.0",
       "from": "object.omit@>=2.0.0 <3.0.0",
       "resolved": "./node_shrinkwrap/object.omit-2.0.0.tgz"
+    },
+    "object.values": {
+      "version": "1.0.3",
+      "from": "object.values@>=1.0.3 <2.0.0",
+      "resolved": "./node_shrinkwrap/object.values-1.0.3.tgz"
     },
     "on-finished": {
       "version": "2.3.0",
@@ -4121,25 +4592,20 @@
     },
     "optimist": {
       "version": "0.6.1",
-      "from": "optimist@>=0.6.1 <0.7.0",
-      "resolved": "./node_shrinkwrap/optimist-0.6.1.tgz",
-      "dependencies": {
-        "minimist": {
-          "version": "0.0.10",
-          "from": "minimist@>=0.0.1 <0.1.0",
-          "resolved": "./node_shrinkwrap/minimist-0.0.10.tgz"
-        },
-        "wordwrap": {
-          "version": "0.0.3",
-          "from": "wordwrap@>=0.0.2 <0.1.0",
-          "resolved": "./node_shrinkwrap/wordwrap-0.0.3.tgz"
-        }
-      }
+      "from": "optimist@>=0.6.0 <0.7.0",
+      "resolved": "./node_shrinkwrap/optimist-0.6.1.tgz"
     },
     "optionator": {
       "version": "0.8.1",
       "from": "optionator@>=0.8.1 <0.9.0",
-      "resolved": "./node_shrinkwrap/optionator-0.8.1.tgz"
+      "resolved": "./node_shrinkwrap/optionator-0.8.1.tgz",
+      "dependencies": {
+        "wordwrap": {
+          "version": "1.0.0",
+          "from": "wordwrap@>=1.0.0 <1.1.0",
+          "resolved": "./node_shrinkwrap/wordwrap-1.0.0.tgz"
+        }
+      }
     },
     "options": {
       "version": "0.0.6",
@@ -4156,11 +4622,6 @@
       "from": "original@>=0.0.5",
       "resolved": "./node_shrinkwrap/original-1.0.0.tgz",
       "dependencies": {
-        "requires-port": {
-          "version": "1.0.0",
-          "from": "requires-port@>=1.0.0 <1.1.0",
-          "resolved": "./node_shrinkwrap/requires-port-1.0.0.tgz"
-        },
         "url-parse": {
           "version": "1.0.5",
           "from": "url-parse@>=1.0.0 <1.1.0",
@@ -4188,15 +4649,25 @@
       "from": "os-tmpdir@>=1.0.1 <2.0.0",
       "resolved": "./node_shrinkwrap/os-tmpdir-1.0.1.tgz"
     },
-    "output-file-sync": {
-      "version": "1.1.1",
-      "from": "output-file-sync@>=1.1.0 <2.0.0",
-      "resolved": "./node_shrinkwrap/output-file-sync-1.1.1.tgz"
+    "osenv": {
+      "version": "0.1.3",
+      "from": "osenv@>=0.0.0 <1.0.0",
+      "resolved": "./node_shrinkwrap/osenv-0.1.3.tgz"
+    },
+    "page-bus": {
+      "version": "3.0.1",
+      "from": "page-bus@>=3.0.1 <4.0.0",
+      "resolved": "./node_shrinkwrap/page-bus-3.0.1.tgz"
     },
     "pako": {
       "version": "0.2.8",
       "from": "pako@>=0.2.0 <0.3.0",
       "resolved": "./node_shrinkwrap/pako-0.2.8.tgz"
+    },
+    "param-case": {
+      "version": "1.1.2",
+      "from": "param-case@>=1.1.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/param-case-1.1.2.tgz"
     },
     "parse-glob": {
       "version": "3.0.4",
@@ -4228,10 +4699,25 @@
       "from": "parseurl@>=1.3.1 <1.4.0",
       "resolved": "./node_shrinkwrap/parseurl-1.3.1.tgz"
     },
+    "pascal-case": {
+      "version": "1.1.2",
+      "from": "pascal-case@>=1.1.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/pascal-case-1.1.2.tgz"
+    },
+    "path-array": {
+      "version": "1.0.1",
+      "from": "path-array@>=1.0.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/path-array-1.0.1.tgz"
+    },
     "path-browserify": {
       "version": "0.0.0",
       "from": "path-browserify@0.0.0",
       "resolved": "./node_shrinkwrap/path-browserify-0.0.0.tgz"
+    },
+    "path-case": {
+      "version": "1.1.2",
+      "from": "path-case@>=1.1.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/path-case-1.1.2.tgz"
     },
     "path-exists": {
       "version": "1.0.0",
@@ -4293,15 +4779,187 @@
       "from": "pluralize@>=1.2.1 <2.0.0",
       "resolved": "./node_shrinkwrap/pluralize-1.2.1.tgz"
     },
+    "postcss": {
+      "version": "5.0.21",
+      "from": "postcss@>=5.0.6 <6.0.0",
+      "resolved": "./node_shrinkwrap/postcss-5.0.21.tgz",
+      "dependencies": {
+        "supports-color": {
+          "version": "3.1.2",
+          "from": "supports-color@>=3.1.2 <4.0.0",
+          "resolved": "./node_shrinkwrap/supports-color-3.1.2.tgz"
+        }
+      }
+    },
+    "postcss-calc": {
+      "version": "5.2.1",
+      "from": "postcss-calc@>=5.2.0 <6.0.0",
+      "resolved": "./node_shrinkwrap/postcss-calc-5.2.1.tgz"
+    },
+    "postcss-colormin": {
+      "version": "2.2.0",
+      "from": "postcss-colormin@>=2.1.8 <3.0.0",
+      "resolved": "./node_shrinkwrap/postcss-colormin-2.2.0.tgz"
+    },
+    "postcss-convert-values": {
+      "version": "2.3.4",
+      "from": "postcss-convert-values@>=2.3.4 <3.0.0",
+      "resolved": "./node_shrinkwrap/postcss-convert-values-2.3.4.tgz"
+    },
+    "postcss-discard-comments": {
+      "version": "2.0.4",
+      "from": "postcss-discard-comments@>=2.0.4 <3.0.0",
+      "resolved": "./node_shrinkwrap/postcss-discard-comments-2.0.4.tgz"
+    },
+    "postcss-discard-duplicates": {
+      "version": "2.0.1",
+      "from": "postcss-discard-duplicates@>=2.0.1 <3.0.0",
+      "resolved": "./node_shrinkwrap/postcss-discard-duplicates-2.0.1.tgz"
+    },
+    "postcss-discard-empty": {
+      "version": "2.1.0",
+      "from": "postcss-discard-empty@>=2.0.1 <3.0.0",
+      "resolved": "./node_shrinkwrap/postcss-discard-empty-2.1.0.tgz"
+    },
+    "postcss-discard-unused": {
+      "version": "2.2.1",
+      "from": "postcss-discard-unused@>=2.2.1 <3.0.0",
+      "resolved": "./node_shrinkwrap/postcss-discard-unused-2.2.1.tgz"
+    },
+    "postcss-filter-plugins": {
+      "version": "2.0.0",
+      "from": "postcss-filter-plugins@>=2.0.0 <3.0.0",
+      "resolved": "./node_shrinkwrap/postcss-filter-plugins-2.0.0.tgz"
+    },
+    "postcss-merge-idents": {
+      "version": "2.1.6",
+      "from": "postcss-merge-idents@>=2.1.5 <3.0.0",
+      "resolved": "./node_shrinkwrap/postcss-merge-idents-2.1.6.tgz"
+    },
+    "postcss-merge-longhand": {
+      "version": "2.0.1",
+      "from": "postcss-merge-longhand@>=2.0.1 <3.0.0",
+      "resolved": "./node_shrinkwrap/postcss-merge-longhand-2.0.1.tgz"
+    },
+    "postcss-merge-rules": {
+      "version": "2.0.8",
+      "from": "postcss-merge-rules@>=2.0.3 <3.0.0",
+      "resolved": "./node_shrinkwrap/postcss-merge-rules-2.0.8.tgz"
+    },
+    "postcss-message-helpers": {
+      "version": "2.0.0",
+      "from": "postcss-message-helpers@>=2.0.0 <3.0.0",
+      "resolved": "./node_shrinkwrap/postcss-message-helpers-2.0.0.tgz"
+    },
+    "postcss-minify-font-values": {
+      "version": "1.0.5",
+      "from": "postcss-minify-font-values@>=1.0.2 <2.0.0",
+      "resolved": "./node_shrinkwrap/postcss-minify-font-values-1.0.5.tgz"
+    },
+    "postcss-minify-gradients": {
+      "version": "1.0.1",
+      "from": "postcss-minify-gradients@>=1.0.1 <2.0.0",
+      "resolved": "./node_shrinkwrap/postcss-minify-gradients-1.0.1.tgz"
+    },
+    "postcss-minify-params": {
+      "version": "1.0.4",
+      "from": "postcss-minify-params@>=1.0.4 <2.0.0",
+      "resolved": "./node_shrinkwrap/postcss-minify-params-1.0.4.tgz"
+    },
+    "postcss-minify-selectors": {
+      "version": "2.0.5",
+      "from": "postcss-minify-selectors@>=2.0.4 <3.0.0",
+      "resolved": "./node_shrinkwrap/postcss-minify-selectors-2.0.5.tgz"
+    },
+    "postcss-modules-extract-imports": {
+      "version": "1.0.1",
+      "from": "postcss-modules-extract-imports@>=1.0.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/postcss-modules-extract-imports-1.0.1.tgz"
+    },
+    "postcss-modules-local-by-default": {
+      "version": "1.0.1",
+      "from": "postcss-modules-local-by-default@>=1.0.1 <2.0.0",
+      "resolved": "./node_shrinkwrap/postcss-modules-local-by-default-1.0.1.tgz"
+    },
+    "postcss-modules-scope": {
+      "version": "1.0.1",
+      "from": "postcss-modules-scope@>=1.0.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/postcss-modules-scope-1.0.1.tgz"
+    },
+    "postcss-modules-values": {
+      "version": "1.1.3",
+      "from": "postcss-modules-values@>=1.1.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/postcss-modules-values-1.1.3.tgz"
+    },
+    "postcss-normalize-charset": {
+      "version": "1.1.0",
+      "from": "postcss-normalize-charset@>=1.1.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/postcss-normalize-charset-1.1.0.tgz"
+    },
+    "postcss-normalize-url": {
+      "version": "3.0.7",
+      "from": "postcss-normalize-url@>=3.0.7 <4.0.0",
+      "resolved": "./node_shrinkwrap/postcss-normalize-url-3.0.7.tgz"
+    },
+    "postcss-ordered-values": {
+      "version": "2.1.1",
+      "from": "postcss-ordered-values@>=2.1.0 <3.0.0",
+      "resolved": "./node_shrinkwrap/postcss-ordered-values-2.1.1.tgz"
+    },
+    "postcss-reduce-idents": {
+      "version": "2.3.0",
+      "from": "postcss-reduce-idents@>=2.2.2 <3.0.0",
+      "resolved": "./node_shrinkwrap/postcss-reduce-idents-2.3.0.tgz"
+    },
+    "postcss-reduce-transforms": {
+      "version": "1.0.3",
+      "from": "postcss-reduce-transforms@>=1.0.3 <2.0.0",
+      "resolved": "./node_shrinkwrap/postcss-reduce-transforms-1.0.3.tgz"
+    },
+    "postcss-selector-parser": {
+      "version": "2.0.0",
+      "from": "postcss-selector-parser@>=2.0.0 <3.0.0",
+      "resolved": "./node_shrinkwrap/postcss-selector-parser-2.0.0.tgz"
+    },
+    "postcss-svgo": {
+      "version": "2.1.3",
+      "from": "postcss-svgo@>=2.1.1 <3.0.0",
+      "resolved": "./node_shrinkwrap/postcss-svgo-2.1.3.tgz"
+    },
+    "postcss-unique-selectors": {
+      "version": "2.0.2",
+      "from": "postcss-unique-selectors@>=2.0.2 <3.0.0",
+      "resolved": "./node_shrinkwrap/postcss-unique-selectors-2.0.2.tgz"
+    },
+    "postcss-value-parser": {
+      "version": "3.3.0",
+      "from": "postcss-value-parser@>=3.2.3 <4.0.0",
+      "resolved": "./node_shrinkwrap/postcss-value-parser-3.3.0.tgz"
+    },
+    "postcss-zindex": {
+      "version": "2.1.1",
+      "from": "postcss-zindex@>=2.0.1 <3.0.0",
+      "resolved": "./node_shrinkwrap/postcss-zindex-2.1.1.tgz"
+    },
     "prelude-ls": {
       "version": "1.1.2",
       "from": "prelude-ls@>=1.1.2 <1.2.0",
       "resolved": "./node_shrinkwrap/prelude-ls-1.1.2.tgz"
     },
+    "prepend-http": {
+      "version": "1.0.4",
+      "from": "prepend-http@>=1.0.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/prepend-http-1.0.4.tgz"
+    },
     "preserve": {
       "version": "0.2.0",
       "from": "preserve@>=0.2.0 <0.3.0",
       "resolved": "./node_shrinkwrap/preserve-0.2.0.tgz"
+    },
+    "pretty-error": {
+      "version": "2.0.0",
+      "from": "pretty-error@>=2.0.0 <3.0.0",
+      "resolved": "./node_shrinkwrap/pretty-error-2.0.0.tgz"
     },
     "pretty-hrtime": {
       "version": "1.0.2",
@@ -4314,14 +4972,14 @@
       "resolved": "./node_shrinkwrap/private-0.1.6.tgz"
     },
     "process": {
-      "version": "0.11.2",
+      "version": "0.11.3",
       "from": "process@>=0.11.0 <0.12.0",
-      "resolved": "./node_shrinkwrap/process-0.11.2.tgz"
+      "resolved": "./node_shrinkwrap/process-0.11.3.tgz"
     },
     "process-nextick-args": {
-      "version": "1.0.6",
+      "version": "1.0.7",
       "from": "process-nextick-args@>=1.0.6 <1.1.0",
-      "resolved": "./node_shrinkwrap/process-nextick-args-1.0.6.tgz"
+      "resolved": "./node_shrinkwrap/process-nextick-args-1.0.7.tgz"
     },
     "progress": {
       "version": "1.1.8",
@@ -4329,9 +4987,9 @@
       "resolved": "./node_shrinkwrap/progress-1.1.8.tgz"
     },
     "promise": {
-      "version": "7.1.1",
-      "from": "promise@>=7.1.1 <8.0.0",
-      "resolved": "./node_shrinkwrap/promise-7.1.1.tgz"
+      "version": "6.1.0",
+      "from": "promise@>=6.0.1 <7.0.0",
+      "resolved": "./node_shrinkwrap/promise-6.1.0.tgz"
     },
     "prompt": {
       "version": "0.2.14",
@@ -4340,33 +4998,13 @@
     },
     "protractor": {
       "version": "3.3.0",
-      "from": "protractor@3.3.0",
+      "from": "protractor@latest",
       "resolved": "./node_shrinkwrap/protractor-3.3.0.tgz",
       "dependencies": {
-        "bl": {
-          "version": "1.0.3",
-          "from": "bl@>=1.0.0 <1.1.0",
-          "resolved": "./node_shrinkwrap/bl-1.0.3.tgz"
-        },
         "glob": {
           "version": "6.0.4",
           "from": "glob@>=6.0.0 <6.1.0",
           "resolved": "./node_shrinkwrap/glob-6.0.4.tgz"
-        },
-        "qs": {
-          "version": "5.2.0",
-          "from": "qs@>=5.2.0 <5.3.0",
-          "resolved": "./node_shrinkwrap/qs-5.2.0.tgz"
-        },
-        "readable-stream": {
-          "version": "2.0.6",
-          "from": "readable-stream@>=2.0.5 <2.1.0",
-          "resolved": "./node_shrinkwrap/readable-stream-2.0.6.tgz"
-        },
-        "request": {
-          "version": "2.67.0",
-          "from": "request@>=2.67.0 <2.68.0",
-          "resolved": "./node_shrinkwrap/request-2.67.0.tgz"
         },
         "source-map": {
           "version": "0.1.32",
@@ -4405,22 +5043,15 @@
       "from": "q@1.4.1",
       "resolved": "./node_shrinkwrap/q-1.4.1.tgz"
     },
-    "q-io": {
-      "version": "1.13.2",
-      "from": "q-io@1.13.2",
-      "resolved": "./node_shrinkwrap/q-io-1.13.2.tgz",
-      "dependencies": {
-        "qs": {
-          "version": "1.2.2",
-          "from": "qs@>=1.2.1 <2.0.0",
-          "resolved": "./node_shrinkwrap/qs-1.2.2.tgz"
-        }
-      }
-    },
     "qs": {
-      "version": "6.1.0",
-      "from": "qs@>=6.1.0 <6.2.0",
-      "resolved": "./node_shrinkwrap/qs-6.1.0.tgz"
+      "version": "4.0.0",
+      "from": "qs@4.0.0",
+      "resolved": "./node_shrinkwrap/qs-4.0.0.tgz"
+    },
+    "query-string": {
+      "version": "4.1.0",
+      "from": "query-string@>=4.1.0 <5.0.0",
+      "resolved": "./node_shrinkwrap/query-string-4.1.0.tgz"
     },
     "querystring": {
       "version": "0.2.0",
@@ -4444,40 +5075,55 @@
     },
     "range-parser": {
       "version": "1.0.3",
-      "from": "range-parser@>=1.0.3 <2.0.0",
+      "from": "range-parser@>=1.0.3 <1.1.0",
       "resolved": "./node_shrinkwrap/range-parser-1.0.3.tgz"
-    },
-    "raven-js": {
-      "version": "3.0.2",
-      "from": "raven-js@latest",
-      "resolved": "./node_shrinkwrap/raven-js-3.0.2.tgz"
     },
     "raw-body": {
       "version": "2.1.6",
-      "from": "raw-body@>=2.1.5 <2.2.0",
-      "resolved": "./node_shrinkwrap/raw-body-2.1.6.tgz",
+      "from": "raw-body@>=2.1.6 <2.2.0",
+      "resolved": "./node_shrinkwrap/raw-body-2.1.6.tgz"
+    },
+    "react": {
+      "version": "15.0.2",
+      "from": "react@latest",
+      "resolved": "./node_shrinkwrap/react-15.0.2.tgz"
+    },
+    "react-dom": {
+      "version": "15.0.2",
+      "from": "react-dom@latest",
+      "resolved": "./node_shrinkwrap/react-dom-15.0.2.tgz"
+    },
+    "react-komposer": {
+      "version": "1.8.0",
+      "from": "react-komposer@>=1.8.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/react-komposer-1.8.0.tgz"
+    },
+    "react-modal": {
+      "version": "1.3.0",
+      "from": "react-modal@>=1.2.1 <2.0.0",
+      "resolved": "./node_shrinkwrap/react-modal-1.3.0.tgz",
       "dependencies": {
-        "bytes": {
-          "version": "2.3.0",
-          "from": "bytes@2.3.0",
-          "resolved": "./node_shrinkwrap/bytes-2.3.0.tgz"
+        "lodash.assign": {
+          "version": "3.2.0",
+          "from": "lodash.assign@>=3.2.0 <4.0.0",
+          "resolved": "./node_shrinkwrap/lodash.assign-3.2.0.tgz"
+        },
+        "lodash.keys": {
+          "version": "3.1.2",
+          "from": "lodash.keys@>=3.0.0 <4.0.0",
+          "resolved": "./node_shrinkwrap/lodash.keys-3.1.2.tgz"
         }
       }
     },
-    "react": {
-      "version": "15.0.1",
-      "from": "react@15.0.1",
-      "resolved": "./node_shrinkwrap/react-15.0.1.tgz"
-    },
-    "react-dom": {
-      "version": "15.0.1",
-      "from": "react-dom@15.0.1",
-      "resolved": "./node_shrinkwrap/react-dom-15.0.1.tgz"
-    },
     "react-redux": {
       "version": "4.4.5",
-      "from": "react-redux@4.4.5",
+      "from": "react-redux@latest",
       "resolved": "./node_shrinkwrap/react-redux-4.4.5.tgz"
+    },
+    "react-simple-di": {
+      "version": "1.2.0",
+      "from": "react-simple-di@>=1.2.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/react-simple-di-1.2.0.tgz"
     },
     "read": {
       "version": "1.0.5",
@@ -4500,54 +5146,85 @@
       "resolved": "./node_shrinkwrap/read-pkg-up-1.0.1.tgz"
     },
     "readable-stream": {
-      "version": "2.1.0",
-      "from": "readable-stream@>=2.0.2 <3.0.0",
-      "resolved": "./node_shrinkwrap/readable-stream-2.1.0.tgz"
+      "version": "2.1.2",
+      "from": "readable-stream@>=2.0.1 <3.0.0",
+      "resolved": "./node_shrinkwrap/readable-stream-2.1.2.tgz"
     },
     "readdirp": {
       "version": "2.0.0",
       "from": "readdirp@>=2.0.0 <3.0.0",
-      "resolved": "./node_shrinkwrap/readdirp-2.0.0.tgz"
+      "resolved": "./node_shrinkwrap/readdirp-2.0.0.tgz",
+      "dependencies": {
+        "minimatch": {
+          "version": "2.0.10",
+          "from": "minimatch@>=2.0.10 <3.0.0",
+          "resolved": "./node_shrinkwrap/minimatch-2.0.10.tgz"
+        }
+      }
     },
     "readline2": {
       "version": "1.0.1",
       "from": "readline2@>=1.0.1 <2.0.0",
       "resolved": "./node_shrinkwrap/readline2-1.0.1.tgz"
     },
-    "recast": {
-      "version": "0.11.5",
-      "from": "recast@>=0.11.4 <0.12.0",
-      "resolved": "./node_shrinkwrap/recast-0.11.5.tgz"
-    },
     "rechoir": {
       "version": "0.6.2",
       "from": "rechoir@>=0.6.0 <0.7.0",
       "resolved": "./node_shrinkwrap/rechoir-0.6.2.tgz"
+    },
+    "redbox-react": {
+      "version": "1.2.5",
+      "from": "redbox-react@>=1.2.2 <2.0.0",
+      "resolved": "./node_shrinkwrap/redbox-react-1.2.5.tgz"
     },
     "redent": {
       "version": "1.0.0",
       "from": "redent@>=1.0.0 <2.0.0",
       "resolved": "./node_shrinkwrap/redent-1.0.0.tgz"
     },
+    "reduce-css-calc": {
+      "version": "1.2.3",
+      "from": "reduce-css-calc@>=1.2.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/reduce-css-calc-1.2.3.tgz",
+      "dependencies": {
+        "balanced-match": {
+          "version": "0.1.0",
+          "from": "balanced-match@>=0.1.0 <0.2.0",
+          "resolved": "./node_shrinkwrap/balanced-match-0.1.0.tgz"
+        }
+      }
+    },
+    "reduce-function-call": {
+      "version": "1.0.1",
+      "from": "reduce-function-call@>=1.0.1 <2.0.0",
+      "resolved": "./node_shrinkwrap/reduce-function-call-1.0.1.tgz",
+      "dependencies": {
+        "balanced-match": {
+          "version": "0.1.0",
+          "from": "balanced-match@>=0.1.0 <0.2.0",
+          "resolved": "./node_shrinkwrap/balanced-match-0.1.0.tgz"
+        }
+      }
+    },
     "redux": {
       "version": "3.5.2",
-      "from": "redux@3.5.2",
+      "from": "redux@latest",
       "resolved": "./node_shrinkwrap/redux-3.5.2.tgz"
     },
     "redux-logger": {
       "version": "2.6.1",
-      "from": "redux-logger@2.6.1",
+      "from": "redux-logger@latest",
       "resolved": "./node_shrinkwrap/redux-logger-2.6.1.tgz"
     },
     "redux-promise": {
       "version": "0.5.3",
-      "from": "redux-promise@0.5.3",
+      "from": "redux-promise@latest",
       "resolved": "./node_shrinkwrap/redux-promise-0.5.3.tgz"
     },
     "redux-thunk": {
-      "version": "2.0.1",
-      "from": "redux-thunk@2.0.1",
-      "resolved": "./node_shrinkwrap/redux-thunk-2.0.1.tgz"
+      "version": "2.1.0",
+      "from": "redux-thunk@latest",
+      "resolved": "./node_shrinkwrap/redux-thunk-2.1.0.tgz"
     },
     "regenerate": {
       "version": "1.2.1",
@@ -4574,6 +5251,23 @@
       "from": "regjsparser@>=0.1.4 <0.2.0",
       "resolved": "./node_shrinkwrap/regjsparser-0.1.5.tgz"
     },
+    "relateurl": {
+      "version": "0.2.6",
+      "from": "relateurl@>=0.2.0 <0.3.0",
+      "resolved": "./node_shrinkwrap/relateurl-0.2.6.tgz"
+    },
+    "renderkid": {
+      "version": "2.0.0",
+      "from": "renderkid@>=2.0.0 <2.1.0",
+      "resolved": "./node_shrinkwrap/renderkid-2.0.0.tgz",
+      "dependencies": {
+        "utila": {
+          "version": "0.3.3",
+          "from": "utila@>=0.3.0 <0.4.0",
+          "resolved": "./node_shrinkwrap/utila-0.3.3.tgz"
+        }
+      }
+    },
     "repeat-element": {
       "version": "1.1.2",
       "from": "repeat-element@>=1.1.2 <2.0.0",
@@ -4595,9 +5289,16 @@
       "resolved": "./node_shrinkwrap/replace-ext-0.0.1.tgz"
     },
     "request": {
-      "version": "2.72.0",
-      "from": "request@>=2.65.0 <3.0.0",
-      "resolved": "./node_shrinkwrap/request-2.72.0.tgz"
+      "version": "2.67.0",
+      "from": "request@>=2.67.0 <2.68.0",
+      "resolved": "./node_shrinkwrap/request-2.67.0.tgz",
+      "dependencies": {
+        "qs": {
+          "version": "5.2.0",
+          "from": "qs@>=5.2.0 <5.3.0",
+          "resolved": "./node_shrinkwrap/qs-5.2.0.tgz"
+        }
+      }
     },
     "require-uncached": {
       "version": "1.0.2",
@@ -4605,9 +5306,9 @@
       "resolved": "./node_shrinkwrap/require-uncached-1.0.2.tgz"
     },
     "requires-port": {
-      "version": "0.0.1",
-      "from": "requires-port@>=0.0.0 <1.0.0",
-      "resolved": "./node_shrinkwrap/requires-port-0.0.1.tgz"
+      "version": "1.0.0",
+      "from": "requires-port@>=1.0.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/requires-port-1.0.0.tgz"
     },
     "resolve": {
       "version": "1.1.7",
@@ -4637,14 +5338,7 @@
     "rimraf": {
       "version": "2.5.2",
       "from": "rimraf@>=2.2.8 <3.0.0",
-      "resolved": "./node_shrinkwrap/rimraf-2.5.2.tgz",
-      "dependencies": {
-        "glob": {
-          "version": "7.0.3",
-          "from": "glob@>=7.0.0 <8.0.0",
-          "resolved": "./node_shrinkwrap/glob-7.0.3.tgz"
-        }
-      }
+      "resolved": "./node_shrinkwrap/rimraf-2.5.2.tgz"
     },
     "ripemd160": {
       "version": "0.2.0",
@@ -4663,8 +5357,25 @@
     },
     "rxjs": {
       "version": "5.0.0-beta.7",
-      "from": "rxjs@5.0.0-beta.7",
+      "from": "rxjs@latest",
       "resolved": "./node_shrinkwrap/rxjs-5.0.0-beta.7.tgz"
+    },
+    "sass-graph": {
+      "version": "2.1.1",
+      "from": "sass-graph@>=2.1.1 <3.0.0",
+      "resolved": "./node_shrinkwrap/sass-graph-2.1.1.tgz",
+      "dependencies": {
+        "glob": {
+          "version": "6.0.4",
+          "from": "glob@>=6.0.4 <7.0.0",
+          "resolved": "./node_shrinkwrap/glob-6.0.4.tgz"
+        }
+      }
+    },
+    "sass-loader": {
+      "version": "3.2.0",
+      "from": "sass-loader@latest",
+      "resolved": "./node_shrinkwrap/sass-loader-3.2.0.tgz"
     },
     "saucelabs": {
       "version": "1.0.1",
@@ -4690,7 +5401,7 @@
     },
     "semver": {
       "version": "4.3.6",
-      "from": "semver@>=4.0.3 <5.0.0",
+      "from": "semver@>=4.3.3 <4.4.0",
       "resolved": "./node_shrinkwrap/semver-4.3.6.tgz"
     },
     "semver-greatest-satisfied-range": {
@@ -4703,34 +5414,15 @@
       "from": "semver-regex@>=1.0.0 <2.0.0",
       "resolved": "./node_shrinkwrap/semver-regex-1.0.0.tgz"
     },
-    "semver-truncate": {
-      "version": "1.1.0",
-      "from": "semver-truncate@>=1.0.0 <2.0.0",
-      "resolved": "./node_shrinkwrap/semver-truncate-1.1.0.tgz",
-      "dependencies": {
-        "semver": {
-          "version": "5.1.0",
-          "from": "semver@>=5.0.3 <6.0.0",
-          "resolved": "./node_shrinkwrap/semver-5.1.0.tgz"
-        }
-      }
-    },
     "send": {
       "version": "0.13.1",
       "from": "send@0.13.1",
-      "resolved": "./node_shrinkwrap/send-0.13.1.tgz",
-      "dependencies": {
-        "http-errors": {
-          "version": "1.3.1",
-          "from": "http-errors@>=1.3.1 <1.4.0",
-          "resolved": "./node_shrinkwrap/http-errors-1.3.1.tgz"
-        },
-        "mime": {
-          "version": "1.3.4",
-          "from": "mime@1.3.4",
-          "resolved": "./node_shrinkwrap/mime-1.3.4.tgz"
-        }
-      }
+      "resolved": "./node_shrinkwrap/send-0.13.1.tgz"
+    },
+    "sentence-case": {
+      "version": "1.1.3",
+      "from": "sentence-case@>=1.1.1 <2.0.0",
+      "resolved": "./node_shrinkwrap/sentence-case-1.1.3.tgz"
     },
     "serve-index": {
       "version": "1.7.3",
@@ -4741,11 +5433,6 @@
           "version": "1.2.13",
           "from": "accepts@>=1.2.13 <1.3.0",
           "resolved": "./node_shrinkwrap/accepts-1.2.13.tgz"
-        },
-        "http-errors": {
-          "version": "1.3.1",
-          "from": "http-errors@>=1.3.1 <1.4.0",
-          "resolved": "./node_shrinkwrap/http-errors-1.3.1.tgz"
         },
         "negotiator": {
           "version": "0.5.3",
@@ -4764,15 +5451,22 @@
       "from": "sha.js@2.2.6",
       "resolved": "./node_shrinkwrap/sha.js-2.2.6.tgz"
     },
+    "shallowequal": {
+      "version": "0.2.2",
+      "from": "shallowequal@>=0.2.0 <0.3.0",
+      "resolved": "./node_shrinkwrap/shallowequal-0.2.2.tgz",
+      "dependencies": {
+        "lodash.keys": {
+          "version": "3.1.2",
+          "from": "lodash.keys@>=3.1.2 <4.0.0",
+          "resolved": "./node_shrinkwrap/lodash.keys-3.1.2.tgz"
+        }
+      }
+    },
     "shebang-regex": {
       "version": "1.0.0",
       "from": "shebang-regex@>=1.0.0 <2.0.0",
       "resolved": "./node_shrinkwrap/shebang-regex-1.0.0.tgz"
-    },
-    "shell-quote": {
-      "version": "1.4.3",
-      "from": "shell-quote@>=1.4.2 <1.5.0",
-      "resolved": "./node_shrinkwrap/shell-quote-1.4.3.tgz"
     },
     "shelljs": {
       "version": "0.6.0",
@@ -4781,15 +5475,8 @@
     },
     "shrinkpack": {
       "version": "0.12.3",
-      "from": "shrinkpack@0.12.3",
-      "resolved": "./node_shrinkwrap/shrinkpack-0.12.3.tgz",
-      "dependencies": {
-        "glob": {
-          "version": "7.0.3",
-          "from": "glob@7.0.3",
-          "resolved": "./node_shrinkwrap/glob-7.0.3.tgz"
-        }
-      }
+      "from": "shrinkpack@latest",
+      "resolved": "./node_shrinkwrap/shrinkpack-0.12.3.tgz"
     },
     "sigmund": {
       "version": "1.0.1",
@@ -4811,15 +5498,20 @@
       "from": "slice-ansi@0.0.4",
       "resolved": "./node_shrinkwrap/slice-ansi-0.0.4.tgz"
     },
+    "snake-case": {
+      "version": "1.1.2",
+      "from": "snake-case@>=1.1.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/snake-case-1.1.2.tgz"
+    },
     "sntp": {
       "version": "1.0.9",
       "from": "sntp@>=1.0.0 <2.0.0",
       "resolved": "./node_shrinkwrap/sntp-1.0.9.tgz"
     },
     "socket.io": {
-      "version": "1.4.5",
+      "version": "1.4.6",
       "from": "socket.io@>=1.4.5 <2.0.0",
-      "resolved": "./node_shrinkwrap/socket.io-1.4.5.tgz"
+      "resolved": "./node_shrinkwrap/socket.io-1.4.6.tgz"
     },
     "socket.io-adapter": {
       "version": "0.4.0",
@@ -4830,6 +5522,11 @@
           "version": "0.0.1",
           "from": "isarray@0.0.1",
           "resolved": "./node_shrinkwrap/isarray-0.0.1.tgz"
+        },
+        "json3": {
+          "version": "3.2.6",
+          "from": "json3@3.2.6",
+          "resolved": "./node_shrinkwrap/json3-3.2.6.tgz"
         },
         "socket.io-parser": {
           "version": "2.2.2",
@@ -4846,9 +5543,9 @@
       }
     },
     "socket.io-client": {
-      "version": "1.4.5",
-      "from": "socket.io-client@1.4.5",
-      "resolved": "./node_shrinkwrap/socket.io-client-1.4.5.tgz",
+      "version": "1.4.6",
+      "from": "socket.io-client@1.4.6",
+      "resolved": "./node_shrinkwrap/socket.io-client-1.4.6.tgz",
       "dependencies": {
         "component-emitter": {
           "version": "1.2.0",
@@ -4866,35 +5563,30 @@
           "version": "0.0.1",
           "from": "isarray@0.0.1",
           "resolved": "./node_shrinkwrap/isarray-0.0.1.tgz"
-        },
-        "json3": {
-          "version": "3.3.2",
-          "from": "json3@3.3.2",
-          "resolved": "./node_shrinkwrap/json3-3.3.2.tgz"
         }
       }
     },
     "sockjs": {
-      "version": "0.3.16",
+      "version": "0.3.17",
       "from": "sockjs@>=0.3.15 <0.4.0",
-      "resolved": "./node_shrinkwrap/sockjs-0.3.16.tgz"
+      "resolved": "./node_shrinkwrap/sockjs-0.3.17.tgz"
     },
     "sockjs-client": {
-      "version": "1.0.3",
+      "version": "1.1.0",
       "from": "sockjs-client@>=1.0.3 <2.0.0",
-      "resolved": "./node_shrinkwrap/sockjs-client-1.0.3.tgz",
+      "resolved": "./node_shrinkwrap/sockjs-client-1.1.0.tgz",
       "dependencies": {
         "faye-websocket": {
-          "version": "0.7.3",
-          "from": "faye-websocket@>=0.7.3 <0.8.0",
-          "resolved": "./node_shrinkwrap/faye-websocket-0.7.3.tgz"
-        },
-        "json3": {
-          "version": "3.3.2",
-          "from": "json3@>=3.3.2 <4.0.0",
-          "resolved": "./node_shrinkwrap/json3-3.3.2.tgz"
+          "version": "0.11.0",
+          "from": "faye-websocket@>=0.11.0 <0.12.0",
+          "resolved": "./node_shrinkwrap/faye-websocket-0.11.0.tgz"
         }
       }
+    },
+    "sort-keys": {
+      "version": "1.1.1",
+      "from": "sort-keys@>=1.0.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/sort-keys-1.1.1.tgz"
     },
     "source-list-map": {
       "version": "0.1.6",
@@ -4902,9 +5594,9 @@
       "resolved": "./node_shrinkwrap/source-list-map-0.1.6.tgz"
     },
     "source-map": {
-      "version": "0.5.5",
-      "from": "source-map@>=0.5.0 <0.6.0",
-      "resolved": "./node_shrinkwrap/source-map-0.5.5.tgz"
+      "version": "0.5.6",
+      "from": "source-map@>=0.5.1 <0.6.0",
+      "resolved": "./node_shrinkwrap/source-map-0.5.6.tgz"
     },
     "source-map-support": {
       "version": "0.2.10",
@@ -4954,9 +5646,9 @@
       "resolved": "./node_shrinkwrap/sprintf-js-1.0.3.tgz"
     },
     "sshpk": {
-      "version": "1.8.2",
+      "version": "1.8.3",
       "from": "sshpk@>=1.7.0 <2.0.0",
-      "resolved": "./node_shrinkwrap/sshpk-1.8.2.tgz",
+      "resolved": "./node_shrinkwrap/sshpk-1.8.3.tgz",
       "dependencies": {
         "assert-plus": {
           "version": "1.0.0",
@@ -4965,14 +5657,24 @@
         }
       }
     },
+    "stack-source-map": {
+      "version": "1.0.5",
+      "from": "stack-source-map@>=1.0.5 <2.0.0",
+      "resolved": "./node_shrinkwrap/stack-source-map-1.0.5.tgz"
+    },
     "stack-trace": {
       "version": "0.0.9",
       "from": "stack-trace@0.0.9",
       "resolved": "./node_shrinkwrap/stack-trace-0.0.9.tgz"
     },
+    "stackframe": {
+      "version": "0.3.1",
+      "from": "stackframe@>=0.3.1 <0.4.0",
+      "resolved": "./node_shrinkwrap/stackframe-0.3.1.tgz"
+    },
     "statuses": {
       "version": "1.2.1",
-      "from": "statuses@>=1.2.1 <2.0.0",
+      "from": "statuses@>=1.2.1 <1.3.0",
       "resolved": "./node_shrinkwrap/statuses-1.2.1.tgz"
     },
     "stream-browserify": {
@@ -5002,6 +5704,11 @@
       "from": "stream-exhaust@>=1.0.1 <2.0.0",
       "resolved": "./node_shrinkwrap/stream-exhaust-1.0.1.tgz"
     },
+    "strict-uri-encode": {
+      "version": "1.1.0",
+      "from": "strict-uri-encode@>=1.0.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/strict-uri-encode-1.1.0.tgz"
+    },
     "string_decoder": {
       "version": "0.10.31",
       "from": "string_decoder@>=0.10.0 <0.11.0",
@@ -5011,6 +5718,16 @@
       "version": "1.0.1",
       "from": "string-width@>=1.0.1 <2.0.0",
       "resolved": "./node_shrinkwrap/string-width-1.0.1.tgz"
+    },
+    "string.prototype.padend": {
+      "version": "3.0.0",
+      "from": "string.prototype.padend@>=3.0.0 <4.0.0",
+      "resolved": "./node_shrinkwrap/string.prototype.padend-3.0.0.tgz"
+    },
+    "string.prototype.padstart": {
+      "version": "3.0.0",
+      "from": "string.prototype.padstart@>=3.0.0 <4.0.0",
+      "resolved": "./node_shrinkwrap/string.prototype.padstart-3.0.0.tgz"
     },
     "stringstream": {
       "version": "0.0.5",
@@ -5042,15 +5759,20 @@
       "from": "strip-json-comments@>=1.0.1 <1.1.0",
       "resolved": "./node_shrinkwrap/strip-json-comments-1.0.4.tgz"
     },
+    "style-loader": {
+      "version": "0.13.1",
+      "from": "style-loader@latest",
+      "resolved": "./node_shrinkwrap/style-loader-0.13.1.tgz"
+    },
     "supports-color": {
       "version": "2.0.0",
       "from": "supports-color@>=2.0.0 <3.0.0",
       "resolved": "./node_shrinkwrap/supports-color-2.0.0.tgz"
     },
     "surge": {
-      "version": "0.17.7",
-      "from": "surge@0.17.7",
-      "resolved": "./node_shrinkwrap/surge-0.17.7.tgz",
+      "version": "0.17.1",
+      "from": "surge@0.17.1",
+      "resolved": "./node_shrinkwrap/surge-0.17.1.tgz",
       "dependencies": {
         "asn1": {
           "version": "0.1.11",
@@ -5117,6 +5839,11 @@
           "from": "http-signature@>=0.10.0 <0.11.0",
           "resolved": "./node_shrinkwrap/http-signature-0.10.1.tgz"
         },
+        "mime": {
+          "version": "1.2.11",
+          "from": "mime@>=1.2.11 <1.3.0",
+          "resolved": "./node_shrinkwrap/mime-1.2.11.tgz"
+        },
         "mime-types": {
           "version": "1.0.2",
           "from": "mime-types@>=1.0.1 <1.1.0",
@@ -5146,6 +5873,11 @@
           "version": "0.2.4",
           "from": "sntp@>=0.2.0 <0.3.0",
           "resolved": "./node_shrinkwrap/sntp-0.2.4.tgz"
+        },
+        "tar": {
+          "version": "1.0.0",
+          "from": "tar@1.0.0",
+          "resolved": "./node_shrinkwrap/tar-1.0.0.tgz"
         }
       }
     },
@@ -5153,6 +5885,23 @@
       "version": "0.2.0",
       "from": "surge-ignore@0.2.0",
       "resolved": "./node_shrinkwrap/surge-ignore-0.2.0.tgz"
+    },
+    "svgo": {
+      "version": "0.6.6",
+      "from": "svgo@>=0.6.1 <0.7.0",
+      "resolved": "./node_shrinkwrap/svgo-0.6.6.tgz",
+      "dependencies": {
+        "sax": {
+          "version": "1.2.1",
+          "from": "sax@>=1.2.1 <1.3.0",
+          "resolved": "./node_shrinkwrap/sax-1.2.1.tgz"
+        }
+      }
+    },
+    "swap-case": {
+      "version": "1.1.2",
+      "from": "swap-case@>=1.1.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/swap-case-1.1.2.tgz"
     },
     "symbol-observable": {
       "version": "0.2.4",
@@ -5162,7 +5911,14 @@
     "table": {
       "version": "3.7.8",
       "from": "table@>=3.7.8 <4.0.0",
-      "resolved": "./node_shrinkwrap/table-3.7.8.tgz"
+      "resolved": "./node_shrinkwrap/table-3.7.8.tgz",
+      "dependencies": {
+        "lodash": {
+          "version": "4.12.0",
+          "from": "lodash@>=4.0.0 <5.0.0",
+          "resolved": "./node_shrinkwrap/lodash-4.12.0.tgz"
+        }
+      }
     },
     "tapable": {
       "version": "0.1.10",
@@ -5170,9 +5926,9 @@
       "resolved": "./node_shrinkwrap/tapable-0.1.10.tgz"
     },
     "tar": {
-      "version": "1.0.0",
-      "from": "tar@1.0.0",
-      "resolved": "./node_shrinkwrap/tar-1.0.0.tgz"
+      "version": "2.2.1",
+      "from": "tar@>=2.0.0 <3.0.0",
+      "resolved": "./node_shrinkwrap/tar-2.2.1.tgz"
     },
     "tar.gz": {
       "version": "0.1.1",
@@ -5212,38 +5968,21 @@
       "resolved": "./node_shrinkwrap/through-2.3.8.tgz"
     },
     "through2": {
-      "version": "0.6.5",
-      "from": "through2@>=0.6.5 <0.7.0",
-      "resolved": "./node_shrinkwrap/through2-0.6.5.tgz",
+      "version": "2.0.1",
+      "from": "through2@>=2.0.0 <3.0.0",
+      "resolved": "./node_shrinkwrap/through2-2.0.1.tgz",
       "dependencies": {
-        "isarray": {
-          "version": "0.0.1",
-          "from": "isarray@0.0.1",
-          "resolved": "./node_shrinkwrap/isarray-0.0.1.tgz"
-        },
         "readable-stream": {
-          "version": "1.0.34",
-          "from": "readable-stream@>=1.0.33-1 <1.1.0-0",
-          "resolved": "./node_shrinkwrap/readable-stream-1.0.34.tgz"
+          "version": "2.0.6",
+          "from": "readable-stream@>=2.0.0 <2.1.0",
+          "resolved": "./node_shrinkwrap/readable-stream-2.0.6.tgz"
         }
       }
     },
     "through2-filter": {
       "version": "2.0.0",
       "from": "through2-filter@>=2.0.0 <3.0.0",
-      "resolved": "./node_shrinkwrap/through2-filter-2.0.0.tgz",
-      "dependencies": {
-        "readable-stream": {
-          "version": "2.0.6",
-          "from": "readable-stream@>=2.0.0 <2.1.0",
-          "resolved": "./node_shrinkwrap/readable-stream-2.0.6.tgz"
-        },
-        "through2": {
-          "version": "2.0.1",
-          "from": "through2@>=2.0.0 <2.1.0",
-          "resolved": "./node_shrinkwrap/through2-2.0.1.tgz"
-        }
-      }
+      "resolved": "./node_shrinkwrap/through2-filter-2.0.0.tgz"
     },
     "tildify": {
       "version": "1.2.0",
@@ -5259,6 +5998,11 @@
       "version": "1.4.2",
       "from": "timers-browserify@>=1.0.1 <2.0.0",
       "resolved": "./node_shrinkwrap/timers-browserify-1.4.2.tgz"
+    },
+    "title-case": {
+      "version": "1.1.2",
+      "from": "title-case@>=1.1.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/title-case-1.1.2.tgz"
     },
     "tmp": {
       "version": "0.0.24",
@@ -5280,10 +6024,52 @@
       "from": "to-fast-properties@>=1.0.1 <2.0.0",
       "resolved": "./node_shrinkwrap/to-fast-properties-1.0.2.tgz"
     },
+    "to-iso-string": {
+      "version": "0.0.2",
+      "from": "to-iso-string@0.0.2",
+      "resolved": "./node_shrinkwrap/to-iso-string-0.0.2.tgz"
+    },
+    "toposort": {
+      "version": "0.2.12",
+      "from": "toposort@>=0.2.12 <0.3.0",
+      "resolved": "./node_shrinkwrap/toposort-0.2.12.tgz"
+    },
     "tough-cookie": {
       "version": "2.2.2",
       "from": "tough-cookie@>=2.2.0 <2.3.0",
       "resolved": "./node_shrinkwrap/tough-cookie-2.2.2.tgz"
+    },
+    "transformers": {
+      "version": "2.1.0",
+      "from": "transformers@2.1.0",
+      "resolved": "./node_shrinkwrap/transformers-2.1.0.tgz",
+      "dependencies": {
+        "is-promise": {
+          "version": "1.0.1",
+          "from": "is-promise@>=1.0.0 <2.0.0",
+          "resolved": "./node_shrinkwrap/is-promise-1.0.1.tgz"
+        },
+        "optimist": {
+          "version": "0.3.7",
+          "from": "optimist@>=0.3.5 <0.4.0",
+          "resolved": "./node_shrinkwrap/optimist-0.3.7.tgz"
+        },
+        "promise": {
+          "version": "2.0.0",
+          "from": "promise@>=2.0.0 <2.1.0",
+          "resolved": "./node_shrinkwrap/promise-2.0.0.tgz"
+        },
+        "source-map": {
+          "version": "0.1.43",
+          "from": "source-map@>=0.1.7 <0.2.0",
+          "resolved": "./node_shrinkwrap/source-map-0.1.43.tgz"
+        },
+        "uglify-js": {
+          "version": "2.2.5",
+          "from": "uglify-js@>=2.2.5 <2.3.0",
+          "resolved": "./node_shrinkwrap/uglify-js-2.2.5.tgz"
+        }
+      }
     },
     "trim-newlines": {
       "version": "1.0.0",
@@ -5306,9 +6092,9 @@
       "resolved": "./node_shrinkwrap/tty-browserify-0.0.0.tgz"
     },
     "tunnel-agent": {
-      "version": "0.4.2",
+      "version": "0.4.3",
       "from": "tunnel-agent@>=0.4.1 <0.5.0",
-      "resolved": "./node_shrinkwrap/tunnel-agent-0.4.2.tgz"
+      "resolved": "./node_shrinkwrap/tunnel-agent-0.4.3.tgz"
     },
     "tv4": {
       "version": "1.2.7",
@@ -5332,7 +6118,7 @@
     },
     "type-is": {
       "version": "1.6.12",
-      "from": "type-is@>=1.6.11 <1.7.0",
+      "from": "type-is@>=1.6.6 <1.7.0",
       "resolved": "./node_shrinkwrap/type-is-1.6.12.tgz"
     },
     "typedarray": {
@@ -5354,31 +6140,6 @@
           "version": "0.2.10",
           "from": "async@>=0.2.6 <0.3.0",
           "resolved": "./node_shrinkwrap/async-0.2.10.tgz"
-        },
-        "camelcase": {
-          "version": "1.2.1",
-          "from": "camelcase@>=1.0.2 <2.0.0",
-          "resolved": "./node_shrinkwrap/camelcase-1.2.1.tgz"
-        },
-        "cliui": {
-          "version": "2.1.0",
-          "from": "cliui@>=2.1.0 <3.0.0",
-          "resolved": "./node_shrinkwrap/cliui-2.1.0.tgz"
-        },
-        "window-size": {
-          "version": "0.1.0",
-          "from": "window-size@0.1.0",
-          "resolved": "./node_shrinkwrap/window-size-0.1.0.tgz"
-        },
-        "wordwrap": {
-          "version": "0.0.2",
-          "from": "wordwrap@0.0.2",
-          "resolved": "./node_shrinkwrap/wordwrap-0.0.2.tgz"
-        },
-        "yargs": {
-          "version": "3.10.0",
-          "from": "yargs@>=3.10.0 <3.11.0",
-          "resolved": "./node_shrinkwrap/yargs-3.10.0.tgz"
         }
       }
     },
@@ -5402,6 +6163,21 @@
       "from": "undertaker-registry@>=1.0.0 <2.0.0",
       "resolved": "./node_shrinkwrap/undertaker-registry-1.0.0.tgz"
     },
+    "uniq": {
+      "version": "1.0.1",
+      "from": "uniq@>=1.0.1 <2.0.0",
+      "resolved": "./node_shrinkwrap/uniq-1.0.1.tgz"
+    },
+    "uniqid": {
+      "version": "1.0.0",
+      "from": "uniqid@>=1.0.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/uniqid-1.0.0.tgz"
+    },
+    "uniqs": {
+      "version": "2.0.0",
+      "from": "uniqs@>=2.0.0 <3.0.0",
+      "resolved": "./node_shrinkwrap/uniqs-2.0.0.tgz"
+    },
     "unique-stream": {
       "version": "2.2.1",
       "from": "unique-stream@>=2.0.2 <3.0.0",
@@ -5409,13 +6185,18 @@
     },
     "unpipe": {
       "version": "1.0.0",
-      "from": "unpipe@1.0.0",
+      "from": "unpipe@>=1.0.0 <1.1.0",
       "resolved": "./node_shrinkwrap/unpipe-1.0.0.tgz"
     },
-    "unreachable-branch-transform": {
-      "version": "0.5.1",
-      "from": "unreachable-branch-transform@>=0.5.0 <0.6.0",
-      "resolved": "./node_shrinkwrap/unreachable-branch-transform-0.5.1.tgz"
+    "upper-case": {
+      "version": "1.1.3",
+      "from": "upper-case@>=1.1.1 <2.0.0",
+      "resolved": "./node_shrinkwrap/upper-case-1.1.3.tgz"
+    },
+    "upper-case-first": {
+      "version": "1.1.2",
+      "from": "upper-case-first@>=1.1.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/upper-case-first-1.1.2.tgz"
     },
     "url": {
       "version": "0.10.3",
@@ -5429,27 +6210,27 @@
         }
       }
     },
+    "url-loader": {
+      "version": "0.5.7",
+      "from": "url-loader@latest",
+      "resolved": "./node_shrinkwrap/url-loader-0.5.7.tgz",
+      "dependencies": {
+        "mime": {
+          "version": "1.2.11",
+          "from": "mime@>=1.2.0 <1.3.0",
+          "resolved": "./node_shrinkwrap/mime-1.2.11.tgz"
+        }
+      }
+    },
     "url-parse": {
       "version": "1.1.1",
       "from": "url-parse@>=1.0.1 <2.0.0",
-      "resolved": "./node_shrinkwrap/url-parse-1.1.1.tgz",
-      "dependencies": {
-        "requires-port": {
-          "version": "1.0.0",
-          "from": "requires-port@>=1.0.0 <1.1.0",
-          "resolved": "./node_shrinkwrap/requires-port-1.0.0.tgz"
-        }
-      }
+      "resolved": "./node_shrinkwrap/url-parse-1.1.1.tgz"
     },
     "url-parse-as-address": {
       "version": "1.0.0",
       "from": "url-parse-as-address@1.0.0",
       "resolved": "./node_shrinkwrap/url-parse-as-address-1.0.0.tgz"
-    },
-    "url2": {
-      "version": "0.0.0",
-      "from": "url2@>=0.0.0 <0.0.1",
-      "resolved": "./node_shrinkwrap/url2-0.0.0.tgz"
     },
     "user-home": {
       "version": "1.1.1",
@@ -5459,14 +6240,7 @@
     "useragent": {
       "version": "2.1.9",
       "from": "useragent@>=2.1.6 <3.0.0",
-      "resolved": "./node_shrinkwrap/useragent-2.1.9.tgz",
-      "dependencies": {
-        "lru-cache": {
-          "version": "2.2.4",
-          "from": "lru-cache@>=2.2.0 <2.3.0",
-          "resolved": "./node_shrinkwrap/lru-cache-2.2.4.tgz"
-        }
-      }
+      "resolved": "./node_shrinkwrap/useragent-2.1.9.tgz"
     },
     "utf8": {
       "version": "2.1.0",
@@ -5483,10 +6257,10 @@
       "from": "util-deprecate@>=1.0.1 <1.1.0",
       "resolved": "./node_shrinkwrap/util-deprecate-1.0.2.tgz"
     },
-    "util-extend": {
-      "version": "1.0.3",
-      "from": "util-extend@>=1.0.1 <2.0.0",
-      "resolved": "./node_shrinkwrap/util-extend-1.0.3.tgz"
+    "utila": {
+      "version": "0.4.0",
+      "from": "utila@>=0.4.0 <0.5.0",
+      "resolved": "./node_shrinkwrap/utila-0.4.0.tgz"
     },
     "utile": {
       "version": "0.2.1",
@@ -5505,9 +6279,14 @@
       "from": "utils-merge@1.0.0",
       "resolved": "./node_shrinkwrap/utils-merge-1.0.0.tgz"
     },
+    "uuid": {
+      "version": "2.0.2",
+      "from": "uuid@>=2.0.2 <3.0.0",
+      "resolved": "./node_shrinkwrap/uuid-2.0.2.tgz"
+    },
     "v8flags": {
       "version": "2.0.11",
-      "from": "v8flags@>=2.0.10 <3.0.0",
+      "from": "v8flags@>=2.0.9 <3.0.0",
       "resolved": "./node_shrinkwrap/v8flags-2.0.11.tgz"
     },
     "vali-date": {
@@ -5538,21 +6317,7 @@
     "vinyl-fs": {
       "version": "2.4.3",
       "from": "vinyl-fs@>=2.0.0 <3.0.0",
-      "resolved": "./node_shrinkwrap/vinyl-fs-2.4.3.tgz",
-      "dependencies": {
-        "through2": {
-          "version": "2.0.1",
-          "from": "through2@>=2.0.0 <3.0.0",
-          "resolved": "./node_shrinkwrap/through2-2.0.1.tgz",
-          "dependencies": {
-            "readable-stream": {
-              "version": "2.0.6",
-              "from": "readable-stream@>=2.0.0 <2.1.0",
-              "resolved": "./node_shrinkwrap/readable-stream-2.0.6.tgz"
-            }
-          }
-        }
-      }
+      "resolved": "./node_shrinkwrap/vinyl-fs-2.4.3.tgz"
     },
     "vm-browserify": {
       "version": "0.0.4",
@@ -5576,26 +6341,11 @@
         }
       }
     },
-    "weak-map": {
-      "version": "1.0.0",
-      "from": "weak-map@1.0.0",
-      "resolved": "./node_shrinkwrap/weak-map-1.0.0.tgz"
-    },
     "webpack": {
       "version": "1.13.0",
-      "from": "webpack@1.13.0",
+      "from": "webpack@latest",
       "resolved": "./node_shrinkwrap/webpack-1.13.0.tgz",
       "dependencies": {
-        "acorn": {
-          "version": "3.1.0",
-          "from": "acorn@>=3.0.0 <4.0.0",
-          "resolved": "./node_shrinkwrap/acorn-3.1.0.tgz"
-        },
-        "interpret": {
-          "version": "0.6.6",
-          "from": "interpret@>=0.6.4 <0.7.0",
-          "resolved": "./node_shrinkwrap/interpret-0.6.6.tgz"
-        },
         "supports-color": {
           "version": "3.1.2",
           "from": "supports-color@>=3.1.0 <4.0.0",
@@ -5617,19 +6367,12 @@
     },
     "webpack-dev-middleware": {
       "version": "1.6.1",
-      "from": "webpack-dev-middleware@>=1.0.11 <2.0.0",
-      "resolved": "./node_shrinkwrap/webpack-dev-middleware-1.6.1.tgz",
-      "dependencies": {
-        "mime": {
-          "version": "1.3.4",
-          "from": "mime@>=1.3.4 <2.0.0",
-          "resolved": "./node_shrinkwrap/mime-1.3.4.tgz"
-        }
-      }
+      "from": "webpack-dev-middleware@>=1.4.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/webpack-dev-middleware-1.6.1.tgz"
     },
     "webpack-dev-server": {
       "version": "1.14.1",
-      "from": "webpack-dev-server@1.14.1",
+      "from": "webpack-dev-server@latest",
       "resolved": "./node_shrinkwrap/webpack-dev-server-1.14.1.tgz",
       "dependencies": {
         "supports-color": {
@@ -5638,6 +6381,38 @@
           "resolved": "./node_shrinkwrap/supports-color-3.1.2.tgz"
         }
       }
+    },
+    "webpack-hot-middleware": {
+      "version": "2.10.0",
+      "from": "webpack-hot-middleware@>=2.10.0 <3.0.0",
+      "resolved": "./node_shrinkwrap/webpack-hot-middleware-2.10.0.tgz"
+    },
+    "webpack-merge": {
+      "version": "0.12.0",
+      "from": "webpack-merge@latest",
+      "resolved": "./node_shrinkwrap/webpack-merge-0.12.0.tgz",
+      "dependencies": {
+        "lodash._baseeach": {
+          "version": "3.0.4",
+          "from": "lodash._baseeach@>=3.0.0 <4.0.0",
+          "resolved": "./node_shrinkwrap/lodash._baseeach-3.0.4.tgz"
+        },
+        "lodash.find": {
+          "version": "3.2.1",
+          "from": "lodash.find@>=3.2.1 <4.0.0",
+          "resolved": "./node_shrinkwrap/lodash.find-3.2.1.tgz"
+        },
+        "lodash.keys": {
+          "version": "3.1.2",
+          "from": "lodash.keys@>=3.0.0 <4.0.0",
+          "resolved": "./node_shrinkwrap/lodash.keys-3.1.2.tgz"
+        }
+      }
+    },
+    "webpack-sources": {
+      "version": "0.1.2",
+      "from": "webpack-sources@>=0.1.0 <0.2.0",
+      "resolved": "./node_shrinkwrap/webpack-sources-0.1.2.tgz"
     },
     "websocket-driver": {
       "version": "0.6.4",
@@ -5650,24 +6425,29 @@
       "resolved": "./node_shrinkwrap/websocket-extensions-0.1.1.tgz"
     },
     "whatwg-fetch": {
-      "version": "0.11.0",
+      "version": "1.0.0",
       "from": "whatwg-fetch@>=0.10.0",
-      "resolved": "./node_shrinkwrap/whatwg-fetch-0.11.0.tgz"
+      "resolved": "./node_shrinkwrap/whatwg-fetch-1.0.0.tgz"
     },
     "when": {
       "version": "3.7.7",
       "from": "when@3.7.7",
       "resolved": "./node_shrinkwrap/when-3.7.7.tgz"
     },
+    "whet.extend": {
+      "version": "0.9.9",
+      "from": "whet.extend@>=0.9.9 <0.10.0",
+      "resolved": "./node_shrinkwrap/whet.extend-0.9.9.tgz"
+    },
     "which": {
-      "version": "1.2.4",
+      "version": "1.2.8",
       "from": "which@>=1.2.1 <2.0.0",
-      "resolved": "./node_shrinkwrap/which-1.2.4.tgz"
+      "resolved": "./node_shrinkwrap/which-1.2.8.tgz"
     },
     "window-size": {
-      "version": "0.1.4",
-      "from": "window-size@>=0.1.4 <0.2.0",
-      "resolved": "./node_shrinkwrap/window-size-0.1.4.tgz"
+      "version": "0.1.0",
+      "from": "window-size@0.1.0",
+      "resolved": "./node_shrinkwrap/window-size-0.1.0.tgz"
     },
     "winston": {
       "version": "0.8.3",
@@ -5679,6 +6459,11 @@
           "from": "async@>=0.2.0 <0.3.0",
           "resolved": "./node_shrinkwrap/async-0.2.10.tgz"
         },
+        "colors": {
+          "version": "0.6.2",
+          "from": "colors@>=0.6.0 <0.7.0",
+          "resolved": "./node_shrinkwrap/colors-0.6.2.tgz"
+        },
         "pkginfo": {
           "version": "0.3.1",
           "from": "pkginfo@>=0.3.0 <0.4.0",
@@ -5686,10 +6471,22 @@
         }
       }
     },
+    "with": {
+      "version": "4.0.3",
+      "from": "with@>=4.0.0 <4.1.0",
+      "resolved": "./node_shrinkwrap/with-4.0.3.tgz",
+      "dependencies": {
+        "acorn": {
+          "version": "1.2.2",
+          "from": "acorn@>=1.0.1 <2.0.0",
+          "resolved": "./node_shrinkwrap/acorn-1.2.2.tgz"
+        }
+      }
+    },
     "wordwrap": {
-      "version": "1.0.0",
-      "from": "wordwrap@>=1.0.0 <1.1.0",
-      "resolved": "./node_shrinkwrap/wordwrap-1.0.0.tgz"
+      "version": "0.0.3",
+      "from": "wordwrap@>=0.0.2 <0.1.0",
+      "resolved": "./node_shrinkwrap/wordwrap-0.0.3.tgz"
     },
     "wrap-ansi": {
       "version": "2.0.0",
@@ -5716,6 +6513,11 @@
       "from": "ws@1.0.1",
       "resolved": "./node_shrinkwrap/ws-1.0.1.tgz"
     },
+    "xml-char-classes": {
+      "version": "1.0.0",
+      "from": "xml-char-classes@>=1.0.0 <2.0.0",
+      "resolved": "./node_shrinkwrap/xml-char-classes-1.0.0.tgz"
+    },
     "xml2js": {
       "version": "0.4.4",
       "from": "xml2js@0.4.4",
@@ -5738,7 +6540,7 @@
     },
     "xtend": {
       "version": "4.0.1",
-      "from": "xtend@>=4.0.0 <4.1.0-0",
+      "from": "xtend@>=4.0.0 <5.0.0",
       "resolved": "./node_shrinkwrap/xtend-4.0.1.tgz"
     },
     "y18n": {
@@ -5752,9 +6554,9 @@
       "resolved": "./node_shrinkwrap/yallist-2.0.0.tgz"
     },
     "yargs": {
-      "version": "3.32.0",
-      "from": "yargs@>=3.28.0 <4.0.0",
-      "resolved": "./node_shrinkwrap/yargs-3.32.0.tgz"
+      "version": "3.10.0",
+      "from": "yargs@>=3.10.0 <3.11.0",
+      "resolved": "./node_shrinkwrap/yargs-3.10.0.tgz"
     },
     "yeast": {
       "version": "0.1.2",
