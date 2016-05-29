@@ -19,6 +19,8 @@ const IS_PROD = NODE_ENV === 'production';
 const HOSTNAME = environment.HOSTNAME;
 const PORT = environment.PORT;
 
+const SEGMENT_API_KEY = environment.SEGMENT_API_KEY;
+const SENTRY_DSN = environment.SENTRY_DSN;
 const SURGE_LOGIN = environment.SURGE_LOGIN;
 const SURGE_TOKEN = environment.SURGE_TOKEN;
 const SURGE_DOMAIN = environment.SURGE_DOMAIN;
@@ -33,7 +35,9 @@ module.exports = {
   IS_PROD,
   HOSTNAME,
   PORT,
+  SEGMENT_API_KEY,
+  SENTRY_DSN,
+  SURGE_DOMAIN,
   SURGE_LOGIN,
-  SURGE_TOKEN,
-  SURGE_DOMAIN
+  SURGE_TOKEN
 };
