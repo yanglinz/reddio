@@ -49,6 +49,9 @@ docker:
 docker-shell:
 	docker-compose run --service-ports frontend /bin/bash
 
+docs:
+	@dot -Tpng docs/diagrams/architecture.dot -o docs/diagrams/architecture.png
+
 deploy:
 	@$(GULP) deploy
 
@@ -57,4 +60,4 @@ clean:
 
 .PHONY: setup lint deps build test
 .PHONY: docker docker-shell
-.PHONY: clean
+.PHONY: docs clean
