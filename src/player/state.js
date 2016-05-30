@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import { PLAYER_STATE_TRANSITIONS, PLAYER_STATES } from 'player/constants.js';
+import { PLAYER_ACTIONS, PLAYER_STATES } from 'player/constants.js';
 
 /**
  * Get initial player state
@@ -50,13 +50,13 @@ function reduceUnshuffle(state) {
 }
 
 const reducerByAction = {
-  [PLAYER_STATE_TRANSITIONS.SET_STATE]: reduceSetState,
-  [PLAYER_STATE_TRANSITIONS.SET_QUEUE]: reduceSetQueue,
-  [PLAYER_STATE_TRANSITIONS.SET_CURRENT_SONG]: reduceSetCurrentSong,
-  [PLAYER_STATE_TRANSITIONS.SET_NEXT_SONG]: reduceSetNextSong,
-  [PLAYER_STATE_TRANSITIONS.SET_PREVIOUS_SONG]: reduceSetPreviousSong,
-  [PLAYER_STATE_TRANSITIONS.SHUFFLE]: reduceShuffle,
-  [PLAYER_STATE_TRANSITIONS.UNSHUFFLE]: reduceUnshuffle
+  [PLAYER_ACTIONS.SET_STATE]: reduceSetState,
+  [PLAYER_ACTIONS.SET_QUEUE]: reduceSetQueue,
+  [PLAYER_ACTIONS.SET_CURRENT_SONG]: reduceSetCurrentSong,
+  [PLAYER_ACTIONS.SET_NEXT_SONG]: reduceSetNextSong,
+  [PLAYER_ACTIONS.SET_PREVIOUS_SONG]: reduceSetPreviousSong,
+  [PLAYER_ACTIONS.SHUFFLE]: reduceShuffle,
+  [PLAYER_ACTIONS.UNSHUFFLE]: reduceUnshuffle
 };
 
 export function playerReducer(state = initialState(), action) {

@@ -1,7 +1,7 @@
 /**
  * Define player source events that originate from views or the iframe players
  */
-export const PLAYER_SOURCE_EVENTS = {
+export const PLAYER_EVENTS = {
   LOAD_PLAYER: 'PLAYER:PRESS_PLAY',
   LOAD_PLAYER_FAILED: 'PLAYER:LOAD_PLAYER_FAILED',
   LOAD_SONG: 'PLAYER:LOAD_SONG',
@@ -25,7 +25,7 @@ export const PLAYER_STATES = {
 /**
  * Define redux action names to modify the state atom
  */
-export const PLAYER_STATE_TRANSITIONS = {
+export const PLAYER_ACTIONS = {
   SET_STATE: 'PLAYER:SET_STATE',
   SET_QUEUE: 'PLAYER:SET_QUEUE',
   SET_CURRENT_SONG: 'PLAYER:SET_CURRENT_SONG',
@@ -33,14 +33,4 @@ export const PLAYER_STATE_TRANSITIONS = {
   SET_PREVIOUS_SONG: 'PLAYER:SET_PREVIOUS_SONG',
   SHUFFLE: 'PLAYER:SHUFFLE',
   UNSHUFFLE: 'PLAYER:UNSHUFFLE'
-};
-
-/**
- * Define player thunks to create composite events and transitions
- */
-export const PLAYER_THUNKS = {
-  PLAY_SONG: 'PLAYER:PLAY_SONG',
-  RESET_SONG: 'PLAYER:RESET_SONG',
-  PLAY_NEXT: 'PLAYER:PLAY_NEXT',
-  PLAY_PREVIOUS: 'PLAYER:PLAY_PREVIOUS'
 };
