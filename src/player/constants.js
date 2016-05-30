@@ -1,46 +1,45 @@
+import _ from 'lodash';
+
 /**
  * Define player source events that originate from views or the iframe players
  */
-export const PLAYER_SOURCE_EVENTS = {
-  LOAD_PLAYER: 'PLAYER:PRESS_PLAY',
-  LOAD_PLAYER_FAILED: 'PLAYER:LOAD_PLAYER_FAILED',
-  LOAD_SONG: 'PLAYER:LOAD_SONG',
-  LOAD_SONG_FAILED: 'PLAYER:LOAD_SONG_FAILED',
-  PRESS_PLAY: 'PLAYER:PLAY_SONG',
-  PRESS_PAUSE: 'PLAYER:PAUSE_SONG',
-  PRESS_NEXT: 'PLAYER:PRESS_NEXT',
-  PRESS_PREVIOUS: 'PLAYER:PRESS_PREVIOUS'
-};
+const _PLAYER_EVENTS = [
+  'LOAD_PLAYER_INIT',
+  'LOAD_PLAYER_FAILED',
+  'PRESS_PLAY',
+  'PRESS_PAUSE',
+  'PRESS_NEXT',
+  'PRESS_PREVIOUS'
+];
+
+export const PLAYER_EVENTS = _.zipObject(
+  _PLAYER_EVENTS,
+  _.map(_PLAYER_EVENTS, (name) => `EVENT:${name}`));
 
 /**
  * Define player state that represent the current state of the iframe players
  */
-export const PLAYER_STATES = {
-  LOADING: 'LOADING',
-  READY: 'READY',
-  PAUSED: 'PAUSED',
-  PLAYING: 'PLAYING'
-};
+const _PLAYER_STATES = [
+  'LOADING',
+  'READY',
+  'PAUSED',
+  'PLAYING'
+];
+
+export const PLAYER_STATES = _.zipObject(_PLAYER_STATES, _PLAYER_STATES);
 
 /**
  * Define redux action names to modify the state atom
  */
-export const PLAYER_STATE_TRANSITIONS = {
-  SET_STATE: 'PLAYER:SET_STATE',
-  SET_QUEUE: 'PLAYER:SET_QUEUE',
-  SET_CURRENT_SONG: 'PLAYER:SET_CURRENT_SONG',
-  SET_NEXT_SONG: 'PLAYER:SET_NEXT_SONG',
-  SET_PREVIOUS_SONG: 'PLAYER:SET_PREVIOUS_SONG',
-  SHUFFLE: 'PLAYER:SHUFFLE',
-  UNSHUFFLE: 'PLAYER:UNSHUFFLE'
-};
 
-/**
- * Define player thunks to create composite events and transitions
- */
-export const PLAYER_THUNKS = {
-  PLAY_SONG: 'PLAYER:PLAY_SONG',
-  RESET_SONG: 'PLAYER:RESET_SONG',
-  PLAY_NEXT: 'PLAYER:PLAY_NEXT',
-  PLAY_PREVIOUS: 'PLAYER:PLAY_PREVIOUS'
-};
+const _PLAYER_ACTIONS = [
+  'SET_STATE',
+  'SET_QUEUE',
+  'SET_CURRENT_SONG',
+  'SET_NEXT_SONG',
+  'SET_PREVIOUS_SONG',
+  'SHUFFLE',
+  'UNSHUFFLE'
+];
+
+export const PLAYER_ACTIONS = _.zipObject(_PLAYER_ACTIONS, _PLAYER_ACTIONS);
