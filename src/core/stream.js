@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import rx from 'rxjs';
+import rx from 'rxjs/Rx';
 
 import { playerStreamReducer } from 'player/stream.js';
 

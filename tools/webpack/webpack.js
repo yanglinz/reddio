@@ -115,7 +115,8 @@ function vendorBundleConfig(target) {
       'lodash',
       'react',
       'react-dom',
-      'redux'
+      'redux',
+      'rxjs/Rx'
     ]
   };
   const commonChunksPlugin = new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor-[hash].js');
