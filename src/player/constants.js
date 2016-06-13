@@ -31,7 +31,6 @@ export const PLAYER_STATES = _.zipObject(_PLAYER_STATES, _PLAYER_STATES);
 /**
  * Define redux action names to modify the state atom
  */
-
 const _PLAYER_ACTIONS = [
   'SET_STATE',
   'SET_QUEUE',
