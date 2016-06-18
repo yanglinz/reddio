@@ -1,11 +1,10 @@
-import 'babel-polyfill';
 import 'analytics/segment.js';
 import 'analytics/sentry.js';
-import './core/entry.js';
 import './core/styles/main.scss';
+import { initialize } from './core/entry.js';
 
-import * as player from 'player/controls.js';
-window.player = player;
+const mountId = 'app';
+initialize(mountId);
 
 if (module.hot) {
   module.hot.accept();
