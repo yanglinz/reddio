@@ -1,13 +1,18 @@
+import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import store from 'core/state.js';
+import 'core/state.js';
 
 function App() {
   return (
-    <h1>Hello World</h1>
+    <div className='root'>
+      <h1>Hello World</h1>
+    </div>
   );
 }
 
-const mountNode = document.getElementById('app');
-ReactDOM.render(<App />, mountNode);
+export function initialize(mountId) {
+  const mountNode = document.getElementById(mountId);
+  ReactDOM.render(<App />, mountNode);
+}
