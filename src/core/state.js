@@ -1,6 +1,7 @@
 import { applyMiddleware, combineReducers, createStore } from 'redux';
 import createLogger from 'redux-logger';
 import createSaga from 'redux-saga';
+import { fork } from 'redux-saga/effects';
 
 import { applyReducers } from 'core/stream.js';
 import { playerReducer } from 'player/state.js';
@@ -13,7 +14,7 @@ export function rootReducer() {
 
 export function* rootSaga() {
   yield [
-    coreSaga()
+    fork(coreSaga)
   ];
 }
 

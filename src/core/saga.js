@@ -1,4 +1,4 @@
-import { put } from 'redux-saga/effects';
+import { fork, put } from 'redux-saga/effects';
 
 import { CORE_EVENTS } from 'core/constants.js';
 
@@ -8,5 +8,7 @@ export function* initializeSaga() {
 }
 
 export function* coreSaga() {
-  yield* initializeSaga();
+  yield [
+    fork(initializeSaga)
+  ];
 }
