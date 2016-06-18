@@ -2003,11 +2003,6 @@
       "from": "flatten@1.0.2",
       "resolved": "./node_shrinkwrap/flatten-1.0.2.tgz"
     },
-    "flux-standard-action": {
-      "version": "0.6.1",
-      "from": "flux-standard-action@>=0.6.1 <0.7.0",
-      "resolved": "./node_shrinkwrap/flux-standard-action-0.6.1.tgz"
-    },
     "for-in": {
       "version": "0.1.5",
       "from": "for-in@>=0.1.5 <0.2.0",
@@ -5226,15 +5221,10 @@
       "from": "redux-logger@latest",
       "resolved": "./node_shrinkwrap/redux-logger-2.6.1.tgz"
     },
-    "redux-promise": {
-      "version": "0.5.3",
-      "from": "redux-promise@latest",
-      "resolved": "./node_shrinkwrap/redux-promise-0.5.3.tgz"
-    },
-    "redux-thunk": {
-      "version": "2.1.0",
-      "from": "redux-thunk@latest",
-      "resolved": "./node_shrinkwrap/redux-thunk-2.1.0.tgz"
+    "redux-saga": {
+      "version": "0.10.5",
+      "from": "redux-saga@latest",
+      "resolved": "./node_shrinkwrap/redux-saga-0.10.5.tgz"
     },
     "regenerate": {
       "version": "1.2.1",
