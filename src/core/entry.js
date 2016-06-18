@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import store from 'core/state.js';
+
 function App() {
   return (
     <h1>Hello World</h1>
