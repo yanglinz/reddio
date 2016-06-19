@@ -7,9 +7,6 @@ import {
   REDDIT_SORT_RANGES
 } from 'reddit/constants.js';
 
-/**
- * Get initial reddit state
- */
 export function initialState() {
   return {
     sourceUrl: REDDIT_SOURCES.LISTEN_TO_THIS.url,
