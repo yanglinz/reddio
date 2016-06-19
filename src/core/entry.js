@@ -6,7 +6,7 @@ import 'core/state.js';
 
 function App() {
   return (
-    <div className='root'>
+    <div className="root">
       <h1>Hello World</h1>
     </div>
   );
