@@ -4415,9 +4415,9 @@
       "resolved": "./node_shrinkwrap/next-tick-0.2.2.tgz"
     },
     "node-fetch": {
-      "version": "1.5.2",
+      "version": "1.5.3",
       "from": "node-fetch@>=1.0.1 <2.0.0",
-      "resolved": "./node_shrinkwrap/node-fetch-1.5.2.tgz"
+      "resolved": "./node_shrinkwrap/node-fetch-1.5.3.tgz"
     },
     "node-gyp": {
       "version": "3.3.1",

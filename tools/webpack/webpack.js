@@ -17,7 +17,7 @@ function baseConfig() {
   const context = path.resolve(projectRoot, 'src');
 
   const mainEntry = './main.js';
-  const entry = { main: mainEntry };
+  const entry = { main: ['whatwg-fetch', mainEntry] };
 
   const outputPath = path.resolve(projectRoot, 'dist');
   const output = {

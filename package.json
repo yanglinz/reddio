@@ -28,7 +28,8 @@
     "redux": "3.5.2",
     "redux-logger": "2.6.1",
     "redux-saga": "0.10.5",
-    "rxjs": "5.0.0-beta.7"
+    "rxjs": "5.0.0-beta.7",
+    "whatwg-fetch": "1.0.0"
   },
   "devDependencies": {
     "@kadira/storybook": "1.27.0",
