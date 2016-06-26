@@ -15,17 +15,11 @@ export function listingParams(overrides = {}) {
   return { t: sortRange, after, before, count, limit };
 }
 
-export function listingPosts(result) {
-  return result;
-}
-
 export function getListing(baseUrl, sortType, params) {
   invariant(_.includes(REDDIT_SORT_TYPES, sortType), 'expected valid sort type');
   const req = {
     method: 'GET',
     params: listingParams(params)
   };
-  return fetch(listingUrl(baseUrl, sortType), req)
-    .then(res => res.json())
-    .then(listingPosts);
+  return fetch(listingUrl(baseUrl, sortType), req).then(res => res.json());
 }
