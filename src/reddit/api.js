@@ -1,16 +1,16 @@
 import _ from 'lodash';
 import invariant from 'invariant';
 
-import { REDDIT_SORT_TYPES } from 'reddit/constants.js';
+import { REDDIT_SORT_TYPES, REDDIT_SORT_RANGES } from 'reddit/constants.js';
 
 export function listingUrl(baseUrl, sortType) {
   const base = _.trimEnd(baseUrl, '/');
-  const type = sortType.toLowerCase();
-  return `${base}/${type}.json`;
+  return `${base}/${sortType}.json`;
 }
 
 export function listingParams(overrides = {}) {
   const sortRange = overrides.sortRange || overrides.t;
+  invariant(_.includes(REDDIT_SORT_RANGES, sortRange), 'expected valid sort range');
   const { after, before, count, limit } = _.assign({ limit: 25 }, overrides);
   return { t: sortRange, after, before, count, limit };
 }

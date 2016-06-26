@@ -27,9 +27,9 @@ describe('reddit api wrappers', () => {
     });
 
     it('should get listing params with defaults', () => {
-      const params = api.listingParams();
+      const params = api.listingParams({ sortRange: 'day' });
       expect(params).to.deep.equal({
-        t: undefined,
+        t: 'day',
         before: undefined,
         after: undefined,
         count: undefined,

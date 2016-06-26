@@ -18,10 +18,10 @@ export const REDDIT_SOURCES = {
  * Define reddit posts sort types
  */
 const _REDDIT_SORT_TYPES = [
-  'HOT',
-  'NEW',
-  'RANDOM',
-  'TOP'
+  'hot',
+  'new',
+  'random',
+  'top'
 ];
 
 export const REDDIT_SORT_TYPES = _.zipObject(_REDDIT_SORT_TYPES, _REDDIT_SORT_TYPES);
@@ -30,12 +30,12 @@ export const REDDIT_SORT_TYPES = _.zipObject(_REDDIT_SORT_TYPES, _REDDIT_SORT_TY
  * Define reddit posts sort ranges, which only applies to the TOP sort type
  */
 const _REDDIT_SORT_RANGES = [
-  'HOUR',
-  'DAY',
-  'WEEK',
-  'MONTH',
-  'YEAR',
-  'ALL'
+  'hour',
+  'day',
+  'weel',
+  'month',
+  'year',
+  'all'
 ];
 
 export const REDDIT_SORT_RANGES = _.zipObject(_REDDIT_SORT_RANGES, _REDDIT_SORT_RANGES);

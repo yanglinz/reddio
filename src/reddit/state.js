@@ -11,8 +11,8 @@ export function initialState() {
   return {
     sourceUrl: REDDIT_SOURCES.LISTEN_TO_THIS.url,
     posts: [],
-    sortType: REDDIT_SORT_TYPES.HOT,
-    sortRange: REDDIT_SORT_RANGES.DAY
+    sortType: REDDIT_SORT_TYPES.hot,
+    sortRange: REDDIT_SORT_RANGES.day
   };
 }
 

@@ -18,8 +18,8 @@ describe('reddit state management', () => {
       expect(initialState).to.deep.equal({
         sourceUrl: 'https://www.reddit.com/r/listentothis',
         posts: [],
-        sortType: 'HOT',
-        sortRange: 'DAY'
+        sortType: 'hot',
+        sortRange: 'day'
       });
     });
   });
@@ -71,8 +71,8 @@ describe('reddit state management', () => {
   describe('set sort type reducer', () => {
     it('should set sort type', () => {
       initialState.posts = [{ foo: 'bar' }];
-      initialState.sortType = REDDIT_SORT_TYPES.HOT;
-      const sortType = REDDIT_SORT_TYPES.TOP;
+      initialState.sortType = REDDIT_SORT_TYPES.hot;
+      const sortType = REDDIT_SORT_TYPES.top;
       const payload = { sortType };
       const action = { type: REDDIT_ACTIONS.SET_SORT_TYPE, payload };
       const newState = redditReducer(initialState, action);
@@ -82,8 +82,8 @@ describe('reddit state management', () => {
 
     it('should do nothing if sort type is not changed', () => {
       initialState.posts = [{ foo: 'bar' }];
-      initialState.sortType = REDDIT_SORT_TYPES.HOT;
-      const sortType = REDDIT_SORT_TYPES.HOT;
+      initialState.sortType = REDDIT_SORT_TYPES.hot;
+      const sortType = REDDIT_SORT_TYPES.hot;
       const payload = { sortType };
       const action = { type: REDDIT_ACTIONS.SET_SORT_TYPE, payload };
       const newState = redditReducer(initialState, action);
@@ -95,8 +95,8 @@ describe('reddit state management', () => {
   describe('set sort range reducer', () => {
     it('should set range type', () => {
       initialState.posts = [{ foo: 'bar' }];
-      initialState.sortRange = REDDIT_SORT_RANGES.DAY;
-      const sortRange = REDDIT_SORT_RANGES.WEEK;
+      initialState.sortRange = REDDIT_SORT_RANGES.day;
+      const sortRange = REDDIT_SORT_RANGES.week;
       const payload = { sortRange };
       const action = { type: REDDIT_ACTIONS.SET_SORT_RANGE, payload };
       const newState = redditReducer(initialState, action);
@@ -106,8 +106,8 @@ describe('reddit state management', () => {
 
     it('should do nothing if sort range is not changed', () => {
       initialState.posts = [{ foo: 'bar' }];
-      initialState.sortRange = REDDIT_SORT_RANGES.DAY;
-      const sortRange = REDDIT_SORT_RANGES.DAY;
+      initialState.sortRange = REDDIT_SORT_RANGES.day;
+      const sortRange = REDDIT_SORT_RANGES.day;
       const payload = { sortRange };
       const action = { type: REDDIT_ACTIONS.SET_SORT_RANGE, payload };
       const newState = redditReducer(initialState, action);
