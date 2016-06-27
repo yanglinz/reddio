@@ -2,6 +2,7 @@ import { applyMiddleware, combineReducers, createStore } from 'redux';
 import createLogger from 'redux-logger';
 import createSaga from 'redux-saga';
 import { fork } from 'redux-saga/effects';
+import { routerReducer } from 'react-router-redux';
 
 import { applyReducers } from 'core/stream.js';
 import { playerDomain, playerReducer } from 'player/state.js';
@@ -11,6 +12,7 @@ import settings from 'core/settings.js';
 
 export function rootReducer() {
   return combineReducers({
+    routing: routerReducer,
     [playerDomain()]: playerReducer,
     [redditDomain()]: redditReducer
   });
