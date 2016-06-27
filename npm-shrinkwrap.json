@@ -5149,6 +5149,11 @@
         }
       }
     },
+    "react-router-redux": {
+      "version": "4.0.5",
+      "from": "react-router-redux@latest",
+      "resolved": "./node_shrinkwrap/react-router-redux-4.0.5.tgz"
+    },
     "react-simple-di": {
       "version": "1.2.0",
       "from": "react-simple-di@>=1.2.0 <2.0.0",
