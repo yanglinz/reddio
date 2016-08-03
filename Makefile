@@ -5,7 +5,6 @@ ESLINT:=$(BIN)/eslint
 GULP:=$(BIN)/gulp
 KARMA:=$(BIN)/karma
 PROTRACTOR:=$(BIN)/protractor
-SHRINKPACK:=$(BIN)/shrinkpack
 STORYBOOK:=$(BIN)/start-storybook
 WEBDRIVER_MANAGER:=$(BIN)/webdriver-manager
 WEBPACK:=$(BIN)/webpack
@@ -14,6 +13,7 @@ WEBPACK_DEV_SERVER:=$(BIN)/webpack-dev-server
 setup:
 	node --version
 	npm --version
+	@npm prune
 	@npm install --loglevel=http
 	@$(WEBDRIVER_MANAGER) update
 
@@ -21,9 +21,9 @@ lint:
 	@$(ESLINT) .
 
 deps:
+	@npm cache clean
 	@npm prune
 	@npm shrinkwrap --dev
-	@$(SHRINKPACK)
 
 build: clean
 	@$(WEBPACK) --progress -p
