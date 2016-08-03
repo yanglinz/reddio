@@ -21,6 +21,7 @@ lint:
 	@$(ESLINT) .
 
 deps:
+	@npm cache clean
 	@npm prune
 	@npm shrinkwrap --dev
 
