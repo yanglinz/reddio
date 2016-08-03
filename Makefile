@@ -5,7 +5,6 @@ ESLINT:=$(BIN)/eslint
 GULP:=$(BIN)/gulp
 KARMA:=$(BIN)/karma
 PROTRACTOR:=$(BIN)/protractor
-SHRINKPACK:=$(BIN)/shrinkpack
 STORYBOOK:=$(BIN)/start-storybook
 WEBDRIVER_MANAGER:=$(BIN)/webdriver-manager
 WEBPACK:=$(BIN)/webpack
@@ -23,7 +22,6 @@ lint:
 deps:
 	@npm prune
 	@npm shrinkwrap --dev
-	@$(SHRINKPACK)
 
 build: clean
 	@$(WEBPACK) --progress -p
