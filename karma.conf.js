@@ -8,13 +8,17 @@ function karmaConfig(config) {
     [unitTestFiles]: ['webpack']
   };
 
-  const browsers = env.CI ? ['Firefox'] : ['Chrome'];
+  const browsers = env.CI ? ['Firefox'] : ['PhantomJS'];
   const frameworks = ['mocha'];
   const reporters = ['mocha'];
   const autoWatch = true;
 
   const webpack = webpackTestConfig();
   const webpackMiddleware = { noInfo: true };
+
+  const phantomjsLauncher = {
+    exitOnResourceError: true
+  };
 
   config.set({
     files,
@@ -24,7 +28,8 @@ function karmaConfig(config) {
     reporters,
     autoWatch,
     webpack,
-    webpackMiddleware
+    webpackMiddleware,
+    phantomjsLauncher
   });
 }
 
