@@ -13,6 +13,7 @@ WEBPACK_DEV_SERVER:=$(BIN)/webpack-dev-server
 setup:
 	node --version
 	npm --version
+	@npm prune
 	@npm install --loglevel=http
 	@$(WEBDRIVER_MANAGER) update
 
