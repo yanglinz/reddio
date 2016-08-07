@@ -1,5 +1,5 @@
-import * as youtube from 'player/iframe/youtube.js';
-import * as soundcloud from 'player/iframe/soundcloud.js';
+import * as youtube from 'player/iframe/youtube';
+import * as soundcloud from 'player/iframe/soundcloud';
 
 const PARENT_MOUNT = 'player';
 const YOUTUBE_MOUNT = 'youtube';

@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import { PLAYER_ACTIONS, PLAYER_STATES } from 'player/constants.js';
+import { PLAYER_ACTIONS, PLAYER_STATES } from 'player/constants';
 
 /**
  * Get initial player state

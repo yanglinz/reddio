@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import rx from 'rxjs/Rx';
 
-import { playerStreamReducer } from 'player/stream.js';
+import { playerStreamReducer } from 'player/stream';
 
 /**
  * Create singleton source and sink subject streams

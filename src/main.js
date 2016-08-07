@@ -1,7 +1,7 @@
-import 'analytics/segment.js';
-import 'analytics/sentry.js';
+import 'analytics/segment';
+import 'analytics/sentry';
 import './core/styles/main.scss';
-import { initialize } from './core/entry.js';
+import { initialize } from './core/entry';
 
 const mountId = 'app';
 initialize(mountId);

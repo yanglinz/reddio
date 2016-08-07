@@ -1,8 +1,8 @@
 import _ from 'lodash';
 import { expect } from 'chai';
 
-import { PLAYER_STATES, PLAYER_ACTIONS } from 'player/constants.js';
-import { configureStore } from 'core/state.js';
+import { PLAYER_STATES, PLAYER_ACTIONS } from 'player/constants';
+import { configureStore } from 'core/state';
 
 
 describe('player state management', () => {

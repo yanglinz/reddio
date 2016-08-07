@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { Router, Route, hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 
-import store from 'core/state.js';
+import store from 'core/state';
 
 function Root(props) {
   return (

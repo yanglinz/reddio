@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { expect } from 'chai';
 
-import * as soundcloud from '../soundcloud.js';
+import * as soundcloud from '../soundcloud';
 
 describe('soundcloud iframe player', () => {
   describe('url parser', () => {

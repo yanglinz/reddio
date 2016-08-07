@@ -1,3 +1,3 @@
-const { webpackWatchConfig } = require('../webpack/webpack.js');
+const { webpackWatchConfig } = require('../webpack/webpack');
 
 module.exports = webpackWatchConfig();

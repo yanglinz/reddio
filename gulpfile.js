@@ -1,6 +1,6 @@
 const gulp = require('gulp');
 
-require('./tools/gulp/deploy.js');
+require('./tools/gulp/deploy');
 
 const deployPipeline = [
   'deploy:surge'

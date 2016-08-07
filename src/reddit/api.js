@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import invariant from 'invariant';
 
-import { REDDIT_SORT_TYPES, REDDIT_SORT_RANGES } from 'reddit/constants.js';
+import { REDDIT_SORT_TYPES, REDDIT_SORT_RANGES } from 'reddit/constants';
 
 export function listingUrl(baseUrl, sortType) {
   const base = _.trimEnd(baseUrl, '/');

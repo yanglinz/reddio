@@ -1,8 +1,8 @@
 import { expect } from 'chai';
 
-import { REDDIT_ACTIONS, REDDIT_SORT_TYPES, REDDIT_SORT_RANGES } from 'reddit/constants.js';
-import { redditDomain, redditReducer } from '../state.js';
-import { configureStore } from 'core/state.js';
+import { REDDIT_ACTIONS, REDDIT_SORT_TYPES, REDDIT_SORT_RANGES } from 'reddit/constants';
+import { configureStore } from 'core/state';
+import { redditDomain, redditReducer } from '../state';
 
 
 describe('reddit state management', () => {

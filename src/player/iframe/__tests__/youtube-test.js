@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { expect } from 'chai';
 
-import * as youtube from '../youtube.js';
+import * as youtube from '../youtube';
 
 describe('youtube iframe player', () => {
   describe('url parser', () => {

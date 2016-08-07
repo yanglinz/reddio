@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { expect } from 'chai';
 
-import settings from '../settings.js';
+import settings from '../settings';
 
 describe('settings test', () => {
   it('should have the expected environmental variables', () => {

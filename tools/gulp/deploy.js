@@ -4,7 +4,7 @@ const path = require('path');
 const gulp = require('gulp');
 const surge = require('gulp-surge');
 
-const env = require('../../environment.js');
+const env = require('../../environment');
 
 function deploySurge() {
   assert(env.SURGE_LOGIN, 'deploySurge expects SURGE_LOGIN');

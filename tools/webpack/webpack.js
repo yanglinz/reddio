@@ -6,7 +6,7 @@ const merge = require('webpack-merge');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
-const env = require('../../environment.js');
+const env = require('../../environment');
 
 const TARGET_BUILD = 'BUILD';
 const TARGET_WATCH = 'WATCH';
@@ -25,7 +25,10 @@ function baseConfig() {
     filename: '[name]-[hash].js'
   };
 
-  return { context, entry, output };
+  const extensions = ['', '.js', '.jsx'];
+  const resolve = { extensions };
+
+  return { context, entry, output, resolve };
 }
 
 function absoluteImportConfig() {

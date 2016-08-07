@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 
-import { initialize } from '../entry.js';
+import { initialize } from '../entry';
 
 describe('initialize app', () => {
   it('should initialize app', () => {
