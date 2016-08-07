@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 
-import * as controls from '../controls.js';
+import * as controls from '../controls';
 
 describe('player controls', () => {
   describe('controls dom creation', () => {

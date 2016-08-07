@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { expect } from 'chai';
 
-import { PLAYER_STATES, PLAYER_ACTIONS } from 'player/constants.js';
+import { PLAYER_STATES, PLAYER_ACTIONS } from 'player/constants';
 
 describe('player constants', () => {
   it('should have valid player states', () => {

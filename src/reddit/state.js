@@ -5,7 +5,7 @@ import {
   REDDIT_ACTIONS,
   REDDIT_SORT_TYPES,
   REDDIT_SORT_RANGES
-} from 'reddit/constants.js';
+} from 'reddit/constants';
 
 export function initialState() {
   return {

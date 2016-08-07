@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import * as utilities from 'core/utilities.js';
+import * as utilities from 'core/utilities';
 
 export function isSoundcloud(url) {
   const urlComponents = utilities.parseUrl(url);

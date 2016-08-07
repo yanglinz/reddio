@@ -2,7 +2,7 @@ import _ from 'lodash';
 import rx from 'rxjs/Rx';
 import { expect } from 'chai';
 
-import { dispatchEvent, applyReducers } from '../stream.js';
+import { dispatchEvent, applyReducers } from '../stream';
 
 describe('core event command stream', () => {
   let source$;

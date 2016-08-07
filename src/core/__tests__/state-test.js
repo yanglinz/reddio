@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 
-import store from '../state.js';
+import store from '../state';
 
 describe('state store', () => {
   it('should have redux store functions', () => {

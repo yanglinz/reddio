@@ -1,5 +1,5 @@
-const { webpackTestConfig } = require('./tools/webpack/webpack.js');
-const env = require('./environment.js');
+const { webpackTestConfig } = require('./tools/webpack/webpack');
+const env = require('./environment');
 
 function karmaConfig(config) {
   const unitTestFiles = 'src/**/__tests__/*-test.js';

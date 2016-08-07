@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import analyticsLoader from 'analytics.js-loader';
 
-import settings from 'core/settings.js';
+import settings from 'core/settings';
 
 const analyticsShim = {
   track: _.noop

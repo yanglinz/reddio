@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import * as utilities from 'core/utilities.js';
+import * as utilities from 'core/utilities';
 
 const youtubeHost = 'youtube.com';
 const youtubeShortHost = 'youtu.be';

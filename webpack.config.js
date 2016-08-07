@@ -1,3 +1,3 @@
-const { webpackBuildConfig } = require('./tools/webpack/webpack.js');
+const { webpackBuildConfig } = require('./tools/webpack/webpack');
 
 module.exports = webpackBuildConfig();

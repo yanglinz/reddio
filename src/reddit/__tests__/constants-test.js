@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { expect } from 'chai';
 
-import { REDDIT_ACTIONS, REDDIT_SORT_TYPES, REDDIT_SORT_RANGES } from '../constants.js';
+import { REDDIT_ACTIONS, REDDIT_SORT_TYPES, REDDIT_SORT_RANGES } from '../constants';
 
 describe('reddit constants', () => {
   it('should have valid reddit actions', () => {

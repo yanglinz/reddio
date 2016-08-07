@@ -1,4 +1,4 @@
-const env = require('./environment.js');
+const env = require('./environment');
 
 const framework = 'jasmine';
 const capabilities = {

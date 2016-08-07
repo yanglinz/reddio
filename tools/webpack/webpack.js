@@ -6,7 +6,7 @@ const merge = require('webpack-merge');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
-const env = require('../../environment.js');
+const env = require('../../environment');
 
 const TARGET_BUILD = 'BUILD';
 const TARGET_WATCH = 'WATCH';
