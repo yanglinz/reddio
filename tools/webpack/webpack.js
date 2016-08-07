@@ -25,7 +25,10 @@ function baseConfig() {
     filename: '[name]-[hash].js'
   };
 
-  return { context, entry, output };
+  const extensions = ['', '.js', '.jsx'];
+  const resolve = { extensions };
+
+  return { context, entry, output, resolve };
 }
 
 function absoluteImportConfig() {
