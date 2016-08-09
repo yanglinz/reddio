@@ -1,4 +1,6 @@
+import _ from 'lodash';
 import React from 'react';
+import routePattern from 'route-pattern';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRedirect, hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
@@ -88,6 +90,28 @@ function AppRoutes() {
       </Router>
     </Provider>
   );
+}
+
+/**
+ * Given a pathname parse the semantics of the subreddit and sort type
+ * @param {string} pathname - The pathname of the route e.g. /r/listentothis/hot
+ */
+export function routePathParams(pathname) {
+  const patterns = [
+    '/r/:subreddit/:sortType',
+    '/r/:subreddit/:sortType/:sortRange'
+  ];
+  let pathParams = null;
+  _.each(patterns, pattern => {
+    const compiledPattern = routePattern.fromString(pattern);
+    const isMatch = compiledPattern.matches(pathname);
+    if (isMatch) {
+      const match = compiledPattern.match(pathname);
+      pathParams = match.pathParams;
+      return false;  // stop iteration
+    }
+  });
+  return pathParams;
 }
 
 export default AppRoutes;

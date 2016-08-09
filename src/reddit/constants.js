@@ -44,11 +44,9 @@ export const REDDIT_SORT_RANGES = _.zipObject(_REDDIT_SORT_RANGES, _REDDIT_SORT_
  * Define redux action names to modify the state atom
  */
 const _REDDIT_ACTIONS = [
-  'SET_SOURCE_URL',
   'REQUEST_POSTS',
   'RECEIVE_POSTS',
-  'SET_SORT_TYPE',
-  'SET_SORT_RANGE'
+  'ROUTER_LOCATION_CHANGE'
 ];
 
 export const REDDIT_ACTIONS = _.zipObject(_REDDIT_ACTIONS, _REDDIT_ACTIONS);

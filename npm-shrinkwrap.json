@@ -6212,6 +6212,11 @@
       "from": "ripemd160@0.2.0",
       "resolved": "https://registry.npmjs.org/ripemd160/-/ripemd160-0.2.0.tgz"
     },
+    "route-pattern": {
+      "version": "0.0.6",
+      "from": "route-pattern@latest",
+      "resolved": "https://registry.npmjs.org/route-pattern/-/route-pattern-0.0.6.tgz"
+    },
     "run-async": {
       "version": "0.1.0",
       "from": "run-async@>=0.1.0 <0.2.0",
