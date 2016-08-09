@@ -25,10 +25,12 @@ describe('reddit state management', () => {
   });
 
   describe('route change reducer', () => {
+    const ROUTER_LOCATION_CHANGE = '@@router/LOCATION_CHANGE';
+
     it('should set new subreddit and sortType', () => {
       const pathname = '/r/listentothis/hot';
       const payload = { pathname };
-      const action = { type: REDDIT_ACTIONS.ROUTER_LOCATION_CHANGE, payload };
+      const action = { type: ROUTER_LOCATION_CHANGE, payload };
       const newState = redditReducer(initialState, action);
       expect(newState).to.deep.equal({
         subreddit: 'listentothis',
@@ -41,7 +43,7 @@ describe('reddit state management', () => {
     it('should set new subreddit, sortType, and sortRange', () => {
       const pathname = '/r/listentothis/top/week';
       const payload = { pathname };
-      const action = { type: REDDIT_ACTIONS.ROUTER_LOCATION_CHANGE, payload };
+      const action = { type: ROUTER_LOCATION_CHANGE, payload };
       const newState = redditReducer(initialState, action);
       expect(newState).to.deep.equal({
         subreddit: 'listentothis',
@@ -54,7 +56,7 @@ describe('reddit state management', () => {
     it('should noop if route does not match', () => {
       const pathname = '/r/foobar';
       const payload = { pathname };
-      const action = { type: REDDIT_ACTIONS.ROUTER_LOCATION_CHANGE, payload };
+      const action = { type: ROUTER_LOCATION_CHANGE, payload };
       const newState = redditReducer(initialState, action);
       expect(newState).to.deep.equal({
         subreddit: null,

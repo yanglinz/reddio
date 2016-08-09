@@ -29,9 +29,11 @@ export function reduceReceivePosts(state, action) {
   return _.assign({}, state, { posts });
 }
 
+const ROUTER_LOCATION_CHANGE = '@@router/LOCATION_CHANGE';
+
 const reducerByAction = {
   [REDDIT_ACTIONS.RECEIVE_POSTS]: reduceReceivePosts,
-  [REDDIT_ACTIONS.ROUTER_LOCATION_CHANGE]: reduceRouteChange
+  [ROUTER_LOCATION_CHANGE]: reduceRouteChange
 };
 
 export function redditDomain() {
