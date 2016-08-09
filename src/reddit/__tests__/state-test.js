@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 
-import { REDDIT_ACTIONS, REDDIT_SORT_TYPES, REDDIT_SORT_RANGES } from 'reddit/constants';
+import { REDDIT_ACTIONS } from 'reddit/constants';
 import { configureStore } from 'core/state';
 import { redditDomain, redditReducer } from '../state';
 
@@ -16,35 +16,54 @@ describe('reddit state management', () => {
   describe('initial state', () => {
     it('should have the expected initial state', () => {
       expect(initialState).to.deep.equal({
-        sourceUrl: 'https://www.reddit.com/r/listentothis',
-        posts: [],
-        sortType: 'hot',
-        sortRange: 'day'
+        subreddit: null,
+        sortType: null,
+        sortRange: null,
+        posts: []
       });
     });
   });
 
-  describe('set source url reducer', () => {
-    it('should set source url', () => {
-      initialState.posts = [{ foo: 'bar' }];
-      initialState.sourceUrl = 'https://old.url.baz';
-      const url = 'https://new.url.baz';
-      const payload = { url };
-      const action = { type: REDDIT_ACTIONS.SET_SOURCE_URL, payload };
+  describe('route change reducer', () => {
+    const ROUTER_LOCATION_CHANGE = '@@router/LOCATION_CHANGE';
+
+    it('should set new subreddit and sortType', () => {
+      const pathname = '/r/listentothis/hot';
+      const payload = { pathname };
+      const action = { type: ROUTER_LOCATION_CHANGE, payload };
       const newState = redditReducer(initialState, action);
-      expect(newState.sourceUrl).to.equal(url);
-      expect(newState.posts).to.deep.equal([]);  // should invalidate posts
+      expect(newState).to.deep.equal({
+        subreddit: 'listentothis',
+        sortType: 'hot',
+        sortRange: null,
+        posts: []
+      });
     });
 
-    it('should do nothing if source url is not changed', () => {
-      initialState.posts = [{ foo: 'bar' }];
-      initialState.sourceUrl = 'https://same.url.baz';
-      const url = 'https://same.url.baz';
-      const payload = { url };
-      const action = { type: REDDIT_ACTIONS.SET_SOURCE_URL, payload };
+    it('should set new subreddit, sortType, and sortRange', () => {
+      const pathname = '/r/listentothis/top/week';
+      const payload = { pathname };
+      const action = { type: ROUTER_LOCATION_CHANGE, payload };
       const newState = redditReducer(initialState, action);
-      expect(newState.sourceUrl).to.equal(url);
-      expect(newState.posts).to.deep.equal([{ foo: 'bar' }]);
+      expect(newState).to.deep.equal({
+        subreddit: 'listentothis',
+        sortType: 'top',
+        sortRange: 'week',
+        posts: []
+      });
+    });
+
+    it('should noop if route does not match', () => {
+      const pathname = '/r/foobar';
+      const payload = { pathname };
+      const action = { type: ROUTER_LOCATION_CHANGE, payload };
+      const newState = redditReducer(initialState, action);
+      expect(newState).to.deep.equal({
+        subreddit: null,
+        sortType: null,
+        sortRange: null,
+        posts: []
+      });
     });
   });
 
@@ -65,54 +84,6 @@ describe('reddit state management', () => {
       const action = { type: REDDIT_ACTIONS.RECEIVE_POSTS, payload };
       const newState = redditReducer(initialState, action);
       expect(newState.posts).to.deep.equal([{ foo: 'bar' }, { bar: 'baz' }]);
-    });
-  });
-
-  describe('set sort type reducer', () => {
-    it('should set sort type', () => {
-      initialState.posts = [{ foo: 'bar' }];
-      initialState.sortType = REDDIT_SORT_TYPES.hot;
-      const sortType = REDDIT_SORT_TYPES.top;
-      const payload = { sortType };
-      const action = { type: REDDIT_ACTIONS.SET_SORT_TYPE, payload };
-      const newState = redditReducer(initialState, action);
-      expect(newState.sortType).to.equal(sortType);
-      expect(newState.posts).to.deep.equal([]);  // should invalidate posts
-    });
-
-    it('should do nothing if sort type is not changed', () => {
-      initialState.posts = [{ foo: 'bar' }];
-      initialState.sortType = REDDIT_SORT_TYPES.hot;
-      const sortType = REDDIT_SORT_TYPES.hot;
-      const payload = { sortType };
-      const action = { type: REDDIT_ACTIONS.SET_SORT_TYPE, payload };
-      const newState = redditReducer(initialState, action);
-      expect(newState.sortType).to.equal(sortType);
-      expect(newState.posts).to.deep.equal([{ foo: 'bar' }]);
-    });
-  });
-
-  describe('set sort range reducer', () => {
-    it('should set range type', () => {
-      initialState.posts = [{ foo: 'bar' }];
-      initialState.sortRange = REDDIT_SORT_RANGES.day;
-      const sortRange = REDDIT_SORT_RANGES.week;
-      const payload = { sortRange };
-      const action = { type: REDDIT_ACTIONS.SET_SORT_RANGE, payload };
-      const newState = redditReducer(initialState, action);
-      expect(newState.sortRange).to.equal(sortRange);
-      expect(newState.posts).to.deep.equal([]);  // should invalidate posts
-    });
-
-    it('should do nothing if sort range is not changed', () => {
-      initialState.posts = [{ foo: 'bar' }];
-      initialState.sortRange = REDDIT_SORT_RANGES.day;
-      const sortRange = REDDIT_SORT_RANGES.day;
-      const payload = { sortRange };
-      const action = { type: REDDIT_ACTIONS.SET_SORT_RANGE, payload };
-      const newState = redditReducer(initialState, action);
-      expect(newState.sortRange).to.equal(sortRange);
-      expect(newState.posts).to.deep.equal([{ foo: 'bar' }]);
     });
   });
 });
