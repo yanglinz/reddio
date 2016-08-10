@@ -15,12 +15,21 @@ export function initialState() {
 export function reduceRouteChange(state, action) {
   const { payload } = action;
   const pathParams = routePathParams(payload.pathname);
-  const { subreddit = null, sortType = null, sortRange = null } = pathParams || {};
-  return _.assign({}, state, {
-    subreddit,
-    sortType,
-    sortRange
-  });
+  if (pathParams) {
+    const { subreddit = null, sortType = null, sortRange = null } = pathParams;
+    const isSameParams = (
+    subreddit === state.subreddit &&
+    sortType === state.sortType &&
+    sortRange === state.sortRange);
+    const posts = isSameParams ? state.posts : [];
+    return _.assign({}, state, {
+      subreddit,
+      sortType,
+      sortRange,
+      posts
+    });
+  }
+  return state;
 }
 
 export function reduceReceivePosts(state, action) {
