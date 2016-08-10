@@ -65,6 +65,46 @@ describe('reddit state management', () => {
         posts: []
       });
     });
+
+    it('should invalidate posts if params have changed', () => {
+      initialState = {
+        subreddit: 'listentothis',
+        sortType: 'hot',
+        sortRange: null,
+        posts: [{}]  // non-empty posts
+      };
+
+      const pathname = '/r/music/hot';
+      const payload = { pathname };
+      const action = { type: ROUTER_LOCATION_CHANGE, payload };
+      const newState = redditReducer(initialState, action);
+      expect(newState).to.deep.equal({
+        subreddit: 'music',
+        sortType: 'hot',
+        sortRange: null,
+        posts: []
+      });
+    });
+
+    it('should not invalidate posts if params did not change', () => {
+      initialState = {
+        subreddit: 'listentothis',
+        sortType: 'hot',
+        sortRange: null,
+        posts: [{}]  // non-empty posts
+      };
+
+      const pathname = '/r/listentothis/hot';
+      const payload = { pathname };
+      const action = { type: ROUTER_LOCATION_CHANGE, payload };
+      const newState = redditReducer(initialState, action);
+      expect(newState).to.deep.equal({
+        subreddit: 'listentothis',
+        sortType: 'hot',
+        sortRange: null,
+        posts: [{}]
+      });
+    });
   });
 
   describe('receive posts reducer', () => {
