@@ -1,6 +1,6 @@
 import _ from 'lodash';
 import { takeLatest } from 'redux-saga';
-import { fork, put } from 'redux-saga/effects';
+import { call, fork, put } from 'redux-saga/effects';
 
 import {
   REDDIT_ACTIONS,
@@ -42,10 +42,10 @@ export function* fetchPosts(action) {
   const { subreddit, sortType, sortRange }  = payload;
   const params = { sortRange };
   const baseUrl = SUBREDDITS[subreddit].url;
-  const posts = yield api.getListing(baseUrl, sortType, params);
+  const response = yield call(api.getListing, baseUrl, sortType, params);
   yield put({
     type: REDDIT_ACTIONS.RECEIVE_POSTS,
-    payload: { posts }
+    payload: { response }
   });
 }
 
