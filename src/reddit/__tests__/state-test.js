@@ -110,20 +110,27 @@ describe('reddit state management', () => {
   describe('receive posts reducer', () => {
     it('should receive posts on empty posts', () => {
       initialState.posts = [];
-      const newPosts = [{ foo: 'bar' }];
-      const payload = { posts: newPosts };
+      const stubPosts = [{ foo: 'bar' }];
+      const stubResponse = {
+        data: { children: stubPosts }
+      };
+      const payload = { response: stubResponse };
       const action = { type: REDDIT_ACTIONS.RECEIVE_POSTS, payload };
       const newState = redditReducer(initialState, action);
-      expect(newState.posts).to.deep.equal([{ foo: 'bar' }]);
+      expect(newState.posts).to.deep.equal(stubPosts);
     });
 
-    it('should receive posts on existing posts', () => {
-      initialState.posts = [{ foo: 'bar' }];
-      const newPosts = [{ bar: 'baz' }];
-      const payload = { posts: newPosts };
+    it('should receive posts with existing posts', () => {
+      const initialPosts = [{ bar: 'baz' }];
+      initialState.posts = initialPosts;
+      const stubPosts = [{ foo: 'bar' }];
+      const stubResponse = {
+        data: { children: stubPosts }
+      };
+      const payload = { response: stubResponse };
       const action = { type: REDDIT_ACTIONS.RECEIVE_POSTS, payload };
       const newState = redditReducer(initialState, action);
-      expect(newState.posts).to.deep.equal([{ foo: 'bar' }, { bar: 'baz' }]);
+      expect(newState.posts).to.deep.equal([].concat(initialPosts, stubPosts));
     });
   });
 });

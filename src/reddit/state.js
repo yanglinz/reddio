@@ -34,8 +34,10 @@ export function reduceRouteChange(state, action) {
 
 export function reduceReceivePosts(state, action) {
   const { payload } = action;
-  const posts = [].concat(state.posts, payload.posts);
-  return _.assign({}, state, { posts });
+  const { response } = payload;
+  const posts = response.data.children || [];
+  const newPosts = [].concat(state.posts, posts);
+  return _.assign({}, state, { posts: newPosts });
 }
 
 const ROUTER_LOCATION_CHANGE = '@@router/LOCATION_CHANGE';
