@@ -3,14 +3,10 @@ import _ from 'lodash';
 /**
  * Define pre-selected list of subreddits
  */
-export const REDDIT_SOURCES = {
-  LISTEN_TO_THIS: {
+export const SUBREDDITS = {
+  listentothis: {
     name: 'Listen to This',
     url: 'https://www.reddit.com/r/listentothis'
-  },
-  THE_FIRE_HOSE: {
-    name: 'The Fire Hose',
-    url: 'https://www.reddit.com/user/evilnight/m/thefirehose'
   }
 };
 

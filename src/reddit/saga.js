@@ -2,8 +2,14 @@ import _ from 'lodash';
 import { takeLatest } from 'redux-saga';
 import { fork, put } from 'redux-saga/effects';
 
-import { REDDIT_ACTIONS, REDDIT_SORT_TYPES, REDDIT_SORT_RANGES } from 'reddit/constants';
+import {
+  REDDIT_ACTIONS,
+  REDDIT_SORT_TYPES,
+  REDDIT_SORT_RANGES,
+  SUBREDDITS
+} from 'reddit/constants';
 import { routePathParams } from 'core/routes';
+import * as api from 'reddit/api';
 
 export function* requestPosts(action) {
   const { payload } = action || {};
@@ -33,6 +39,14 @@ export function* watchRouteChange() {
 
 export function* fetchPosts(action) {
   const { payload } = action;
+  const { subreddit, sortType, sortRange }  = payload;
+  const params = { sortRange };
+  const baseUrl = SUBREDDITS[subreddit].url;
+  const posts = yield api.getListing(baseUrl, sortType, params);
+  yield put({
+    type: REDDIT_ACTIONS.RECEIVE_POSTS,
+    payload: { posts }
+  });
 }
 
 export function* watchRequestPosts() {
