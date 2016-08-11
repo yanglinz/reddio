@@ -10,7 +10,9 @@ export function listingUrl(baseUrl, sortType) {
 
 export function listingParams(overrides = {}) {
   const sortRange = overrides.sortRange || overrides.t;
-  invariant(_.includes(REDDIT_SORT_RANGES, sortRange), 'expected valid sort range');
+  if (sortRange) {
+    invariant(_.includes(REDDIT_SORT_RANGES, sortRange), 'expected valid sort range');
+  }
   const { after, before, count, limit } = _.assign({ limit: 25 }, overrides);
   return { t: sortRange, after, before, count, limit };
 }
