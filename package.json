@@ -4,7 +4,14 @@
   "description": "Reddit powered internet radio",
   "main": "index.js",
   "scripts": {
-    "test": "make test"
+    "preinstall": "npm prune",
+    "postinstall": "webdriver-manager update",
+    "build": "jake build",
+    "lint": "jake lint",
+    "test": "jake test",
+    "test:e2e": "jake test:e2e",
+    "deploy": "jake deploy",
+    "clean": "jake clean"
   },
   "repository": {
     "type": "git",
@@ -57,6 +64,7 @@
     "html-webpack-plugin": "2.22.0",
     "jade": "1.11.0",
     "jade-loader": "0.8.0",
+    "jake": "8.0.12",
     "karma": "1.1.2",
     "karma-firefox-launcher": "1.0.0",
     "karma-mocha": "1.1.1",
