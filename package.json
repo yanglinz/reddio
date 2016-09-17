@@ -4,8 +4,6 @@
   "description": "Reddit powered internet radio",
   "main": "index.js",
   "scripts": {
-    "preinstall": "npm prune",
-    "postinstall": "webdriver-manager update",
     "build": "jake build",
     "lint": "jake lint",
     "test": "jake test",
