@@ -1,6 +1,6 @@
 const path = require('path');
 
-const { jake, namespace, task, desc, complete } = global;
+const { jake, task, desc, complete } = global;
 
 const BIN = path.join(__dirname, 'node_modules/.bin');
 const ESLINT = path.join(BIN, 'eslint');
