@@ -7,7 +7,7 @@
     "build": "jake build",
     "lint": "jake lint",
     "test": "jake test",
-    "test:e2e": "jake test:e2e",
+    "test-e2e": "jake test-e2e",
     "deploy": "jake deploy",
     "clean": "jake clean"
   },

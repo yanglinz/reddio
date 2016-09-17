@@ -42,14 +42,14 @@ task('test', [], () => {
   jake.exec(cmds, execOptions, complete);
 });
 
-task('test:watch', [], () => {
+task('test-watch', [], () => {
   const cmds = [
     `${KARMA} start`
   ];
   jake.exec(cmds, execOptions, complete);
 });
 
-task('test:e2e', [], () => {
+task('test-e2e', [], () => {
   const cmds = [
     `${PROTRACTOR} protractor.conf.js`
   ];
