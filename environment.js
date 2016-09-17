@@ -25,10 +25,6 @@ const SURGE_LOGIN = environment.SURGE_LOGIN;
 const SURGE_TOKEN = environment.SURGE_TOKEN;
 const SURGE_DOMAIN = environment.SURGE_DOMAIN;
 
-if (CI) {
-  assert(IS_PROD, 'In CI, NODE_ENV must be set to production');
-}
-
 module.exports = {
   NODE_ENV,
   CI,
