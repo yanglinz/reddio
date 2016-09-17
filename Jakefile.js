@@ -22,7 +22,7 @@ task('lint', [], () => {
 desc('Build deploy artifact');
 task('build', [], () => {
   const cmds = [
-    `${WEBPACK} --progress -p`
+    `NODE_ENV=production ${WEBPACK} --progress -p`
   ];
   jake.exec(cmds, execOptions, complete);
 });
