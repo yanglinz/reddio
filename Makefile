@@ -2,7 +2,6 @@ PROJECT:=reddio
 
 BIN:=node_modules/.bin
 ESLINT:=$(BIN)/eslint
-GULP:=$(BIN)/gulp
 KARMA:=$(BIN)/karma
 PROTRACTOR:=$(BIN)/protractor
 STORYBOOK:=$(BIN)/start-storybook
@@ -19,11 +18,6 @@ setup:
 
 lint:
 	@$(ESLINT) .
-
-deps:
-	@npm cache clean
-	@npm prune
-	@npm shrinkwrap --dev
 
 build: clean
 	@$(WEBPACK) --progress -p
@@ -51,9 +45,6 @@ docker-shell:
 
 docs:
 	@dot -Tpng docs/diagrams/architecture.dot -o docs/diagrams/architecture.png
-
-deploy:
-	@$(GULP) deploy
 
 clean:
 	@rm -rf dist
