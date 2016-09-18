@@ -4,6 +4,7 @@
   "description": "Reddit powered internet radio",
   "main": "index.js",
   "scripts": {
+    "postinstall": "webdriver-manager update",
     "build": "jake build",
     "lint": "jake lint",
     "test": "jake test",
