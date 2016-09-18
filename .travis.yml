@@ -16,6 +16,7 @@ install:
   - npm install
   - node_modules/.bin/webdriver-manager update
 script:
+  - npm run lint
   - npm run test
   - npm run build
   - cd dist && python -m SimpleHTTPServer &
