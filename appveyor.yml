@@ -14,7 +14,10 @@ test_script:
   - npm run lint
   - npm run test
   - npm run build
-  - cd dist && START "" python -m SimpleHTTPServer
+  - cd dist
+  # start a python server in background
+  - ps: Start-Process -FilePath 'python' -ArgumentList '-m SimpleHTTPServer'
+  - cd ..
   - timeout 6
   - npm run test-e2e
 build: off
