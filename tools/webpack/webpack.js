@@ -42,7 +42,7 @@ function absoluteImportConfig() {
 }
 
 function htmlEntryConfig() {
-  const htmlWebpackPlugin = new HTMLWebpackPlugin({ template: './index.jade' });
+  const htmlWebpackPlugin = new HTMLWebpackPlugin({ template: './index.html' });
   const plugins = [htmlWebpackPlugin];
   return { plugins };
 }
@@ -73,17 +73,6 @@ function sassConfig(target) {
 
   const modules = { loaders };
   return target === TARGET_BUILD ? { module: modules, plugins } : { module: modules };
-}
-
-function jadeConfig() {
-  const jadeLoader = {
-    test: /\.jade$/,
-    exclude: /node_modules/,
-    loader: 'jade'
-  };
-  const loaders = [jadeLoader];
-  const modules = { loaders };
-  return { module: modules };
 }
 
 function imageConfig() {
@@ -155,7 +144,6 @@ function webpackConfig(target) {
     htmlEntryConfig,
     babelConfig,
     sassConfig,
-    jadeConfig,
     imageConfig,
     environmentConfig,
     vendorBundleConfig,
