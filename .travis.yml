@@ -15,7 +15,6 @@ before_script:
 install:
   - npm prune
   - npm install
-  - node_modules/.bin/webdriver-manager update
 script:
   - npm run lint
   - npm run test

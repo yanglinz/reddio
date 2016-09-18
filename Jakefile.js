@@ -1,6 +1,6 @@
 const path = require('path');
 
-const environment = require('./environment');
+const env = require('./environment');
 
 const { jake, task, desc, complete } = global;
 
@@ -24,7 +24,7 @@ task('lint', [], () => {
 
 desc('Build deploy artifact');
 task('build', [], () => {
-  const buildCmd = environment.IS_HOST_WINDOWS
+  const buildCmd = env.WINDOWS
     ? `set NODE_ENV=production && ${WEBPACK} --progress -p && set NODE_ENV=`
     : `NODE_ENV=production ${WEBPACK} --progress -p`;
   const cmds = [buildCmd];
@@ -62,7 +62,7 @@ task('test-e2e', [], () => {
 
 task('deploy', [], () => {
   const cmds = [
-    `${FIREBASE} deploy --token ${environment.FIREBASE_TOKEN}`
+    `${FIREBASE} deploy --token ${env.FIREBASE_TOKEN}`
   ];
   jake.exec(cmds, execOptions, complete);
 });
