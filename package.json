@@ -6,6 +6,7 @@
   "scripts": {
     "postinstall": "webdriver-manager update",
     "build": "jake build",
+    "start": "jake watch",
     "lint": "jake lint",
     "test": "jake test",
     "test-watch": "jake test-watch",
@@ -44,7 +45,6 @@
   },
   "devDependencies": {
     "@kadira/storybook": "2.0.0",
-    "babel": "6.5.2",
     "babel-core": "6.11.4",
     "babel-eslint": "6.1.2",
     "babel-loader": "6.2.4",
