@@ -27,6 +27,13 @@ const FIREBASE_TOKEN = env.FIREBASE_TOKEN;
 const SEGMENT_API_KEY = env.SEGMENT_API_KEY;
 const SENTRY_DSN = env.SENTRY_DSN;
 
+const CLIENT_ENV = {
+  NODE_ENV,
+  IS_PROD,
+  SEGMENT_API_KEY,
+  SENTRY_DSN
+};
+
 module.exports = {
   WINDOWS,
   DARWIN,
@@ -40,5 +47,6 @@ module.exports = {
   PORT,
   FIREBASE_TOKEN,
   SEGMENT_API_KEY,
-  SENTRY_DSN
+  SENTRY_DSN,
+  CLIENT_ENV
 };
