@@ -16,14 +16,13 @@ function baseConfig() {
   const projectRoot = path.resolve(__dirname, '../..');
   const context = path.resolve(projectRoot, 'src');
 
-  const mainEntry = './main.js';
-  const entry = { main: ['whatwg-fetch', mainEntry] };
-
+  const entry = { main: './main.js' };
   const outputPath = path.resolve(projectRoot, 'dist');
   const output = {
     path: outputPath,
     publicPath: '/',
-    filename: '[name]-[hash].js'
+    filename: '[name]-[chunkhash].js',
+    chunkFilename: '[chunkhash].js'
   };
 
   const extensions = ['', '.js', '.jsx'];
@@ -89,12 +88,7 @@ function imageConfig() {
 function environmentConfig() {
   const injectedEnv = {
     'process.env': { NODE_ENV: JSON.stringify(env.NODE_ENV) },
-    __WEBPACK_DEFINE__: JSON.stringify(_.pick(env, [
-      'NODE_ENV',
-      'IS_PROD',
-      'SEGMENT_API_KEY',
-      'SENTRY_DSN'
-    ]))
+    __WEBPACK_DEFINE__: JSON.stringify(env.CLIENT_ENV)
   };
   const definePlugin = new webpack.DefinePlugin(injectedEnv);
   const plugins = [definePlugin];
@@ -102,17 +96,11 @@ function environmentConfig() {
 }
 
 function vendorBundleConfig(target) {
-  const entry = {
-    vendor: [
-      'babel-polyfill',
-      'lodash',
-      'react',
-      'react-dom',
-      'redux',
-      'rxjs/Rx'
-    ]
-  };
-  const commonChunksPlugin = new webpack.optimize.CommonsChunkPlugin('vendor', 'vendor-[hash].js');
+  // http://survivejs.com/webpack/building-with-webpack/splitting-bundles/
+  const entry = { vendor: './vendor.js' };
+  const commonChunksPlugin = new webpack.optimize.CommonsChunkPlugin({
+    names: ['vendor', 'manifest']
+  });
   const plugins = [commonChunksPlugin];
   return target === TARGET_BUILD ? { entry, plugins } : {};
 }

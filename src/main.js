@@ -1,3 +1,5 @@
+import 'whatwg-fetch';
+import 'babel-polyfill';
 import 'analytics/segment';
 import 'analytics/sentry';
 import './core/styles/main.scss';
