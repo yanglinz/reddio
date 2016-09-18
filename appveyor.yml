@@ -1,23 +1,20 @@
+version: 1.0.{build}
 environment:
   NODE_VERSION: "6.5"
   FIREBASE_TOKEN: "firebase_token"
   SENTRY_DSN: "sentry_dsn"
   SEGMENT_API_KEY: "segment_api_key"
-
 cache:
   - node_modules
-
 install:
   - ps: Install-Product node $env:NODE_VERSION
   - npm prune
   - npm install
-
 test_script:
   - npm run lint
   - npm run test
   - npm run build
-  - cd dist && python -m SimpleHTTPServer &
+  - cd dist && START "" python -m SimpleHTTPServer
   - timeout 6
   - npm run test-e2e
-
 build: off
