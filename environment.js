@@ -11,12 +11,14 @@ const envDefaults = {
 
 const env = _.defaults({}, process.env, envDefaults);
 
-const IS_HOST_WINDOWS = process.platform === 'win32';
-const IS_HOST_DARWIN = process.platform === 'darwin';
-const IS_HOST_LINUX = process.platform === 'linux';
+const WINDOWS = process.platform === 'win32';
+const DARWIN = process.platform === 'darwin';
+const LINUX = process.platform === 'linux';
 
 const NODE_ENV = env.NODE_ENV;
 const CI = env.CI;
+const TRAVIS = env.TRAVIS;
+const APPVEYOR = env.APPVEYOR;
 const IS_PROD = NODE_ENV === 'production';
 
 const HOSTNAME = env.HOSTNAME;
@@ -26,11 +28,13 @@ const SEGMENT_API_KEY = env.SEGMENT_API_KEY;
 const SENTRY_DSN = env.SENTRY_DSN;
 
 module.exports = {
-  IS_HOST_WINDOWS,
-  IS_HOST_DARWIN,
-  IS_HOST_LINUX,
+  WINDOWS,
+  DARWIN,
+  LINUX,
   NODE_ENV,
   CI,
+  TRAVIS,
+  APPVEYOR,
   IS_PROD,
   HOSTNAME,
   PORT,

@@ -8,10 +8,22 @@ const capabilities = {
 const baseUrl = `http://${env.HOSTNAME}:${env.PORT}`;
 const specs = ['test/**-spec.js'];
 
+// https://github.com/angular/protractor/issues/2728
+const localSeleniumStandaloneOpts = env.WINDOWS
+  ? { args: ['-Djna.nosys=true'] }
+  : {};
+
 function onPrepare() {
   browser.ignoreSynchronization = true;
 }
 
-const protractorConfig = { framework, capabilities, baseUrl, specs, onPrepare };
+const protractorConfig = {
+  framework,
+  capabilities,
+  baseUrl,
+  specs,
+  localSeleniumStandaloneOpts,
+  onPrepare
+};
 
 exports.config = protractorConfig;
