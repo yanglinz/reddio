@@ -8,6 +8,7 @@ cache:
   - node_modules
 install:
   - ps: Install-Product node $env:NODE_VERSION
+  - choco install firefox -version 47.0.1
   - npm prune
   - npm install
 test_script:
