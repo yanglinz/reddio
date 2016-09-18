@@ -67,7 +67,7 @@ const playerMemo = {};
 export function loadPlayer(name, params) {
   const { videoId, height, width } = playerParameters(params);
   let player;
-  return new Promise(resolve => {
+  return new Promise((resolve) => {
     const events = { onReady: () => resolve(player) };
     const playerParams = { videoId, height, width, events };
     player = new window.YT.Player(name, playerParams);

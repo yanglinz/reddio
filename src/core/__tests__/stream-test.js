@@ -37,7 +37,7 @@ describe('core event command stream', () => {
     dispatchEvent({ ignore: true }, source$);
     dispatchEvent({ value: 'foo', ignore: false }, source$);
 
-    return reducedEvent$.then(reducedEvent => {
+    return reducedEvent$.then((reducedEvent) => {
       expect(reducedEvent.value).to.equal('foo');
     });
   });
@@ -60,7 +60,7 @@ describe('core event command stream', () => {
     dispatchEvent({ domain: 'bar', value: 'bar' }, source$);
     dispatchEvent({ ignore: true }, source$);
 
-    return reducedEvents$.then(reducedEvents => {
+    return reducedEvents$.then((reducedEvents) => {
       const values = _.map(reducedEvents, event => event.value);
       expect(values).to.deep.equal(['foo', 'bar']);
     });

@@ -28,7 +28,7 @@ export function* rootSaga() {
 
 export function configureStream(store) {
   const sinkStream$ = applyReducers();
-  sinkStream$.subscribe((action) => store.dispatch(action));
+  sinkStream$.subscribe(action => store.dispatch(action));
 }
 
 export function isLoggerEnabled() {

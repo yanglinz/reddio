@@ -144,7 +144,7 @@ function devServerConfig() {
 }
 
 function sourceMapConfig(target) {
-  const devtool = target === TARGET_BUILD ? 'source-map	' : 'eval';
+  const devtool = target === TARGET_BUILD ? 'source-map' : 'eval';
   return { devtool };
 }
 

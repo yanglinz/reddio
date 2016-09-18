@@ -14,7 +14,7 @@ const _PLAYER_EVENTS = [
 
 export const PLAYER_EVENTS = _.zipObject(
   _PLAYER_EVENTS,
-  _.map(_PLAYER_EVENTS, (name) => `EVENT:${name}`));
+  _.map(_PLAYER_EVENTS, name => `EVENT:${name}`));
 
 /**
  * Define player state that represent the current state of the iframe players

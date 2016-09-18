@@ -39,7 +39,7 @@ export function* watchRouteChange() {
 
 export function* fetchPosts(action) {
   const { payload } = action;
-  const { subreddit, sortType, sortRange }  = payload;
+  const { subreddit, sortType, sortRange } = payload;
   const params = { sortRange };
   const baseUrl = SUBREDDITS[subreddit].url;
   const response = yield call(api.getListing, baseUrl, sortType, params);

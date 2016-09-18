@@ -1,5 +1,3 @@
-const assert = require('assert');
-
 const _ = require('lodash');
 const dotenv = require('dotenv');
 

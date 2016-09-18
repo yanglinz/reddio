@@ -57,7 +57,8 @@ describe('reddit sagas', () => {
 
       const stubResponse = {};
       const dispatchPayload = { response: stubResponse };
-      const expectedDispatch = put({ type: REDDIT_ACTIONS.RECEIVE_POSTS, payload: dispatchPayload });
+      const expectedDispatch = put(
+        { type: REDDIT_ACTIONS.RECEIVE_POSTS, payload: dispatchPayload });
       expect(generator.next(stubResponse).value).to.deep.equal(expectedDispatch);
 
       expect(generator.next().done).to.equal(true);

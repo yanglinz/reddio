@@ -57,7 +57,7 @@ export function load(name, params) {
 }
 
 export function play(name, url) {
-  loadPlayer(name).then(player => {
+  loadPlayer(name).then((player) => {
     const options = { callback: () => player.play() };
     player.load(url, options);
   });
