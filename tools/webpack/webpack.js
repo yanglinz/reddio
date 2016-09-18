@@ -22,6 +22,7 @@ function baseConfig() {
   const outputPath = path.resolve(projectRoot, 'dist');
   const output = {
     path: outputPath,
+    publicPath: '/',
     filename: '[name]-[hash].js'
   };
 
