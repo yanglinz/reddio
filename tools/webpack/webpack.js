@@ -17,18 +17,24 @@ function baseConfig() {
   const context = path.resolve(projectRoot, 'src');
 
   const entry = { main: './main.js' };
-  const outputPath = path.resolve(projectRoot, 'dist');
   const output = {
-    path: outputPath,
-    publicPath: '/',
-    filename: '[name]-[chunkhash].js',
-    chunkFilename: '[chunkhash].js'
+    path: path.resolve(projectRoot, 'dist'),
+    publicPath: '/'
   };
 
   const extensions = ['', '.js', '.jsx'];
   const resolve = { extensions };
 
   return { context, entry, output, resolve };
+}
+
+function chunkHashConfig(target) {
+  const filename = target === TARGET_BUILD
+    ? '[name]-[chunkhash].js'
+    : '[name]-[hash].js';
+  const chunkFilename = '[chunkhash].js';
+  const output = { filename, chunkFilename };
+  return { output };
 }
 
 function absoluteImportConfig() {
@@ -128,6 +134,7 @@ function sourceMapConfig(target) {
 
 function webpackConfig(target) {
   const configsCreators = [
+    chunkHashConfig,
     absoluteImportConfig,
     htmlEntryConfig,
     babelConfig,

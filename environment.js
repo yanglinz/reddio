@@ -1,5 +1,6 @@
 const _ = require('lodash');
 const dotenv = require('dotenv');
+const git = require('git-rev-sync');
 
 dotenv.config({ silent: true });
 
@@ -14,13 +15,12 @@ const env = _.defaults({}, process.env, envDefaults);
 const WINDOWS = process.platform === 'win32';
 const DARWIN = process.platform === 'darwin';
 const LINUX = process.platform === 'linux';
-
 const NODE_ENV = env.NODE_ENV;
+const IS_PROD = NODE_ENV === 'production';
 const CI = env.CI;
 const TRAVIS = env.TRAVIS;
 const APPVEYOR = env.APPVEYOR;
-const IS_PROD = NODE_ENV === 'production';
-
+const GIT_HASH_SHORT = git.short();
 const HOSTNAME = env.HOSTNAME;
 const PORT = env.PORT;
 const FIREBASE_TOKEN = env.FIREBASE_TOKEN;
@@ -30,6 +30,7 @@ const SENTRY_DSN = env.SENTRY_DSN;
 const CLIENT_ENV = {
   NODE_ENV,
   IS_PROD,
+  GIT_HASH_SHORT,
   SEGMENT_API_KEY,
   SENTRY_DSN
 };
@@ -39,10 +40,11 @@ module.exports = {
   DARWIN,
   LINUX,
   NODE_ENV,
+  IS_PROD,
   CI,
   TRAVIS,
   APPVEYOR,
-  IS_PROD,
+  GIT_HASH_SHORT,
   HOSTNAME,
   PORT,
   FIREBASE_TOKEN,
