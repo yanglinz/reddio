@@ -6,6 +6,7 @@ import { Router, Route, IndexRedirect, hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 
 import store from 'core/state';
+import Footer from 'core/components/footer';
 
 function history() {
   return syncHistoryWithStore(hashHistory, store);
@@ -16,6 +17,7 @@ function RouteRoot(props) {
     <div className="root">
       <h1>Reddio</h1>
       {props.children}
+      <Footer />
     </div>
   );
 }
