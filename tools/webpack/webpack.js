@@ -114,6 +114,7 @@ function vendorBundleConfig(target) {
 function devServerConfig() {
   const devServer = {
     port: env.PORT,
+    historyApiFallback: true,
     stats: {
       assets: false,
       colors: true,
