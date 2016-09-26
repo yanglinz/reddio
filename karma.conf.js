@@ -11,6 +11,11 @@ function karmaConfig(config) {
   const browsers = env.CI ? ['Firefox'] : ['Chrome'];
   const frameworks = ['mocha'];
   const reporters = ['mocha'];
+
+  const mochaReporter = {
+    showDiff: true
+  };
+
   const autoWatch = true;
 
   const webpack = webpackTestConfig();
@@ -22,6 +27,7 @@ function karmaConfig(config) {
     browsers,
     frameworks,
     reporters,
+    mochaReporter,
     autoWatch,
     webpack,
     webpackMiddleware
