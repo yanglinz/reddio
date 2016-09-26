@@ -1,11 +1,11 @@
 import _ from 'lodash';
 
 import { REDDIT_ACTIONS } from 'reddit/constants';
-import { routePathParams } from 'core/routes';
 
 export function initialState() {
   return {
-    subreddit: null,
+    pathname: null,
+    query: null,
     sortType: null,
     sortRange: null,
     posts: []
@@ -14,22 +14,8 @@ export function initialState() {
 
 export function reduceRouteChange(state, action) {
   const { payload } = action;
-  const pathParams = routePathParams(payload.pathname);
-  if (pathParams) {
-    const { subreddit = null, sortType = null, sortRange = null } = pathParams;
-    const isSameParams = (
-    subreddit === state.subreddit &&
-    sortType === state.sortType &&
-    sortRange === state.sortRange);
-    const posts = isSameParams ? state.posts : [];
-    return _.assign({}, state, {
-      subreddit,
-      sortType,
-      sortRange,
-      posts
-    });
-  }
-  return state;
+  const { pathname, query } = payload;
+  return _.assign({}, state, { pathname, query });
 }
 
 export function reduceReceivePosts(state, action) {
@@ -43,8 +29,8 @@ export function reduceReceivePosts(state, action) {
 const ROUTER_LOCATION_CHANGE = '@@router/LOCATION_CHANGE';
 
 const reducerByAction = {
-  [REDDIT_ACTIONS.RECEIVE_POSTS]: reduceReceivePosts,
-  [ROUTER_LOCATION_CHANGE]: reduceRouteChange
+  [ROUTER_LOCATION_CHANGE]: reduceRouteChange,
+  [REDDIT_ACTIONS.RECEIVE_POSTS]: reduceReceivePosts
 };
 
 export function redditDomain() {
