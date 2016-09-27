@@ -1,27 +1,10 @@
 import _ from 'lodash';
-import invariant from 'invariant';
 
-import { REDDIT_SORT_TYPES, REDDIT_SORT_RANGES } from 'reddit/constants';
-
-export function listingUrl(baseUrl, sortType) {
-  const base = _.trimEnd(baseUrl, '/');
-  return `${base}/${sortType}.json`;
-}
-
-export function listingParams(overrides = {}) {
-  const sortRange = overrides.sortRange || overrides.t;
-  if (sortRange) {
-    invariant(_.includes(REDDIT_SORT_RANGES, sortRange), 'expected valid sort range');
-  }
-  const { after, before, count, limit } = _.assign({ limit: 25 }, overrides);
-  return { t: sortRange, after, before, count, limit };
-}
-
-export function getListing(baseUrl, sortType, params) {
-  invariant(_.includes(REDDIT_SORT_TYPES, sortType), 'expected valid sort type');
+export function getListing(pathname, query) {
   const req = {
     method: 'GET',
-    params: listingParams(params)
+    params: query
   };
-  return fetch(listingUrl(baseUrl, sortType), req).then(res => res.json());
+  const url = `http://www.reddit.com/${_.trimEnd(pathname, '/')}/.json`;
+  return fetch(url, req).then(res => res.json());
 }
