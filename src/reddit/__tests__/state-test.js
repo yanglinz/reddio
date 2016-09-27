@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import { expect } from 'chai';
 
 import { REDDIT_ACTIONS } from 'reddit/constants';
@@ -16,7 +17,8 @@ describe('reddit state management', () => {
   describe('initial state', () => {
     it('should have the expected initial state', () => {
       expect(initialState).to.deep.equal({
-        subreddit: null,
+        pathname: null,
+        query: null,
         sortType: null,
         sortRange: null,
         posts: []
@@ -27,89 +29,73 @@ describe('reddit state management', () => {
   describe('route change reducer', () => {
     const ROUTER_LOCATION_CHANGE = '@@router/LOCATION_CHANGE';
 
-    it('should set new subreddit and sortType', () => {
+    it('should set new pathname and query', () => {
       const pathname = '/r/listentothis/hot';
-      const payload = { pathname };
+      const query = null;
+      const payload = { pathname, query };
       const action = { type: ROUTER_LOCATION_CHANGE, payload };
       const newState = redditReducer(initialState, action);
-      expect(newState).to.deep.equal({
-        subreddit: 'listentothis',
-        sortType: 'hot',
-        sortRange: null,
-        posts: []
-      });
+
+      expect(newState).to.deep.equal(_.assign({}, initialState, {
+        pathname,
+        query
+      }));
     });
 
-    it('should set new subreddit, sortType, and sortRange', () => {
-      const pathname = '/r/listentothis/top/week';
-      const payload = { pathname };
-      const action = { type: ROUTER_LOCATION_CHANGE, payload };
-      const newState = redditReducer(initialState, action);
-      expect(newState).to.deep.equal({
-        subreddit: 'listentothis',
-        sortType: 'top',
-        sortRange: 'week',
-        posts: []
-      });
-    });
-
-    it('should noop if route does not match', () => {
-      const pathname = '/r/foobar';
-      const payload = { pathname };
-      const action = { type: ROUTER_LOCATION_CHANGE, payload };
-      const newState = redditReducer(initialState, action);
-      expect(newState).to.deep.equal({
-        subreddit: null,
-        sortType: null,
-        sortRange: null,
-        posts: []
-      });
-    });
-
-    it('should invalidate posts if params have changed', () => {
-      initialState = {
-        subreddit: 'listentothis',
-        sortType: 'hot',
-        sortRange: null,
-        posts: [{}]  // non-empty posts
-      };
+    it('should invalidate posts if pathname has changed', () => {
+      initialState.pathname = '/r/listentothis/hot';
+      initialState.posts = [{ foo: 'bar' }];
 
       const pathname = '/r/music/hot';
-      const payload = { pathname };
+      const query = null;
+      const payload = { pathname, query };
       const action = { type: ROUTER_LOCATION_CHANGE, payload };
       const newState = redditReducer(initialState, action);
-      expect(newState).to.deep.equal({
-        subreddit: 'music',
-        sortType: 'hot',
-        sortRange: null,
+
+      expect(newState).to.deep.equal(_.assign({}, initialState, {
+        pathname,
+        query,
         posts: []
-      });
+      }));
+    });
+
+    it('should invalidate posts if query has changed', () => {
+      initialState.pathname = '/r/listentothis/top';
+      initialState.query = { sort: 'top', t: 'week' };
+      initialState.posts = [{ foo: 'bar' }];
+
+      const pathname = '/r/listentothis/top';
+      const query = { sort: 'top', t: 'day' };
+      const payload = { pathname, query };
+      const action = { type: ROUTER_LOCATION_CHANGE, payload };
+      const newState = redditReducer(initialState, action);
+
+      expect(newState).to.deep.equal(_.assign({}, initialState, {
+        pathname,
+        query,
+        posts: []
+      }));
     });
 
     it('should not invalidate posts if params did not change', () => {
-      initialState = {
-        subreddit: 'listentothis',
-        sortType: 'hot',
-        sortRange: null,
-        posts: [{}]  // non-empty posts
-      };
+      initialState.pathname = '/r/listentothis/top';
+      initialState.query = { sort: 'top', t: 'day' };
+      initialState.posts = [{ foo: 'bar' }];
 
-      const pathname = '/r/listentothis/hot';
-      const payload = { pathname };
+      const pathname = '/r/listentothis/top';
+      const query = { sort: 'top', t: 'day' };
+      const payload = { pathname, query };
       const action = { type: ROUTER_LOCATION_CHANGE, payload };
       const newState = redditReducer(initialState, action);
-      expect(newState).to.deep.equal({
-        subreddit: 'listentothis',
-        sortType: 'hot',
-        sortRange: null,
-        posts: [{}]
-      });
+
+      expect(newState).to.deep.equal(_.assign({}, initialState));
     });
   });
 
   describe('receive posts reducer', () => {
     it('should receive posts on empty posts', () => {
       initialState.posts = [];
+
       const stubPosts = [{ foo: 'bar' }];
       const stubResponse = {
         data: { children: stubPosts }
@@ -117,12 +103,14 @@ describe('reddit state management', () => {
       const payload = { response: stubResponse };
       const action = { type: REDDIT_ACTIONS.RECEIVE_POSTS, payload };
       const newState = redditReducer(initialState, action);
+
       expect(newState.posts).to.deep.equal(stubPosts);
     });
 
     it('should receive posts with existing posts', () => {
       const initialPosts = [{ bar: 'baz' }];
       initialState.posts = initialPosts;
+
       const stubPosts = [{ foo: 'bar' }];
       const stubResponse = {
         data: { children: stubPosts }
@@ -130,6 +118,7 @@ describe('reddit state management', () => {
       const payload = { response: stubResponse };
       const action = { type: REDDIT_ACTIONS.RECEIVE_POSTS, payload };
       const newState = redditReducer(initialState, action);
+
       expect(newState.posts).to.deep.equal([].concat(initialPosts, stubPosts));
     });
   });

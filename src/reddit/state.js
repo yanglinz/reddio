@@ -15,7 +15,13 @@ export function initialState() {
 export function reduceRouteChange(state, action) {
   const { payload } = action;
   const { pathname, query } = payload;
-  return _.assign({}, state, { pathname, query });
+  const hasNewPathname = pathname !== state.pathname;
+  const hasNewQuery = (query && query.t) !== (state.query && state.query.t);
+  const invalidatePosts = hasNewPathname || hasNewQuery;
+  const posts = invalidatePosts
+    ? []
+    : state.posts;
+  return _.assign({}, state, { pathname, query, posts });
 }
 
 export function reduceReceivePosts(state, action) {
