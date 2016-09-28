@@ -14,8 +14,8 @@ const execOptions = { interactive: true, printStdout: true, printStderr: true };
 desc('Build deploy artifact');
 task('build', [], () => {
   const buildCmd = env.WINDOWS
-    ? `set NODE_ENV=production && ${WEBPACK} --progress -p && set NODE_ENV=`
-    : `NODE_ENV=production ${WEBPACK} --progress -p`;
+    ? `set NODE_ENV=production&&${WEBPACK} --progress&&set NODE_ENV=`
+    : `NODE_ENV=production ${WEBPACK} --progress`;
   const cmds = [buildCmd];
   jake.exec(cmds, execOptions, complete);
 });

@@ -47,7 +47,10 @@ function absoluteImportConfig() {
 }
 
 function htmlEntryConfig() {
-  const htmlWebpackPlugin = new HTMLWebpackPlugin({ template: './index.html' });
+  const htmlWebpackPlugin = new HTMLWebpackPlugin({
+    template: './index.html',
+    chunksSortMode: 'dependency'
+  });
   const plugins = [htmlWebpackPlugin];
   return { plugins };
 }
@@ -104,11 +107,25 @@ function environmentConfig() {
 function vendorBundleConfig(target) {
   // http://survivejs.com/webpack/building-with-webpack/splitting-bundles/
   const entry = { vendor: './vendor.js' };
-  const commonChunksPlugin = new webpack.optimize.CommonsChunkPlugin({
-    names: ['vendor', 'manifest']
-  });
-  const plugins = [commonChunksPlugin];
+  const preferEntry = true;
+  const plugins = [
+    new webpack.optimize.CommonsChunkPlugin({
+      names: ['vendor', 'manifest']
+    }),
+    new webpack.optimize.OccurrenceOrderPlugin(preferEntry)
+  ];
   return target === TARGET_BUILD ? { entry, plugins } : {};
+}
+
+function productionBundleConfig(target) {
+  const plugins = [
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    })
+  ];
+  return target === TARGET_BUILD ? { plugins } : {};
 }
 
 function devServerConfig() {
@@ -143,6 +160,7 @@ function webpackConfig(target) {
     imageConfig,
     environmentConfig,
     vendorBundleConfig,
+    productionBundleConfig,
     devServerConfig,
     sourceMapConfig
   ];
