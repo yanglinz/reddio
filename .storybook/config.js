@@ -3,7 +3,7 @@
 const storybook = require('@kadira/storybook');
 
 function loadStories() {
-  require('../../src/core/components/__stories__/core-stories');
+  require('../src/core/components/.storybook/footer.story.jsx');
 }
 
 storybook.configure(loadStories, module);
