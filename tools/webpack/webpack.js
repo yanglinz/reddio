@@ -11,6 +11,7 @@ const env = require('../../environment');
 const TARGET_BUILD = 'BUILD';
 const TARGET_WATCH = 'WATCH';
 const TARGET_TEST = 'TEST';
+const TARGET_STORYBOOK = 'STORYBOOK';
 
 function baseConfig() {
   const projectRoot = path.resolve(__dirname, '../..');
@@ -46,13 +47,13 @@ function absoluteImportConfig() {
   return { resolve };
 }
 
-function htmlEntryConfig() {
+function htmlEntryConfig(target) {
   const htmlWebpackPlugin = new HTMLWebpackPlugin({
     template: './index.html',
     chunksSortMode: 'dependency'
   });
   const plugins = [htmlWebpackPlugin];
-  return { plugins };
+  return target === TARGET_STORYBOOK ? {} : { plugins };
 }
 
 function babelConfig() {
@@ -183,4 +184,13 @@ function webpackTestConfig() {
   return webpackConfig(TARGET_TEST);
 }
 
-module.exports = { webpackBuildConfig, webpackWatchConfig, webpackTestConfig };
+function webpackStorybookConfig() {
+  return webpackConfig(TARGET_STORYBOOK);
+}
+
+module.exports = {
+  webpackBuildConfig,
+  webpackWatchConfig,
+  webpackTestConfig,
+  webpackStorybookConfig
+};

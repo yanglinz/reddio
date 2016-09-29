@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { Router, Route, browserHistory  } from 'react-router';
+import { Router, Route, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 
 import store from 'core/state';
@@ -19,6 +19,10 @@ function RouteRoot(props) {
     </div>
   );
 }
+
+RouteRoot.propTypes = {
+  children: React.PropTypes.node
+};
 
 function RouteWildcard() {
   return (
