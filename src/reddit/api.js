@@ -7,6 +7,8 @@ export function getListing(pathname, query) {
     method: 'GET',
     params: query
   };
-  const url = `${settings.REDDIT_URL}/${_.trimEnd(pathname, '/')}/.json`;
+  const base = _.trimEnd(settings.REDDIT_URL, '/');
+  const path = _.trimEnd(pathname, '/');
+  const url = `${base}${path}/.json`;
   return fetch(url, req).then(res => res.json());
 }
