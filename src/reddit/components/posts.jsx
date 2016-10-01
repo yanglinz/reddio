@@ -2,13 +2,13 @@ import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import * as state from '../state';
+import * as reducer from '../reducer';
 import * as validation from './.validation';
 import Post from './post';
 
-function stateToProps(s) {
+function stateToProps(state) {
   return {
-    posts: state.selectPosts(s)
+    posts: reducer.selectPosts(state)
   };
 }
 

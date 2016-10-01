@@ -2,10 +2,6 @@ import _ from 'lodash';
 
 import { REDDIT_ACTIONS } from 'reddit/constants';
 
-export function redditDomain() {
-  return 'reddit';
-}
-
 export function initialState() {
   return {
     pathname: null,
@@ -17,7 +13,7 @@ export function initialState() {
 }
 
 export function selectPosts(state) {
-  return state[redditDomain()].posts;
+  return state.reddit.posts;
 }
 
 export function reduceRouteChange(state, action) {

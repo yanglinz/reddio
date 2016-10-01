@@ -5,8 +5,8 @@ import { fork } from 'redux-saga/effects';
 import { routerReducer } from 'react-router-redux';
 
 import { applyReducers } from 'core/stream';
-import { playerDomain, playerReducer } from 'player/state';
-import { redditDomain, redditReducer } from 'reddit/state';
+import { playerReducer } from 'player/reducer';
+import { redditReducer } from 'reddit/reducer';
 import { coreSaga } from 'core/saga';
 import { redditSaga } from 'reddit/saga';
 import settings from 'core/settings';
@@ -14,8 +14,8 @@ import settings from 'core/settings';
 export function rootReducer() {
   return combineReducers({
     routing: routerReducer,
-    [playerDomain()]: playerReducer,
-    [redditDomain()]: redditReducer
+    player: playerReducer,
+    reddit: redditReducer
   });
 }
 

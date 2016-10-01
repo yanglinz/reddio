@@ -59,10 +59,6 @@ const reducerByAction = {
   [PLAYER_ACTIONS.UNSHUFFLE]: reduceUnshuffle
 };
 
-export function playerDomain() {
-  return 'player';
-}
-
 export function playerReducer(state = initialState(), action) {
   const reducer = reducerByAction[action.type] || _.identity;
   return reducer(state, action);

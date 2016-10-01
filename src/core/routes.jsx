@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import { Router, Route, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 
-import store from 'core/state';
+import store from 'core/store';
 import Footer from 'core/components/footer';
 import Posts from 'reddit/components/posts';
 

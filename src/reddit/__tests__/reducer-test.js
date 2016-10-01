@@ -2,16 +2,15 @@ import _ from 'lodash';
 import { expect } from 'chai';
 
 import { REDDIT_ACTIONS } from 'reddit/constants';
-import { configureStore } from 'core/state';
-import { redditDomain, redditReducer } from '../state';
+import { configureStore } from 'core/store';
+import { redditReducer } from '../reducer';
 
-
-describe('reddit state management', () => {
+describe('reddit reducer', () => {
   let initialState;
 
   beforeEach(() => {
     const store = configureStore();
-    initialState = store.getState()[redditDomain()];
+    initialState = store.getState().reddit;
   });
 
   describe('initial state', () => {
