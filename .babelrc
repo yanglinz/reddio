@@ -1,3 +1,11 @@
 {
-  "presets": ["es2015", "react"]
+  "presets": ["es2015", "react"],
+  "env": {
+    "production": {
+      "plugins": []
+    },
+    "development": {
+      "plugins": ["react-hot-loader/babel"]
+    }
+  }
 }

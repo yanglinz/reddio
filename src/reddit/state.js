@@ -2,6 +2,10 @@ import _ from 'lodash';
 
 import { REDDIT_ACTIONS } from 'reddit/constants';
 
+export function redditDomain() {
+  return 'reddit';
+}
+
 export function initialState() {
   return {
     pathname: null,
@@ -10,6 +14,10 @@ export function initialState() {
     sortRange: null,
     posts: []
   };
+}
+
+export function selectPosts(state) {
+  return state[redditDomain()].posts;
 }
 
 export function reduceRouteChange(state, action) {
@@ -38,10 +46,6 @@ const reducerByAction = {
   [ROUTER_LOCATION_CHANGE]: reduceRouteChange,
   [REDDIT_ACTIONS.RECEIVE_POSTS]: reduceReceivePosts
 };
-
-export function redditDomain() {
-  return 'reddit';
-}
 
 export function redditReducer(state = initialState(), action) {
   const reducer = reducerByAction[action.type] || _.identity;

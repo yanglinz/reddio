@@ -5,6 +5,7 @@ import { syncHistoryWithStore } from 'react-router-redux';
 
 import store from 'core/state';
 import Footer from 'core/components/footer';
+import Posts from 'reddit/components/posts';
 
 function history() {
   return syncHistoryWithStore(browserHistory, store);
@@ -27,7 +28,7 @@ RouteRoot.propTypes = {
 function RouteWildcard() {
   return (
     <div>
-      <h1>Wildcard</h1>
+      <Posts />
     </div>
   );
 }
