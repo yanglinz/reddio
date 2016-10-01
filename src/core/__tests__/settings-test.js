@@ -10,7 +10,8 @@ describe('settings test', () => {
       'IS_PROD',
       'GIT_HASH_SHORT',
       'SEGMENT_API_KEY',
-      'SENTRY_DSN'
+      'SENTRY_DSN',
+      'REDDIT_URL'
     ]);
   });
 });

@@ -3,7 +3,6 @@ import { expect } from 'chai';
 import { PLAYER_STATES } from 'player/constants';
 import { configureStore } from 'core/store';
 
-
 describe('player reducer', () => {
   let initialState;
 
