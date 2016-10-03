@@ -1,9 +1,9 @@
 import _ from 'lodash';
 import { expect } from 'chai';
 
-import { REDDIT_ACTIONS } from 'reddit/constants';
+import { REDDIT_ACTIONS, REDDIT_SORT_TYPES } from 'reddit/constants';
 import { configureStore } from 'core/store';
-import { redditReducer } from '../reducer';
+import { parseSortType, parseSortRange, redditReducer } from '../reducer';
 
 describe('reddit reducer', () => {
   let initialState;
@@ -21,6 +21,41 @@ describe('reddit reducer', () => {
         sortType: null,
         sortRange: null,
         posts: []
+      });
+    });
+  });
+
+  describe('parse sort type helper', () => {
+    it('should parse route into sort type', () => {
+      const sortTypeByPathname = {
+        '': null,
+        '/': null,
+        '/r/subreddit': REDDIT_SORT_TYPES.hot,
+        '/r/subreddit/': REDDIT_SORT_TYPES.hot,
+        '/r/subreddit/new': REDDIT_SORT_TYPES.new,
+        '/r/subreddit/rising': REDDIT_SORT_TYPES.rising,
+        '/r/subreddit/controversial': REDDIT_SORT_TYPES.controversial,
+        '/r/subreddit/random': REDDIT_SORT_TYPES.random,
+        '/r/subreddit/top': REDDIT_SORT_TYPES.top,
+        '/user/username/m/multiname': REDDIT_SORT_TYPES.hot
+      };
+      _.each(sortTypeByPathname, (sortType, pathname) => {
+        expect(parseSortType(pathname)).to.equal(sortType);
+      });
+    });
+  });
+
+  describe('parse sort range helper', () => {
+    it('should parse route into sort range', () => {
+      const sortRangeByRoute = new WeakMap([
+        {
+          pathname: '',
+          query: {}
+        }, null
+      ]);
+      _.each(sortTypeByPathname, (sortRange, route) => {
+        const { pathanme, query } = route;
+        expect(parseSortRange(pathname, query)).to.equal(sortRange);
       });
     });
   });

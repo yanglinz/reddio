@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import { REDDIT_ACTIONS } from 'reddit/constants';
+import { REDDIT_ACTIONS, REDDIT_SORT_TYPES } from 'reddit/constants';
 
 export function initialState() {
   return {
@@ -14,6 +14,34 @@ export function initialState() {
 
 export function selectPosts(state) {
   return state.reddit.posts;
+}
+
+export function parseSortType(pathname, query) {
+  const sortType = _.chain(pathname)
+    .split('/')
+    .compact()
+    .last()
+    .value();
+  let parsedSortType;
+  if (_.isEmpty(sortType)) {
+    parsedSortType = null;
+  } else if (_.includes(REDDIT_SORT_TYPES, sortType)) {
+    parsedSortType = sortType;
+  } else {
+    parsedSortType = REDDIT_SORT_TYPES.hot;
+  }
+  return parsedSortType;
+}
+
+export function parseSortRange(pathname, query) {
+  const sortType = parseSortType(pathname);
+  let parsedSortRange
+  if (sortType === REDDIT_SORT_TYPES.top) {
+
+  } else {
+    parsedSortRange = null;
+  }
+  return parsedSortRange;
 }
 
 export function reduceRouteChange(state, action) {

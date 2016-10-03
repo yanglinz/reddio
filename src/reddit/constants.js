@@ -16,6 +16,8 @@ export const SUBREDDITS = {
 const _REDDIT_SORT_TYPES = [
   'hot',
   'new',
+  'rising',
+  'controversial',
   'random',
   'top'
 ];
