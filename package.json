@@ -30,7 +30,7 @@
     "babel-polyfill": "6.16.0",
     "invariant": "2.2.1",
     "lodash": "4.16.4",
-    "normalize.css": "4.2.0",
+    "normalize.css": "5.0.0",
     "raven-js": "3.7.0",
     "react": "15.3.2",
     "react-dom": "15.3.2",
