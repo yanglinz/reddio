@@ -10,8 +10,7 @@ install:
   - ps: Install-Product node $env:NODE_VERSION
   - choco install firefox -version 47.0.1
   - npm prune
-  - npm install -g yarn
-  - yarn install
+  - npm install
 test_script:
   - npm run lint
   - npm run test
