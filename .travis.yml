@@ -14,7 +14,8 @@ before_script:
   - sh -e /etc/init.d/xvfb start
 install:
   - npm prune
-  - npm install
+  - npm install -g yarn
+  - yarn install
 script:
   - npm run lint
   - npm run test
