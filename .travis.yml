@@ -28,5 +28,5 @@ deploy:
   script:
     - npm run deploy
   on:
-    branch: release
+    branch: master
   skip_cleanup: true
