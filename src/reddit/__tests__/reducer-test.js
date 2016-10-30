@@ -126,41 +126,6 @@ describe('reddit reducer', () => {
     });
   });
 
-  describe('parse sort type helper', () => {
-    it.skip('should parse route into sort type', () => {
-      const sortTypeByPathname = {
-        '': null,
-        '/': null,
-        '/r/subreddit': REDDIT_SORT_TYPES.hot,
-        '/r/subreddit/': REDDIT_SORT_TYPES.hot,
-        '/r/subreddit/new': REDDIT_SORT_TYPES.new,
-        '/r/subreddit/rising': REDDIT_SORT_TYPES.rising,
-        '/r/subreddit/controversial': REDDIT_SORT_TYPES.controversial,
-        '/r/subreddit/random': REDDIT_SORT_TYPES.random,
-        '/r/subreddit/top': REDDIT_SORT_TYPES.top,
-        '/user/username/m/multiname': REDDIT_SORT_TYPES.hot
-      };
-      _.each(sortTypeByPathname, (sortType, pathname) => {
-        expect(parseSortType(pathname)).to.equal(sortType);
-      });
-    });
-  });
-
-  describe('parse sort range helper', () => {
-    it.skip('should parse route into sort range', () => {
-      const sortRangeByRoute = new WeakMap([
-        {
-          pathname: '',
-          query: {}
-        }, null
-      ]);
-      _.each(sortTypeByPathname, (sortRange, route) => {
-        const { pathanme, query } = route;
-        expect(parseSortRange(pathname, query)).to.equal(sortRange);
-      });
-    });
-  });
-
   describe('route change reducer', () => {
     const ROUTER_LOCATION_CHANGE = '@@router/LOCATION_CHANGE';
 
