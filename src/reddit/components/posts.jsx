@@ -13,7 +13,7 @@ function stateToProps(state) {
     hotLink: reducer.selectHotLink(state),
     newLink: reducer.selectNewLink(state),
     risingLink: reducer.selectRisingLink(state),
-    controversialLink: reducer.selectControversialLink(state)
+    controversialLink: reducer.selectControversialLink(state),
   };
 }
 
@@ -30,7 +30,7 @@ function Posts(props) {
 }
 
 Posts.propTypes = {
-  posts: React.PropTypes.arrayOf(validation.postShape)
+  posts: React.PropTypes.arrayOf(validation.postShape),
 };
 
 module.exports = connect(stateToProps)(Posts);

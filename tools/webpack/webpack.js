@@ -20,7 +20,7 @@ function baseConfig() {
   const entry = { main: './main.js' };
   const output = {
     path: path.resolve(projectRoot, 'dist'),
-    publicPath: '/'
+    publicPath: '/',
   };
 
   const extensions = ['', '.js', '.jsx'];
@@ -41,7 +41,7 @@ function chunkHashConfig(target) {
 function absoluteImportConfig() {
   const modulesDirectories = [
     'node_modules',
-    'src'
+    'src',
   ];
   const resolve = { modulesDirectories };
   return { resolve };
@@ -50,7 +50,7 @@ function absoluteImportConfig() {
 function htmlEntryConfig(target) {
   const htmlWebpackPlugin = new HTMLWebpackPlugin({
     template: './index.html',
-    chunksSortMode: 'dependency'
+    chunksSortMode: 'dependency',
   });
   const plugins = [htmlWebpackPlugin];
   return target === TARGET_STORYBOOK ? {} : { plugins };
@@ -60,7 +60,7 @@ function babelConfig() {
   const babelLoader = {
     test: /\.jsx?$/,
     exclude: /node_modules/,
-    loader: 'babel'
+    loader: 'babel',
   };
   const loaders = [babelLoader];
   const modules = { loaders };
@@ -70,10 +70,10 @@ function babelConfig() {
 function sassConfig(target) {
   const sassLoader = target === TARGET_BUILD ? {
     test: /\.s?css$/,
-    loader: ExtractTextPlugin.extract('style', ['css', 'sass'])
+    loader: ExtractTextPlugin.extract('style', ['css', 'sass']),
   } : {
     test: /\.s?css$/,
-    loaders: ['style', 'css', 'sass']
+    loaders: ['style', 'css', 'sass'],
   };
   const loaders = [sassLoader];
 
@@ -88,7 +88,7 @@ function imageConfig() {
   const imageLoader = {
     test: /.\.(gif|png|jpe?g|svg)$/,
     exclude: /node_modules/,
-    loader: 'url?limit=10000&name=[path][name]-[hash].[ext]'
+    loader: 'url?limit=10000&name=[path][name]-[hash].[ext]',
   };
   const loaders = [imageLoader];
   const modules = { loaders };
@@ -98,7 +98,7 @@ function imageConfig() {
 function environmentConfig() {
   const injectedEnv = {
     'process.env': { NODE_ENV: JSON.stringify(env.NODE_ENV) },
-    __WEBPACK_DEFINE__: JSON.stringify(env.CLIENT_ENV)
+    __WEBPACK_DEFINE__: JSON.stringify(env.CLIENT_ENV),
   };
   const definePlugin = new webpack.DefinePlugin(injectedEnv);
   const plugins = [definePlugin];
@@ -111,9 +111,9 @@ function vendorBundleConfig(target) {
   const preferEntry = true;
   const plugins = [
     new webpack.optimize.CommonsChunkPlugin({
-      names: ['vendor', 'manifest']
+      names: ['vendor', 'manifest'],
     }),
-    new webpack.optimize.OccurrenceOrderPlugin(preferEntry)
+    new webpack.optimize.OccurrenceOrderPlugin(preferEntry),
   ];
   return target === TARGET_BUILD ? { entry, plugins } : {};
 }
@@ -122,9 +122,9 @@ function productionBundleConfig(target) {
   const plugins = [
     new webpack.optimize.UglifyJsPlugin({
       compress: {
-        warnings: false
-      }
-    })
+        warnings: false,
+      },
+    }),
   ];
   return target === TARGET_BUILD ? { plugins } : {};
 }
@@ -140,8 +140,8 @@ function devServerConfig() {
       hash: false,
       timings: false,
       chunks: true,
-      chunkModules: false
-    }
+      chunkModules: false,
+    },
   };
   return { devServer };
 }
@@ -163,7 +163,7 @@ function webpackConfig(target) {
     vendorBundleConfig,
     productionBundleConfig,
     devServerConfig,
-    sourceMapConfig
+    sourceMapConfig,
   ];
   const initialConfig = baseConfig();
   return _.reduce(
@@ -192,5 +192,5 @@ module.exports = {
   webpackBuildConfig,
   webpackWatchConfig,
   webpackTestConfig,
-  webpackStorybookConfig
+  webpackStorybookConfig,
 };

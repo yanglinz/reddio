@@ -9,6 +9,6 @@ export function* initializeSaga() {
 
 export function* coreSaga() {
   yield [
-    fork(initializeSaga)
+    fork(initializeSaga),
   ];
 }

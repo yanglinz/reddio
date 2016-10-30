@@ -19,7 +19,7 @@ describe('reddit sagas', () => {
       const dispatchPayload = { pathname, query };
       const expectedDispatch = put({
         type: REDDIT_ACTIONS.REQUEST_POSTS,
-        payload: dispatchPayload
+        payload: dispatchPayload,
       });
       expect(generator.next().value).to.deep.equal(expectedDispatch);
       expect(generator.next().done).to.equal(true);

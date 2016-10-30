@@ -7,7 +7,7 @@ dotenv.config({ silent: true });
 const envDefaults = {
   NODE_ENV: 'development',
   HOSTNAME: 'localhost',
-  PORT: '8000'
+  PORT: '8000',
 };
 
 const env = _.defaults({}, process.env, envDefaults);
@@ -32,7 +32,7 @@ const CLIENT_ENV = {
   IS_PROD,
   GIT_HASH_SHORT,
   SEGMENT_API_KEY,
-  SENTRY_DSN
+  SENTRY_DSN,
 };
 
 module.exports = {
@@ -50,5 +50,5 @@ module.exports = {
   FIREBASE_TOKEN,
   SEGMENT_API_KEY,
   SENTRY_DSN,
-  CLIENT_ENV
+  CLIENT_ENV,
 };

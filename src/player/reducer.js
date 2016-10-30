@@ -12,7 +12,7 @@ export function initialState() {
     currentSong: null,
     queue: [],
     shuffledQueue: [],
-    history: []
+    history: [],
   };
 }
 
@@ -56,7 +56,7 @@ const reducerByAction = {
   [PLAYER_ACTIONS.SET_NEXT_SONG]: reduceSetNextSong,
   [PLAYER_ACTIONS.SET_PREVIOUS_SONG]: reduceSetPreviousSong,
   [PLAYER_ACTIONS.SHUFFLE]: reduceShuffle,
-  [PLAYER_ACTIONS.UNSHUFFLE]: reduceUnshuffle
+  [PLAYER_ACTIONS.UNSHUFFLE]: reduceUnshuffle,
 };
 
 export function playerReducer(state = initialState(), action) {

@@ -2,7 +2,7 @@ const env = require('./environment');
 
 const framework = 'jasmine';
 const capabilities = {
-  browserName: env.CI ? 'firefox' : 'chrome'
+  browserName: env.CI ? 'firefox' : 'chrome',
 };
 
 const baseUrl = `http://${env.HOSTNAME}:${env.PORT}`;
@@ -23,7 +23,7 @@ const protractorConfig = {
   baseUrl,
   specs,
   localSeleniumStandaloneOpts,
-  onPrepare
+  onPrepare,
 };
 
 exports.config = protractorConfig;

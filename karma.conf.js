@@ -5,7 +5,7 @@ function karmaConfig(config) {
   const unitTestFiles = 'src/**/__tests__/*-test.js';
   const files = [unitTestFiles];
   const preprocessors = {
-    [unitTestFiles]: ['webpack']
+    [unitTestFiles]: ['webpack'],
   };
 
   const browsers = env.CI ? ['Firefox'] : ['Chrome'];
@@ -13,7 +13,7 @@ function karmaConfig(config) {
   const reporters = ['mocha'];
 
   const mochaReporter = {
-    showDiff: true
+    showDiff: true,
   };
 
   const autoWatch = true;
@@ -30,7 +30,7 @@ function karmaConfig(config) {
     mochaReporter,
     autoWatch,
     webpack,
-    webpackMiddleware
+    webpackMiddleware,
   });
 }
 

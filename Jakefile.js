@@ -23,14 +23,14 @@ task('build', [], () => {
 desc('Run webpack in watch mode');
 task('watch', [], () => {
   const cmds = [
-    `${WEBPACK_DEV_SERVER} --inline --hot --config webpack.watch.config`
+    `${WEBPACK_DEV_SERVER} --inline --hot --config webpack.watch.config`,
   ];
   jake.exec(cmds, execOptions, complete);
 });
 
 task('deploy', [], () => {
   const cmds = [
-    `${FIREBASE} deploy --token ${env.FIREBASE_TOKEN}`
+    `${FIREBASE} deploy --token ${env.FIREBASE_TOKEN}`,
   ];
   jake.exec(cmds, execOptions, complete);
 });

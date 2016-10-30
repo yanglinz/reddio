@@ -35,6 +35,6 @@ export function* watchRequestPosts() {
 export function* redditSaga() {
   yield [
     fork(watchRouteChange),
-    fork(watchRequestPosts)
+    fork(watchRequestPosts),
   ];
 }

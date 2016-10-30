@@ -7,7 +7,7 @@ describe('settings test', () => {
   it('should have the expected environmental variables', () => {
     const expectedKeys = [
       'NODE_ENV',
-      'GIT_HASH_SHORT'
+      'GIT_HASH_SHORT',
     ];
     const keys = _.intersection(_.keys(settings), expectedKeys);
     expect(keys).to.deep.equal(expectedKeys);

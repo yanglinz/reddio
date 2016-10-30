@@ -9,5 +9,5 @@ const REDDIT_URL = settings.IS_PROD
   : 'http://www.reddit.com';
 
 export default _.assign(settings, {
-  REDDIT_URL
+  REDDIT_URL,
 });

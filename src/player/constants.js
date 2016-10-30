@@ -9,7 +9,7 @@ const _PLAYER_EVENTS = [
   'PRESS_PLAY',
   'PRESS_PAUSE',
   'PRESS_NEXT',
-  'PRESS_PREVIOUS'
+  'PRESS_PREVIOUS',
 ];
 
 export const PLAYER_EVENTS = _.zipObject(
@@ -23,7 +23,7 @@ const _PLAYER_STATES = [
   'LOADING',
   'READY',
   'PAUSED',
-  'PLAYING'
+  'PLAYING',
 ];
 
 export const PLAYER_STATES = _.zipObject(_PLAYER_STATES, _PLAYER_STATES);
@@ -38,7 +38,7 @@ const _PLAYER_ACTIONS = [
   'SET_NEXT_SONG',
   'SET_PREVIOUS_SONG',
   'SHUFFLE',
-  'UNSHUFFLE'
+  'UNSHUFFLE',
 ];
 
 export const PLAYER_ACTIONS = _.zipObject(_PLAYER_ACTIONS, _PLAYER_ACTIONS);
