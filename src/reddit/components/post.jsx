@@ -12,7 +12,7 @@ function Post(props) {
 }
 
 Post.propTypes = {
-  post: validation.postShape
+  post: validation.postShape,
 };
 
 module.exports = Post;

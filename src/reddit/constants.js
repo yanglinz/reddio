@@ -6,8 +6,8 @@ import _ from 'lodash';
 export const SUBREDDITS = {
   listentothis: {
     name: 'Listen to This',
-    url: 'https://www.reddit.com/r/listentothis'
-  }
+    url: 'https://www.reddit.com/r/listentothis',
+  },
 };
 
 /**
@@ -19,7 +19,7 @@ const _REDDIT_SORT_TYPES = [
   'rising',
   'controversial',
   'random',
-  'top'
+  'top',
 ];
 
 export const REDDIT_SORT_TYPES = _.zipObject(_REDDIT_SORT_TYPES, _REDDIT_SORT_TYPES);
@@ -33,7 +33,7 @@ const _REDDIT_SORT_RANGES = [
   'weel',
   'month',
   'year',
-  'all'
+  'all',
 ];
 
 export const REDDIT_SORT_RANGES = _.zipObject(_REDDIT_SORT_RANGES, _REDDIT_SORT_RANGES);
@@ -44,7 +44,7 @@ export const REDDIT_SORT_RANGES = _.zipObject(_REDDIT_SORT_RANGES, _REDDIT_SORT_
 const _REDDIT_ACTIONS = [
   'REQUEST_POSTS',
   'RECEIVE_POSTS',
-  'FETCH_POSTS_ERROR'
+  'FETCH_POSTS_ERROR',
 ];
 
 export const REDDIT_ACTIONS = _.zipObject(_REDDIT_ACTIONS, _REDDIT_ACTIONS);

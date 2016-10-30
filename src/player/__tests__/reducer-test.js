@@ -19,7 +19,7 @@ describe('player reducer', () => {
         currentSong: null,
         queue: [],
         shuffledQueue: [],
-        history: []
+        history: [],
       });
     });
   });

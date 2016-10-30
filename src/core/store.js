@@ -15,14 +15,14 @@ export function rootReducer() {
   return combineReducers({
     routing: routerReducer,
     player: playerReducer,
-    reddit: redditReducer
+    reddit: redditReducer,
   });
 }
 
 export function* rootSaga() {
   yield [
     fork(coreSaga),
-    fork(redditSaga)
+    fork(redditSaga),
   ];
 }
 

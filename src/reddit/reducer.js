@@ -8,7 +8,7 @@ export function initialState() {
     query: null,
     sortType: null,
     sortRange: null,
-    posts: []
+    posts: [],
   };
 }
 
@@ -82,7 +82,7 @@ const ROUTER_LOCATION_CHANGE = '@@router/LOCATION_CHANGE';
 
 const reducerByAction = {
   [ROUTER_LOCATION_CHANGE]: reduceRouteChange,
-  [REDDIT_ACTIONS.RECEIVE_POSTS]: reduceReceivePosts
+  [REDDIT_ACTIONS.RECEIVE_POSTS]: reduceReceivePosts,
 };
 
 export function redditReducer(state = initialState(), action) {

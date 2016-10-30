@@ -9,7 +9,7 @@ import {
   selectNewLink,
   selectRisingLink,
   selectControversialLink,
-  redditReducer
+  redditReducer,
 } from '../reducer';
 
 describe('reddit reducer', () => {
@@ -29,7 +29,7 @@ describe('reddit reducer', () => {
         query: null,
         sortType: null,
         sortRange: null,
-        posts: []
+        posts: [],
       });
     });
   });
@@ -47,7 +47,7 @@ describe('reddit reducer', () => {
         '/r/subreddit/top': '/r/subreddit',
         '/user/username/m/multiname': '/user/username/m/multiname',
         '/user/username/m/multiname/': '/user/username/m/multiname',
-        '/user/username/m/multiname/new': '/user/username/m/multiname'
+        '/user/username/m/multiname/new': '/user/username/m/multiname',
       };
 
       _.each(baseLinkByPathname, (baseLink, pathname) => {
@@ -64,7 +64,7 @@ describe('reddit reducer', () => {
         '/r/subreddit/new': '/r/subreddit/hot',
         '/r/subreddit/top': '/r/subreddit/hot',
         '/user/username/m/multiname': '/user/username/m/multiname/hot',
-        '/user/username/m/multiname/new': '/user/username/m/multiname/hot'
+        '/user/username/m/multiname/new': '/user/username/m/multiname/hot',
       };
 
       _.each(hotLinkByPathname, (hotLink, pathname) => {
@@ -81,7 +81,7 @@ describe('reddit reducer', () => {
         '/r/subreddit/new': '/r/subreddit/new',
         '/r/subreddit/top': '/r/subreddit/new',
         '/user/username/m/multiname': '/user/username/m/multiname/new',
-        '/user/username/m/multiname/new': '/user/username/m/multiname/new'
+        '/user/username/m/multiname/new': '/user/username/m/multiname/new',
       };
 
       _.each(newLinkByPathname, (newLink, pathname) => {
@@ -98,7 +98,7 @@ describe('reddit reducer', () => {
         '/r/subreddit/new': '/r/subreddit/rising',
         '/r/subreddit/top': '/r/subreddit/rising',
         '/user/username/m/multiname': '/user/username/m/multiname/rising',
-        '/user/username/m/multiname/new': '/user/username/m/multiname/rising'
+        '/user/username/m/multiname/new': '/user/username/m/multiname/rising',
       };
 
       _.each(risingLinkByPathname, (risingLink, pathname) => {
@@ -115,7 +115,7 @@ describe('reddit reducer', () => {
         '/r/subreddit/new': '/r/subreddit/controversial',
         '/r/subreddit/top': '/r/subreddit/controversial',
         '/user/username/m/multiname': '/user/username/m/multiname/controversial',
-        '/user/username/m/multiname/new': '/user/username/m/multiname/controversial'
+        '/user/username/m/multiname/new': '/user/username/m/multiname/controversial',
       };
 
       _.each(controversialLinkByPathname, (controversialLink, pathname) => {
@@ -138,7 +138,7 @@ describe('reddit reducer', () => {
 
       expect(newState).to.deep.equal(_.assign({}, initialRedditState, {
         pathname,
-        query
+        query,
       }));
     });
 
@@ -155,7 +155,7 @@ describe('reddit reducer', () => {
       expect(newState).to.deep.equal(_.assign({}, initialRedditState, {
         pathname,
         query,
-        posts: []
+        posts: [],
       }));
     });
 
@@ -173,7 +173,7 @@ describe('reddit reducer', () => {
       expect(newState).to.deep.equal(_.assign({}, initialRedditState, {
         pathname,
         query,
-        posts: []
+        posts: [],
       }));
     });
 
@@ -198,7 +198,7 @@ describe('reddit reducer', () => {
 
       const stubPosts = [{ foo: 'bar' }];
       const stubResponse = {
-        data: { children: stubPosts }
+        data: { children: stubPosts },
       };
       const payload = { response: stubResponse };
       const action = { type: REDDIT_ACTIONS.RECEIVE_POSTS, payload };
@@ -213,7 +213,7 @@ describe('reddit reducer', () => {
 
       const stubPosts = [{ foo: 'bar' }];
       const stubResponse = {
-        data: { children: stubPosts }
+        data: { children: stubPosts },
       };
       const payload = { response: stubResponse };
       const action = { type: REDDIT_ACTIONS.RECEIVE_POSTS, payload };

@@ -42,7 +42,7 @@ export function load() {
   createPlayerMount();
   return Promise.all([
     youtube.load(YOUTUBE_MOUNT),
-    soundcloud.load(SOUNDCLOUD_MOUNT)
+    soundcloud.load(SOUNDCLOUD_MOUNT),
   ]);
 }
 

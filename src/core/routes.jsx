@@ -23,7 +23,7 @@ function RouteRoot(props) {
 }
 
 RouteRoot.propTypes = {
-  children: React.PropTypes.node
+  children: React.PropTypes.node,
 };
 
 function RouteHome() {

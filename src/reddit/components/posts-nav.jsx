@@ -6,7 +6,7 @@ function PostsNavigation(props) {
     hotLink,
     newLink,
     risingLink,
-    controversialLink
+    controversialLink,
   } = props;
 
   return (
@@ -25,7 +25,7 @@ PostsNavigation.propTypes = {
   hotLink: React.PropTypes.string,
   newLink: React.PropTypes.string,
   risingLink: React.PropTypes.string,
-  controversialLink: React.PropTypes.string
+  controversialLink: React.PropTypes.string,
 };
 
 module.exports = PostsNavigation;

@@ -5,7 +5,7 @@ import settings from 'core/settings';
 export function getListing(pathname, query) {
   const req = {
     method: 'GET',
-    params: query
+    params: query,
   };
   const base = _.trimEnd(settings.REDDIT_URL, '/');
   const path = _.trimEnd(pathname, '/');

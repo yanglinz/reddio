@@ -19,7 +19,7 @@ export function dispatchEvent(payload, source$ = defaultSource$) {
 }
 
 const defaultReducers = [
-  playerStreamReducer
+  playerStreamReducer,
 ];
 
 /**
