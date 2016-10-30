@@ -25,7 +25,16 @@ export function selectBaseLink(state) {
   const baseLink = isNonBaseLink
     ? _.initial(fragments).join('/')
     : fragments.join('/');
-  return _.trimEnd(baseLink, '/');
+  return _.isEmpty(baseLink)
+    ? null
+    : _.trimEnd(baseLink, '/');
+}
+
+export function selectHotLink(state) {
+  const baseLink = selectBaseLink(state);
+  return _.isEmpty(baseLink)
+    ? null
+    : baseLink.concat('/').concat(REDDIT_SORT_TYPES.hot);
 }
 
 export function parseSortType(pathname, query) {

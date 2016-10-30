@@ -3,7 +3,7 @@ import { expect } from 'chai';
 
 import { REDDIT_ACTIONS, REDDIT_SORT_TYPES } from 'reddit/constants';
 import { configureStore } from 'core/store';
-import { selectBaseLink, redditReducer } from '../reducer';
+import { selectBaseLink, selectHotLink, redditReducer } from '../reducer';
 
 describe('reddit reducer', () => {
   let initialState;
@@ -30,7 +30,7 @@ describe('reddit reducer', () => {
   describe('base link selector', () => {
     it('should parse base links', () => {
       const baseLinkByPathname = {
-        '':  '',
+        '':  null,
         '/r/subreddit': '/r/subreddit',
         '/r/subreddit/': '/r/subreddit',
         '/r/subreddit/new': '/r/subreddit',
@@ -47,6 +47,30 @@ describe('reddit reducer', () => {
         const state = initialState;
         state.reddit.pathname = pathname;
         expect(selectBaseLink(state)).to.equal(baseLink);
+      });
+    });
+  });
+
+  describe('hot link selector', () => {
+    it('should parse hot links', () => {
+      const hotLinkByPathname = {
+        '':  null,
+        '/r/subreddit': '/r/subreddit/hot',
+        '/r/subreddit/': '/r/subreddit/hot',
+        '/r/subreddit/new': '/r/subreddit/hot',
+        '/r/subreddit/rising': '/r/subreddit/hot',
+        '/r/subreddit/controversial': '/r/subreddit/hot',
+        '/r/subreddit/random': '/r/subreddit/hot',
+        '/r/subreddit/top': '/r/subreddit/hot',
+        '/user/username/m/multiname': '/user/username/m/multiname/hot',
+        '/user/username/m/multiname/': '/user/username/m/multiname/hot',
+        '/user/username/m/multiname/new': '/user/username/m/multiname/hot'
+      };
+
+      _.each(hotLinkByPathname, (hotLink, pathname) => {
+        const state = initialState;
+        state.reddit.pathname = pathname;
+        expect(selectHotLink(state)).to.equal(hotLink);
       });
     });
   });
