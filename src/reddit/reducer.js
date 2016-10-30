@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import { REDDIT_ACTIONS } from 'reddit/constants';
+import { REDDIT_ACTIONS, REDDIT_SORT_TYPES } from 'reddit/constants';
 
 export function initialState() {
   return {
@@ -14,6 +14,48 @@ export function initialState() {
 
 export function selectPosts(state) {
   return state.reddit.posts;
+}
+
+const _sortTypes = _.keys(REDDIT_SORT_TYPES);
+
+export function selectBaseLink(state) {
+  const pathname = state.reddit.pathname || '';
+  const fragments = _.trimEnd(pathname, '/').split('/');
+  const isNonBaseLink = _.includes(_sortTypes, _.last(fragments));
+  const baseLink = isNonBaseLink
+    ? _.initial(fragments).join('/')
+    : fragments.join('/');
+  return _.isEmpty(baseLink)
+    ? null
+    : _.trimEnd(baseLink, '/');
+}
+
+export function selectHotLink(state) {
+  const baseLink = selectBaseLink(state);
+  return _.isEmpty(baseLink)
+    ? null
+    : baseLink.concat('/').concat(REDDIT_SORT_TYPES.hot);
+}
+
+export function selectNewLink(state) {
+  const baseLink = selectBaseLink(state);
+  return _.isEmpty(baseLink)
+    ? null
+    : baseLink.concat('/').concat(REDDIT_SORT_TYPES.new);
+}
+
+export function selectRisingLink(state) {
+  const baseLink = selectBaseLink(state);
+  return _.isEmpty(baseLink)
+    ? null
+    : baseLink.concat('/').concat(REDDIT_SORT_TYPES.rising);
+}
+
+export function selectControversialLink(state) {
+  const baseLink = selectBaseLink(state);
+  return _.isEmpty(baseLink)
+    ? null
+    : baseLink.concat('/').concat(REDDIT_SORT_TYPES.controversial);
 }
 
 export function reduceRouteChange(state, action) {
