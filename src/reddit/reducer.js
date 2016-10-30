@@ -16,6 +16,18 @@ export function selectPosts(state) {
   return state.reddit.posts;
 }
 
+const _sortTypes = _.keys(REDDIT_SORT_TYPES);
+
+export function selectBaseLink(state) {
+  const pathname = state.reddit.pathname || '';
+  const fragments = _.trimEnd(pathname, '/').split('/');
+  const isNonBaseLink = _.includes(_sortTypes, _.last(fragments))
+  const baseLink = isNonBaseLink
+    ? _.initial(fragments).join('/')
+    : fragments.join('/');
+  return _.trimEnd(baseLink, '/');
+}
+
 export function parseSortType(pathname, query) {
   const sortType = _.chain(pathname)
     .split('/')
