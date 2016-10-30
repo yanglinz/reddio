@@ -5,13 +5,11 @@ import settings from '../settings';
 
 describe('settings test', () => {
   it('should have the expected environmental variables', () => {
-    expect(_.keys(settings)).to.deep.equal([
+    const expectedKeys = [
       'NODE_ENV',
-      'IS_PROD',
-      'GIT_HASH_SHORT',
-      'SEGMENT_API_KEY',
-      'SENTRY_DSN',
-      'REDDIT_URL'
-    ]);
+      'GIT_HASH_SHORT'
+    ];
+    const keys = _.intersection(_.keys(settings), expectedKeys);
+    expect(keys).to.deep.equal(expectedKeys);
   });
 });
