@@ -37,6 +37,28 @@ export function selectHotLink(state) {
     : baseLink.concat('/').concat(REDDIT_SORT_TYPES.hot);
 }
 
+export function selectNewLink(state) {
+  const baseLink = selectBaseLink(state);
+  return _.isEmpty(baseLink)
+    ? null
+    : baseLink.concat('/').concat(REDDIT_SORT_TYPES.new);
+}
+
+export function selectRisingLink(state) {
+  const baseLink = selectBaseLink(state);
+  return _.isEmpty(baseLink)
+    ? null
+    : baseLink.concat('/').concat(REDDIT_SORT_TYPES.rising);
+}
+
+export function selectControversialLink(state) {
+  const baseLink = selectBaseLink(state);
+  return _.isEmpty(baseLink)
+    ? null
+    : baseLink.concat('/').concat(REDDIT_SORT_TYPES.controversial);
+}
+
+// select sort type
 export function parseSortType(pathname, query) {
   const sortType = _.chain(pathname)
     .split('/')
@@ -54,6 +76,7 @@ export function parseSortType(pathname, query) {
   return parsedSortType;
 }
 
+// selectSortRange
 export function parseSortRange(pathname, query) {
   const sortType = parseSortType(pathname);
   let parsedSortRange
