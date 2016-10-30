@@ -16,9 +16,16 @@ function PostsNavigation(props) {
         <li><Link to={newLink}>new</Link></li>
         <li><Link to={risingLink}>rising</Link></li>
         <li><Link to={controversialLink}>controversial</Link></li>
-        </ul>
+      </ul>
     </nav>
   );
 }
+
+PostsNavigation.propTypes = {
+  hotLink: React.PropTypes.string,
+  newLink: React.PropTypes.string,
+  risingLink: React.PropTypes.string,
+  controversialLink: React.PropTypes.string
+};
 
 module.exports = PostsNavigation;

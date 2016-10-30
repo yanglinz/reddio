@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { expect } from 'chai';
 
-import { REDDIT_ACTIONS, REDDIT_SORT_TYPES } from 'reddit/constants';
+import { REDDIT_ACTIONS } from 'reddit/constants';
 import { configureStore } from 'core/store';
 import {
   selectBaseLink,
@@ -37,7 +37,7 @@ describe('reddit reducer', () => {
   describe('link selectors', () => {
     it('should select base links', () => {
       const baseLinkByPathname = {
-        '':  null,
+        '': null,
         '/r/subreddit': '/r/subreddit',
         '/r/subreddit/': '/r/subreddit',
         '/r/subreddit/new': '/r/subreddit',
@@ -59,7 +59,7 @@ describe('reddit reducer', () => {
 
     it('should select hot links', () => {
       const hotLinkByPathname = {
-        '':  null,
+        '': null,
         '/r/subreddit': '/r/subreddit/hot',
         '/r/subreddit/new': '/r/subreddit/hot',
         '/r/subreddit/top': '/r/subreddit/hot',
@@ -76,7 +76,7 @@ describe('reddit reducer', () => {
 
     it('should select new links', () => {
       const newLinkByPathname = {
-        '':  null,
+        '': null,
         '/r/subreddit': '/r/subreddit/new',
         '/r/subreddit/new': '/r/subreddit/new',
         '/r/subreddit/top': '/r/subreddit/new',
@@ -93,7 +93,7 @@ describe('reddit reducer', () => {
 
     it('should select rising links', () => {
       const risingLinkByPathname = {
-        '':  null,
+        '': null,
         '/r/subreddit': '/r/subreddit/rising',
         '/r/subreddit/new': '/r/subreddit/rising',
         '/r/subreddit/top': '/r/subreddit/rising',
@@ -110,7 +110,7 @@ describe('reddit reducer', () => {
 
     it('should select controversial links', () => {
       const controversialLinkByPathname = {
-        '':  null,
+        '': null,
         '/r/subreddit': '/r/subreddit/controversial',
         '/r/subreddit/new': '/r/subreddit/controversial',
         '/r/subreddit/top': '/r/subreddit/controversial',
