@@ -1,21 +1,10 @@
-import { applyMiddleware, combineReducers, createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import createLogger from 'redux-logger';
 import createSaga from 'redux-saga';
-import { fork } from 'redux-saga/effects';
-import { routerReducer } from 'react-router-redux';
 
-import { playerReducer } from 'player/reducer';
-import { redditReducer } from 'reddit/reducer';
+import { rootReducer } from 'core/reducer';
 import { rootSaga } from 'core/saga';
 import settings from 'core/settings';
-
-export function rootReducer() {
-  return combineReducers({
-    routing: routerReducer,
-    player: playerReducer,
-    reddit: redditReducer,
-  });
-}
 
 export function isLoggerEnabled() {
   const isLocal = !settings.IS_PROD;
