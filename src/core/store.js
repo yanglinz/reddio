@@ -38,7 +38,10 @@ export function isLoggerEnabled() {
 }
 
 export function configureStore(initialState) {
-  const loggerMiddleware = createLogger({ predicate: isLoggerEnabled });
+  const loggerMiddleware = createLogger({
+    predicate: isLoggerEnabled,
+    collapsed: true,
+  });
   const sagaMiddleware = createSaga();
   const middleware = applyMiddleware(sagaMiddleware, loggerMiddleware);
   const store = createStore(rootReducer(), initialState, middleware);
