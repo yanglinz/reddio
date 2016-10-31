@@ -1,10 +1,10 @@
 import { takeLatest } from 'redux-saga';
 import { call, fork, put } from 'redux-saga/effects';
 
+import { load } from 'player/controls';
+
 export function* initializePlayer() {
-  console.log('initalizePlayer');
-  // const initializedEvent = { type: CORE_EVENTS.SAGA_INITIALIZED };
-  // yield put(initializedEvent);
+  yield call(load);
 }
 
 export function* playerSaga() {
