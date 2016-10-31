@@ -8,6 +8,7 @@ import { playerReducer } from 'player/reducer';
 import { redditReducer } from 'reddit/reducer';
 import { coreSaga } from 'core/saga';
 import { redditSaga } from 'reddit/saga';
+import { playerSaga } from 'player/saga';
 import settings from 'core/settings';
 
 export function rootReducer() {
@@ -22,6 +23,7 @@ export function* rootSaga() {
   yield [
     fork(coreSaga),
     fork(redditSaga),
+    fork(playerSaga),
   ];
 }
 
