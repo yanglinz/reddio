@@ -4,7 +4,6 @@ import createSaga from 'redux-saga';
 import { fork } from 'redux-saga/effects';
 import { routerReducer } from 'react-router-redux';
 
-import { applyReducers } from 'core/stream';
 import { playerReducer } from 'player/reducer';
 import { redditReducer } from 'reddit/reducer';
 import { coreSaga } from 'core/saga';
@@ -26,11 +25,6 @@ export function* rootSaga() {
   ];
 }
 
-export function configureStream(store) {
-  const sinkStream$ = applyReducers();
-  sinkStream$.subscribe(action => store.dispatch(action));
-}
-
 export function isLoggerEnabled() {
   const isLocal = !settings.IS_PROD;
   const isKarma = window !== window.top;
@@ -46,7 +40,6 @@ export function configureStore(initialState) {
   const middleware = applyMiddleware(sagaMiddleware, loggerMiddleware);
   const store = createStore(rootReducer(), initialState, middleware);
   sagaMiddleware.run(rootSaga);
-  configureStream(store);
   return store;
 }
 
