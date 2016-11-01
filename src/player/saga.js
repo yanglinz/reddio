@@ -25,9 +25,18 @@ export function* watchPlayPost() {
   yield* takeLatest(REDDIT_ACTIONS.PLAY_POST, playPost);
 }
 
+export function* pausePlayer(action) {
+  yield call(pause);
+}
+
+export function* watchPausePlayer() {
+  yield* takeLatest(PLAYER_ACTIONS.PAUSE_PLAYER, pausePlayer);
+}
+
 export function* playerSaga() {
   yield [
     fork(initializePlayer),
     fork(watchPlayPost),
+    fork(watchPausePlayer),
   ];
 }
