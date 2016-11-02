@@ -3,7 +3,7 @@ import { call, fork, put } from 'redux-saga/effects';
 
 import { REDDIT_ACTIONS } from 'reddit/constants';
 import { PLAYER_ACTIONS } from 'player/constants';
-import { load, play, pause, unpause } from 'player/controls';
+import { load, play, pause } from 'player/controls';
 
 export function* initializePlayer() {
   yield put({ type: PLAYER_ACTIONS.LOAD_IFRAME });
@@ -25,7 +25,7 @@ export function* watchPlayPost() {
   yield* takeLatest(REDDIT_ACTIONS.PLAY_POST, playPost);
 }
 
-export function* pausePlayer(action) {
+export function* pausePlayer() {
   yield call(pause);
 }
 

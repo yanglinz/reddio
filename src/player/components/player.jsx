@@ -5,10 +5,8 @@ import * as action from 'player/action';
 
 import './player.scss';
 
-function stateToProps(state) {
-  return {
-    foo: 'bar'
-  };
+function stateToProps() {
+  return {};
 }
 
 export function Player(props) {
@@ -16,10 +14,14 @@ export function Player(props) {
   const pausePlayer = dispatch.bind(null, action.pausePlayer());
   return (
     <div className="player">
-      <p>play</p>
-      <p onClick={pausePlayer}>pause</p>
+      <button>play</button>
+      <button onClick={pausePlayer}>pause</button>
     </div>
   );
 }
+
+Player.propTypes = {
+  dispatch: React.PropTypes.func,
+};
 
 module.exports = connect(stateToProps)(Player);
