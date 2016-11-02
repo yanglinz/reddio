@@ -23,7 +23,7 @@ function Posts(props) {
     <div>
       <PostNavigation {...props} />
       {_.map(posts, (post, i) => (
-        <Post key={i} post={post} />
+        <Post key={i} {...props} post={post} />
       ))}
     </div>
   );
