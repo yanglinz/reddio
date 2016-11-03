@@ -88,16 +88,57 @@ export function load(name, params) {
     .then(() => loadCachedPlayer(name, params));
 }
 
+const PLAYER_STATES = {
+  0: 'ENDED',
+  1: 'PLAYING',
+  2: 'PAUSED',
+  3: 'BUFFERING',
+  5: 'CUED',
+};
+
+function getStateChangeEvent(name, event) {
+  const state = PLAYER_STATES[event.data];
+  return { target: name, state };
+}
+
+const PLAYER_ERRORS = {
+  2: 'INVALID_PARAMS',
+  5: 'HTML5_ERROR',
+  100: 'NOT_FOUND',
+  101: 'NO_EMBED',
+  150: 'NO_EMBED',
+};
+
+function getErrorEvent(name, event) {
+  const error = PLAYER_ERRORS[event.data];
+  return { target: name, error };
+}
+
+export function listen(name, callback) {
+  return loadCachedPlayer(name)
+    .then((player) => {
+      const onStateChange = 'onStateChange';
+      player.addEventListener(
+        onStateChange, e => callback(getStateChangeEvent(name, e)));
+
+      const onError = 'onError';
+      player.addEventListener(
+        onError, e => callback(getErrorEvent(name, e)));
+    });
+}
+
 export function play(name, videoUrl) {
   const id = getVideoId(videoUrl);
-  loadCachedPlayer(name)
+  return loadCachedPlayer(name)
     .then(player => player.loadVideoById(id));
 }
 
 export function pause(name) {
-  loadCachedPlayer(name).then(player => player.pauseVideo());
+  return loadCachedPlayer(name)
+    .then(player => player.pauseVideo());
 }
 
 export function unpause(name) {
-  loadCachedPlayer(name).then(player => player.playVideo());
+  return loadCachedPlayer(name)
+    .then(player => player.playVideo());
 }

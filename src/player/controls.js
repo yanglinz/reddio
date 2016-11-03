@@ -46,6 +46,11 @@ export function load() {
   ]);
 }
 
+export function listen(callback) {
+  youtube.listen(YOUTUBE_MOUNT, callback);
+  soundcloud.listen(SOUNDCLOUD_MOUNT, callback);
+}
+
 export function pause() {
   youtube.pause(YOUTUBE_MOUNT);
   soundcloud.pause(SOUNDCLOUD_MOUNT);
