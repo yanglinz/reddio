@@ -56,6 +56,10 @@ export function load(name, params) {
   return loadPlayer(name, params);
 }
 
+export function listen(name, callback) {
+  _.noop(name, callback);
+}
+
 export function play(name, url) {
   loadPlayer(name).then((player) => {
     const options = { callback: () => player.play() };
