@@ -5,10 +5,10 @@ import * as validation from './.validation';
 
 function Post(props) {
   const { post, dispatch } = props;
-  const playPost = dispatch.bind(null, action.playPost(post));
+  const playCommand = dispatch.bind(null, action.playCommand(post));
   return (
     <div>
-      <button onClick={playPost}>play</button>
+      <button onClick={playCommand}>play</button>
       <p>{post.data.title}</p>
     </div>
   );
