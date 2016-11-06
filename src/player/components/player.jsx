@@ -11,11 +11,11 @@ function stateToProps() {
 
 export function Player(props) {
   const { dispatch } = props;
-  const pausePlayer = dispatch.bind(null, action.pausePlayer());
+  const pauseCommand = dispatch.bind(null, action.pauseCommand());
   return (
     <div className="player">
       <button>play</button>
-      <button onClick={pausePlayer}>pause</button>
+      <button onClick={pauseCommand}>pause</button>
     </div>
   );
 }
