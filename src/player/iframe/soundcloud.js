@@ -61,13 +61,13 @@ const PLAYER_EVENTS = {
   PLAY: 'play',
   PAUSE: 'pause',
   FINISH: 'finish',
-}
+};
 
 const PLAYER_STATES = {
   PLAYING: 'PLAYING',
   PAUSED: 'PAUSED',
   ENDED: 'ENDED',
-}
+};
 
 export function getPlayEvent(name, event) {
   return {

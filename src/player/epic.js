@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import Rx from 'rxjs/Rx';
 import { combineEpics } from 'redux-observable';
 
@@ -18,12 +17,12 @@ export function loadIframeEpic() {
 export function eventsEpic(action$) {
   return action$
     .ofType(PLAYER_ACTIONS.LOAD_IFRAME_DONE)
-    .mergeMap(() => {
-      return Rx.Observable
+    .mergeMap(() => (
+      Rx.Observable
         .fromPromise(getEvents$())
         .mergeMap(events => events)
-        .map(event => ({ type: PLAYER_ACTIONS.ON_EVENT, payload: event }));
-    });
+        .map(event => ({ type: PLAYER_ACTIONS.ON_EVENT, payload: event }))
+    ));
 }
 
 export function playEpic(actions$) {

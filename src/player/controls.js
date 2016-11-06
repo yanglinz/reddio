@@ -49,11 +49,11 @@ export function load() {
 }
 
 export function getEvents$() {
-  const youtube$ = youtube.getEvents$(YOUTUBE_MOUNT)
-  const soundcloud$ = soundcloud.getEvents$(SOUNDCLOUD_MOUNT);
-  return Promise.all([youtube$, soundcloud$])
-    .then(([youtube$, soundcloud$]) => (
-      Rx.Observable.merge(youtube$, soundcloud$)
+  const youtubeEvents$ = youtube.getEvents$(YOUTUBE_MOUNT);
+  const soundcloudEvents$ = soundcloud.getEvents$(SOUNDCLOUD_MOUNT);
+  return Promise.all([youtubeEvents$, soundcloudEvents$])
+    .then(([ytEvents$, scEvents$]) => (
+      Rx.Observable.merge(ytEvents$, scEvents$)
     ));
 }
 
