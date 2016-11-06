@@ -122,7 +122,7 @@ export function getEvents$(name) {
       const onError = 'onError';
 
       const stateChanges$ = Rx.Observable.create(
-        observer =>player.addEventListener(onStateChange, e => observer.next(e)));
+        observer => player.addEventListener(onStateChange, e => observer.next(e)));
       const errors$ = Rx.Observable.create(
         observer => player.addEventListener(onError, e => observer.next(e)));
 

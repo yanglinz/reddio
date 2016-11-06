@@ -49,11 +49,12 @@ export function load() {
 }
 
 export function getEvents$() {
-  return Promise.all([
-    youtube.getEvents$(YOUTUBE_MOUNT)
-  ]).then(([youtubeEvents$]) => (Rx.Observable.merge(
-    youtubeEvents$,
-  )));
+  const youtube$ = youtube.getEvents$(YOUTUBE_MOUNT)
+  const soundcloud$ = soundcloud.getEvents$(SOUNDCLOUD_MOUNT);
+  return Promise.all([youtube$, soundcloud$])
+    .then(([youtube$, soundcloud$]) => (
+      Rx.Observable.merge(youtube$, soundcloud$)
+    ));
 }
 
 export function pause() {
