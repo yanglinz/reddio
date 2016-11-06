@@ -43,7 +43,7 @@ export function* pausePlayer() {
 }
 
 export function* watchPausePlayer() {
-  yield* takeLatest(PLAYER_ACTIONS.PAUSE_PLAYER, pausePlayer);
+  yield* takeLatest(PLAYER_ACTIONS.PAUSE_COMMAND, pausePlayer);
 }
 
 export function* playerSaga() {

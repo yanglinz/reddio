@@ -27,7 +27,7 @@ export function playEpic(actions$) {
 
 export function pauseEpic(actions$) {
   return actions$
-    .ofType(PLAYER_ACTIONS.PAUSE_PLAYER)
+    .ofType(PLAYER_ACTIONS.PAUSE_COMMAND)
     .map((action) => {
       pause();
       return { type: PLAYER_ACTIONS.PAUSING };
