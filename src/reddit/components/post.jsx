@@ -1,14 +1,14 @@
 import React from 'react';
-import * as action from 'reddit/action';
+import * as actions from 'reddit/actions';
 
 import * as validation from './.validation';
 
 function Post(props) {
   const { post, dispatch } = props;
-  const playPost = dispatch.bind(null, action.playPost(post));
+  const playCommand = dispatch.bind(null, actions.playCommand(post));
   return (
     <div>
-      <button onClick={playPost}>play</button>
+      <button onClick={playCommand}>play</button>
       <p>{post.data.title}</p>
     </div>
   );

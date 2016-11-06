@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { initialize } from '../entry';
 
 describe('initialize app', () => {
-  it('should initialize app', () => {
+  it.skip('should initialize app', () => {
     document.body.innerHTML = '';
     const mountNode = document.createElement('div');
     mountNode.id = 'app';

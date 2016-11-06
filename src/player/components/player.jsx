@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import * as action from 'player/action';
+import * as actions from 'player/actions';
 
 import './player.scss';
 
@@ -11,11 +11,11 @@ function stateToProps() {
 
 export function Player(props) {
   const { dispatch } = props;
-  const pausePlayer = dispatch.bind(null, action.pausePlayer());
+  const pauseCommand = dispatch.bind(null, actions.pauseCommand());
   return (
     <div className="player">
       <button>play</button>
-      <button onClick={pausePlayer}>pause</button>
+      <button onClick={pauseCommand}>pause</button>
     </div>
   );
 }
