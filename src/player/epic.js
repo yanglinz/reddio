@@ -3,7 +3,7 @@ import { combineEpics } from 'redux-observable';
 
 import { REDDIT_ACTIONS } from 'reddit/constants';
 import { PLAYER_ACTIONS } from 'player/constants';
-import { load, listen, play, pause } from 'player/controls';
+import { load, play, pause } from 'player/controls';
 
 export function loadIframeEpic() {
   const init$ = Rx.Observable
@@ -28,7 +28,7 @@ export function playEpic(actions$) {
 export function pauseEpic(actions$) {
   return actions$
     .ofType(PLAYER_ACTIONS.PAUSE_COMMAND)
-    .map((action) => {
+    .map(() => {
       pause();
       return { type: PLAYER_ACTIONS.PAUSING };
     });

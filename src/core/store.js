@@ -1,7 +1,5 @@
 import { applyMiddleware, createStore } from 'redux';
-import thunk from 'redux-thunk';
 import createLogger from 'redux-logger';
-import createSaga from 'redux-saga';
 import { createEpicMiddleware } from 'redux-observable';
 
 import { rootReducer } from 'core/reducer';
@@ -20,7 +18,6 @@ export function configureStore(initialState) {
     collapsed: true,
   });
   const middleware = applyMiddleware(
-    thunk,
     createEpicMiddleware(rootEpic),
     loggerMiddleware,
   );

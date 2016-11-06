@@ -12,7 +12,7 @@ export function requestPostsEpic(actions$) {
     .filter(action => action.payload.pathname !== '/')
     .map(action => ({
       type: REDDIT_ACTIONS.REQUEST_POSTS,
-      payload: action.payload
+      payload: action.payload,
     }));
 }
 

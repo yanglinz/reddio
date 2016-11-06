@@ -1,4 +1,3 @@
-import Rx from 'rxjs/Rx';
 import { combineEpics } from 'redux-observable';
 
 import redditEpic from 'reddit/epic';
