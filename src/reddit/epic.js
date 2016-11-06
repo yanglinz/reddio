@@ -21,7 +21,8 @@ export function fetchPostsEpic(actions$) {
     .ofType(REDDIT_ACTIONS.REQUEST_POSTS)
     .mergeMap((action) => {
       const { pathname, query } = action.payload;
-      return Rx.Observable.fromPromise(api.getListing(pathname, query))
+      return Rx.Observable
+        .fromPromise(api.getListing(pathname, query))
         .map((response) => {
           const payload = { pathname, query, response };
           return { type: REDDIT_ACTIONS.RECEIVE_POSTS, payload };
