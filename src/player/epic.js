@@ -16,7 +16,7 @@ export function loadIframeEpic() {
 
 export function playEpic(actions$) {
   return actions$
-    .ofType(REDDIT_ACTIONS.PLAY_POST)
+    .ofType(REDDIT_ACTIONS.PLAY_COMMAND)
     .map((action) => {
       const { payload } = action;
       const { url } = payload.post.data;

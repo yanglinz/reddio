@@ -35,7 +35,7 @@ export function* playPost(action) {
 }
 
 export function* watchPlayPost() {
-  yield* takeLatest(REDDIT_ACTIONS.PLAY_POST, playPost);
+  yield* takeLatest(REDDIT_ACTIONS.PLAY_COMMAND, playPost);
 }
 
 export function* pausePlayer() {
