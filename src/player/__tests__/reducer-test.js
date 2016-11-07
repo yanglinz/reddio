@@ -40,4 +40,41 @@ describe('player reducer', () => {
       expect(newState.currentState).to.deep.equal(expectedCurrentState);
     });
   });
+
+  describe('set state reducer', () => {
+    beforeEach(() => {
+      initialPlayerState.currentState = {
+        [PLAYER_TARGETS.YOUTUBE]: PLAYER_STATES.LOADED,
+        [PLAYER_TARGETS.SOUNDCLOUD]: PLAYER_STATES.LOADED,
+      };
+    });
+
+    it('should set youtube state to playing', () => {
+      const target = PLAYER_TARGETS.YOUTUBE;
+      const state = PLAYER_STATES.PLAYING;
+      const payload = { target, state };
+      const action = { type: PLAYER_ACTIONS.ON_EVENT, payload };
+      const newState = playerReducer(initialPlayerState, action);
+
+      const expectedCurrentState = {
+        [PLAYER_TARGETS.YOUTUBE]: PLAYER_STATES.PLAYING,
+        [PLAYER_TARGETS.SOUNDCLOUD]: PLAYER_STATES.LOADED,
+      };
+      expect(newState.currentState).to.deep.equal(expectedCurrentState);
+    });
+
+    it('should set youtube state to playing', () => {
+      const target = PLAYER_TARGETS.SOUNDCLOUD;
+      const state = PLAYER_STATES.PLAYING;
+      const payload = { target, state };
+      const action = { type: PLAYER_ACTIONS.ON_EVENT, payload };
+      const newState = playerReducer(initialPlayerState, action);
+
+      const expectedCurrentState = {
+        [PLAYER_TARGETS.YOUTUBE]: PLAYER_STATES.LOADED,
+        [PLAYER_TARGETS.SOUNDCLOUD]: PLAYER_STATES.PLAYING,
+      };
+      expect(newState.currentState).to.deep.equal(expectedCurrentState);
+    });
+  });
 });

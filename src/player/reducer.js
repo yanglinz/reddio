@@ -29,7 +29,9 @@ function reduceSetReady(state) {
 
 function reduceSetState(state, action) {
   const { payload } = action;
-  return _.assign({}, state, { state: payload.state });
+  const currentState = _.assign({}, state.currentState);
+  currentState[payload.target] = payload.state;
+  return _.assign({}, state, { currentState });
 }
 
 const reducerByAction = {
