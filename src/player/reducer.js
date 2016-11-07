@@ -12,7 +12,7 @@ export function initialState() {
       [PLAYER_TARGETS.SOUNDCLOUD]: PLAYER_STATES.LOADING,
     },
     songs: {},
-    currentSong: null,
+    currentPost: null,
     queue: [],
     shuffledQueue: [],
     history: [],
@@ -27,7 +27,12 @@ function reduceSetReady(state) {
   return _.assign({}, state, { currentState });
 }
 
-function reduceSetState(state, action) {
+function reduceCurrentPost(state, action) {
+  const { post: currentPost } = action.payload;
+  return _.assign({}, state, { currentPost });
+}
+
+function reduceCurrentState(state, action) {
   const { payload } = action;
   const currentState = _.assign({}, state.currentState);
   currentState[payload.target] = payload.state;
@@ -36,7 +41,8 @@ function reduceSetState(state, action) {
 
 const reducerByAction = {
   [PLAYER_ACTIONS.LOAD_IFRAME_DONE]: reduceSetReady,
-  [PLAYER_ACTIONS.ON_EVENT]: reduceSetState,
+  [PLAYER_ACTIONS.PLAY_COMMAND]: reduceCurrentPost,
+  [PLAYER_ACTIONS.ON_EVENT]: reduceCurrentState,
 };
 
 export function playerReducer(state = initialState(), action) {

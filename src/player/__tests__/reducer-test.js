@@ -20,7 +20,7 @@ describe('player reducer', () => {
           [PLAYER_TARGETS.SOUNDCLOUD]: PLAYER_STATES.LOADING,
         },
         songs: {},
-        currentSong: null,
+        currentPost: null,
         queue: [],
         shuffledQueue: [],
         history: [],
@@ -41,6 +41,19 @@ describe('player reducer', () => {
     });
   });
 
+  describe('set current post reducer', () => {
+    it('should set current post', () => {
+      const stubPost = { foo: 'bar' };
+      const payload = { post: stubPost };
+      const action = { type: PLAYER_ACTIONS.PLAY_COMMAND, payload };
+      const newState = playerReducer(initialPlayerState, action);
+
+      const expectedNewState = _.assign({}, initialPlayerState, {
+        currentPost: stubPost
+      });
+    });
+  });
+
   describe('set state reducer', () => {
     beforeEach(() => {
       initialPlayerState.currentState = {
@@ -56,11 +69,13 @@ describe('player reducer', () => {
       const action = { type: PLAYER_ACTIONS.ON_EVENT, payload };
       const newState = playerReducer(initialPlayerState, action);
 
-      const expectedCurrentState = {
-        [PLAYER_TARGETS.YOUTUBE]: PLAYER_STATES.PLAYING,
-        [PLAYER_TARGETS.SOUNDCLOUD]: PLAYER_STATES.LOADED,
-      };
-      expect(newState.currentState).to.deep.equal(expectedCurrentState);
+      const expectedNewState = _.assign({}, initialPlayerState, {
+        currentState: {
+          [PLAYER_TARGETS.YOUTUBE]: PLAYER_STATES.PLAYING,
+          [PLAYER_TARGETS.SOUNDCLOUD]: PLAYER_STATES.LOADED,
+        }
+      })
+      expect(newState).to.deep.equal(expectedNewState);
     });
 
     it('should set youtube state to playing', () => {
@@ -70,11 +85,13 @@ describe('player reducer', () => {
       const action = { type: PLAYER_ACTIONS.ON_EVENT, payload };
       const newState = playerReducer(initialPlayerState, action);
 
-      const expectedCurrentState = {
-        [PLAYER_TARGETS.YOUTUBE]: PLAYER_STATES.LOADED,
-        [PLAYER_TARGETS.SOUNDCLOUD]: PLAYER_STATES.PLAYING,
-      };
-      expect(newState.currentState).to.deep.equal(expectedCurrentState);
+      const expectedNewState = _.assign({}, initialPlayerState, {
+        currentState: {
+          [PLAYER_TARGETS.YOUTUBE]: PLAYER_STATES.LOADED,
+          [PLAYER_TARGETS.SOUNDCLOUD]: PLAYER_STATES.PLAYING,
+        }
+      });
+      expect(newState).to.deep.equal(expectedNewState);
     });
   });
 });
