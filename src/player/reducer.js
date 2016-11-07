@@ -19,7 +19,7 @@ export function initialState() {
   };
 }
 
-function reduceSetReady(state, action) {
+function reduceSetReady(state) {
   const currentState = {
     [PLAYER_TARGETS.YOUTUBE]: PLAYER_STATES.LOADED,
     [PLAYER_TARGETS.SOUNDCLOUD]: PLAYER_STATES.LOADED,

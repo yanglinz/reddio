@@ -3,7 +3,7 @@ import _ from 'lodash';
 export const PLAYER_TARGETS = {
   YOUTUBE: 'youtube',
   SOUNDCLOUD: 'soundcloud',
-}
+};
 
 /**
  * Define player state that represent the current state of the iframe players
