@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import { expect } from 'chai';
 
 import { PLAYER_TARGETS, PLAYER_STATES, PLAYER_ACTIONS } from 'player/constants';
@@ -49,8 +50,9 @@ describe('player reducer', () => {
       const newState = playerReducer(initialPlayerState, action);
 
       const expectedNewState = _.assign({}, initialPlayerState, {
-        currentPost: stubPost
+        currentPost: stubPost,
       });
+      expect(newState).to.deep.equal(expectedNewState);
     });
   });
 
@@ -73,8 +75,8 @@ describe('player reducer', () => {
         currentState: {
           [PLAYER_TARGETS.YOUTUBE]: PLAYER_STATES.PLAYING,
           [PLAYER_TARGETS.SOUNDCLOUD]: PLAYER_STATES.LOADED,
-        }
-      })
+        },
+      });
       expect(newState).to.deep.equal(expectedNewState);
     });
 
@@ -89,7 +91,7 @@ describe('player reducer', () => {
         currentState: {
           [PLAYER_TARGETS.YOUTUBE]: PLAYER_STATES.LOADED,
           [PLAYER_TARGETS.SOUNDCLOUD]: PLAYER_STATES.PLAYING,
-        }
+        },
       });
       expect(newState).to.deep.equal(expectedNewState);
     });
