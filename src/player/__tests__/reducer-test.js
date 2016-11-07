@@ -1,19 +1,20 @@
 import { expect } from 'chai';
 
-import { PLAYER_TARGETS, PLAYER_STATES } from 'player/constants';
+import { PLAYER_TARGETS, PLAYER_STATES, PLAYER_ACTIONS } from 'player/constants';
 import { configureStore } from 'core/store';
+import { playerReducer } from 'player/reducer';
 
 describe('player reducer', () => {
-  let initialState;
+  let initialPlayerState;
 
   beforeEach(() => {
     const store = configureStore();
-    initialState = store.getState().player;
+    initialPlayerState = store.getState().player;
   });
 
   describe('initial state', () => {
     it('should have the expected initial state', () => {
-      expect(initialState).to.deep.equal({
+      expect(initialPlayerState).to.deep.equal({
         currentState: {
           [PLAYER_TARGETS.YOUTUBE]: PLAYER_STATES.LOADING,
           [PLAYER_TARGETS.SOUNDCLOUD]: PLAYER_STATES.LOADING,
@@ -24,6 +25,19 @@ describe('player reducer', () => {
         shuffledQueue: [],
         history: [],
       });
+    });
+  });
+
+  describe('set ready reducer', () => {
+    it('should set current state to loaded', () => {
+      const action = { type: PLAYER_ACTIONS.LOAD_IFRAME_DONE };
+      const newState = playerReducer(initialPlayerState, action);
+
+      const expectedCurrentState = {
+        [PLAYER_TARGETS.YOUTUBE]: PLAYER_STATES.LOADED,
+        [PLAYER_TARGETS.SOUNDCLOUD]: PLAYER_STATES.LOADED,
+      };
+      expect(newState.currentState).to.deep.equal(expectedCurrentState);
     });
   });
 });
