@@ -3,14 +3,45 @@ import { expect } from 'chai';
 
 import { PLAYER_TARGETS, PLAYER_STATES, PLAYER_ACTIONS } from 'player/constants';
 import { configureStore } from 'core/store';
-import { playerReducer } from 'player/reducer';
+import {
+  selectIsYoutubeActive,
+  selectIsSoundcloudActive,
+  playerReducer,
+} from 'player/reducer';
 
 describe('player reducer', () => {
+  let initialState;
   let initialPlayerState;
 
   beforeEach(() => {
     const store = configureStore();
-    initialPlayerState = store.getState().player;
+    initialState = store.getState();
+    initialPlayerState = initialState.player;
+  });
+
+  describe('player active predicate selector', () => {
+    it('should select youtube is active', () => {
+      const data = { url: 'https://youtu.be/abc123' };
+      const stubPost = { data };
+
+      initialState.player.currentPost = stubPost;
+      const isYoutubeActive = selectIsYoutubeActive(initialState);
+      expect(isYoutubeActive).to.equal(true);
+    });
+
+    it('should select soundcloud is active', () => {
+      const data = { url: 'https://soundcloud.com/abc/123' };
+      const stubPost = { data };
+
+      initialState.player.currentPost = stubPost;
+      const isSoundcloudActive = selectIsSoundcloudActive(initialState);
+      expect(isSoundcloudActive).to.equal(true);
+    });
+
+    it('should select inactive state', () => {
+      expect(selectIsYoutubeActive(initialState)).to.equal(false);
+      expect(selectIsSoundcloudActive(initialState)).to.equal(false);
+    });
   });
 
   describe('initial state', () => {
