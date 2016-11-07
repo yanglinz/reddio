@@ -3,7 +3,7 @@ import { combineEpics } from 'redux-observable';
 
 import { REDDIT_ACTIONS } from 'reddit/constants';
 import { PLAYER_ACTIONS } from 'player/constants';
-import { load, play, pause } from 'player/controls';
+import { load, getEvents$, play, pause } from 'player/controls';
 
 export function loadIframeEpic() {
   const init$ = Rx.Observable
@@ -12,6 +12,17 @@ export function loadIframeEpic() {
     .map(() => ({ type: PLAYER_ACTIONS.LOAD_IFRAME_DONE }))
     .catch(() => ({ type: PLAYER_ACTIONS.LOAD_IFRAME_FAIL }));
   return init$.concat(load$);
+}
+
+export function eventsEpic(action$) {
+  return action$
+    .ofType(PLAYER_ACTIONS.LOAD_IFRAME_DONE)
+    .mergeMap(() => (
+      Rx.Observable
+        .fromPromise(getEvents$())
+        .mergeMap(events => events)
+        .map(event => ({ type: PLAYER_ACTIONS.ON_EVENT, payload: event }))
+    ));
 }
 
 export function playEpic(actions$) {
@@ -36,6 +47,7 @@ export function pauseEpic(actions$) {
 
 const redditEpic = combineEpics(
   loadIframeEpic,
+  eventsEpic,
   playEpic,
   pauseEpic,
 );

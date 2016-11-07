@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import Rx from 'rxjs/Rx';
 
 import * as utilities from 'core/utilities';
 
@@ -114,16 +115,21 @@ function getErrorEvent(name, event) {
   return { target: name, error };
 }
 
-export function listen(name, callback) {
+export function getEvents$(name) {
   return loadCachedPlayer(name)
     .then((player) => {
       const onStateChange = 'onStateChange';
-      player.addEventListener(
-        onStateChange, e => callback(getStateChangeEvent(name, e)));
-
       const onError = 'onError';
-      player.addEventListener(
-        onError, e => callback(getErrorEvent(name, e)));
+
+      const stateChanges$ = Rx.Observable.create(
+        observer => player.addEventListener(onStateChange, e => observer.next(e)));
+      const errors$ = Rx.Observable.create(
+        observer => player.addEventListener(onError, e => observer.next(e)));
+
+      return Rx.Observable.merge(
+        stateChanges$.map(getStateChangeEvent.bind(null, name)),
+        errors$.map(getErrorEvent.bind(null, name)),
+      );
     });
 }
 

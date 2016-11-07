@@ -1,13 +1,19 @@
 import _ from 'lodash';
 
+export const PLAYER_TARGETS = {
+  YOUTUBE: 'youtube',
+  SOUNDCLOUD: 'soundcloud',
+};
+
 /**
  * Define player state that represent the current state of the iframe players
  */
 const _PLAYER_STATES = [
   'LOADING',
-  'READY',
-  'PAUSED',
+  'LOADED',
   'PLAYING',
+  'PAUSED',
+  'ENDED',
 ];
 
 export const PLAYER_STATES = _.zipObject(_PLAYER_STATES, _PLAYER_STATES);

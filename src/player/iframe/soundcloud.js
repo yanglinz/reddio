@@ -1,4 +1,5 @@
 import _ from 'lodash';
+import Rx from 'rxjs/Rx';
 
 import * as utilities from 'core/utilities';
 
@@ -56,21 +57,74 @@ export function load(name, params) {
   return loadPlayer(name, params);
 }
 
-export function listen(name, callback) {
-  _.noop(name, callback);
+const PLAYER_EVENTS = {
+  PLAY: 'play',
+  PAUSE: 'pause',
+  FINISH: 'finish',
+};
+
+const PLAYER_STATES = {
+  PLAYING: 'PLAYING',
+  PAUSED: 'PAUSED',
+  ENDED: 'ENDED',
+};
+
+export function getPlayEvent(name, event) {
+  return {
+    target: name,
+    state: PLAYER_STATES.PLAYING,
+    metadata: event,
+  };
+}
+
+export function getPauseEvent(name, event) {
+  return {
+    target: name,
+    state: PLAYER_STATES.PAUSED,
+    metadata: event,
+  };
+}
+
+export function getFinishEvent(name, event) {
+  return {
+    target: name,
+    state: PLAYER_STATES.ENDED,
+    metadata: event,
+  };
+}
+
+export function getEvents$(name) {
+  return loadPlayer(name)
+    .then((player) => {
+      const play$ = Rx.Observable.create(
+        observer => player.bind(PLAYER_EVENTS.PLAY, e => observer.next(e)));
+      const pause$ = Rx.Observable.create(
+        observer => player.bind(PLAYER_EVENTS.PAUSE, e => observer.next(e)));
+      const finish$ = Rx.Observable.create(
+        observer => player.bind(PLAYER_EVENTS.FINISH, e => observer.next(e)));
+
+      return Rx.Observable.merge(
+        play$.map(getPlayEvent.bind(null, name)),
+        pause$.map(getPauseEvent.bind(null, name)),
+        finish$.map(getFinishEvent.bind(null, name)),
+      );
+    });
 }
 
 export function play(name, url) {
-  loadPlayer(name).then((player) => {
-    const options = { callback: () => player.play() };
-    player.load(url, options);
-  });
+  return loadPlayer(name)
+    .then((player) => {
+      const options = { callback: () => player.play() };
+      player.load(url, options);
+    });
 }
 
 export function pause(name) {
-  loadPlayer(name).then(player => player.pause());
+  return loadPlayer(name)
+    .then(player => player.pause());
 }
 
 export function unpause(name) {
-  loadPlayer(name).then(player => player.play());
+  return loadPlayer(name)
+    .then(player => player.play());
 }

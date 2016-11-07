@@ -1,3 +1,5 @@
+import Rx from 'rxjs/Rx';
+
 import * as youtube from 'player/iframe/youtube';
 import * as soundcloud from 'player/iframe/soundcloud';
 
@@ -46,9 +48,13 @@ export function load() {
   ]);
 }
 
-export function listen(callback) {
-  youtube.listen(YOUTUBE_MOUNT, callback);
-  soundcloud.listen(SOUNDCLOUD_MOUNT, callback);
+export function getEvents$() {
+  const youtubeEvents$ = youtube.getEvents$(YOUTUBE_MOUNT);
+  const soundcloudEvents$ = soundcloud.getEvents$(SOUNDCLOUD_MOUNT);
+  return Promise.all([youtubeEvents$, soundcloudEvents$])
+    .then(([ytEvents$, scEvents$]) => (
+      Rx.Observable.merge(ytEvents$, scEvents$)
+    ));
 }
 
 export function pause() {
