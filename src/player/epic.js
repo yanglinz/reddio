@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import Rx from 'rxjs/Rx';
 import { combineEpics } from 'redux-observable';
 
@@ -31,6 +30,14 @@ export function hideIframesEpic(action$, store) {
   const activeClassName = 'active';
   const inactiveClassName = 'inactive';
 
+  const activate = el => el.classList
+    .add(activeClassName)
+    .remove(inactiveClassName);
+
+  const deactivate = el => el.classList
+    .add(inactiveClassName)
+    .remove(activeClassName);
+
   const stateChange$ = action$
     .ofType(PLAYER_ACTIONS.ON_EVENT)
     .map(() => store.getState());
@@ -38,22 +45,22 @@ export function hideIframesEpic(action$, store) {
   const youtubeActive$ = stateChange$
     .filter(selectIsYoutubeActive)
     .map(() => document.getElementById(PLAYER_TARGETS.YOUTUBE))
-    .map((el) => el.className = activeClassName);
+    .map(activate);
 
   const youtubeInactive$ = stateChange$
-    .filter((state) => !selectIsYoutubeActive(state))
+    .filter(state => !selectIsYoutubeActive(state))
     .map(() => document.getElementById(PLAYER_TARGETS.YOUTUBE))
-    .map((el) => el.className = inactiveClassName);
+    .map(deactivate);
 
   const soundcloudActive$ = stateChange$
     .filter(selectIsSoundcloudActive)
     .map(() => document.getElementById(PLAYER_TARGETS.SOUNDCLOUD))
-    .map((el) => el.className = activeClassName);
+    .map(activate);
 
   const soundcloudInactive$ = stateChange$
-    .filter((state) => !selectIsSoundcloudActive(state))
+    .filter(state => !selectIsSoundcloudActive(state))
     .map(() => document.getElementById(PLAYER_TARGETS.SOUNDCLOUD))
-    .map((el) => el.className = inactiveClassName);
+    .map(deactivate);
 
   return Rx.Observable.merge(
     youtubeActive$,
