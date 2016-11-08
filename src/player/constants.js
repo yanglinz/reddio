@@ -30,6 +30,7 @@ const _PLAYER_ACTIONS = [
   'PAUSE_COMMAND',
   'PAUSING',
   'ON_EVENT',
+  'NOOP',
 ];
 
 export const PLAYER_ACTIONS = _.zipObject(_PLAYER_ACTIONS, _PLAYER_ACTIONS);
