@@ -30,13 +30,15 @@ export function hideIframesEpic(action$, store) {
   const activeClassName = 'active';
   const inactiveClassName = 'inactive';
 
-  const activate = el => el.classList
-    .add(activeClassName)
-    .remove(inactiveClassName);
+  const activate = el => {
+    el.classList.add(activeClassName);
+    el.classList.remove(inactiveClassName);
+  }
 
-  const deactivate = el => el.classList
-    .add(inactiveClassName)
-    .remove(activeClassName);
+  const deactivate = el => {
+    el.classList.add(inactiveClassName);
+    el.classList.remove(activeClassName);
+  }
 
   const stateChange$ = action$
     .ofType(PLAYER_ACTIONS.ON_EVENT)
