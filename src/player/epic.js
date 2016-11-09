@@ -2,7 +2,8 @@ import Rx from 'rxjs/Rx';
 import { combineEpics } from 'redux-observable';
 
 import { REDDIT_ACTIONS } from 'reddit/constants';
-import { PLAYER_ACTIONS } from 'player/constants';
+import { PLAYER_TARGETS, PLAYER_ACTIONS } from 'player/constants';
+import { selectIsYoutubeActive, selectIsSoundcloudActive } from 'player/reducer';
 import { load, getEvents$, play, pause } from 'player/controls';
 
 export function loadIframeEpic() {
@@ -23,6 +24,52 @@ export function eventsEpic(action$) {
         .mergeMap(events => events)
         .map(event => ({ type: PLAYER_ACTIONS.ON_EVENT, payload: event }))
     ));
+}
+
+export function hideIframesEpic(action$, store) {
+  const activeClassName = 'active';
+  const inactiveClassName = 'inactive';
+
+  const activate = (el) => {
+    el.classList.add(activeClassName);
+    el.classList.remove(inactiveClassName);
+  };
+
+  const deactivate = (el) => {
+    el.classList.add(inactiveClassName);
+    el.classList.remove(activeClassName);
+  };
+
+  const stateChange$ = action$
+    .ofType(PLAYER_ACTIONS.ON_EVENT)
+    .map(() => store.getState());
+
+  const youtubeActive$ = stateChange$
+    .filter(selectIsYoutubeActive)
+    .map(() => document.getElementById(PLAYER_TARGETS.YOUTUBE))
+    .map(activate);
+
+  const youtubeInactive$ = stateChange$
+    .filter(state => !selectIsYoutubeActive(state))
+    .map(() => document.getElementById(PLAYER_TARGETS.YOUTUBE))
+    .map(deactivate);
+
+  const soundcloudActive$ = stateChange$
+    .filter(selectIsSoundcloudActive)
+    .map(() => document.getElementById(PLAYER_TARGETS.SOUNDCLOUD))
+    .map(activate);
+
+  const soundcloudInactive$ = stateChange$
+    .filter(state => !selectIsSoundcloudActive(state))
+    .map(() => document.getElementById(PLAYER_TARGETS.SOUNDCLOUD))
+    .map(deactivate);
+
+  return Rx.Observable.merge(
+    youtubeActive$,
+    youtubeInactive$,
+    soundcloudActive$,
+    soundcloudInactive$,
+  ).mapTo({ type: PLAYER_ACTIONS.NOOP });
 }
 
 export function playEpic(actions$) {
@@ -48,6 +95,7 @@ export function pauseEpic(actions$) {
 const redditEpic = combineEpics(
   loadIframeEpic,
   eventsEpic,
+  hideIframesEpic,
   playEpic,
   pauseEpic,
 );

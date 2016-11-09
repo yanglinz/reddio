@@ -1,5 +1,7 @@
 import _ from 'lodash';
 
+import { isYoutube } from 'player/iframe/youtube';
+import { isSoundcloud } from 'player/iframe/soundcloud';
 import { PLAYER_TARGETS, PLAYER_STATES, PLAYER_ACTIONS } from 'player/constants';
 
 /**
@@ -17,6 +19,20 @@ export function initialState() {
     shuffledQueue: [],
     history: [],
   };
+}
+
+export function selectIsYoutubeActive(state) {
+  const { currentPost } = state.player;
+  return currentPost
+    ? isYoutube(currentPost.data.url)
+    : false;
+}
+
+export function selectIsSoundcloudActive(state) {
+  const { currentPost } = state.player;
+  return currentPost
+    ? isSoundcloud(currentPost.data.url)
+    : false;
 }
 
 function reduceSetReady(state) {
