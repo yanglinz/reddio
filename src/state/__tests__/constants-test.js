@@ -5,12 +5,15 @@ import { EVENTS, PLAYER_STATES } from '../constants';
 
 describe('state constants', () => {
   describe('events', () => {
+    const whitelist = ['ROUTER_LOCATION_CHANGE'];
+    const events = _.omit(EVENTS, whitelist);
+
     it('should have the same key and value', () => {
-      _.each(EVENTS, (v, k) => expect(k).to.equal(v));
+      _.each(events, (v, k) => expect(k).to.equal(v));
     });
 
     it('should have unique keys', () => {
-      expect(_.keys(EVENTS)).to.deep.equal(_.uniq(_.keys(EVENTS)));
+      expect(_.keys(events)).to.deep.equal(_.uniq(_.keys(events)));
     });
   });
 

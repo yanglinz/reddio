@@ -2,6 +2,7 @@
  * Application event name constants
  */
 export const EVENTS = {
+  ROUTER_LOCATION_CHANGE: '@@router/LOCATION_CHANGE',
   LOAD_IFRAME: 'LOAD_IFRAME',
   LOAD_IFRAME_DONE: 'LOAD_IFRAME_DONE',
   LOAD_IFRAME_FAIL: 'LOAD_IFRAME_FAIL',

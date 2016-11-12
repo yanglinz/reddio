@@ -4,11 +4,9 @@ import { combineEpics } from 'redux-observable';
 import { EVENTS } from 'state/constants';
 import * as api from 'reddit/api';
 
-const ROUTER_LOCATION_CHANGE = '@@router/LOCATION_CHANGE';
-
 export function requestPostsEpic(actions$) {
   return actions$
-    .ofType(ROUTER_LOCATION_CHANGE)
+    .ofType(EVENTS.ROUTER_LOCATION_CHANGE)
     .filter(action => action.payload.pathname !== '/')
     .map(action => ({
       type: EVENTS.REQUEST_POSTS,
