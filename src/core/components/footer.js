@@ -1,6 +1,6 @@
 import React from 'react';
 
-import settings from 'core/settings';
+import settings from 'settings';
 
 function Footer() {
   return (

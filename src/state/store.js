@@ -2,7 +2,7 @@ import { applyMiddleware, createStore } from 'redux';
 import createLogger from 'redux-logger';
 import { createEpicMiddleware } from 'redux-observable';
 
-import settings from 'core/settings';
+import settings from 'settings';
 import { rootReducer } from './reducer';
 import rootEpic from './epic';
 

@@ -3,7 +3,7 @@ import 'babel-polyfill';
 import 'services/analytics/segment';
 import 'services/analytics/sentry';
 import './core/styles/main.scss';
-import { initialize } from './core/entry';
+import { initialize } from './entry';
 
 const mountId = 'app';
 initialize(mountId);

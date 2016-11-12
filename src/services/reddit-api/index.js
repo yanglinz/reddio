@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import settings from 'core/settings';
+import settings from 'settings';
 
 export function getListing(pathname, query) {
   const req = {

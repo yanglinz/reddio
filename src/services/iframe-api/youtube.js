@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import Rx from 'rxjs/Rx';
 
-import * as utilities from 'core/utilities';
+import * as utilities from 'services/utilities';
 
 const youtubeHost = 'youtube.com';
 const youtubeShortHost = 'youtu.be';

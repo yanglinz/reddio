@@ -1,10 +1,10 @@
 import _ from 'lodash';
 import Rx from 'rxjs/Rx';
 
-import * as utilities from 'core/utilities';
+import { parseUrl } from 'services/utilities';
 
 export function isSoundcloud(url) {
-  const urlComponents = utilities.parseUrl(url);
+  const urlComponents = parseUrl(url);
   const soundcloudHost = 'soundcloud.com';
   return _.includes(urlComponents.hostname, soundcloudHost);
 }
