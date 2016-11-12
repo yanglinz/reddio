@@ -7,7 +7,7 @@ import store from 'core/store';
 import Home from 'core/components/home';
 import Footer from 'core/components/footer';
 import Posts from 'reddit/components/posts';
-import Player from 'player/components/player';
+import PlayerContainer from 'player/containers/player';
 
 function history() {
   return syncHistoryWithStore(browserHistory, store);
@@ -19,7 +19,7 @@ function RouteRoot(props) {
       <h1>Reddio</h1>
       {props.children}
       <Footer />
-      <Player />
+      <PlayerContainer />
     </div>
   );
 }

@@ -2,8 +2,10 @@
 
 const storybook = require('@kadira/storybook');
 
+const context = require.context('../src', true, /\.story\.jsx?$/);
+
 function loadStories() {
-  require('../src/core/components/.storybook/footer.story.jsx');
+  context.keys().forEach(context);
 }
 
 storybook.configure(loadStories, module);

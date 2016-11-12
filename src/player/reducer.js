@@ -35,6 +35,16 @@ export function selectIsSoundcloudActive(state) {
     : false;
 }
 
+export function selectIsPlaying(state) {
+  const youtubeState = state.player.currentState[PLAYER_TARGETS.YOUTUBE];
+  const youtubePlaying = youtubeState === PLAYER_STATES.PLAYING;
+
+  const soundcloudState = state.player.currentState[PLAYER_TARGETS.SOUNDCLOUD];
+  const soundcloudPlaying = soundcloudState === PLAYER_STATES.PLAYING;
+
+  return youtubePlaying || soundcloudPlaying;
+}
+
 function reduceSetReady(state) {
   const currentState = {
     [PLAYER_TARGETS.YOUTUBE]: PLAYER_STATES.LOADED,

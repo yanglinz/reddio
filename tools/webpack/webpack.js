@@ -84,13 +84,22 @@ function sassConfig(target) {
   return target === TARGET_BUILD ? { module: modules, plugins } : { module: modules };
 }
 
-function imageConfig() {
+function rasterImageConfig() {
   const imageLoader = {
-    test: /.\.(gif|png|jpe?g|svg)$/,
-    exclude: /node_modules/,
+    test: /.\.(gif|png|jpe?g)$/,
     loader: 'url?limit=10000&name=[path][name]-[hash].[ext]',
   };
   const loaders = [imageLoader];
+  const modules = { loaders };
+  return { module: modules };
+}
+
+function svgConfig() {
+  const svgLoader = {
+    test: /.\.svg$/,
+    loader: 'svg-inline',
+  };
+  const loaders = [svgLoader];
   const modules = { loaders };
   return { module: modules };
 }
@@ -158,7 +167,8 @@ function webpackConfig(target) {
     htmlEntryConfig,
     babelConfig,
     sassConfig,
-    imageConfig,
+    rasterImageConfig,
+    svgConfig,
     environmentConfig,
     vendorBundleConfig,
     productionBundleConfig,

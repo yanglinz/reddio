@@ -57,8 +57,8 @@ export function loadCachedAPI() {
 
 export function playerParameters(overrides) {
   const videoId = '3lSDU48Pr_Q';
-  const height = '390';
-  const width = '640';
+  const height = '100%';
+  const width = '100%';
   const params = { videoId, height, width };
   return _.defaults({}, params, overrides);
 }
