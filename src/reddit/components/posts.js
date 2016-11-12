@@ -2,7 +2,7 @@ import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
 
-import * as reducer from '../reducer';
+import * as reducer from 'state/reddit/reducer';
 import * as validation from './.validation';
 import Post from './post';
 import PostNavigation from './posts-nav';
