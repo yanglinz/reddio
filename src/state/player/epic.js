@@ -2,7 +2,7 @@ import Rx from 'rxjs/Rx';
 import { combineEpics } from 'redux-observable';
 
 import { PLAYER_TARGETS, EVENTS } from 'state/constants';
-import { selectIsYoutubeActive, selectIsSoundcloudActive } from 'player/reducer';
+import { selectIsYoutubeActive, selectIsSoundcloudActive } from 'state/player/reducer';
 import { load, getEvents$, play, pause } from 'player/controls';
 
 export function loadIframeEpic() {

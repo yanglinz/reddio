@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import * as actions from 'player/actions';
-import { selectIsPlaying } from 'player/reducer';
+import * as actions from 'state/player/actions';
+import { selectIsPlaying } from 'state/player/reducer';
 import Player from 'player/components/player';
 
 function stateToProps(state) {

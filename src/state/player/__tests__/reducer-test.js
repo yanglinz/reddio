@@ -7,7 +7,7 @@ import {
   selectIsYoutubeActive,
   selectIsSoundcloudActive,
   playerReducer,
-} from 'player/reducer';
+} from '../reducer';
 
 describe('player reducer', () => {
   let initialState;
