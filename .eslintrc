@@ -16,6 +16,7 @@
         - "!src/**"
         - "**/__tests__/**"
         - "**/__stories__/**"
+    import/prefer-default-export: off
     new-cap: off
     no-underscore-dangle: off
     react/jsx-filename-extension: off
