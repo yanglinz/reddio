@@ -7,12 +7,11 @@ const { jake, task, desc, complete } = global;
 const BIN = path.join(__dirname, 'node_modules/.bin');
 const FIREBASE = path.join(BIN, 'firebase');
 const WEBPACK = path.join(BIN, 'webpack');
-const WEBPACK_DEV_SERVER = path.join(BIN, 'webpack-dev-server');
 
 const execOptions = {
   interactive: true,
   printStdout: true,
-  printStderr: true
+  printStderr: true,
 };
 
 desc('Build deploy artifact');
