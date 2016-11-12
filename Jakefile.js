@@ -9,7 +9,11 @@ const FIREBASE = path.join(BIN, 'firebase');
 const WEBPACK = path.join(BIN, 'webpack');
 const WEBPACK_DEV_SERVER = path.join(BIN, 'webpack-dev-server');
 
-const execOptions = { interactive: true, printStdout: true, printStderr: true };
+const execOptions = {
+  interactive: true,
+  printStdout: true,
+  printStderr: true
+};
 
 desc('Build deploy artifact');
 task('build', [], () => {
@@ -17,14 +21,6 @@ task('build', [], () => {
     ? `set NODE_ENV=production&&${WEBPACK} --progress&&set NODE_ENV=`
     : `NODE_ENV=production ${WEBPACK} --progress`;
   const cmds = [buildCmd];
-  jake.exec(cmds, execOptions, complete);
-});
-
-desc('Run webpack in watch mode');
-task('watch', [], () => {
-  const cmds = [
-    `${WEBPACK_DEV_SERVER} --inline --hot --config webpack.watch.config`,
-  ];
   jake.exec(cmds, execOptions, complete);
 });
 

@@ -6,14 +6,15 @@
   "scripts": {
     "postinstall": "webdriver-manager update",
     "build": "jake build",
-    "start": "jake watch",
+    "start": "webpack-dev-server",
+    "watch": "webapck-dev-server --inline --hot --config webpack.watch.config",
     "storybook": "start-storybook -p 9001",
     "lint": "eslint --ext .js,.jsx . **/.storybook/**",
     "test": "karma start --single-run",
     "test-watch": "karma start",
     "test-e2e": "protractor protractor.conf.js",
     "deploy": "jake deploy",
-    "clean": "rimraf dist/*"
+    "clean": "rimraf dist"
   },
   "repository": {
     "type": "git",
