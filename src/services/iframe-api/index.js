@@ -1,7 +1,7 @@
 import Rx from 'rxjs/Rx';
 
-import * as youtube from 'player/iframe/youtube';
-import * as soundcloud from 'player/iframe/soundcloud';
+import * as youtube from './youtube';
+import * as soundcloud from './soundcloud';
 
 const PARENT_MOUNT = 'player';
 const YOUTUBE_MOUNT = 'youtube';
