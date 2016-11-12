@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { expect } from 'chai';
 
-import { REDDIT_ACTIONS } from 'reddit/constants';
+import { EVENTS } from 'state/constants';
 import { configureStore } from 'core/store';
 import {
   selectBaseLink,
@@ -201,7 +201,7 @@ describe('reddit reducer', () => {
         data: { children: stubPosts },
       };
       const payload = { response: stubResponse };
-      const action = { type: REDDIT_ACTIONS.RECEIVE_POSTS, payload };
+      const action = { type: EVENTS.RECEIVE_POSTS, payload };
       const newState = redditReducer(initialRedditState, action);
 
       expect(newState.posts).to.deep.equal(stubPosts);
@@ -216,7 +216,7 @@ describe('reddit reducer', () => {
         data: { children: stubPosts },
       };
       const payload = { response: stubResponse };
-      const action = { type: REDDIT_ACTIONS.RECEIVE_POSTS, payload };
+      const action = { type: EVENTS.RECEIVE_POSTS, payload };
       const newState = redditReducer(initialRedditState, action);
 
       expect(newState.posts).to.deep.equal([].concat(initialPosts, stubPosts));

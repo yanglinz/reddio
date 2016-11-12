@@ -1,8 +1,8 @@
-import { REDDIT_ACTIONS } from 'reddit/constants';
+import { EVENTS } from 'state/constants';
 
 export function playCommand(post) {
   return {
-    type: REDDIT_ACTIONS.PLAY_COMMAND,
+    type: EVENTS.PLAY_COMMAND,
     payload: { post },
   };
 }

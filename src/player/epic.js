@@ -1,7 +1,6 @@
 import Rx from 'rxjs/Rx';
 import { combineEpics } from 'redux-observable';
 
-import { REDDIT_ACTIONS } from 'reddit/constants';
 import { PLAYER_TARGETS, EVENTS } from 'state/constants';
 import { selectIsYoutubeActive, selectIsSoundcloudActive } from 'player/reducer';
 import { load, getEvents$, play, pause } from 'player/controls';
@@ -74,7 +73,7 @@ export function hideIframesEpic(action$, store) {
 
 export function playEpic(actions$) {
   return actions$
-    .ofType(REDDIT_ACTIONS.PLAY_COMMAND)
+    .ofType(EVENTS.PLAY_COMMAND)
     .map((action) => {
       const { payload } = action;
       const { url } = payload.post.data;

@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-import { REDDIT_ACTIONS, REDDIT_SORT_TYPES } from 'reddit/constants';
+import { EVENTS, REDDIT_SORT_TYPES } from 'state/constants';
 
 export function initialState() {
   return {
@@ -82,7 +82,7 @@ const ROUTER_LOCATION_CHANGE = '@@router/LOCATION_CHANGE';
 
 const reducerByAction = {
   [ROUTER_LOCATION_CHANGE]: reduceRouteChange,
-  [REDDIT_ACTIONS.RECEIVE_POSTS]: reduceReceivePosts,
+  [EVENTS.RECEIVE_POSTS]: reduceReceivePosts,
 };
 
 export function redditReducer(state = initialState(), action) {

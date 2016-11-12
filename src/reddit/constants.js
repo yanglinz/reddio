@@ -1,16 +1,6 @@
 import _ from 'lodash';
 
 /**
- * Define pre-selected list of subreddits
- */
-export const SUBREDDITS = {
-  listentothis: {
-    name: 'Listen to This',
-    url: 'https://www.reddit.com/r/listentothis',
-  },
-};
-
-/**
  * Define reddit posts sort types
  */
 const _REDDIT_SORT_TYPES = [
