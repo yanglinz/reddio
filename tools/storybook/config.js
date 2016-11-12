@@ -2,7 +2,7 @@
 
 const storybook = require('@kadira/storybook');
 
-const context = require.context('../src', true, /\.story\.jsx?$/);
+const context = require.context('../../src', true, /\.story\.jsx?$/);
 
 function loadStories() {
   context.keys().forEach(context);
