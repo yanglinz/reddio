@@ -10,9 +10,16 @@
     jasmine: true
     mocha: true
   rules:
-    new-cap: 0
-    no-underscore-dangle: 0
-    import/extensions: 0
-    import/prefer-default-export: 0
-    import/no-unresolved: 0
-    import/no-extraneous-dependencies: 0
+    import/no-extraneous-dependencies:
+      - error
+      - devDependencies:
+        - "!src/**"
+        - "**/__tests__/**"
+        - "**/__stories__/**"
+    new-cap: off
+    no-underscore-dangle: off
+    react/jsx-filename-extension: off
+  settings:
+    import/resolver:
+      webpack:
+        config: "webpack.config.js"
