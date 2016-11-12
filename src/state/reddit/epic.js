@@ -2,7 +2,7 @@ import Rx from 'rxjs/Rx';
 import { combineEpics } from 'redux-observable';
 
 import { EVENTS } from 'state/constants';
-import * as api from 'reddit/api';
+import * as api from 'services/reddit-api';
 
 export function requestPostsEpic(actions$) {
   return actions$
