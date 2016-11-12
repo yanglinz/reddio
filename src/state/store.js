@@ -2,9 +2,9 @@ import { applyMiddleware, createStore } from 'redux';
 import createLogger from 'redux-logger';
 import { createEpicMiddleware } from 'redux-observable';
 
-import { rootReducer } from 'core/reducer';
-import rootEpic from 'core/epic';
-import settings from 'core/settings';
+import settings from 'settings';
+import { rootReducer } from './reducer';
+import rootEpic from './epic';
 
 export function isLoggerEnabled() {
   const isLocal = !settings.IS_PROD;

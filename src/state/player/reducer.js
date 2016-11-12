@@ -1,7 +1,7 @@
 import _ from 'lodash';
 
-import { isYoutube } from 'player/iframe/youtube';
-import { isSoundcloud } from 'player/iframe/soundcloud';
+import { isYoutube } from 'services/iframe-api/youtube';
+import { isSoundcloud } from 'services/iframe-api/soundcloud';
 import { PLAYER_TARGETS, PLAYER_STATES, EVENTS } from 'state/constants';
 
 /**

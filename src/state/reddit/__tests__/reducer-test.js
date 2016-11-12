@@ -2,7 +2,7 @@ import _ from 'lodash';
 import { expect } from 'chai';
 
 import { EVENTS } from 'state/constants';
-import { configureStore } from 'core/store';
+import { configureStore } from 'state/store';
 import {
   selectBaseLink,
   selectHotLink,

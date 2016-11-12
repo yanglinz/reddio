@@ -2,12 +2,12 @@ import _ from 'lodash';
 import { expect } from 'chai';
 
 import { PLAYER_TARGETS, PLAYER_STATES, EVENTS } from 'state/constants';
-import { configureStore } from 'core/store';
+import { configureStore } from 'state/store';
 import {
   selectIsYoutubeActive,
   selectIsSoundcloudActive,
   playerReducer,
-} from 'player/reducer';
+} from '../reducer';
 
 describe('player reducer', () => {
   let initialState;

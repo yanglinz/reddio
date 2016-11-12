@@ -1,6 +1,6 @@
 import { expect } from 'chai';
 
-import * as utilities from '../utilities';
+import * as utilities from '../index';
 
 describe('utility functions', () => {
   it('should parse urls', () => {

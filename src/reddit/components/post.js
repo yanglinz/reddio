@@ -1,14 +1,13 @@
 import React from 'react';
-import * as actions from 'reddit/actions';
+import { playCommand } from 'state/reddit/actions';
 
 import * as validation from './.validation';
 
 function Post(props) {
   const { post, dispatch } = props;
-  const playCommand = dispatch.bind(null, actions.playCommand(post));
   return (
     <div>
-      <button onClick={playCommand}>play</button>
+      <button onClick={() => dispatch(playCommand(post))}>play</button>
       <p>{post.data.title}</p>
     </div>
   );
