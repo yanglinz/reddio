@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { expect } from 'chai';
 
-import { PLAYER_TARGETS, PLAYER_STATES, PLAYER_ACTIONS } from 'player/constants';
+import { PLAYER_TARGETS, PLAYER_STATES, EVENTS } from 'state/constants';
 import { configureStore } from 'core/store';
 import {
   selectIsYoutubeActive,
@@ -62,7 +62,7 @@ describe('player reducer', () => {
 
   describe('set ready reducer', () => {
     it('should set current state to loaded', () => {
-      const action = { type: PLAYER_ACTIONS.LOAD_IFRAME_DONE };
+      const action = { type: EVENTS.LOAD_IFRAME_DONE };
       const newState = playerReducer(initialPlayerState, action);
 
       const expectedCurrentState = {
@@ -77,7 +77,7 @@ describe('player reducer', () => {
     it('should set current post', () => {
       const stubPost = { foo: 'bar' };
       const payload = { post: stubPost };
-      const action = { type: PLAYER_ACTIONS.PLAY_COMMAND, payload };
+      const action = { type: EVENTS.PLAY_COMMAND, payload };
       const newState = playerReducer(initialPlayerState, action);
 
       const expectedNewState = _.assign({}, initialPlayerState, {
@@ -99,7 +99,7 @@ describe('player reducer', () => {
       const target = PLAYER_TARGETS.YOUTUBE;
       const state = PLAYER_STATES.PLAYING;
       const payload = { target, state };
-      const action = { type: PLAYER_ACTIONS.ON_EVENT, payload };
+      const action = { type: EVENTS.ON_EVENT, payload };
       const newState = playerReducer(initialPlayerState, action);
 
       const expectedNewState = _.assign({}, initialPlayerState, {
@@ -115,7 +115,7 @@ describe('player reducer', () => {
       const target = PLAYER_TARGETS.SOUNDCLOUD;
       const state = PLAYER_STATES.PLAYING;
       const payload = { target, state };
-      const action = { type: PLAYER_ACTIONS.ON_EVENT, payload };
+      const action = { type: EVENTS.ON_EVENT, payload };
       const newState = playerReducer(initialPlayerState, action);
 
       const expectedNewState = _.assign({}, initialPlayerState, {
