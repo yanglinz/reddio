@@ -2,7 +2,7 @@ import _ from 'lodash';
 
 import { isYoutube } from 'player/iframe/youtube';
 import { isSoundcloud } from 'player/iframe/soundcloud';
-import { PLAYER_TARGETS, PLAYER_STATES, PLAYER_ACTIONS } from 'player/constants';
+import { PLAYER_TARGETS, PLAYER_STATES, EVENTS } from 'state/constants';
 
 /**
  * Get initial player state
@@ -66,9 +66,9 @@ function reduceCurrentState(state, action) {
 }
 
 const reducerByAction = {
-  [PLAYER_ACTIONS.LOAD_IFRAME_DONE]: reduceSetReady,
-  [PLAYER_ACTIONS.PLAY_COMMAND]: reduceCurrentPost,
-  [PLAYER_ACTIONS.ON_EVENT]: reduceCurrentState,
+  [EVENTS.LOAD_IFRAME_DONE]: reduceSetReady,
+  [EVENTS.PLAY_COMMAND]: reduceCurrentPost,
+  [EVENTS.ON_EVENT]: reduceCurrentState,
 };
 
 export function playerReducer(state = initialState(), action) {

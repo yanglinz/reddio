@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { expect } from 'chai';
 
-import { REDDIT_ACTIONS } from 'reddit/constants';
+import { EVENTS } from 'state/constants';
 import { configureStore } from 'core/store';
 import {
   selectBaseLink,
@@ -127,13 +127,11 @@ describe('reddit reducer', () => {
   });
 
   describe('route change reducer', () => {
-    const ROUTER_LOCATION_CHANGE = '@@router/LOCATION_CHANGE';
-
     it('should set new pathname and query', () => {
       const pathname = '/r/listentothis/hot';
       const query = null;
       const payload = { pathname, query };
-      const action = { type: ROUTER_LOCATION_CHANGE, payload };
+      const action = { type: EVENTS.ROUTER_LOCATION_CHANGE, payload };
       const newState = redditReducer(initialRedditState, action);
 
       expect(newState).to.deep.equal(_.assign({}, initialRedditState, {
@@ -149,7 +147,7 @@ describe('reddit reducer', () => {
       const pathname = '/r/music/hot';
       const query = null;
       const payload = { pathname, query };
-      const action = { type: ROUTER_LOCATION_CHANGE, payload };
+      const action = { type: EVENTS.ROUTER_LOCATION_CHANGE, payload };
       const newState = redditReducer(initialRedditState, action);
 
       expect(newState).to.deep.equal(_.assign({}, initialRedditState, {
@@ -167,7 +165,7 @@ describe('reddit reducer', () => {
       const pathname = '/r/listentothis/top';
       const query = { sort: 'top', t: 'day' };
       const payload = { pathname, query };
-      const action = { type: ROUTER_LOCATION_CHANGE, payload };
+      const action = { type: EVENTS.ROUTER_LOCATION_CHANGE, payload };
       const newState = redditReducer(initialRedditState, action);
 
       expect(newState).to.deep.equal(_.assign({}, initialRedditState, {
@@ -185,7 +183,7 @@ describe('reddit reducer', () => {
       const pathname = '/r/listentothis/top';
       const query = { sort: 'top', t: 'day' };
       const payload = { pathname, query };
-      const action = { type: ROUTER_LOCATION_CHANGE, payload };
+      const action = { type: EVENTS.ROUTER_LOCATION_CHANGE, payload };
       const newState = redditReducer(initialRedditState, action);
 
       expect(newState).to.deep.equal(_.assign({}, initialRedditState));
@@ -201,7 +199,7 @@ describe('reddit reducer', () => {
         data: { children: stubPosts },
       };
       const payload = { response: stubResponse };
-      const action = { type: REDDIT_ACTIONS.RECEIVE_POSTS, payload };
+      const action = { type: EVENTS.RECEIVE_POSTS, payload };
       const newState = redditReducer(initialRedditState, action);
 
       expect(newState.posts).to.deep.equal(stubPosts);
@@ -216,7 +214,7 @@ describe('reddit reducer', () => {
         data: { children: stubPosts },
       };
       const payload = { response: stubResponse };
-      const action = { type: REDDIT_ACTIONS.RECEIVE_POSTS, payload };
+      const action = { type: EVENTS.RECEIVE_POSTS, payload };
       const newState = redditReducer(initialRedditState, action);
 
       expect(newState.posts).to.deep.equal([].concat(initialPosts, stubPosts));

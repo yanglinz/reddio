@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall": "webdriver-manager update",
     "build": "jake build",
-    "start": "webpack-dev-server",
+    "start": "webpack-dev-server --config webpack.watch.config",
     "watch": "webapck-dev-server --inline --hot --config webpack.watch.config",
     "storybook": "start-storybook -p 9001 -c tools/storybook",
     "lint": "eslint .",

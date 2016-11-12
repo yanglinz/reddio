@@ -1,7 +1,7 @@
-import { PLAYER_ACTIONS } from 'player/constants';
+import { EVENTS } from 'state/constants';
 
 export function pauseCommand() {
   return {
-    type: PLAYER_ACTIONS.PAUSE_COMMAND,
+    type: EVENTS.PAUSE_COMMAND,
   };
 }
