@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-function PostsNavigation(props) {
+function ListingNavigation(props) {
   const {
     hotLink,
     newLink,
@@ -21,11 +21,11 @@ function PostsNavigation(props) {
   );
 }
 
-PostsNavigation.propTypes = {
+ListingNavigation.propTypes = {
   hotLink: React.PropTypes.string,
   newLink: React.PropTypes.string,
   risingLink: React.PropTypes.string,
   controversialLink: React.PropTypes.string,
 };
 
-module.exports = PostsNavigation;
+module.exports = ListingNavigation;
