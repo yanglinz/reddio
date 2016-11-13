@@ -31,7 +31,7 @@ function Post(props) {
   );
   const unplayablePost = (
     <div className={postClassName}>
-      <span>{post.data.title}</span>
+      <div>{post.data.title}</div>
     </div>
   );
 
