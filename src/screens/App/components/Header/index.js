@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-function Home() {
+function Header() {
   return (
-    <div className="home">
-      <h1>Home</h1>
+    <div className="Header">
+      <h1>Header</h1>
       <ul>
         <li><Link to="/">home</Link></li>
         <li><Link to="/r/listentothis">listentothis</Link></li>
@@ -14,4 +14,4 @@ function Home() {
   );
 }
 
-module.exports = Home;
+module.exports = Header;

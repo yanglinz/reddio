@@ -5,7 +5,7 @@ import playIcon from 'open-iconic/svg/media-play.svg';
 import pauseIcon from 'open-iconic/svg/media-pause.svg';
 import forwardIcon from 'open-iconic/svg/media-step-forward.svg';
 import backwardIcon from 'open-iconic/svg/media-step-backward.svg';
-import './controls.scss';
+import './index.scss';
 
 export function Controls(props) {
   const { isPlaying, pauseCommand } = props;

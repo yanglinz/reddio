@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import * as actions from 'state/player/actions';
 import { selectIsPlaying } from 'state/player/reducer';
-import Player from 'player/components/player';
+import Player from 'screens/App/components/Player';
 
 function stateToProps(state) {
   return {

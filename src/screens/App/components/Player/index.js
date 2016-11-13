@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Controls from './controls';
-import './player.scss';
+import Controls from './Controls';
+import './index.scss';
 
 export function Player(props) {
   return (

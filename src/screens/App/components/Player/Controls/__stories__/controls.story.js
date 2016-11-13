@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf, action } from '@kadira/storybook';
 import 'normalize.css';
 
-import Controls from '../controls';
+import Controls from '../index';
 
 const commands = {
   pauseCommand: action('pauseCommand'),
