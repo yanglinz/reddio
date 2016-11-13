@@ -1,9 +1,11 @@
 import React from 'react';
 
-function ListingScreen(props) {
+import PostsContainer from './components/PostsContainer';
+
+function ListingScreen() {
   return (
     <div className="ListingScreen">
-      <h1>ListingScreen</h1>
+      <PostsContainer />
     </div>
   );
 }

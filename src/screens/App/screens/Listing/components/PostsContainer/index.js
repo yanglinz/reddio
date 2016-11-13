@@ -1,11 +1,8 @@
-import _ from 'lodash';
 import React from 'react';
 import { connect } from 'react-redux';
 
 import * as reducer from 'state/reddit/reducer';
-import * as validation from './.validation';
-import Post from './post';
-import PostNavigation from './posts-nav';
+import Posts from '../Posts';
 
 function stateToProps(state) {
   return {
@@ -17,19 +14,15 @@ function stateToProps(state) {
   };
 }
 
-function Posts(props) {
-  const { posts } = props;
+function PostsContainer(props) {
   return (
-    <div>
-      <PostNavigation {...props} />
-      {_.map(posts, (post, i) => (
-        <Post key={i} {...props} post={post} />
-      ))}
+    <div className="PostsContainer">
+      <Posts {...props} />
     </div>
   );
 }
 
-Posts.propTypes = {
+PostsContainer.propTypes = {
   posts: React.PropTypes.arrayOf(React.PropTypes.shape({
     data: React.PropTypes.shape({
       id: React.PropTypes.string,
@@ -37,4 +30,4 @@ Posts.propTypes = {
   })),
 };
 
-module.exports = connect(stateToProps)(Posts);
+module.exports = connect(stateToProps)(PostsContainer);

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function HomeScreen(props) {
+function HomeScreen() {
   return (
     <div className="HomeScreen">
       <h1>HomeScreen</h1>
