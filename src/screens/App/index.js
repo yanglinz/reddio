@@ -1,8 +1,9 @@
 import React from 'react';
 
-import Footer from './components/Footer';
 import Header from './components/Header';
 import PlayerContainer from './components/PlayerContainer';
+import Footer from './components/Footer';
+import './styles/main.scss';
 
 function AppScreen(props) {
   return (
