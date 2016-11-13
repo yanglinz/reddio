@@ -1,17 +1,16 @@
 import React from 'react';
 
-// import Home from 'core/components/home';
-// import Footer from 'core/components/footer';
-// import Posts from 'reddit/components/posts';
-// import PlayerContainer from 'player/containers/player';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import PlayerContainer from './components/PlayerContainer';
 
 function AppScreen(props) {
   return (
     <div className="AppScreen">
-      <h1>AppScreen</h1>
+      <Header />
       {props.children}
-      {/*<Footer />*/}
-      {/*<PlayerContainer />*/}
+      <Footer />
+      <PlayerContainer />
     </div>
   );
 }
