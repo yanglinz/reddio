@@ -1,0 +1,7 @@
+.Post {
+  border-bottom: 1px solid #ddd;
+
+  &.is-unplayable {
+    background: #dddddd;
+  }
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import settings from 'settings';
+import './index.scss';
 
 function Footer() {
   return (
