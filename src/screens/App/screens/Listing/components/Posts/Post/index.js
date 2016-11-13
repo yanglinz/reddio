@@ -15,7 +15,11 @@ function Post(props) {
 
 Post.propTypes = {
   dispatch: React.PropTypes.func,
-  post: validation.postShape,
+  post: React.PropTypes.shape({
+    data: React.PropTypes.shape({
+      id: React.PropTypes.string
+    })
+  }),
 };
 
 module.exports = Post;
