@@ -3,6 +3,7 @@ import { expect } from 'chai';
 
 import { EVENTS } from 'state/constants';
 import { configureStore } from 'state/store';
+import * as actions from 'state/reddit/actions';
 import {
   selectBaseLink,
   selectHotLink,
@@ -198,10 +199,11 @@ describe('reddit reducer', () => {
       const stubResponse = {
         data: { children: stubPosts },
       };
-      const payload = { response: stubResponse };
-      const action = { type: EVENTS.RECEIVE_POSTS, payload };
-      const newState = redditReducer(initialRedditState, action);
+      const pathname = '/r/listentothis/top';
+      const query = { sort: 'top', t: 'day' };
+      const action = actions.receivePosts(pathname, query, stubResponse);
 
+      const newState = redditReducer(initialRedditState, action);
       expect(newState.posts).to.deep.equal(stubPosts);
     });
 
@@ -213,8 +215,9 @@ describe('reddit reducer', () => {
       const stubResponse = {
         data: { children: stubPosts },
       };
-      const payload = { response: stubResponse };
-      const action = { type: EVENTS.RECEIVE_POSTS, payload };
+      const pathname = '/r/listentothis/top';
+      const query = { sort: 'top', t: 'day' };
+      const action = actions.receivePosts(pathname, query, stubResponse);
       const newState = redditReducer(initialRedditState, action);
 
       expect(newState.posts).to.deep.equal([].concat(initialPosts, stubPosts));

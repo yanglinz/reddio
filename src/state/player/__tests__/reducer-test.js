@@ -3,6 +3,7 @@ import { expect } from 'chai';
 
 import { PLAYER_TARGETS, PLAYER_STATES, EVENTS } from 'state/constants';
 import { configureStore } from 'state/store';
+import * as actions from '../actions';
 import {
   selectIsYoutubeActive,
   selectIsSoundcloudActive,
@@ -76,8 +77,7 @@ describe('player reducer', () => {
   describe('set current post reducer', () => {
     it('should set current post', () => {
       const stubPost = { foo: 'bar' };
-      const payload = { post: stubPost };
-      const action = { type: EVENTS.PLAY_COMMAND, payload };
+      const action = actions.playCommand(stubPost);
       const newState = playerReducer(initialPlayerState, action);
 
       const expectedNewState = _.assign({}, initialPlayerState, {
@@ -98,8 +98,8 @@ describe('player reducer', () => {
     it('should set youtube state to playing', () => {
       const target = PLAYER_TARGETS.YOUTUBE;
       const state = PLAYER_STATES.PLAYING;
-      const payload = { target, state };
-      const action = { type: EVENTS.ON_EVENT, payload };
+      const event = { target, state };
+      const action = actions.onEvent(event);
       const newState = playerReducer(initialPlayerState, action);
 
       const expectedNewState = _.assign({}, initialPlayerState, {

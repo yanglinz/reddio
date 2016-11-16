@@ -2,15 +2,15 @@ import Rx from 'rxjs/Rx';
 import { combineEpics } from 'redux-observable';
 
 import { PLAYER_TARGETS, EVENTS } from 'state/constants';
+import * as actions from 'state/player/actions';
 import { selectIsYoutubeActive, selectIsSoundcloudActive } from 'state/player/reducer';
 import { load, getEvents$, play, pause } from 'services/iframe-api';
 
 export function loadIframeEpic() {
-  const init$ = Rx.Observable
-    .of({ type: EVENTS.LOAD_IFRAME });
+  const init$ = Rx.Observable.of(actions.loadIframe());
   const load$ = Rx.Observable.fromPromise(load())
-    .map(() => ({ type: EVENTS.LOAD_IFRAME_DONE }))
-    .catch(() => ({ type: EVENTS.LOAD_IFRAME_FAIL }));
+    .map(() => actions.loadIframeDone())
+    .catch(() => actions.loadIframeFail());
   return init$.concat(load$);
 }
 
@@ -21,7 +21,7 @@ export function eventsEpic(action$) {
       Rx.Observable
         .fromPromise(getEvents$())
         .mergeMap(events => events)
-        .map(event => ({ type: EVENTS.ON_EVENT, payload: event }))
+        .map(event => actions.onEvent(event))
     ));
 }
 
@@ -68,17 +68,16 @@ export function hideIframesEpic(action$, store) {
     youtubeInactive$,
     soundcloudActive$,
     soundcloudInactive$,
-  ).mapTo({ type: EVENTS.NOOP });
+  ).mapTo(actions.noop());
 }
 
 export function playEpic(actions$) {
   return actions$
     .ofType(EVENTS.PLAY_COMMAND)
     .map((action) => {
-      const { payload } = action;
-      const { url } = payload.post.data;
-      play(url);
-      return { type: EVENTS.PLAYING, payload };
+      const { post } = action.payload.action;
+      play(post.data.url);
+      return actions.playing(post);
     });
 }
 
@@ -87,7 +86,7 @@ export function pauseEpic(actions$) {
     .ofType(EVENTS.PAUSE_COMMAND)
     .map(() => {
       pause();
-      return { type: EVENTS.PAUSING };
+      return actions.pausing();
     });
 }
 
