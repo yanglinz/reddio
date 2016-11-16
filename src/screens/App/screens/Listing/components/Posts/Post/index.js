@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import React from 'react';
 import classNames from 'classnames';
 import { playCommand } from 'state/reddit/actions';
@@ -7,31 +6,31 @@ import { isSoundcloud } from 'services/iframe-api/soundcloud';
 import './index.scss';
 
 function Post(props) {
-  const { post, dispatch } = props;
+  const { post, posts, dispatch } = props;
 
-  const isSelfPost = !_.isEmpty(post.data.selftext_html);
   const isPlayableSource = (
-    isYoutube(post.data.url) ||
-    isSoundcloud(post.data.url)
+    isYoutube(post.url) ||
+    isSoundcloud(post.url)
   );
-  const isPlayable = !isSelfPost && isPlayableSource;
+  const isPlayable = !post.isSelf && isPlayableSource;
 
   const postClassName = classNames(
     'Post',
-    { 'is-selfPost': isSelfPost },
+    { 'is-selfPost': post.isSelf },
     { 'is-playable': isPlayable },
     { 'is-unplayable': !isPlayable },
   );
-
   const playablePost = (
     <div className={postClassName}>
-      <button onClick={() => dispatch(playCommand(post))}>play</button>
-      <div>{post.data.title}</div>
+      <button onClick={() => dispatch(playCommand(post, posts))}>
+        play
+      </button>
+      <div>{post.title}</div>
     </div>
   );
   const unplayablePost = (
     <div className={postClassName}>
-      <div>{post.data.title}</div>
+      <div>{post.title}</div>
     </div>
   );
 

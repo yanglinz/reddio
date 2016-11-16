@@ -73,7 +73,7 @@ export function reduceRouteChange(state, action) {
 export function reduceReceivePosts(state, action) {
   const { payload } = action;
   const { response } = payload;
-  const posts = response.data.children || [];
+  const posts = response || [];
   const newPosts = [].concat(state.posts, posts);
   return _.assign({}, state, { posts: newPosts });
 }

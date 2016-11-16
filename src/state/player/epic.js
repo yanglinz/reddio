@@ -3,8 +3,8 @@ import { combineEpics } from 'redux-observable';
 
 import { PLAYER_TARGETS, EVENTS } from 'state/constants';
 import * as actions from 'state/player/actions';
-import { selectIsYoutubeActive, selectIsSoundcloudActive } from 'state/player/reducer';
-import { load, getEvents$, play, pause } from 'services/iframe-api';
+import * as reducer from 'state/player/reducer';
+import { load, getEvents$, play, pause, unpause } from 'services/iframe-api';
 
 export function loadIframeEpic() {
   const init$ = Rx.Observable.of(actions.loadIframe());
@@ -44,22 +44,22 @@ export function hideIframesEpic(action$, store) {
     .map(() => store.getState());
 
   const youtubeActive$ = stateChange$
-    .filter(selectIsYoutubeActive)
+    .filter(reducer.selectIsYoutubeActive)
     .map(() => document.getElementById(PLAYER_TARGETS.YOUTUBE))
     .map(activate);
 
   const youtubeInactive$ = stateChange$
-    .filter(state => !selectIsYoutubeActive(state))
+    .filter(state => !reducer.selectIsYoutubeActive(state))
     .map(() => document.getElementById(PLAYER_TARGETS.YOUTUBE))
     .map(deactivate);
 
   const soundcloudActive$ = stateChange$
-    .filter(selectIsSoundcloudActive)
+    .filter(reducer.selectIsSoundcloudActive)
     .map(() => document.getElementById(PLAYER_TARGETS.SOUNDCLOUD))
     .map(activate);
 
   const soundcloudInactive$ = stateChange$
-    .filter(state => !selectIsSoundcloudActive(state))
+    .filter(state => !reducer.selectIsSoundcloudActive(state))
     .map(() => document.getElementById(PLAYER_TARGETS.SOUNDCLOUD))
     .map(deactivate);
 
@@ -75,8 +75,8 @@ export function playEpic(actions$) {
   return actions$
     .ofType(EVENTS.PLAY_COMMAND)
     .map((action) => {
-      const { post } = action.payload.action;
-      play(post.data.url);
+      const { post } = action.payload;
+      play(post.url);
       return actions.playing(post);
     });
 }
@@ -90,12 +90,48 @@ export function pauseEpic(actions$) {
     });
 }
 
+export function unpauseEpic(actions$, store) {
+  return actions$
+    .ofType(EVENTS.UNPAUSE_COMMAND)
+    .map(() => {
+      const state = store.getState();
+      const currentPost = reducer.selectCurrentPost(state);
+      unpause(currentPost.url);
+      return actions.unpausing();
+    });
+}
+
+export function nextEpic(actions$, store) {
+  return actions$
+    .ofType(EVENTS.NEXT_COMMAND)
+    .map(() => {
+      const state = store.getState();
+      const nextPost = reducer.selectNextPost(state);
+      play(nextPost.url);
+      return actions.nextPlaying();
+    });
+}
+
+export function prevEpic(actions$, store) {
+  return actions$
+    .ofType(EVENTS.PREV_COMMAND)
+    .map(() => {
+      const state = store.getState();
+      const prevPost = reducer.selectPrevPost(state);
+      play(prevPost.url);
+      return actions.prevPlaying();
+    });
+}
+
 const redditEpic = combineEpics(
   loadIframeEpic,
   eventsEpic,
   hideIframesEpic,
   playEpic,
   pauseEpic,
+  unpauseEpic,
+  nextEpic,
+  prevEpic,
 );
 
 export default redditEpic;

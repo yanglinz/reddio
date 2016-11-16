@@ -195,32 +195,26 @@ describe('reddit reducer', () => {
     it('should receive posts on empty posts', () => {
       initialRedditState.posts = [];
 
-      const stubPosts = [{ foo: 'bar' }];
-      const stubResponse = {
-        data: { children: stubPosts },
-      };
+      const stubResponse = [{ foo: 'bar' }];
       const pathname = '/r/listentothis/top';
       const query = { sort: 'top', t: 'day' };
       const action = actions.receivePosts(pathname, query, stubResponse);
 
       const newState = redditReducer(initialRedditState, action);
-      expect(newState.posts).to.deep.equal(stubPosts);
+      expect(newState.posts).to.deep.equal(stubResponse);
     });
 
     it('should receive posts with existing posts', () => {
       const initialPosts = [{ bar: 'baz' }];
       initialRedditState.posts = initialPosts;
 
-      const stubPosts = [{ foo: 'bar' }];
-      const stubResponse = {
-        data: { children: stubPosts },
-      };
+      const stubResponse = [{ foo: 'bar' }];
       const pathname = '/r/listentothis/top';
       const query = { sort: 'top', t: 'day' };
       const action = actions.receivePosts(pathname, query, stubResponse);
       const newState = redditReducer(initialRedditState, action);
 
-      expect(newState.posts).to.deep.equal([].concat(initialPosts, stubPosts));
+      expect(newState.posts).to.deep.equal([].concat(initialPosts, stubResponse));
     });
   });
 });

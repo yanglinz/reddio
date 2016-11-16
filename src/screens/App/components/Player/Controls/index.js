@@ -8,12 +8,12 @@ import backwardIcon from 'open-iconic/svg/media-step-backward.svg';
 import './index.scss';
 
 export function Controls(props) {
-  const { isPlaying, pauseCommand } = props;
+  const { isPlaying, pauseCommand, unpauseCommand, nextCommand, prevCommand } = props;
 
   return (
     <div className="Controls">
       <div className="Controls-commands">
-        <button className="Controls-button">
+        <button className="Controls-button" onClick={prevCommand}>
           <InlineSVG src={backwardIcon} />
         </button>
 
@@ -22,12 +22,12 @@ export function Controls(props) {
             <InlineSVG src={pauseIcon} />
           </button>
           ) : (
-          <button className="Controls-button Controls-button--center">
+          <button className="Controls-button Controls-button--center" onClick={unpauseCommand}>
             <InlineSVG src={playIcon} />
           </button>
         )}
 
-        <button className="Controls-button">
+        <button className="Controls-button" onClick={nextCommand}>
           <InlineSVG src={forwardIcon} />
         </button>
       </div>
@@ -38,6 +38,9 @@ export function Controls(props) {
 Controls.propTypes = {
   isPlaying: React.PropTypes.bool,
   pauseCommand: React.PropTypes.func.isRequired,
+  unpauseCommand: React.PropTypes.func.isRequired,
+  nextCommand: React.PropTypes.func.isRequired,
+  prevCommand: React.PropTypes.func.isRequired,
 };
 
 module.exports = Controls;
