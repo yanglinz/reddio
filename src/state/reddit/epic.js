@@ -2,16 +2,17 @@ import Rx from 'rxjs/Rx';
 import { combineEpics } from 'redux-observable';
 
 import { EVENTS } from 'state/constants';
+import * as actions from 'state/reddit/actions';
 import * as api from 'services/reddit-api';
 
 export function requestPostsEpic(actions$) {
   return actions$
     .ofType(EVENTS.ROUTER_LOCATION_CHANGE)
     .filter(action => action.payload.pathname !== '/')
-    .map(action => ({
-      type: EVENTS.REQUEST_POSTS,
-      payload: action.payload,
-    }));
+    .map((action) => {
+      const { pathname, query } = action.payload;
+      return actions.requestPosts(pathname, query);
+    });
 }
 
 export function fetchPostsEpic(actions$) {
@@ -21,14 +22,8 @@ export function fetchPostsEpic(actions$) {
       const { pathname, query } = action.payload;
       return Rx.Observable
         .fromPromise(api.getListing(pathname, query))
-        .map((response) => {
-          const payload = { pathname, query, response };
-          return { type: EVENTS.RECEIVE_POSTS, payload };
-        })
-        .catch((err) => {
-          const payload = { error: err };
-          return { type: EVENTS.FETCH_POSTS_ERROR, payload };
-        });
+        .map(response => actions.receivePosts(pathname, query, response))
+        .catch(error => actions.fetchPostsError(error));
     });
 }
 
