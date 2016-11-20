@@ -6,17 +6,17 @@
   width: 100%;
 }
 
-#player {
+#player {  // sass-lint:disable-line no-ids
   // #player is not a part of a react component
   // it is managed manually since it wraps the youtube and soundcloud iframes
   // but since it is closely coupled with the Player component visually
   // we opt to style it here
 
-  width: 33%;
+  bottom: 100px;
   height: 170px;
   position: fixed;
-  bottom: 100px;
   right: 10px;
+  width: 33%;
 
   & .youtube {
     bottom: 0;

@@ -24,7 +24,7 @@ function Header() {
       <div className="Header-callToAction">
         <h2>
           Reddio helps you find new music.
-          <br/>
+          <br />
           Discover and listen to electronic music.
         </h2>
       </div>

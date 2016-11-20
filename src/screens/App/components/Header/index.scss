@@ -1,12 +1,12 @@
 @import "~screens/App/styles/global";
 
-$link-color: #aaaaaa;
-$text-color: #d5d5d5;
+$link-color: #AAAAAA;
+$text-color: #FFFFFF;
 $lateral-spacing: 7rem;
 $vertical-spacing: 3rem;
 
 .Header {
-  background: #14171c;
+  background: #14171C;
   color: $text-color;
   padding: $vertical-spacing 0;
 
@@ -37,18 +37,18 @@ $vertical-spacing: 3rem;
   &-siteName {
     font-size: 10px;
     font-weight: normal;
-    text-transform: uppercase;
     letter-spacing: 0.3rem;
+    text-transform: uppercase;
   }
 
   &-callToAction {
     padding: 0 $lateral-spacing 0;
 
     & h2 {
-      margin: 0;
-      padding: $vertical-spacing 0 0;
       font-size: 1.75rem;
       line-height: 1.65;
+      margin: 0;
+      padding: $vertical-spacing 0 0;
     }
   }
 }
