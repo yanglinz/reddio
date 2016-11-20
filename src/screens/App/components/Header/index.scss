@@ -1,0 +1,54 @@
+@import "~screens/App/styles/global";
+
+$link-color: #aaaaaa;
+$text-color: #d5d5d5;
+$lateral-spacing: 7rem;
+$vertical-spacing: 3rem;
+
+.Header {
+  background: #14171c;
+  color: $text-color;
+  padding: $vertical-spacing 0;
+
+  &-brand {
+    display: flex;
+  }
+
+  &-brand a {
+    align-items: center;
+    color: $link-color;
+    display: flex;
+    text-decoration: none;
+  }
+
+  &-logo {
+    padding: 0.25rem 2.75rem 0;
+    width: $lateral-spacing;
+  }
+
+  &-logo svg {
+    stroke: $link-color;
+  }
+
+  &-logo svg path {
+    fill: $link-color;
+  }
+
+  &-siteName {
+    font-size: 10px;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+  }
+
+  &-callToAction {
+    padding: 0 $lateral-spacing 0;
+
+    & h2 {
+      margin: 0;
+      padding: $vertical-spacing 0 0;
+      font-size: 1.75rem;
+      line-height: 1.65;
+    }
+  }
+}
