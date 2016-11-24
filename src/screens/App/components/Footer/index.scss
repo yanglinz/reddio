@@ -1,3 +1,10 @@
+@import "~screens/App/styles/global";
+
+$vertical-spacing: 3rem;
+
 .Footer {
-  margin: 0 0 110px;
+  color: #666666;
+  font-size: 0.75rem;
+  margin: $vertical-spacing 0 8rem;
+  text-align: center;
 }
