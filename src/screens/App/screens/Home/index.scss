@@ -1,0 +1,64 @@
+@import "~screens/App/styles/global";
+
+$lateral-spacing: 7rem;
+$vertical-spacing: 3rem;
+
+.HomeScreen {
+  &-section {
+    padding: $vertical-spacing $lateral-spacing 0;
+  }
+
+  &-sectionHeader {
+    margin: 0 0  1.5rem;
+  }
+
+  &-sectionTitle {
+    margin: 0 0 0.5rem;
+  }
+
+  &-sectionLabel {
+    color: #666666;
+    margin: 0;
+  }
+
+  &-sectionList {
+    list-style: none;
+    padding: 0;
+  }
+
+  &-sectionItem {
+    border: 1px solid #DDDDDD;
+    margin-bottom: -1px;
+  }
+
+  &-sectionItem a {
+    color: #2196F3;
+    display: block;
+    padding: 1rem;
+    text-decoration: none;
+  }
+
+  &-sectionItem a:hover {
+    background: #EFEFEF;
+  }
+
+  &-sectionItem:first-child {
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+  }
+
+  &-sectionItem:last-child {
+    border-bottom-left-radius: .25rem;
+    border-bottom-right-radius: .25rem;
+  }
+
+  &-sectionItemTitle {
+    font-size: 1rem;
+    margin: 0 0 0.25rem;
+  }
+
+  &-sectionItemLabel {
+    color: #666666;
+    margin: 0;
+  }
+}
