@@ -5,7 +5,19 @@ import { Link } from 'react-router';
 import logo from './logo.svg';
 import './index.scss';
 
-function Header() {
+function Header(props) {
+  const { isIndex } = props;
+
+  const callToAction = isIndex ? (
+    <div className="Header-callToAction">
+      <h2>
+        Reddio helps you find new music.
+        <br />
+        Discover and listen to electronic music.
+      </h2>
+    </div>
+  ) : null;
+
   return (
     <header className="Header">
       <nav className="Header-nav">
@@ -21,15 +33,13 @@ function Header() {
         </div>
       </nav>
 
-      <div className="Header-callToAction">
-        <h2>
-          Reddio helps you find new music.
-          <br />
-          Discover and listen to electronic music.
-        </h2>
-      </div>
+      {callToAction}
     </header>
   );
 }
+
+Header.propTypes = {
+  isIndex: React.PropTypes.bool.isRequired,
+};
 
 module.exports = Header;
