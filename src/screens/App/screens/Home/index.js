@@ -20,7 +20,7 @@ function HomeScreen() {
 
       <ul className="HomeScreen-sectionList">
         {_.map(MULTIREDDITS, multireddit => (
-          <li className="HomeScreen-sectionItem">
+          <li key={multireddit.pathname} className="HomeScreen-sectionItem">
             <Link to={multireddit.pathname}>
               <h3 className="HomeScreen-sectionItemTitle">
                 {multireddit.title}
@@ -48,7 +48,7 @@ function HomeScreen() {
 
       <ul className="HomeScreen-sectionList">
         {_.map(SUBREDDITS, subreddit => (
-          <li className="HomeScreen-sectionItem">
+          <li key={subreddit.pathname} className="HomeScreen-sectionItem">
             <Link to={subreddit.pathname}>
               <h3 className="HomeScreen-sectionItemTitle">
                 {subreddit.title}
