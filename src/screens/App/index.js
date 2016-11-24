@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Header from './components/Header';
+import HeaderContainer from './components/HeaderContainer';
 import PlayerContainer from './components/PlayerContainer';
 import Footer from './components/Footer';
 import './styles/main.scss';
@@ -8,7 +8,7 @@ import './styles/main.scss';
 function AppScreen(props) {
   return (
     <div className="AppScreen">
-      <Header />
+      <HeaderContainer />
       {props.children}
       <Footer />
       <PlayerContainer />
